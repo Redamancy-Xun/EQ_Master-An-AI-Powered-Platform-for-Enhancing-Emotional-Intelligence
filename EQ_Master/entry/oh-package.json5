@@ -5,6 +5,8 @@
   "main": "",
   "author": "",
   "license": "",
-  "dependencies": {}
+  "dependencies": {
+    "@ohos/hamock": "1.0.0",
+    '@nutpi/color-parse': '1.0.0'
+  }
 }
-
