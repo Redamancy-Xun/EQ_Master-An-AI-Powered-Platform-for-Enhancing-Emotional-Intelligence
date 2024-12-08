@@ -1,5 +1,5 @@
 {
-  "name": "entry",
+  "name": "phone",
   "version": "1.0.0",
   "description": "Please describe the basic information.",
   "main": "",
@@ -7,6 +7,6 @@
   "license": "",
   "dependencies": {
     "@ohos/hamock": "1.0.0",
-    '@nutpi/color-parse': '1.0.0'
+    "@nutpi/color-parse": "1.0.0",
   }
 }

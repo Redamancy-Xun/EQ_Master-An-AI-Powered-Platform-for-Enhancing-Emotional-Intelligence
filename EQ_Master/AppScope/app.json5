@@ -1,10 +1,12 @@
 {
   "app": {
-    "bundleName": "com.example.eq_master",
-    "vendor": "example",
+    "bundleName": "fun.redamancyxun.eq_master",
+    "bundleType": "app",
+    "vendor": "redamancyxun",
     "versionCode": 1000000,
     "versionName": "1.0.0",
-    "icon": "$media:app_icon",
-    "label": "$string:app_name"
+    "icon": "$media:EQ_Master_icon",
+    "label": "$string:app_name",
+    "description": "$string:description_application"
   }
 }
