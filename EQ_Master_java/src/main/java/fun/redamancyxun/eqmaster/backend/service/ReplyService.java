@@ -25,6 +25,9 @@ public interface ReplyService {
     // 获取用户的回复列表
     List<Object> getReplyByUserId(String userId, Integer page, Integer pageSize);
 
+    // 获取用户自己的回复列表
+    List<Object> getUserReply(Integer page, Integer pageSize);
+
     // 删除回复
     void deleteReply(Integer replyId);
 

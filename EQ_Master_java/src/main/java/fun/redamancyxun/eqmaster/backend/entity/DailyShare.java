@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@ApiModel("article 发布的帖子")
-@TableName(value ="article")
+@ApiModel("daily_share 每日分享")
+@TableName(value ="daily_share")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

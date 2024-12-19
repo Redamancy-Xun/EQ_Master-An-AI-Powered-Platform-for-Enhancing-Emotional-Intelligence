@@ -17,7 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 
-@Api(tags = "用户操作相关接口")
+@Api("UserController")
 @RestController
 @RequestMapping("/user")
 @Slf4j

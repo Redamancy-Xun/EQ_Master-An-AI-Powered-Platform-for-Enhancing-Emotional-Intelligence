@@ -21,7 +21,7 @@ public interface DailyShareService {
     // 获取最新or最热每日分享专栏列表
     List<DailyShareInfo> getDailyShareList(String type, Integer page, Integer pageSize, Boolean orderByPopularity);
 
-    // 获取最新or最热每日分享预览列表
+    // 获取每日分享预览列表
     List<List<DailyShareInfo>> getDailyShareList(Integer page, Integer pageSize);
 
     // 根据专栏类型和时间区间获取每日分享列表

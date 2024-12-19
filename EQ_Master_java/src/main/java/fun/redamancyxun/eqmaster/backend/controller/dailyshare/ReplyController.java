@@ -34,7 +34,7 @@ public class ReplyController {
      */
     @Checked
     @PostMapping(value = "/createReply", produces = "application/json")
-    @ApiOperation(value = "创建回复")
+    @ApiOperation(value = "创建回复 type回复类型(0为评论，1为回复)")
     public Result createReply(@NotNull @RequestBody CreateReplyParams createReplyParams) {
         try {
             return Result.success(replyService.createReply(createReplyParams));
@@ -91,6 +91,28 @@ public class ReplyController {
                                    @RequestParam("pageSize") Integer pageSize) {
         try {
             return Result.success(replyService.getReplyByUserId(userId, page, pageSize));
+        } catch (MyException e) {
+            return Result.result(e.getEnumExceptionType());
+        }
+    }
+
+    /**
+     * 获取用户自己的回复列表
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    @Auth
+    @GetMapping(value = "/getUserReply", produces = "application/json")
+    @ApiOperation(value = "获取用户自己的回复列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "page", value = "page" ,paramType = "query", dataType = "Integer"),
+            @ApiImplicitParam(name = "pageSize", value = "pageSize", paramType = "query", dataType = "Integer"),
+    })
+    public Result getReplyByUserId(@RequestParam("page") Integer page,
+                                   @RequestParam("pageSize") Integer pageSize) {
+        try {
+            return Result.success(replyService.getUserReply(page, pageSize));
         } catch (MyException e) {
             return Result.result(e.getEnumExceptionType());
         }

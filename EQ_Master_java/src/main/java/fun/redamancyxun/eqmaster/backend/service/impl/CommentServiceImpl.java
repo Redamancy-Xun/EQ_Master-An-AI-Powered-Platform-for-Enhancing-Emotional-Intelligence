@@ -14,6 +14,7 @@ import fun.redamancyxun.eqmaster.backend.exception.MyException;
 import fun.redamancyxun.eqmaster.backend.mapper.CommentMapper;
 import fun.redamancyxun.eqmaster.backend.mapper.DailyShareMapper;
 import fun.redamancyxun.eqmaster.backend.mapper.ReplyMapper;
+import fun.redamancyxun.eqmaster.backend.mapper.UserMapper;
 import fun.redamancyxun.eqmaster.backend.service.CommentService;
 import fun.redamancyxun.eqmaster.backend.service.DailyShareService;
 import fun.redamancyxun.eqmaster.backend.service.LikeService;
@@ -59,6 +60,9 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private DailyShareMapper dailyShareMapper;
 
+    @Autowired
+    private UserMapper userMapper;
+
     /**
      * 创建评论
      * @param createCommentParams 评论参数
@@ -96,6 +100,11 @@ public class CommentServiceImpl implements CommentService {
 //        }
 //
 //        noticeService.SysSend(article.getId(), article.getUserId(), 4,  content, user.getOpenId());
+
+        user.setCommentCount(user.getCommentCount() + 1);
+        if (userMapper.updateById(user) == 0) {
+            throw new MyException(EnumExceptionType.UPDATE_FAILED);
+        }
 
         return new CommentInfo(comment, user, false);
     }
@@ -200,6 +209,47 @@ public class CommentServiceImpl implements CommentService {
     }
 
     /**
+     * 获取用户自己的评论列表
+     * @param page 页码
+     * @param pageSize 每页数量
+     * @return 评论列表
+     * @throws MyException 通用异常
+     */
+    @Override
+    public List<Object> getUserComment(Integer page, Integer pageSize) throws MyException {
+        if (page == null || page < 1) {
+            page = 1;
+        }
+        if (pageSize == null || pageSize < 1) {
+            pageSize = 10;
+        }
+
+        String userId = sessionUtils.getUserId();
+
+        PageHelper.startPage(page, pageSize);
+
+        QueryWrapper<Comment> commentQueryWrapper = new QueryWrapper<>();
+        commentQueryWrapper.eq("user_id", userId);
+        commentQueryWrapper.isNull("delete_time");
+        commentQueryWrapper.orderByDesc("top");
+        commentQueryWrapper.orderByDesc("create_time");
+
+        List<Comment> comments = new Page<>(new PageInfo<>(commentMapper.selectList(commentQueryWrapper))).getItems();
+        List<Object> commentInfos = new ArrayList<>();
+        for (Comment comment : comments) {
+            DailyShare dailyShare = dailyShareMapper.selectById(comment.getDailyShareId());
+            List<Object> commentInfo = new ArrayList<>();
+            User user = userService.getUserById(userId);
+            Boolean isLike = likeService.check(Long.valueOf(comment.getId()), 1);
+            commentInfo.add(new CommentInfo(comment, user, isLike));
+            commentInfo.add(dailyShare);
+            commentInfos.add(commentInfo);
+        }
+
+        return commentInfos;
+    }
+
+    /**
      * 删除评论
      * @param commentId 评论id
      * @throws MyException 通用异常
@@ -248,6 +298,11 @@ public class CommentServiceImpl implements CommentService {
 
         comment.setDeleteTime(LocalDateTime.now());
         if (commentMapper.updateById(comment) == 0) {
+            throw new MyException(EnumExceptionType.UPDATE_FAILED);
+        }
+
+        user.setCommentCount(user.getCommentCount() - 1);
+        if (userMapper.updateById(user) == 0) {
             throw new MyException(EnumExceptionType.UPDATE_FAILED);
         }
     }

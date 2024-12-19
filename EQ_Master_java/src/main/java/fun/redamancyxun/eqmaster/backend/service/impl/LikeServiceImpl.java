@@ -1,10 +1,7 @@
 package fun.redamancyxun.eqmaster.backend.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import fun.redamancyxun.eqmaster.backend.entity.DailyShare;
-import fun.redamancyxun.eqmaster.backend.entity.Comment;
-import fun.redamancyxun.eqmaster.backend.entity.Likes;
-import fun.redamancyxun.eqmaster.backend.entity.Reply;
+import fun.redamancyxun.eqmaster.backend.entity.*;
 import fun.redamancyxun.eqmaster.backend.exception.EnumExceptionType;
 import fun.redamancyxun.eqmaster.backend.exception.MyException;
 import fun.redamancyxun.eqmaster.backend.mapper.*;
@@ -16,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -94,7 +92,7 @@ public class LikeServiceImpl implements LikeService {
 //
 //            noticeService.SysSend(Math.toIntExact(objectId), dailyShare.getUserId(), 1, message, userId);
         } else if (type == 1) {
-            Comment comment = commentMapper.selectById((Integer) objectId);
+            Comment comment = commentMapper.selectById((Serializable) objectId);
             if (comment == null || comment.getDeleteTime() != null) {
                 throw new MyException(EnumExceptionType.COMMENT_NOT_FOUND);
             }
@@ -107,8 +105,14 @@ public class LikeServiceImpl implements LikeService {
             String message = userMapper.selectById(userId).getUsername() + "点赞了你的评论";
 
             noticeService.SysSend(objectId, comment.getUserId(), 2, message, userId);
+
+            User user = userMapper.selectById(comment.getUserId());
+            user.setLikeCount(user.getLikeCount() + 1);
+            if (userMapper.updateById(user) == 0) {
+                throw new MyException(EnumExceptionType.UPDATE_FAILED);
+            }
         } else if (type == 2) {
-            Reply reply = replyMapper.selectById((Integer) objectId);
+            Reply reply = replyMapper.selectById((Serializable) objectId);
             if (reply == null || reply.getDeleteTime() != null) {
                 throw new MyException(EnumExceptionType.REPLY_NOT_FOUND);
             }
@@ -121,6 +125,12 @@ public class LikeServiceImpl implements LikeService {
             String message = userMapper.selectById(userId).getUsername() + "点赞了你的回复";
 
             noticeService.SysSend(objectId, reply.getUserId(), 3, message, userId);
+
+            User user = userMapper.selectById(reply.getUserId());
+            user.setLikeCount(user.getLikeCount() + 1);
+            if (userMapper.updateById(user) == 0) {
+                throw new MyException(EnumExceptionType.UPDATE_FAILED);
+            }
         } else {
             throw new MyException(EnumExceptionType.PARAMETER_ERROR);
         }
@@ -160,7 +170,7 @@ public class LikeServiceImpl implements LikeService {
                 throw new MyException(EnumExceptionType.UPDATE_FAILED);
             }
         } else if (type == 1) {
-            Comment comment = commentMapper.selectById((Integer) objectId);
+            Comment comment = commentMapper.selectById(((Serializable) objectId));
             if (comment == null || comment.getDeleteTime() != null) {
                 throw new MyException(EnumExceptionType.COMMENT_NOT_FOUND);
             }
@@ -168,13 +178,25 @@ public class LikeServiceImpl implements LikeService {
             if (commentMapper.updateById(comment) == 0) {
                 throw new MyException(EnumExceptionType.UPDATE_FAILED);
             }
+
+            User user = userMapper.selectById(comment.getUserId());
+            user.setLikeCount(user.getLikeCount() - 1);
+            if (userMapper.updateById(user) == 0) {
+                throw new MyException(EnumExceptionType.UPDATE_FAILED);
+            }
         } else if (type == 2) {
-            Reply reply = replyMapper.selectById((Integer) objectId);
+            Reply reply = replyMapper.selectById((Serializable) objectId);
             if (reply == null || reply.getDeleteTime() != null) {
                 throw new MyException(EnumExceptionType.REPLY_NOT_FOUND);
             }
             reply.setLikes(reply.getLikes() - 1);
             if (replyMapper.updateById(reply) == 0) {
+                throw new MyException(EnumExceptionType.UPDATE_FAILED);
+            }
+
+            User user = userMapper.selectById(reply.getUserId());
+            user.setLikeCount(user.getLikeCount() - 1);
+            if (userMapper.updateById(user) == 0) {
                 throw new MyException(EnumExceptionType.UPDATE_FAILED);
             }
         } else {

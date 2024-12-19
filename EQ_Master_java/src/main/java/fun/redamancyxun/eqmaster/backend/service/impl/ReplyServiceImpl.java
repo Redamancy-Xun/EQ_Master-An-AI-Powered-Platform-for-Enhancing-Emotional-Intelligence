@@ -131,6 +131,11 @@ public class ReplyServiceImpl implements ReplyService {
             noticeService.SysSend(reply.getCommentId(), reply.getToUserId(), 5, content, reply.getUserId());
         }
 
+        user.setCommentCount(user.getCommentCount() + 1);
+        if (userMapper.updateById(user) == 0) {
+            throw new MyException(EnumExceptionType.UPDATE_FAILED);
+        }
+
         return reply;
     }
 
@@ -239,6 +244,54 @@ public class ReplyServiceImpl implements ReplyService {
     }
 
     /**
+     * 获取用户自己的回复列表
+     * @param page 页数
+     * @param pageSize 每页数量
+     * @return 回复列表
+     */
+    @Override
+    public List<Object> getUserReply(Integer page, Integer pageSize) {
+        if (page == null || page < 1) {
+            page = 1;
+        }
+        if (pageSize == null || pageSize < 1) {
+            pageSize = 10;
+        }
+
+        String userId = sessionUtils.getUserId();
+
+        PageHelper.startPage(page, pageSize);
+
+        QueryWrapper<Reply> replyQueryWrapper = new QueryWrapper<>();
+        replyQueryWrapper.eq("user_id",userId);
+        replyQueryWrapper.isNull("delete_time");
+        replyQueryWrapper.orderByDesc("create_time");
+
+        List<Reply> replies = new Page<>(new PageInfo<>(replyMapper.selectList(replyQueryWrapper))).getItems();
+        List<Object> replyInfos = new ArrayList<>();
+        for (Reply reply : replies) {
+            DailyShare dailyShare = dailyShareMapper.selectById(reply.getDailyShareId());
+//            if ((dailyShare.getCancel() != null && dailyShare.getCancel().isBefore(LocalDateTime.now())) || dailyShare.getStatus() == 1) {
+//                continue;
+//            }
+            List<Object> replyInfo = new ArrayList<>();
+            User user = userService.getUserById(reply.getUserId());
+            Boolean isLike = likeService.check(Long.valueOf(reply.getId()),2);
+            User replyUser = userService.getUserById(reply.getToUserId());
+            replyInfo.add(new ReplyInfo(reply, user, replyUser, isLike));
+            if (reply.getType() == 1) {
+                replyInfo.add(getReplyById(reply.getReplyId()));
+            } else {
+                replyInfo.add(commentService.getCommentById(reply.getCommentId()));
+            }
+            replyInfo.add(dailyShare);
+            replyInfos.add(replyInfo);
+        }
+
+        return replyInfos;
+    }
+
+    /**
      * 根据回复id删除回复
      * @param replyId 回复id
      * @throws MyException 通用异常
@@ -275,6 +328,11 @@ public class ReplyServiceImpl implements ReplyService {
 
         reply.setDeleteTime(LocalDateTime.now());
         if (replyMapper.updateById(reply) == 0) {
+            throw new MyException(EnumExceptionType.UPDATE_FAILED);
+        }
+
+        user.setCommentCount(user.getCommentCount() - 1);
+        if (userMapper.updateById(user) == 0) {
             throw new MyException(EnumExceptionType.UPDATE_FAILED);
         }
     }

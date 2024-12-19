@@ -78,14 +78,14 @@ public class DailyShareController {
     }
 
     /**
-     * 获取最新or最热每日分享预览列表
+     * 获取每日分享预览列表
      * @param page
      * @param pageSize
      * @return
      */
     @Auth
     @GetMapping(value = "/getDailyShareTotalList", produces = "application/json")
-    @ApiOperation(value = "获取最新or最热每日分享预览列表")
+    @ApiOperation(value = "获取每日分享预览列表")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "page",paramType = "query", dataType = "Integer"),
             @ApiImplicitParam(name = "pageSize", value = "pageSize",  paramType = "query", dataType = "Integer"),

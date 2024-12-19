@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author Redamancy
- * @description 针对表【star（转发）】的服务接口实现
+ * @description 针对表【share（转发）】的服务接口实现
  * @createDate 2024-04-03 22:39:04
  */
 @Service
@@ -28,9 +28,6 @@ public class ShareServiceImpl implements ShareService {
 
     @Autowired
     private DailyShareMapper dailyShareMapper;
-
-    @Autowired
-    private StarMapper starMapper;
 
     @Autowired
     private UserService userService;
@@ -86,12 +83,12 @@ public class ShareServiceImpl implements ShareService {
             throw new MyException(EnumExceptionType.DAILYSHARE_NOT_EXIST);
         }
 
-        QueryWrapper<Star> starQueryWrapper = new QueryWrapper<>();
-        starQueryWrapper.eq("user_id", userId);
-        starQueryWrapper.eq("daily_share_id", dailyShare);
-        starQueryWrapper.isNull("delete_time");
+        QueryWrapper<Share> shareQueryWrapper = new QueryWrapper<>();
+        shareQueryWrapper.eq("user_id", userId);
+        shareQueryWrapper.eq("daily_share_id", dailyShareId);
+        shareQueryWrapper.isNull("delete_time");
 
-        return starMapper.selectCount(starQueryWrapper) != 0;
+        return shareMapper.selectCount(shareQueryWrapper) != 0;
     }
 
 }

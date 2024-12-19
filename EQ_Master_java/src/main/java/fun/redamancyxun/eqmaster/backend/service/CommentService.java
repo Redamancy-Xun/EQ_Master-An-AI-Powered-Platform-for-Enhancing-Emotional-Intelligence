@@ -24,6 +24,9 @@ public interface CommentService {
     // 获取用户的评论列表
     List<Object> getCommentByUserId(String userId, Integer page, Integer pageSize);
 
+    // 获取用户自己的评论列表
+    List<Object> getUserComment(Integer page, Integer pageSize);
+
     // 删除评论
     void deleteComment(Integer commentId);
 }

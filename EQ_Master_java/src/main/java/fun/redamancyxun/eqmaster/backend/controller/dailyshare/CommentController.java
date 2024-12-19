@@ -97,6 +97,28 @@ public class CommentController {
     }
 
     /**
+     * 获取用户自己的评论列表
+     * @param page
+     * @param pageSize
+     * @return Result
+     */
+    @Auth
+    @GetMapping(value = "/getUserComment", produces = "application/json")
+    @ApiOperation(value = "获取用户自己的评论列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "page", value = "page", required = true, paramType = "query", dataType = "Integer"),
+            @ApiImplicitParam(name = "pageSize", value = "pageSize", required = true, paramType = "query", dataType = "Integer"),
+    })
+    public Result getUserComment(@NotNull @RequestParam("page") Integer page,
+                                 @NotNull @RequestParam("pageSize") Integer pageSize) {
+        try {
+            return Result.success(commentService.getUserComment(page, pageSize));
+        } catch (MyException e) {
+            return Result.result(e.getEnumExceptionType());
+        }
+    }
+
+    /**
      * 获取评论详情
      * @param commentId
      * @return Result
