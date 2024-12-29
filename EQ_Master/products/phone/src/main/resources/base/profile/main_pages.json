@@ -1,5 +1,12 @@
 {
   "src": [
-    "pages/Index"
+    "pages/Index",
+    "pages/launcher/AdvertisingPage",
+    "pages/launcher/AppHomePage",
+    "pages/launcher/FirstPage",
+    "pages/launcher/SecondPage",
+    "pages/launcher/ThirdPage",
+    "pages/launcher/PrivacyPage",
+    "pages/launcher/LauncherPage"
   ]
 }

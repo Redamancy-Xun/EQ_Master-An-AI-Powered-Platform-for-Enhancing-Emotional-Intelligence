@@ -22,7 +22,7 @@ import javax.validation.constraints.NotNull;
 @RestController
 @Slf4j
 @Validated
-@Api("TestScoreController")
+@Api("EmotionalIntelligenceController")
 @RequestMapping("/emotionalIntelligence")
 public class EmotionalIntelligenceController {
 

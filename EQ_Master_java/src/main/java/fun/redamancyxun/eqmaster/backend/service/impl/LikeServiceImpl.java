@@ -62,14 +62,14 @@ public class LikeServiceImpl implements LikeService {
                 .createTime(LocalDateTime.now())
                 .deleteTime(null)
                 .userId(userId)
-                .objectId((String) objectId)
+                .objectId(objectId.toString())
                 .type(type)
                 .build();
 
         // 判断是否已经点赞
         QueryWrapper<Likes> likesQueryWrapper = new QueryWrapper<>();
         likesQueryWrapper.eq("user_id", userId)
-                .eq("object_id", (String) objectId)
+                .eq("object_id", objectId.toString())
                 .eq("type", type)
                 .isNull("delete_time");
         if (likeMapper.selectCount(likesQueryWrapper) != 0) {
@@ -78,7 +78,7 @@ public class LikeServiceImpl implements LikeService {
 
         // 0-每日分享 1-评论每日分享 2-回复每日分享评论 3-帖子 4-评论帖子 5-回复帖子评论
         if (type == 0) {
-            DailyShare dailyShare = dailyShareMapper.selectById((String) objectId);
+            DailyShare dailyShare = dailyShareMapper.selectById(objectId.toString());
             if (dailyShare == null || dailyShare.getDeleteTime() != null) {
                 throw new MyException(EnumExceptionType.DAILYSHARE_NOT_EXIST);
             }
@@ -152,7 +152,7 @@ public class LikeServiceImpl implements LikeService {
         // 判断是否已经取消点赞
         QueryWrapper<Likes> likesQueryWrapper = new QueryWrapper<>();
         likesQueryWrapper.eq("user_id", sessionUtils.getUserId())
-                .eq("object_id", (String) objectId)
+                .eq("object_id", objectId.toString())
                 .eq("type", type)
                 .isNull("delete_time");
         if (likeMapper.selectCount(likesQueryWrapper) == 0) {
@@ -161,7 +161,7 @@ public class LikeServiceImpl implements LikeService {
 
         //类型 0-每日分享 1-评论每日分享 2-回复每日分享评论 3-帖子 4-评论帖子 5-回复帖子评论
         if (type == 0) {
-            DailyShare dailyShare = dailyShareMapper.selectById((String) objectId);
+            DailyShare dailyShare = dailyShareMapper.selectById(objectId.toString());
             if (dailyShare == null || dailyShare.getDeleteTime() != null) {
                 throw new MyException(EnumExceptionType.DAILYSHARE_NOT_EXIST);
             }

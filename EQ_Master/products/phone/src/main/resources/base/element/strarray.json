@@ -1,0 +1,12 @@
+{
+  "strarray": [
+    {
+      "name": "splash_img_array",
+      "value": [
+        {
+          "value": "entry/resources/images/splash_img_1.jpg"
+        }
+      ]
+    }
+  ]
+}

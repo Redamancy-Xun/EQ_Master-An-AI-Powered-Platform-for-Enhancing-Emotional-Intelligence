@@ -50,7 +50,7 @@ public class SessionUtils {
 //            throw new MyException(EnumExceptionType.SESSION_NOT_FOUND);
 //        }
 
-        return (String) obj;
+        return obj.toString();
     }
 
     //根据请求头中的 sessionId，从 Redis 中获取会话数据，若获取数据为空或会话过期则抛出相应异常

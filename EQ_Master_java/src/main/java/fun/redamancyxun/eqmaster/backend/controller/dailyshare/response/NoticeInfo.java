@@ -59,7 +59,6 @@ public class NoticeInfo {
         this.content = notice.getContent();
         this.deleteTime = notice.getDeleteTime();
         this.id = notice.getId();
-        this.objectId = Long.valueOf(notice.getObjectId());
         this.receiverId = notice.getReceiverId();
         this.createTime = notice.getCreateTime();
         this.senderId = notice.getSenderId();
@@ -70,13 +69,20 @@ public class NoticeInfo {
         this.userName = user.getUsername();
 
         this.object = object;
+
+        if (notice.getType() == 0) {
+            this.objectId = null;
+        } else if (notice.getType() == 1) {
+            this.objectId = notice.getObjectId();
+        } else if (notice.getType() == 2 || notice.getType() == 3 || notice.getType() == 5 || notice.getType() == 6) {
+            this.objectId = Integer.parseInt(notice.getObjectId());
+        }
     }
 
     public NoticeInfo(Notice notice, User user){
         this.content = notice.getContent();
         this.deleteTime = notice.getDeleteTime();
         this.id = notice.getId();
-        this.objectId = Long.valueOf(notice.getObjectId());
         this.receiverId = notice.getReceiverId();
         this.createTime = notice.getCreateTime();
         this.senderId = notice.getSenderId();
@@ -85,17 +91,32 @@ public class NoticeInfo {
 
         this.userAvatar = user.getPortrait();
         this.userName = user.getUsername();
+
+        if (notice.getType() == 0) {
+            this.objectId = null;
+        } else if (notice.getType() == 1) {
+            this.objectId = notice.getObjectId();
+        } else if (notice.getType() == 2 || notice.getType() == 3 || notice.getType() == 5 || notice.getType() == 6) {
+            this.objectId = Integer.parseInt(notice.getObjectId());
+        }
     }
 
     public NoticeInfo(Notice notice) {
         this.content = notice.getContent();
         this.deleteTime = notice.getDeleteTime();
         this.id = notice.getId();
-        this.objectId = Long.valueOf(notice.getObjectId());
         this.receiverId = notice.getReceiverId();
         this.createTime = notice.getCreateTime();
         this.senderId = notice.getSenderId();
         this.type = notice.getType();
         this.isRead = notice.getIsRead();
+
+        if (notice.getType() == 0) {
+            this.objectId = null;
+        } else if (notice.getType() == 1) {
+            this.objectId = notice.getObjectId();
+        } else if (notice.getType() == 2 || notice.getType() == 3 || notice.getType() == 5 || notice.getType() == 6) {
+            this.objectId = Integer.parseInt(notice.getObjectId());
+        }
     }
 }

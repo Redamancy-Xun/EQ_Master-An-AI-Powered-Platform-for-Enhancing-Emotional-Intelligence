@@ -27,14 +27,14 @@ public class NoticeController {
 
     /**
      * 获取对应类型的通知列表并清空未读消息，返回通知列表
-     * @param type 消息类型(0为点赞 1为评论)
+     * @param type 消息类型(0为点赞 1为评论 2为系统信息)
      * @param page
      * @param pageSize
      * @return
      */
     @Auth
     @GetMapping(value = "/notices", produces = "application/json")
-    @ApiOperation(value = "获取对应类型的通知列表并清空未读消息，返回通知列表。type 0为点赞 1为评论 2为收藏 3为快递相关信息 4为拼车相关信息")
+    @ApiOperation(value = "获取对应类型的通知列表并清空未读消息，返回通知列表。type 0为点赞 1为评论 2为系统信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "type", value = "type", required = true, paramType = "query", dataType = "Integer"),
             @ApiImplicitParam(name = "page", value = "page", required = true, paramType = "query", dataType = "Integer"),

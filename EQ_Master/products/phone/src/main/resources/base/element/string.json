@@ -147,6 +147,82 @@
     {
       "name": "popular_findings",
       "value": "Popular Findings"
+    },
+    {
+      "name": "home_page_text",
+      "value": "Hello World"
+    },
+    {
+      "name": "eq_master_text",
+      "value": "Healthy Living"
+    },
+    {
+      "name": "eq_master_introduce",
+      "value": "Achieve high emotional intelligence."
+    },
+    {
+      "name": "advertising_text_title",
+      "value": "Skip %ds"
+    },
+    {
+      "name": "dialog_text_title",
+      "value": "Welcome To My App"
+    },
+    {
+      "name": "dialog_text_privacy_content",
+      "value": "We fully respect users' privacy rights and provide appropriate security protection measures for your personal information in accordance with legal requirements and mature security standards in the industry."
+    },
+    {
+      "name": "dialog_text_privacy_statement",
+      "value": "Privacy Agreement Protection Statement"
+    },
+    {
+      "name": "dialog_text_declaration_prompt",
+      "value": "(hereinafter referred to as \"this statement\") to help you understand how we collect, use, disclose, protect, store and transmit your personal data. Please read this statement carefully. If you have any questions, please let us know."
+    },
+    {
+      "name": "dialog_button_disagree",
+      "value": "Disagree"
+    },
+    {
+      "name": "dialog_button_agree",
+      "value": "Agree"
+    },
+    {
+      "name": "privacy_text_title",
+      "value": "Privacy Policy"
+    },
+    {
+      "name": "privacy_text_content",
+      "value": "This privacy notice describes the important parts of this statement, how the service processes your personal information, how you exercise your data subject rights, related data controllers, and how to contact the data controllers. If there is any inconsistency between the privacy notice and this statement, the privacy notice shall prevail. If not specified in the privacy notice, this statement shall prevail."
+    },
+    {
+      "name": "privacy_back",
+      "value": "Go Back"
+    },
+    {
+      "name": "first_page_text1",
+      "value": "每日分享"
+    },
+    {
+      "name": "first_page_text2",
+      "value": "这个模块每天分享情商提升的实用技巧和启发心灵的故事，帮助用户更好地管理情绪、沟通和人际关系。"
+    },
+    {
+      "name": "second_page_text1",
+      "value": "情商测试"
+    },
+    {
+      "name": "second_page_text2",
+      "value": "这个模块通过一系列情商测试题，帮助用户评估自身情商水平，并根据结果提供详细评分，助力个人成长。"
+    },
+    {
+      "name": "third_page_text1",
+      "value": "高情商AI助手"
+    },
+    {
+      "name": "third_page_text2",
+      "value": "这个模块提供高情商AI助手，帮助用户在生活中应对并解决需要情商智慧的沟通和应答难题。"
     }
   ]
 }

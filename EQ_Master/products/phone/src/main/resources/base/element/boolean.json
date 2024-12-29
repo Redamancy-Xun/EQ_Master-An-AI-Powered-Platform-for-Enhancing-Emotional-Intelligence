@@ -1,0 +1,8 @@
+{
+  "boolean": [
+    {
+      "name": "is_dark_theme",
+      "value": true
+    }
+  ]
+}

@@ -148,6 +148,7 @@ public class NoticeServiceImpl implements NoticeService {
      */
     @Transactional(rollbackFor = MyException.class)
     public void createAndSendNotice(Object objectId, String message, String receiverId, Integer type, String senderId) {
+
         Notice notice = Notice.builder()
                 .createTime(LocalDateTime.now())
                 .deleteTime(null)
@@ -155,9 +156,14 @@ public class NoticeServiceImpl implements NoticeService {
                 .type(type)
                 .senderId(senderId)
                 .content(message)
-                .objectId((String) objectId)
                 .isRead(0)
                 .build();
+
+        if (objectId == null) {
+            notice.setObjectId(null);
+        } else {
+            notice.setObjectId(objectId.toString());
+        }
 
         noticeMapper.insert(notice);
 
