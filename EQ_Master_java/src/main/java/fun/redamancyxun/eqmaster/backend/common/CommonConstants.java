@@ -16,7 +16,7 @@ public class CommonConstants {
 //    public final static String LINUX_RESOURCES_STATIC_PATH = "src/main/resources/static/";
     public final static String VERIFICATION_TITLE = "验证码";
     public final static String AUTH_FILE_PATH = "/home/ubuntu/ver/";
-    public final static String IMAGE_PATH = "http://eqmaster.redamancyxun.fun/images/";
+    public final static String IMAGE_PATH = "https://eqmaster.redamancyxun.fun/images/";
     public final static String AUTH_DOWN_PATH = "https://redamancyxun.fun/image2/";
     public final static String SEPARATOR = ",";
     public final static String CHAT_RECORD_COLLECTION_NAME = "chat_record";

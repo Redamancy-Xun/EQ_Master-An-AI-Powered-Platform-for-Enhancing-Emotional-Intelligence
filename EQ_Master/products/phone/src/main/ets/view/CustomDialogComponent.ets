@@ -15,7 +15,7 @@
 
 import { router } from '@kit.ArkUI';
 import Logger from '../common/utils/Logger';
-import CommonConstants from '../common/constants/CommonConstants';
+import { CommonConstants } from '../common/constants/CommonConstants';
 import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**

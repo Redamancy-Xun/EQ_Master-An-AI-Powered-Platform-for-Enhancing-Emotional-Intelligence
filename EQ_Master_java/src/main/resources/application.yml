@@ -1,9 +1,9 @@
 server:
   port: 8080    #HTTPS协议默认端口号为443，需要使用其他端口时，您可以在此处自定义。
-#  ssl:
-#    key-store-password: iinn49ui    #填写jks-password.txt文件内的密码。
-#    key-store-type: JKS #JKS格式证书密钥库类型。PFX格式的证书密钥库类型为PKCS12。
-#    key-store: classpath:chinese.redamancyxun.fun.jks   #您需要使用实际的证书名称替换domain_name.jks。
+  ssl:
+    key-store-password: 5kyarrvw    #填写jks-password.txt文件内的密码。
+    key-store-type: JKS #JKS格式证书密钥库类型。PFX格式的证书密钥库类型为PKCS12。
+    key-store: classpath:eqmaster.redamancyxun.fun.jks   #您需要使用实际的证书名称替换domain_name.jks。
   tomcat:
     uriEncoding: UTF-8
   servlet:

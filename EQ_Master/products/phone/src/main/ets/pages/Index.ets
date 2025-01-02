@@ -1,21 +1,34 @@
-import parse from '@nutpi/color-parse';
+/*
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
+import TabBar from '../view/TabBar';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
+
+/**
+ * The Index is the entry point of the application.
+ */
 @Entry
 @Component
 struct Index {
 
   build() {
     Column() {
-      Row() {
-        Text("修改个人信息")
-          .width('100%')
-          .fontSize(24)
-          .fontColor(parse('rgba(255, 255, 255, 1)').space)
-          .textAlign(TextAlign.Start)
-      }
-      Text("分享一下下面的详细信息，让我们更好地认识你。")
-
+      TabBar()
     }
-    .backgroundColor(parse('rgba(67, 110, 238, 1)').space)
+    .width(Const.FULL_WIDTH)
+    .backgroundColor($r('app.color.listColor'))
+    .justifyContent(FlexAlign.Center)
   }
 }

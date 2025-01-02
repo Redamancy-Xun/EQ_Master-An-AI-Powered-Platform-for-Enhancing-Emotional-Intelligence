@@ -15,25 +15,19 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "f7a42fe7211f98ac7a60a285ac3a9e87": {
-        "MergeProfile": 62486900,
-        "CreateBuildProfile": 6279200,
-        "PreCheckSyscap": 350700,
-        "GeneratePkgContextInfo": 2887500,
-        "ProcessProfile": 205623200,
-        "ProcessRouterMap": 11518000,
-        "PreviewProcessResource": 5502500,
-        "GenerateLoaderJson": 36682200,
-        "PreviewCompileResource": 487448500,
-        "PreviewHookCompileResource": 587100,
-        "CopyPreviewProfile": 7337600,
-        "ReplacePreviewerPage": 511600,
-        "buildPreviewerResource": 490600,
-        "PreviewUpdateAssets": 12733700,
-        "PreviewArkTS": 36068680900,
-        "PreviewBuild": 427600
+        "PreCheckSyscap": 563800,
+        "PreviewProcessResource": 4217600,
+        "PreviewCompileResource": 386179600,
+        "PreviewHookCompileResource": 282900,
+        "CopyPreviewProfile": 5720800,
+        "ReplacePreviewerPage": 348400,
+        "buildPreviewerResource": 238900,
+        "PreviewUpdateAssets": 11105200,
+        "PreviewArkTS": 11701780400,
+        "PreviewBuild": 1596200
       }
     },
-    "TOTAL_TIME": 37222747300,
-    "BUILD_ID": "202412221800090750"
+    "TOTAL_TIME": 12409761500,
+    "BUILD_ID": "202501021035244520"
   }
 }

@@ -1,25 +1,12 @@
-/*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { preferences } from '@kit.ArkData';
 import { common } from '@kit.AbilityKit';
-import { router } from '@kit.ArkUI';
+import { router, window } from '@kit.ArkUI';
 import Logger from '../../common/utils/Logger';
-import CommonConstants from '../../common/constants/CommonConstants';
+import { CommonConstants } from '../../common/constants/CommonConstants';
 import CustomDialogComponent from '../../view/CustomDialogComponent';
 import { GlobalContext } from '../../common/utils/GlobalContext';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { BusinessError } from '@ohos.base';
 
 /**
  * The LauncherPage is the entry point of the application and shows how to develop the LauncherPage.
@@ -29,41 +16,49 @@ import { GlobalContext } from '../../common/utils/GlobalContext';
 @Entry
 @Component
 struct LauncherPage {
-  //私有属性只能在类内访问
-  private context?: common.UIAbilityContext;//？是一个可选属性，可能存在，也可能为undefined
-  private timerId: number = 0;//属性类型是number，只能存储数字
-  private isJumpToAdvertising: boolean = false;
-  //用来管理对话框的创建、显示、隐藏、以及与用户交互的逻辑
+  // @StorageProp('bottomRectHeight')
+  // bottomRectHeight: number = 0;
+  // @StorageProp('topRectHeight')
+  // topRectHeight: number = 0;
+
+  // 私有属性只能在类内访问
+  private context?: common.UIAbilityContext;    // context：存储 UIAbility 的上下文，可能是 undefined
+  private timerId: number = 0;                  // timerId：一个定时器的 ID，用于管理跳转到广告页面
+  private isJumpToAdvertising: boolean = false; // isJumpToAdvertising：一个布尔值，表示是否已经跳转到广告页面
+  // 用来管理对话框的创建、显示、隐藏、以及与用户交互的逻辑
   dialogController: CustomDialogController = new CustomDialogController({
+    // builder：定义了对话框的结构，包括取消和确认按钮的回调函数
     builder: CustomDialogComponent(
       {
-        //定义了用户点击取消按钮时，触发的回调函数
+        // 定义了用户点击取消按钮时，触发的回调函数
         cancel: () => {
           this.onCancel();
         },
-        //确认按钮时触发的回调函数
+        // 确认按钮时触发的回调函数
         confirm: () => {
           this.onConfirm();
         }
       }),
-    alignment: DialogAlignment.Bottom,//对话框对齐到屏幕的底部
+    alignment: DialogAlignment.Bottom,// 对话框对齐到屏幕的底部
     offset: { dx: 0, dy: CommonConstants.DIALOG_CONTROLLER_DY_OFFSET },
     customStyle: true,
     autoCancel: false
   });
 
+  // 当用户点击取消按钮时调用，终止应用程序
   onCancel() {
     // Exit the application.
     this.context?.terminateSelf();
   }
 
+  // 当用户点击确认按钮时调用，保存隐私设置并跳转到广告页面
   onConfirm() {
     // Save privacy agreement status.
     this.saveIsPrivacy();
     this.jumpToAdvertisingPage();
   }
 
-  //在页面隐藏时调用
+  // 在页面隐藏时调用，清除路由并停止定时器
   onPageHide() {
     if (this.isJumpToAdvertising) {
       router.clear();
@@ -74,19 +69,36 @@ struct LauncherPage {
   }
 
   /**
-   * Jump to advertising page.
+   * 设置一个定时器，在指定时间后跳转到广告页面
    */
   jumpToAdvertisingPage() {
     this.timerId = setTimeout(() => {
       this.isJumpToAdvertising = true;
-      router.pushUrl({
-        url: CommonConstants.ADVERTISING_PAGE_URL
-      }).catch((error: Error) => {
-        Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
+
+      this.getDataPreferences(this).then((preferences: preferences.Preferences) => {
+        preferences.get(CommonConstants.PREFERENCES_KEY_FIRST_USER, true).then((value: preferences.ValueType) => {
+          Logger.info(CommonConstants.LAUNCHER_PAGE_TAG, 'jump to : ' + value ? 'FirstPage' : 'Login');
+          if (value) {
+            this.saveIsFirstUse();
+            router.pushUrl({
+              // url: CommonConstants.ADVERTISING_PAGE_URL
+              url: CommonConstants.FIRST_PAGE_URL
+            }).catch((error: Error) => {
+              Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
+            });
+          } else {
+            router.pushUrl({
+              url: CommonConstants.LOGIN_PAGE_URL
+            }).catch((error: Error) => {
+              Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
+            });
+          }
+        });
       });
-    }, CommonConstants.LAUNCHER_DELAY_TIME);
+     }, CommonConstants.LAUNCHER_DELAY_TIME);
   }
 
+  // 将用户隐私设置保存到偏好设置中
   saveIsPrivacy() {//Promise处理异步操作的对象，代表了一个可能还未完成但最终会完成的操作
     let preferences: Promise<preferences.Preferences> = this.getDataPreferences(this);//获得用户偏好设置数据，同意/不同意
     preferences.then((result: preferences.Preferences) => {//在promise成功执行时被调用，result存储偏好
@@ -102,7 +114,23 @@ struct LauncherPage {
     });
   }
 
-  //在页面显示时调用
+  // 将用户是否为第一次使用APP保存到偏好设置中
+  saveIsFirstUse() {
+    let preferences: Promise<preferences.Preferences> = this.getDataPreferences(this); //获得用户偏好设置数据，第一次使用/非第一次使用
+    preferences.then((result: preferences.Preferences) => {
+      let firstUsePut = result.put(CommonConstants.PREFERENCES_KEY_FIRST_USER, false);
+      result.flush();
+      firstUsePut.then(() => {
+        Logger.info(CommonConstants.LAUNCHER_PAGE_TAG, 'Put the value of startup Successfully.');
+      }).catch((err: Error) => {
+        Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'Put the value of startup Failed, err: ' + err);
+      });
+    }).catch((err: Error) => {
+      Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'Get the preferences Failed, err: ' + err);
+    });
+  }
+
+  // 在页面显示时调用，获取用户偏好设置并根据隐私设置决定是否显示对话框
   onPageShow() {
     this.context = getContext(this) as common.UIAbilityContext;
     // Get the operation class for saving data.
@@ -124,11 +152,57 @@ struct LauncherPage {
   }
 
   /**
-   * Get data preferences action.
+   * 获取用户的偏好设置
    */
   getDataPreferences(common: Object) {
     return preferences.getPreferences(getContext(common), CommonConstants.PREFERENCES_FILE_NAME);
   }
+  //
+  // onWindowStageCreate(windowStage: window.WindowStage): void {
+  //   // Main window is created, set main page for this ability
+  //   hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+  //
+  //   windowStage.loadContent('pages/Index', (err) => {
+  //     if (err.code) {
+  //       hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
+  //       return;
+  //     }
+  //     hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
+  //   });
+  //   // 获取应用主窗口
+  //   let windowClass: window.Window = windowStage.getMainWindowSync();
+  //   // 设置窗口全屏
+  //   let isLayoutFullScreen = true;
+  //   windowClass.setWindowLayoutFullScreen(isLayoutFullScreen).then(() => {
+  //     console.info('Succeeded in setting the window layout to full-screen mode.');
+  //   }).catch((err: BusinessError) => {
+  //     console.error('Failed to set the window layout to full-screen mode. Cause:' + JSON.stringify(err));
+  //   });
+  //   //获取导航栏高度
+  //   let bottomRectHeight = windowClass
+  //     .getWindowAvoidArea(window.AvoidAreaType.TYPE_NAVIGATION_INDICATOR)
+  //     .bottomRect
+  //     .height;
+  //   AppStorage.setOrCreate('bottomRectHeight', bottomRectHeight);
+  //   // 获取状态栏区域高度
+  //   let topRectHeight = windowClass
+  //     .getWindowAvoidArea(window.AvoidAreaType.TYPE_SYSTEM)
+  //     .topRect
+  //     .height;
+  //   AppStorage.setOrCreate('topRectHeight', topRectHeight);
+  //
+  //   // 注册监听函数，动态获取避让区域数据
+  //   windowClass.on('avoidAreaChange', (data) => {
+  //     if (data.type === window.AvoidAreaType.TYPE_SYSTEM) {
+  //       let topRectHeight = data.area.topRect.height;
+  //       AppStorage.setOrCreate('topRectHeight', topRectHeight);
+  //     } else if (data.type == window.AvoidAreaType.TYPE_NAVIGATION_INDICATOR) {
+  //       let bottomRectHeight = data.area.bottomRect.height;
+  //       AppStorage.setOrCreate('bottomRectHeight', bottomRectHeight);
+  //     }
+  //   });
+  // }
+
 
   // LauncherPage.ets
   // 启动页组件
@@ -150,9 +224,12 @@ struct LauncherPage {
         //     $r('app.color.launcher_text_title_color'))
         //   .margin({ top: CommonConstants.LAUNCHER_TEXT_TITLE_MARGIN_TOP })
         // EQ_Master说明
+        Text('')
+          .height('42%')
         Text($r('app.string.eq_master_introduce'))
           .height(CommonConstants.LAUNCHER_TEXT_INTRODUCE_HEIGHT)
-          .eqMasterTextStyle(FontWeight.Normal,
+          // .width("100%")
+          .eqMasterTextStyle(FontWeight.Medium,
             CommonConstants.LAUNCHER_TEXT_INTRODUCE_SPACING,
             $r('app.float.launcher_text_introduce_size'),
             $r('app.color.launcher_text_introduce_color'))
@@ -161,7 +238,9 @@ struct LauncherPage {
       }
       .height(CommonConstants.FULL_HEIGHT)
       .width(CommonConstants.FULL_WIDTH)
-      .colorBlend($r('app.color.start_window_background'))
+      // top数值与状态栏区域高度保持一致；bottom数值与导航条区域高度保持一致
+      // .padding({ top: px2vp(this.topRectHeight), bottom: px2vp(this.bottomRectHeight) })
+      .backgroundColor($r('app.color.start_window_background'))
     }
   }
 }

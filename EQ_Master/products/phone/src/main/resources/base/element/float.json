@@ -2,7 +2,7 @@
   "float": [
     {
       "name": "small_text_size",
-      "value": "12fp"
+      "value": "14fp"
     },
     {
       "name": "little_text_size",
@@ -10,7 +10,11 @@
     },
     {
       "name": "normal_text_size",
-      "value": "14fp"
+      "value": "17fp"
+    },
+    {
+      "name": "button_text_size",
+      "value": "22fp"
     },
     {
       "name": "splash_normal_text_size",
@@ -182,11 +186,15 @@
     },
     {
       "name": "launcher_text_introduce_size",
-      "value": "16fp"
+      "value": "17fp"
+    },
+    {
+      "name": "signup_text_introduce_size",
+      "value": "15fp"
     },
     {
       "name": "launcher_text_opacity",
-      "value": "0.6"
+      "value": "1"
     },
     {
       "name": "advertising_text_opacity",
@@ -310,7 +318,299 @@
     },
     {
       "name": "home_page_text_size",
+      "value": "27vp"
+    },
+    {
+      "name": "logo_image_size",
+      "value": "100vp"
+    },
+    {
+      "name": "back_image_size",
       "value": "30vp"
+    },
+    {
+      "name": "logo_margin_top",
+      "value": "100vp"
+    },
+    {
+      "name": "logo_margin_bottom",
+      "value": "30vp"
+    },
+    {
+      "name": "big_text_size",
+      "value": "19vp"
+    },
+    {
+      "name": "face_margin_top",
+      "value": "14vp"
+    },
+    {
+      "name": "fingerprint_margin_top",
+      "value": "12vp"
+    },
+    {
+      "name": "face_margin_left",
+      "value": "24vp"
+    },
+    {
+      "name": "login_bottom",
+      "value": "35vp"
+    },
+    {
+      "name": "login_top",
+      "value": "8vp"
+    },
+    {
+      "name": "login_input_height",
+      "value": "48vp"
+    },
+    {
+      "name": "forgot_margin_top",
+      "value": "12vp"
+    },
+    {
+      "name": "forgot_margin_left",
+      "value": "24vp"
+    },
+    {
+      "name": "forgot_margin_right",
+      "value": "12vp"
+    },
+    {
+      "name": "input_margin_top",
+      "value": "12vp"
+    },
+    {
+      "name": "line_height",
+      "value": "1vp"
+    },
+    {
+      "name": "login_button_height",
+      "value": "50vp"
+    },
+    {
+      "name": "button_top",
+      "value": "85vp"
+    },
+    {
+      "name": "button_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "other_margin_top",
+      "value": "0vp"
+    },
+    {
+      "name": "other_margin_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "login_page_bottom",
+      "value": "24vp"
+    },
+    {
+      "name": "other_image_size",
+      "value": "48vp"
+    },
+    {
+      "name": "page_padding_hor",
+      "value": "12vp"
+    },
+    {
+      "name": "main_base_top",
+      "value": "4vp"
+    },
+    {
+      "name": "main_base_margin",
+      "value": "8vp"
+    },
+    {
+      "name": "main_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "main_bar_height",
+      "value": "56vp"
+    },
+    {
+      "name": "main_base_size",
+      "value": "25vp"
+    },
+    {
+      "name": "main_tab_fontSize",
+      "value": "10vp"
+    },
+    {
+      "name": "main_titles_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "main_titles_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "home_swiper_radius",
+      "value": "16vp"
+    },
+    {
+      "name": "home_swiper_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "home_grid_gap",
+      "value": "8vp"
+    },
+    {
+      "name": "home_row_gap",
+      "value": "12vp"
+    },
+    {
+      "name": "home_grid_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "home_grid_height",
+      "value": "124vp"
+    },
+    {
+      "name": "home_list_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "home_list_padding",
+      "value": "8vp"
+    },
+    {
+      "name": "home_border_radius",
+      "value": "24vp"
+    },
+    {
+      "name": "home_text_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "home_image_radius",
+      "value": "12vp"
+    },
+    {
+      "name": "home_second_height",
+      "value": "260vp"
+    },
+    {
+      "name": "home_cell_size",
+      "value": "24vp"
+    },
+    {
+      "name": "home_cell_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "setting_name_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "setting_account_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "setting_account_size",
+      "value": "48vp"
+    },
+    {
+      "name": "setting_account_fontSize",
+      "value": "20vp"
+    },
+    {
+      "name": "setting_account_height",
+      "value": "96vp"
+    },
+    {
+      "name": "setting_account_padding",
+      "value": "24vp"
+    },
+    {
+      "name": "setting_account_radius",
+      "value": "16vp"
+    },
+    {
+      "name": "setting_list_height",
+      "value": "48vp"
+    },
+    {
+      "name": "list_all_height",
+      "value": "288vp"
+    },
+    {
+      "name": "setting_list_padding",
+      "value": "16vp"
+    },
+    {
+      "name": "setting_list_radius",
+      "value": "16vp"
+    },
+    {
+      "name": "setting_list_margin",
+      "value": "42vp"
+    },
+    {
+      "name": "list_end_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "setting_list_width",
+      "value": "0.25vp"
+    },
+    {
+      "name": "setting_button_bottom",
+      "value": "55vp"
+    },
+    {
+      "name": "setting_size",
+      "value": "22vp"
+    },
+    {
+      "name": "setting_jump_width",
+      "value": "12vp"
+    },
+    {
+      "name": "setting_jump_height",
+      "value": "24vp"
+    },
+    {
+      "name": "setting_cell_left",
+      "value": "8vp"
+    },
+    {
+      "name": "setting_cell_right",
+      "value": "22vp"
+    },
+    {
+      "name": "register_button_top",
+      "value": "50vp"
+    },
+    {
+      "name": "input_border_radius",
+      "value": "24vp"
+    },
+    {
+      "name": "input_padding_top",
+      "value": "4vp"
+    },
+    {
+      "name": "input_padding_left",
+      "value": "12vp"
+    },
+    {
+      "name": "register_margin_top",
+      "value": "28vp"
+    },
+    {
+      "name": "toggle_width",
+      "value": "38vp"
+    },
+    {
+      "name": "toggle_height",
+      "value": "38vp"
     }
   ]
 }
