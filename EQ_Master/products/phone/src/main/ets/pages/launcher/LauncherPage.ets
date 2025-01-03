@@ -7,6 +7,9 @@ import CustomDialogComponent from '../../view/CustomDialogComponent';
 import { GlobalContext } from '../../common/utils/GlobalContext';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@ohos.base';
+import UserServer from '../../server/user/UserServer';
+import ResponseResult from '../../server/ResponseResult';
+import PromptUtil from '../../common/utils/PromptUtil';
 
 /**
  * The LauncherPage is the entry point of the application and shows how to develop the LauncherPage.
@@ -87,11 +90,42 @@ struct LauncherPage {
               Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
             });
           } else {
-            router.pushUrl({
-              url: CommonConstants.LOGIN_PAGE_URL
-            }).catch((error: Error) => {
-              Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
-            });
+            preferences.get(CommonConstants.PREFERENCES_KEY_SESSION, '').then((value: preferences.ValueType) => {
+              Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + value);
+              console.log(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + value);
+              if (value == '') {
+                router.pushUrl({
+                  url: CommonConstants.LOGIN_PAGE_URL
+                }).catch((error: Error) => {
+                  Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
+                });
+              } else {
+                // todo checkLogin
+                UserServer.getCheckLogin().then((result: number) => {
+                  if (result == 0) {
+                    router.pushUrl({
+                      url: CommonConstants.APP_HOME_PAGE_URL
+                    }).catch((error: Error) => {
+                      Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
+                    });
+                  } else {
+                    router.pushUrl({
+                      url: CommonConstants.LOGIN_PAGE_URL
+                    }).catch((error: Error) => {
+                      Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
+                    })
+                  }
+                }).catch((err: Resource | ResponseResult) => {
+                  if (err instanceof ResponseResult) {
+                    if (err.message !== null) {
+                      PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+                    }
+                  } else {
+                    PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+                  }
+                })
+              }
+            })
           }
         });
       });
@@ -155,7 +189,7 @@ struct LauncherPage {
    * 获取用户的偏好设置
    */
   getDataPreferences(common: Object) {
-    return preferences.getPreferences(getContext(common), CommonConstants.PREFERENCES_FILE_NAME);
+    return preferences.getPreferences(getContext(common), CommonConstants.PREFERENCES_NAME);
   }
   //
   // onWindowStageCreate(windowStage: window.WindowStage): void {

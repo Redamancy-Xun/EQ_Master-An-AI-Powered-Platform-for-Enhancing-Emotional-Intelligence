@@ -1,7 +1,3 @@
-/*
- * Copyright (c) Huawei Technologies Co., Ltd. 2024-2024. All rights reserved.
- */
-
 import { CommonConstants } from '../common/constants/CommonConstants';
 import PromptUtil from '../common/utils/PromptUtil';
 import HuksModel from '../model/HuksModel';
@@ -10,6 +6,9 @@ import Logger from '../common/utils/Logger';
 import { util } from '@kit.ArkTS';
 import PreferenceModel from '../model/PreferenceModel';
 import UserAuthModel from '../model/UserAuthModel';
+import UserServer from '../server/user/UserServer';
+import { UserInfo } from '../server/user/UserData';
+import ResponseResult from '../server/ResponseResult';
 
 @Extend(TextInput)
 function inputStyle() {
@@ -68,27 +67,23 @@ export struct RegisterPage {
       PromptUtil.promptMessage($r('app.string.message_password_prompt'), CommonConstants.PROMPT_DURATION);
       return;
     }
-    let isExist = false;
-    await HuksModel.isKeyItemExist(this.keyAlias)
-      .then((value: boolean) => {
-        isExist = value;
-      })
-      .catch((error: BusinessError) => {
-        Logger.error(CommonConstants.TAG, `huks keys not generate cause ${error.code} ${error.message}`);
-      })
-    if (!isExist) {
-      PromptUtil.promptMessage($r('app.string.message_application_prompt'), CommonConstants.PROMPT_DURATION);
-      return;
-    }
-    await HuksModel.encrypt(this.keyAlias, this.passWord).then((value?: Uint8Array) => {
-      if (value) {
-        let base64Helper = new util.Base64Helper();
-        let password = base64Helper.encodeToStringSync(value);
-        PreferenceModel.putPreference(CommonConstants.CRYPTO_PASSWORD, password);
-        PreferenceModel.putPreference(CommonConstants.USER_NAME, this.name);
-        // PreferenceModel.putPreference(CommonConstants.IS_SHOW_FACE, this.isFace);
-        // PreferenceModel.putPreference(CommonConstants.IS_SHOW_FINGERPRINT, this.isFingerprint);
-        this.pageInfos.pop();
+
+    UserServer.postUserSignup(this.name, this.telephone, this.passWord).then((data: UserInfo) => {
+      PromptUtil.promptMessage($r('app.string.success_signup_prompt'), CommonConstants.PROMPT_DURATION);
+      // Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + data.sessionId);
+      // if (data.sessionId !== null) {
+      //   PreferenceModel.putPreference(CommonConstants.PREFERENCES_KEY_SESSION, data.sessionId);
+      //   let sessionId = PreferenceModel.getPreference(CommonConstants.PREFERENCES_KEY_SESSION, 'null');
+      //   Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + sessionId);
+      // }
+      this.pageInfos.pop();
+    }).catch((err: Resource | ResponseResult) => {
+      if (err instanceof ResponseResult) {
+        if (err.message !== null) {
+          PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+        }
+      } else {
+        PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
     })
   }

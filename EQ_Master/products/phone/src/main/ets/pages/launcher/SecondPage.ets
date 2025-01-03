@@ -4,7 +4,7 @@ import { CommonConstants } from '../../common/constants/CommonConstants';
 
 @Entry
 @Component
-struct FirstPage {
+struct SecondPage {
 
 
   build() {

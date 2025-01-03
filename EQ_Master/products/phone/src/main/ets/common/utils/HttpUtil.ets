@@ -92,7 +92,7 @@ export function httpRequestGet(url: string): Promise<ResponseResult> {
  * @param url URL for initiating an HTTP POST request.
  * @param data Data to be sent in the POST request body.
  */
-export function httpRequestPost(url: string, data: Object): Promise<ResponseResult> {
+export function httpRequestPost(url: string, data?: Object): Promise<ResponseResult> {
   let httpRequest = http.createHttp();
   let session: preferences.ValueType = PreferenceModel.getPreference("session", '');
   let responseResult: Promise<http.HttpResponse>;

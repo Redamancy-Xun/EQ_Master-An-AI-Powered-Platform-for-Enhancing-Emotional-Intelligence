@@ -11,6 +11,8 @@ import { RegisterPage } from '../../view/RegisterPage';
 import { httpRequestGet } from '../../common/utils/HttpUtil';
 import { httpRequestPost } from '../../common/utils/HttpUtil';
 import ResponseResult from '../../server/ResponseResult';
+import UserServer from '../../server/user/UserServer';
+import { UserInfo } from '../../server/user/UserData';
 
 /**
  * 这些函数定义了 TextInput、Line 和 Text 组件的样式，使用了 @Extend 装饰器来扩展这些组件的样式。
@@ -105,50 +107,33 @@ struct LoginPage {
    * login 方法处理登录逻辑
    */
   // TODO 异步？
-  async login() {
+  login() {
     if (this.account === '' || this.password === '') {
       PromptUtil.promptMessage($r('app.string.input_empty_tips'), CommonConstants.PROMPT_DURATION);
       return;
     }
 
-    let url: string = `${CommonConstants.SERVER}/${CommonConstants.POST_USER_LOGIN}`;
-    let params: string = "telephone=" + this.account + "&password=" + this.password;
-    httpRequestPost(url, params).then((data: ResponseResult) => {
-      if (data.code !== CommonConstants.SERVER_CODE_SUCCESS) {
-        PromptUtil.promptMessage($r('app.string.http_error_message'), CommonConstants.PROMPT_DURATION);
-        Logger.error('Network failed');
-        return;
+    UserServer.postUserLogin(this.account, this.password).then((data: UserInfo) => {
+      PromptUtil.promptMessage($r('app.string.success_login_prompt'), CommonConstants.PROMPT_DURATION);
+      Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + data.sessionId);
+      if (data.sessionId !== null) {
+        PreferenceModel.putPreference(CommonConstants.PREFERENCES_KEY_SESSION, data.sessionId);
+        let sessionId = PreferenceModel.getPreference(CommonConstants.PREFERENCES_KEY_SESSION, 'null');
+        Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + sessionId);
       }
-    }).catch(() => {
-      PromptUtil.promptMessage($r('app.string.http_error_message'), CommonConstants.PROMPT_DURATION);
-      Logger.error('Network failed');
-      return;
-    });
-
-    Logger.info('telephone' + this.account);
-    Logger.info('password' + this.password);
-    if (data) {
-      PromptUtil.promptMessage($r('app.string.message_login_prompt'), CommonConstants.PROMPT_DURATION);
-      return;
-    }
-    let cryptoPassword = PreferenceModel.getPreference(CommonConstants.CRYPTO_PASSWORD, '') as string;
-
-    let base64Helper = new util.Base64Helper();
-    let result = base64Helper.decodeSync(cryptoPassword);
-    Logger.info('username' + JSON.stringify(result))
-    await HuksModel.decrypt(this.keyAlias, Array.from(result)).then((cryptoData?: string) => {
-      Logger.info('username' + cryptoData + '   ' + this.password)
-      if (cryptoData && cryptoData === this.password) {
-        this.userLogin = true;
-        router.replaceUrl({
-          url: 'pages/MainPage'
-        });
+      router.pushUrl({
+        url: CommonConstants.APP_HOME_PAGE_URL
+      }).catch((error: Error) => {
+        Logger.error(CommonConstants.APP_HOME_PAGE_TAG, 'HomePage pushUrl error ' + JSON.stringify(error));
+      });
+    }).catch((err: Resource | ResponseResult) => {
+      if (err instanceof ResponseResult) {
+        if (err.message !== null) {
+          PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+        }
       } else {
-        PromptUtil.promptMessage($r('app.string.message_login_prompt'), CommonConstants.PROMPT_DURATION);
+        PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
-    }).catch((error: BusinessError) => {
-      Logger.error(`huks decode failed cause ${error.code} ${error.message}`);
-      PromptUtil.promptMessage($r('app.string.message_login_prompt'), CommonConstants.PROMPT_DURATION);
     })
   }
 

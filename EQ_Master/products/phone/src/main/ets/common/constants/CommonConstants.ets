@@ -67,11 +67,6 @@ export class CommonConstants{
   static readonly PREFERENCES_KEY_SESSION: string = 'session';
 
   /**
-   * Preference saved file name.
-   */
-  static readonly PREFERENCES_FILE_NAME: string = 'myStore';
-
-  /**
    * Launcher page count down.
    */
   static readonly LAUNCHER_DELAY_TIME: number = 3000;
@@ -199,7 +194,7 @@ export class CommonConstants{
   /**
    * App home page url.
    */
-  static readonly APP_HOME_PAGE_URL: string = 'pages/launcher/AppHomePage';
+  static readonly APP_HOME_PAGE_URL: string = 'pages/dailyshare/HomePage';
 
   /**
    * Common layout weight.
@@ -219,6 +214,11 @@ export class CommonConstants{
    * The advertsing page tag.
    */
   static readonly THIRD_PAGE_TAG: string = 'ThirdPage';
+
+  /**
+   * App home page tag.
+   */
+  static readonly APP_HOME_PAGE_TAG: string = 'HomePage';
 
   /**
    * First page url.
@@ -398,7 +398,7 @@ export class CommonConstants{
   /**
    * The get user check login.
    */
-  static readonly GET_USER_CHECKLOGIN: string = 'user/checkLogin';
+  static readonly GET_USER_CHECK_LOGIN: string = 'user/checkLogin';
 
   /**
    * The post user signup.

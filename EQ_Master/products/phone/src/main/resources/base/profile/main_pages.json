@@ -8,6 +8,7 @@
     "pages/launcher/PrivacyPage",
     "pages/launcher/LauncherPage",
     "pages/login/LoginPage",
-    "pages/MainPage"
+    "pages/MainPage",
+    "pages/dailyshare/HomePage"
   ]
 }

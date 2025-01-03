@@ -4,7 +4,7 @@ import { CommonConstants } from '../../common/constants/CommonConstants';
 
 @Entry
 @Component
-struct FirstPage {
+struct ThirdPage {
 
 
   build() {
@@ -63,7 +63,7 @@ struct FirstPage {
         .margin({ top: 600})
         .onClick(() => {
           router.pushUrl({
-            url: CommonConstants.APP_HOME_PAGE_URL
+            url: CommonConstants.LOGIN_PAGE_URL
           }).catch((error: Error) => {
             Logger.error(CommonConstants.THIRD_PAGE_TAG, 'ThirdPage pushUrl error ' + JSON.stringify(error));
           });

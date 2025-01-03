@@ -465,6 +465,14 @@
       "value": "Incorrect user name or password. Please try again."
     },
     {
+      "name": "success_login_prompt",
+      "value": "登录成功！"
+    },
+    {
+      "name": "success_signup_prompt",
+      "value": "注册成功！"
+    },
+    {
       "name": "message_user_name",
       "value": "请输入用户名"
     },

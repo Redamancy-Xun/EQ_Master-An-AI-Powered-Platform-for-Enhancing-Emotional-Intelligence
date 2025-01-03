@@ -46,7 +46,7 @@ class NewsViewModel {
       url += '?currentPage=' + currentPage + '&pageSize=' + pageSize;
       httpRequestGet(url).then((data: ResponseResult) => {
         if (data.code === Const.SERVER_CODE_SUCCESS) {
-          resolve(data.data);
+          resolve(data.result);
         } else {
           Logger.error('getNewsList failed', JSON.stringify(data));
           reject($r('app.string.page_none_msg'));
