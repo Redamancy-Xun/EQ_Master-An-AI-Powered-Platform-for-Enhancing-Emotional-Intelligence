@@ -51,7 +51,12 @@ export function httpRequestGet(url: string): Promise<ResponseResult> {
       serverData.code = resultJson.code;
       serverData.message = resultJson.message;
       serverData.result = resultJson.result;
+      console.info('serverData.code' + `${serverData.code}`)
+      console.info('serverData.message' + `${serverData.message}`)
+      console.info('serverData.result' + `${serverData.result}`)
+      // let resultDailyShare : any = JSON.parse(JSON.stringify(value.result));
 
+      // console.info('resultDailyShare' + `${resultDailyShare}`);
       console.info('Result:' + JSON.stringify(value.result));
       console.info('code:' + JSON.stringify(value.responseCode));
       console.info('header:' + JSON.stringify(value.header));

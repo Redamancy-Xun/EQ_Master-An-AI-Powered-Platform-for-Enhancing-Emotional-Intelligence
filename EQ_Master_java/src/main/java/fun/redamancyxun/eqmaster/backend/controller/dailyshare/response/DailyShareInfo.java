@@ -23,12 +23,12 @@ public class DailyShareInfo {
 
     @ApiModelProperty("id")
     private String id;
-
-    @ApiModelProperty("创建时间")
-    private LocalDateTime createTime;
-
-    @ApiModelProperty("删除时间")
-    private LocalDateTime deleteTime;
+//
+//    @ApiModelProperty("创建时间")
+//    private LocalDateTime createTime;
+//
+//    @ApiModelProperty("删除时间")
+//    private LocalDateTime deleteTime;
 
     @ApiModelProperty("是否点赞")
     private Boolean isLike;
@@ -68,8 +68,8 @@ public class DailyShareInfo {
 
     public DailyShareInfo(DailyShare dailyShare, Boolean isLike, Boolean isStar, Boolean isShare){
         this.id = dailyShare.getId();
-        this.createTime = dailyShare.getCreateTime();
-        this.deleteTime = dailyShare.getDeleteTime();
+//        this.createTime = dailyShare.getCreateTime();
+//        this.deleteTime = dailyShare.getDeleteTime();
         this.context = dailyShare.getContext();
         this.view = dailyShare.getView();
         this.likes = dailyShare.getLikes();

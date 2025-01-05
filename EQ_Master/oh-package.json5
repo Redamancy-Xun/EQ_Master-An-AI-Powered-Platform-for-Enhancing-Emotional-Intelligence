@@ -2,10 +2,13 @@
   "modelVersion": "5.0.0",
   "description": "Please describe the basic information.",
   "dependencies": {
+    "@ohos/lottie": "^2.0.15",
+    "@ohos/pulltorefresh": "^2.1.1"
   },
   "devDependencies": {
     "@ohos/hypium": "1.0.19",
     "@ohos/hamock": "1.0.0",
-    "@nutpi/color-parse": '1.0.0'
-  }
+    "@nutpi/color-parse": "1.0.0"
+  },
+  "dynamicDependencies": {}
 }

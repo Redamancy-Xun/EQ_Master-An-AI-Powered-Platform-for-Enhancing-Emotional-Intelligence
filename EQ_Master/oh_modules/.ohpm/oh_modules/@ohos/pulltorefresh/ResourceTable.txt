@@ -1,0 +1,8 @@
+string Loading_at_risk 0x02000000
+string LogOut 0x02000001
+string RefreshSuccessful 0x02000002
+string Refreshing 0x02000003
+string ReleaseToRefresh 0x02000004
+string page_show 0x02000005
+media icon_load 0x02000006
+media icon_up 0x02000007

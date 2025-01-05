@@ -41,6 +41,10 @@
       "value": "#0D182431"
     },
     {
+      "name": "tab_background_color",
+      "value": "#FFF1F1F1"
+    },
+    {
       "name": "swiper_dot_color",
       "value": "#99FFFFFF"
     },
@@ -285,16 +289,324 @@
       "value": "#FF989898"
     },
     {
+      "name": "dividerColor",
+      "value": "#E2E2E2"
+    },
+    {
+      "name": "tab_sel_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "normal_font_color",
+      "value": "#182431"
+    },
+    {
+      "name": "common_background_1",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "common_background_2",
+      "value": "#F7F7F7"
+    },
+    {
+      "name": "common_background_3",
+      "value": "#0D000000"
+    },
+    {
+      "name": "common_border_color_1",
+      "value": "#33000000"
+    },
+    {
+      "name": "common_border_color_2",
+      "value": "#0D000000"
+    },
+    {
+      "name": "common_border_color_3",
+      "value": "#66000000"
+    },
+    {
+      "name": "common_border_color_4",
+      "value": "#1A000000"
+    },
+    {
+      "name": "common_divider_color",
+      "value": "#0D000000"
+    },
+    {
       "name": "fontColor_text3",
       "value": "#182431"
+    },
+    {
+      "name": "text_font_color",
+      "value": "#000000"
+    },
+    {
+      "name": "search_bgc",
+      "value": "#d9d8d8"
+    },
+    {
+      "name": "bgc",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "text_font_color2",
+      "value": "#191919"
+    },
+    {
+      "name": "text_bgc",
+      "value": "#d9d8d8"
+    },
+    {
+      "name": "divider_color",
+      "value": "#f5f5f5"
+    },
+    {
+      "name": "alphabet_select_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "alphabet_pop_color",
+      "value": "#a9a9a9"
+    },
+    {
+      "name": "alphabet_selected_bgc",
+      "value": "#5dabff"
+    },
+    {
+      "name": "alphabet_pop_bgc",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "news_title_fontColor",
+      "value": "#000000"
+    },
+    {
+      "name": "news_content_fontColor",
+      "value": "#000000"
+    },
+    {
+      "name": "news_time_fontColor",
+      "value": "#FF989898"
     },
     {
       "name": "listColor",
       "value": "#F1F3F5"
     },
     {
-      "name": "dividerColor",
-      "value": "#E2E2E2"
+      "name": "listViewColor",
+      "value": "#FFFFFFFF"
+    },
+    {
+      "name": "jump_button_font_color",
+      "value": "#000"
+    },
+    {
+      "name": "jump_button_bgc",
+      "value": "#FFAEAEAE"
+    },
+    {
+      "name": "font_black",
+      "value": "#182431"
+    },
+    {
+      "name": "pink",
+      "value": "#1fff9a6e"
+    },
+    {
+      "name": "tab_selected",
+      "value": "#000000"
+    },
+    {
+      "name": "tab_normal",
+      "value": "#99000000"
+    },
+    {
+      "name": "hot_title_border_color",
+      "value": "#0d000000"
+    },
+    {
+      "name": "water_flow_bgc",
+      "value": "#0d000000"
+    },
+    {
+      "name": "acetate",
+      "value": "#00000000"
+    },
+    {
+      "name": "read_total_rank_color",
+      "value": "#66000000"
+    },
+    {
+      "name": "water_flow_bgc_lg",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "follow_item_date_fc",
+      "value": "#66000000"
+    },
+    {
+      "name": "follow_item_type_bgc",
+      "value": "#66000000"
+    },
+    {
+      "name": "follow_item_content_fc",
+      "value": "#A6000000"
+    },
+    {
+      "name": "follow_item_content_total_fc",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "follow_item_share_fc",
+      "value": "#D9000000"
+    },
+    {
+      "name": "follow_total_font_color",
+      "value": "#E6000000"
+    },
+    {
+      "name": "follow_more_font_color",
+      "value": "#66000000"
+    },
+    {
+      "name": "follow_title_icon_bc",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "follow_title_select",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "follow_title_normal",
+      "value": "#99000000"
+    },
+    {
+      "name": "follow_title_content_fc",
+      "value": "#E6000000"
+    },
+    {
+      "name": "follow_title_bgc",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "follow_guide_icon_color",
+      "value": "#94B5F6"
+    },
+    {
+      "name": "follow_guide_name_fc",
+      "value": "#E6000000"
+    },
+    {
+      "name": "follow_guide_content_fc",
+      "value": "#66000000"
+    },
+    {
+      "name": "follow_guide_selected_bgc",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "nav_content_bgd",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "title_font_color",
+      "value": "#E6000000"
+    },
+    {
+      "name": "top_three_color",
+      "value": "#FD2704"
+    },
+    {
+      "name": "normal_index_color",
+      "value": "#66000000"
+    },
+    {
+      "name": "content_color",
+      "value": "#66000000"
+    },
+    {
+      "name": "click_count_color",
+      "value": "#66000000"
+    },
+    {
+      "name": "group_item_title_font_color",
+      "value": "#444444"
+    },
+    {
+      "name": "comment_bar_border_color",
+      "value": "#0D000000"
+    },
+    {
+      "name": "comment_item_favor_color",
+      "value": "#99000000"
+    },
+    {
+      "name": "card_detail_title_bgc",
+      "value": "#F2F2F2"
+    },
+    {
+      "name": "author_type_color",
+      "value": "#80000000"
+    },
+    {
+      "name": "follow_font_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "blog_title_follow_bc",
+      "value": "#0859F7"
+    },
+    {
+      "name": "author_type_name_color",
+      "value": "#CC0A59F7"
+    },
+    {
+      "name": "replay_bgc",
+      "value": "#0D000000"
+    },
+    {
+      "name": "read_all_replay_fc",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "read_all_replay_bgc",
+      "value": "#08000000"
+    },
+    {
+      "name": "comment_context_bgc",
+      "value": "#0D000000"
+    },
+    {
+      "name": "comment_context_bgc_dark",
+      "value": "#0DFFFFFF"
+    },
+    {
+      "name": "dark_mode_gbc",
+      "value": "#26282A"
+    },
+    {
+      "name": "font_color_dark",
+      "value": "#99FFFFFF"
+    },
+    {
+      "name": "font_color_normal",
+      "value": "#99000000"
+    },
+    {
+      "name": "title_board_color",
+      "value": "#26282A"
+    },
+    {
+      "name": "card_item_content_fc_dark",
+      "value": "#CCFFFFFF"
+    },
+    {
+      "name": "card_item_name_fc_dark",
+      "value": "#E6FFFFFF"
+    },
+    {
+      "name": "author_type_fc_dark",
+      "value": "#80FFFFFF"
     }
   ]
 }

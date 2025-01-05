@@ -3,7 +3,7 @@ import { common } from '@kit.AbilityKit';
 import { router, window } from '@kit.ArkUI';
 import Logger from '../../common/utils/Logger';
 import { CommonConstants } from '../../common/constants/CommonConstants';
-import CustomDialogComponent from '../../view/CustomDialogComponent';
+import CustomDialogComponent from '../../view/login/CustomDialogComponent';
 import { GlobalContext } from '../../common/utils/GlobalContext';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@ohos.base';
@@ -71,6 +71,7 @@ struct LauncherPage {
     clearTimeout(this.timerId);
   }
 
+  // TODO 后期把跳转转为组件跳转
   /**
    * 设置一个定时器，在指定时间后跳转到广告页面
    */

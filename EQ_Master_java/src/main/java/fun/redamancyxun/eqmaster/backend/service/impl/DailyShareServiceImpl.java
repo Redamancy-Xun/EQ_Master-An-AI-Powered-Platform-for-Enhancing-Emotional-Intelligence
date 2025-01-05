@@ -1,14 +1,11 @@
 package fun.redamancyxun.eqmaster.backend.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import fun.redamancyxun.eqmaster.backend.common.CommonConstants;
 import fun.redamancyxun.eqmaster.backend.common.Page;
 import fun.redamancyxun.eqmaster.backend.controller.dailyshare.request.CreateDailyShareParams;
 import fun.redamancyxun.eqmaster.backend.controller.dailyshare.response.DailyShareInfo;
 import fun.redamancyxun.eqmaster.backend.entity.DailyShare;
-import fun.redamancyxun.eqmaster.backend.entity.Comment;
-import fun.redamancyxun.eqmaster.backend.entity.Reply;
 import fun.redamancyxun.eqmaster.backend.entity.User;
 import fun.redamancyxun.eqmaster.backend.exception.EnumExceptionType;
 import fun.redamancyxun.eqmaster.backend.exception.MyException;
@@ -21,11 +18,18 @@ import fun.redamancyxun.eqmaster.backend.util.PageUtils;
 import fun.redamancyxun.eqmaster.backend.util.SessionUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -105,12 +109,77 @@ public class DailyShareServiceImpl implements DailyShareService {
 
     /**
      * 每天创建一个每日分享
+     *
      * @return 每日分享信息
      */
     // TODO 使用定时任务，根据excel表读取数据插入数据库
-    @Scheduled(cron = "0 0 0 * * ? ")
+    @Scheduled(cron = "0 0 0 * * ?")
     public DailyShareInfo createDailyShare() throws MyException {
+
+        long[] dailyShareCount = {1, 1, 1};
+        for (int i = 0; i < 3; i++) {
+            QueryWrapper<DailyShare> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("type", CommonConstants.DAILY_SHARE_TYPE[i]);
+            dailyShareCount[i] = dailyShareMapper.selectCount(queryWrapper) + 1;
+        }
+
         // TODO 添加每日分享到数据库
+        String excelFilePath = CommonConstants.LINUX_RESOURCES_STATIC_PATH + "dailyShare.xlsx";
+//        String excelFilePath = CommonConstants.WINDOWS_RESOURCES_STATIC_PATH+ "dailyShare.xlsx";
+
+        try (FileInputStream fis = new FileInputStream(excelFilePath);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+            for (int i = 0; i < 3; i++) {
+                Sheet sheet = workbook.getSheetAt(i); // 获取工作表
+                String type = CommonConstants.DAILY_SHARE_TYPE[i];
+
+                int count = -1;
+
+                for (Row row : sheet) {
+                    count++;
+                    if (count < dailyShareCount[i]) {
+                        continue;
+                    }
+                    if (count > dailyShareCount[i]) {
+                        break;
+                    }
+                    if (row.getRowNum() == 0) continue; // 跳过标题行
+
+                    Cell firstCell = row.getCell(0);
+                    Cell secondCell = row.getCell(1);
+                    Cell thirdCell = row.getCell(2);
+
+                    if (firstCell != null && secondCell != null && thirdCell != null) {
+                        String firstValue = firstCell.getStringCellValue();
+                        String secondValue = secondCell.getStringCellValue();
+                        String thirdValue = thirdCell.getStringCellValue();
+
+                        DailyShare dailyShare = DailyShare.builder()
+                                .context(secondValue)
+                                .createTime(LocalDateTime.now())
+                                .commentCount(0)
+                                .likes(0)
+                                .favorite(0)
+                                .view(0L)
+                                .picture(thirdValue)
+                                .type(type)
+                                .title(firstValue)
+                                .id(type + '-' + dailyShareCount[i])
+                                .deleteTime(null)
+                                .share(0)
+                                .build();
+
+                        if (dailyShareMapper.insert(dailyShare) == 0) {
+                            throw new MyException(EnumExceptionType.INSERT_FAILED);
+                        }
+
+                        System.out.println("插入成功：" + dailyShare);
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "RefreshSuccessful",
+      "value": "刷新成功"
+    },
+    {
+      "name": "LogOut",
+      "value": "退出登录"
+    },
+    {
+      "name": "Refreshing",
+      "value": "正在上拉刷新..."
+    },
+    {
+      "name": "ReleaseToRefresh",
+      "value": "放开刷新"
+    },
+    {
+      "name": "Loading_at_risk",
+      "value": "正在玩命加载中..."
+    }
+  ]
+}

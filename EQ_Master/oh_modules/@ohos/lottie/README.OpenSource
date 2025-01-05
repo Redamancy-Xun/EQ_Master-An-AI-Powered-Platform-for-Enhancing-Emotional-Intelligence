@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "lottie-web",
+        "License": "MIT License",
+        "License File": "LICENSE.md",
+        "Version Number": "5.10.2",
+        "Owner": "xiafeng@huawei.com",
+        "Upstream URL": "https://github.com/airbnb/lottie-web",
+        "Description": "Render After Effects animations natively on Web, Android and iOS, and React Native. http://airbnb.io/lottie/"
+    }
+]

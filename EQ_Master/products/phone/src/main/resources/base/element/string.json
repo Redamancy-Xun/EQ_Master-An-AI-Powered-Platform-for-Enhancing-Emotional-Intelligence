@@ -655,6 +655,754 @@
     {
       "name": "dependency_reason",
       "value": "Used to initiate network data requests."
+    },
+    {
+      "name": "news_title_image_height",
+      "value": "16vp"
+    },
+    {
+      "name": "news_title_image_width",
+      "value": "40vp"
+    },
+    {
+      "name": "list_image_weight",
+      "value": "110vp"
+    },
+    {
+      "name": "list_image_height",
+      "value": "110vp"
+    },
+    {
+      "name": "image_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "location_desc",
+      "value": "Allow the app to obtain the device's location information in the news homepage scenario"
+    },
+    {
+      "name": "approximately_location_desc",
+      "value": "Allow the app to obtain the device's approximate location information in the news homepage scenario"
+    },
+    {
+      "name": "news_page_height",
+      "value": "93.3%"
+    },
+    {
+      "name": "news_List_width",
+      "value": "100%"
+    },
+    {
+      "name": "news_list_margin_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "location",
+      "value": "Location"
+    },
+    {
+      "name": "hotCity",
+      "value": "Hot cities in China"
+    },
+    {
+      "name": "news_title_row_height",
+      "value": "20vp"
+    },
+    {
+      "name": "news_title_row_margin_top",
+      "value": "10vp"
+    },
+    {
+      "name": "city_text_width",
+      "value": "23%"
+    },
+    {
+      "name": "city_padding_right",
+      "value": "10%"
+    },
+    {
+      "name": "news_content_height",
+      "value": "14vp"
+    },
+    {
+      "name": "news_content_margin",
+      "value": "10vp"
+    },
+    {
+      "name": "news_column_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "news_row_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "news_item_height",
+      "value": "130vp"
+    },
+    {
+      "name": "text_input_border",
+      "value": "1.5"
+    },
+    {
+      "name": "home_header_stack_width",
+      "value": "95%"
+    },
+    {
+      "name": "mock1",
+      "value": "mockDataThree.json"
+    },
+    {
+      "name": "mock2",
+      "value": "mockDataFour.json"
+    },
+    {
+      "name": "refresh",
+      "value": "Refresh successful"
+    },
+    {
+      "name": "search_text",
+      "value": "search"
+    },
+    {
+      "name": "get_location",
+      "value": "Get location"
+    },
+    {
+      "name": "tab_bar_option_zero",
+      "value": "每日分享"
+    },
+    {
+      "name": "tab_bar_option_one",
+      "value": "AI助手"
+    },
+    {
+      "name": "tab_bar_option_two",
+      "value": "情商测验"
+    },
+    {
+      "name": "tab_bar_option_three",
+      "value": "个人中心"
+    },
+    {
+      "name": "blank_view_text",
+      "value": "No data available at the moment"
+    },
+    {
+      "name": "tab_bar_type1",
+      "value": "All"
+    },
+    {
+      "name": "tab_bar_type2",
+      "value": "Domestic"
+    },
+    {
+      "name": "tab_bar_type3",
+      "value": "International"
+    },
+    {
+      "name": "tab_bar_type4",
+      "value": "Entertainment"
+    },
+    {
+      "name": "tab_bar_type5",
+      "value": "Military"
+    },
+    {
+      "name": "tab_bar_type6",
+      "value": "Sports"
+    },
+    {
+      "name": "tab_bar_type7",
+      "value": "Science and technology"
+    },
+    {
+      "name": "tab_bar_type8",
+      "value": "Finance and Economics"
+    },
+    {
+      "name": "question",
+      "value": "考验情商的热门问题"
+    },
+    {
+      "name": "tip",
+      "value": "提升情商小技巧"
+    },
+    {
+      "name": "story",
+      "value": "情商趣味故事"
+    },
+    {
+      "name": "recently",
+      "value": "Recent Plays"
+    },
+    {
+      "name": "photo",
+      "value": "camera"
+    },
+    {
+      "name": "more",
+      "value": "more >"
+    },
+    {
+      "name": "movie_classic",
+      "value": "Selected Films"
+    },
+    {
+      "name": "lately",
+      "value": "latest"
+    },
+    {
+      "name": "like",
+      "value": "like"
+    },
+    {
+      "name": "comment",
+      "value": "comment"
+    },
+    {
+      "name": "share",
+      "value": "share"
+    },
+    {
+      "name": "movie",
+      "value": "movie"
+    },
+    {
+      "name": "movie_description_1",
+      "value": "@HarmonyOS Official website"
+    },
+    {
+      "name": "movie_description_2",
+      "value": "#HarmonyOS Huawei Developer Conference"
+    },
+    {
+      "name": "TV",
+      "value": "TV"
+    },
+    {
+      "name": "game",
+      "value": "Game"
+    },
+    {
+      "name": "live",
+      "value": "Live"
+    },
+    {
+      "name": "entertainment",
+      "value": "Entertainment"
+    },
+    {
+      "name": "shared_desc",
+      "value": "description"
+    },
+    {
+      "name": "placeholder",
+      "value": "搜索或输入网址"
+    },
+    {
+      "name": "read_total_rank",
+      "value": "查看完整榜单"
+    },
+    {
+      "name": "follow",
+      "value": "关注"
+    },
+    {
+      "name": "found",
+      "value": "发现"
+    },
+    {
+      "name": "read_total",
+      "value": "查看全部"
+    },
+    {
+      "name": "follow_list_name_1",
+      "value": "摄影视觉"
+    },
+    {
+      "name": "follow_list_date_1",
+      "value": "2小时前·发布了动态"
+    },
+    {
+      "name": "follow_list_type_1",
+      "value": "登山"
+    },
+    {
+      "name": "follow_list_subtype_1",
+      "value": "旅游"
+    },
+    {
+      "name": "follow_list_content_1",
+      "value": "在山顶，你会觉得山再巍峨，人也能把它征服，而此时的…"
+    },
+    {
+      "name": "follow_list_name_2",
+      "value": "大自然的风采"
+    },
+    {
+      "name": "follow_list_date_2",
+      "value": "11小时前·发布了动态"
+    },
+    {
+      "name": "follow_list_name_3",
+      "value": "山水"
+    },
+    {
+      "name": "follow_list_date_3",
+      "value": "3小时前·发布了动态"
+    },
+    {
+      "name": "follow_list_name_4",
+      "value": "最科技评测"
+    },
+    {
+      "name": "follow_list_date_4",
+      "value": "刚刚"
+    },
+    {
+      "name": "follow_list_name_5",
+      "value": "故宫画家"
+    },
+    {
+      "name": "follow_list_name_6",
+      "value": "国学展览"
+    },
+    {
+      "name": "follow_list_date_6",
+      "value": "8小时前·发布了动态"
+    },
+    {
+      "name": "follow_list_name_7",
+      "value": "自然社区"
+    },
+    {
+      "name": "follow_list_name_8",
+      "value": "摄影视效"
+    },
+    {
+      "name": "follow_list_date_8",
+      "value": "13小时前·发布了动态"
+    },
+    {
+      "name": "follow_list_name_9",
+      "value": "国学探究"
+    },
+    {
+      "name": "follow_detail_name_1",
+      "value": "全部关注"
+    },
+    {
+      "name": "follow_detail_name_2",
+      "value": "大自然的风采"
+    },
+    {
+      "name": "follow_detail_name_3",
+      "value": "科技评测"
+    },
+    {
+      "name": "follow_detail_name_4",
+      "value": "风景画家"
+    },
+    {
+      "name": "follow_detail_name_5",
+      "value": "自然社区"
+    },
+    {
+      "name": "follow_detail_name_6",
+      "value": "自然社区"
+    },
+    {
+      "name": "follow_detail_content_1",
+      "value": "摄影/10粉丝"
+    },
+    {
+      "name": "follow_detail_content_2",
+      "value": "摄影/5万粉丝"
+    },
+    {
+      "name": "follow_detail_content_3",
+      "value": "20万粉丝"
+    },
+    {
+      "name": "follow_detail_content_4",
+      "value": "快速评测"
+    },
+    {
+      "name": "follow_detail_content_5",
+      "value": "爱山爱水"
+    },
+    {
+      "name": "follow_detail_content_6",
+      "value": "国学认证"
+    },
+    {
+      "name": "follow_detail_content_7",
+      "value": "3万粉丝"
+    },
+    {
+      "name": "follow_detail_content_8",
+      "value": "2小时前发布了..."
+    },
+    {
+      "name": "follow_title_content",
+      "value": "的动态"
+    },
+    {
+      "name": "today_hot_search",
+      "value": "今日热搜"
+    },
+    {
+      "name": "news_hot_search",
+      "value": "要闻热搜"
+    },
+    {
+      "name": "same_city_hot_search",
+      "value": "同城热搜"
+    },
+    {
+      "name": "entertainment_hot_search",
+      "value": "娱乐热搜"
+    },
+    {
+      "name": "food_hot_search",
+      "value": "美食热搜"
+    },
+    {
+      "name": "name_1",
+      "value": "小鱼儿"
+    },
+    {
+      "name": "name_2",
+      "value": "熊猫大人"
+    },
+    {
+      "name": "name_3",
+      "value": "飞行日记"
+    },
+    {
+      "name": "name_4",
+      "value": "江湖旅客"
+    },
+    {
+      "name": "name_5",
+      "value": "摄影D叔"
+    },
+    {
+      "name": "name_6",
+      "value": "柯基可可"
+    },
+    {
+      "name": "name_7",
+      "value": "会飞的鱼儿"
+    },
+    {
+      "name": "name_8",
+      "value": "摄影学家王教授"
+    },
+    {
+      "name": "name_9",
+      "value": "雪中小镇"
+    },
+    {
+      "name": "name_10",
+      "value": "江湖游客"
+    },
+    {
+      "name": "name_11",
+      "value": "吕家寨子"
+    },
+    {
+      "name": "author_type_1",
+      "value": "环保领域作者"
+    },
+    {
+      "name": "author_type_2",
+      "value": "科技领域作者"
+    },
+    {
+      "name": "author_type_3",
+      "value": "旅行领域作者"
+    },
+    {
+      "name": "author_type_4",
+      "value": "风景摄影领域作者"
+    },
+    {
+      "name": "content_1",
+      "value": "亲近大海，领悟海，体会到了海的心声，海自然与你共鸣，无需可以强求，也无需费力搜寻，海，始终都会以潮声与你相亲，已其海色伴你舒适。亲近大海，领悟海，体会到了海的心声，海自然与你共鸣，无需可以强求，也无需费力搜寻，海，始终都会以潮声与你相亲，已其海色伴你舒适。"
+    },
+    {
+      "name": "content_2",
+      "value": "野生动物与宠物动物，可爱的动物人人都喜欢。野生动物与宠物动物，可爱的动物人人都喜欢。野生动物与宠物动物，可爱的动物人人都喜欢。野生动物与宠物动物，可爱的动物人人都喜欢。野生动物与宠物动物，可爱的动物人人都喜欢。野生动物与宠物动物，可爱的动物人人都喜欢。"
+    },
+    {
+      "name": "content_3",
+      "value": "君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。烹羊宰牛且为乐，会须一饮三百杯。岑夫子，丹丘生，将进酒，杯莫停。与君歌一曲，请君为我倾耳听。钟鼓馔玉不足贵，但愿长醉不愿醒。古来圣贤皆寂寞，惟有饮者留其名。陈王昔时宴平乐，斗酒十千恣欢谑。主人何为言少钱，径须沽取对君酌。五花马，千金裘，呼儿将出换美酒，与尔同销万古愁。"
+    },
+    {
+      "name": "content_4",
+      "value": "群鸟，仿佛从大地的心窝飞起的音符。旋风似的从田野腾空而起。小鸟的头部两侧镶嵌着一双宝石般的小眼睛，嘴巴长长的，上面是它的小鼻子。群鸟，仿佛从大地的心窝飞起的音符。旋风似的从田野腾空而起。小鸟的头部两侧镶嵌着一双宝石般的小眼睛，嘴巴长长的，上面是它的小鼻子。"
+    },
+    {
+      "name": "content_5",
+      "value": "伫立于河流两岸的山峦，如同沉默无言的僧侣，眺望着远方。伫立于河流两岸的山峦，如同沉默无言的僧侣，眺望着远方。伫立于河流两岸的山峦，如同沉默无言的僧侣，眺望着远方。伫立于河流两岸的山峦，如同沉默无言的僧侣，眺望着远方。"
+    },
+    {
+      "name": "content_6",
+      "value": "九如山的山，山山相连，连绵起伏。山腰盘旋的那曲折险峻的实木栈道，如缕缕飘带缠绕在绿水青山之中，成为一道独特的亮丽风景；幽深的小谷之中，升腾着鬼神莫测的云雾。九如山的山，山山相连，连绵起伏。山腰盘旋的那曲折险峻的实木栈道，如缕缕飘带缠绕在绿水青山之中，成为一道独特的亮丽风景；幽深的小谷之中，升腾着鬼神莫测的云雾。"
+    },
+    {
+      "name": "content_7",
+      "value": "拍的很好啊！赞"
+    },
+    {
+      "name": "content_8",
+      "value": "滚滚长江东逝水，浪花淘尽英雄。"
+    },
+    {
+      "name": "content_9",
+      "value": "这组图片饱含了国风风格"
+    },
+    {
+      "name": "content_10",
+      "value": "会当凌绝顶！"
+    },
+    {
+      "name": "content_11",
+      "value": "拍的真好！爱了爱了！"
+    },
+    {
+      "name": "content_12",
+      "value": "千古江湖图一醉"
+    },
+    {
+      "name": "content_13",
+      "value": "好看，期待更新"
+    },
+    {
+      "name": "content_14",
+      "value": "规范野生动植物管理"
+    },
+    {
+      "name": "content_15",
+      "value": "人类建筑史上的奇迹"
+    },
+    {
+      "name": "content_16",
+      "value": "雾绕青山枝叶绿"
+    },
+    {
+      "name": "content_17",
+      "value": "舞者们台下十年练习之路"
+    },
+    {
+      "name": "content_18",
+      "value": "揭秘宇宙的奥秘"
+    },
+    {
+      "name": "content_19",
+      "value": "欧洲建筑的历史责任在对欧洲..."
+    },
+    {
+      "name": "content_20",
+      "value": "世界十大神奇建筑指的是建筑造型..."
+    },
+    {
+      "name": "content_21",
+      "value": "小小世界的生存智慧是非常..."
+    },
+    {
+      "name": "content_22",
+      "value": "艺术如同一首悠扬的乐曲"
+    },
+    {
+      "name": "content_23",
+      "value": "浩瀚宇宙有边际吗"
+    },
+    {
+      "name": "content_24",
+      "value": "人的精神世界的总和"
+    },
+    {
+      "name": "content_25",
+      "value": "夏天的气息扑面而来"
+    },
+    {
+      "name": "content_26",
+      "value": "这里的花开了"
+    },
+    {
+      "name": "content_27",
+      "value": "旅行是种什么体验"
+    },
+    {
+      "name": "content_28",
+      "value": "吉他有许多不同的音色"
+    },
+    {
+      "name": "content_29",
+      "value": "轻轻地拂过我的耳畔"
+    },
+    {
+      "name": "content_30",
+      "value": "静下来做事是难得的品质"
+    },
+    {
+      "name": "content_31",
+      "value": "红彤彤的苹果像小灯笼"
+    },
+    {
+      "name": "content_32",
+      "value": "带你去吃健康的蔬菜"
+    },
+    {
+      "name": "content_33",
+      "value": "儿时香甜的味道"
+    },
+    {
+      "name": "time_position_1",
+      "value": "10分钟前·来自上海"
+    },
+    {
+      "name": "time_position_2",
+      "value": "10-23·来自上海"
+    },
+    {
+      "name": "time_position_3",
+      "value": "10-22·来自上海"
+    },
+    {
+      "name": "time_position_4",
+      "value": "10-21·来自上海"
+    },
+    {
+      "name": "time_position_5",
+      "value": "10-19·来自上海"
+    },
+    {
+      "name": "time_position_6",
+      "value": "10-13·来自上海"
+    },
+    {
+      "name": "sub_content_1",
+      "value": "长江：对了//@森林：是佳能拍出的效果啊，太赞了"
+    },
+    {
+      "name": "title_1",
+      "value": "野生动物保护"
+    },
+    {
+      "name": "title_2",
+      "value": "世界有名建筑"
+    },
+    {
+      "name": "title_3",
+      "value": "茶叶的神奇功效"
+    },
+    {
+      "name": "title_4",
+      "value": "舞动者们"
+    },
+    {
+      "name": "title_5",
+      "value": "宇宙最遥远的样子"
+    },
+    {
+      "name": "title_6",
+      "value": "建筑人文"
+    },
+    {
+      "name": "title_7",
+      "value": "世界十大神奇建筑"
+    },
+    {
+      "name": "title_8",
+      "value": "生命之谜语"
+    },
+    {
+      "name": "title_9",
+      "value": "艺术之美"
+    },
+    {
+      "name": "title_10",
+      "value": "太空高清图片"
+    },
+    {
+      "name": "title_11",
+      "value": "心灵的修行"
+    },
+    {
+      "name": "title_12",
+      "value": "夏天来了"
+    },
+    {
+      "name": "title_13",
+      "value": "新的打卡景点"
+    },
+    {
+      "name": "title_14",
+      "value": "带宠物去旅行"
+    },
+    {
+      "name": "title_15",
+      "value": "吉他之声"
+    },
+    {
+      "name": "title_16",
+      "value": "聆听美妙的声音"
+    },
+    {
+      "name": "title_17",
+      "value": "安静的工作"
+    },
+    {
+      "name": "title_18",
+      "value": "超市的果子"
+    },
+    {
+      "name": "title_19",
+      "value": "蔬菜种植"
+    },
+    {
+      "name": "title_20",
+      "value": "儿时的味道"
+    },
+    {
+      "name": "rank_title",
+      "value": "热搜榜单"
+    },
+    {
+      "name": "ran_sub_title",
+      "value": "最新最热大事件都在这"
+    },
+    {
+      "name": "detail_write_comment",
+      "value": "写评论"
+    },
+    {
+      "name": "comment_list_title",
+      "value": "评论"
+    },
+    {
+      "name": "card_detail_title",
+      "value": "详情页"
+    },
+    {
+      "name": "blog_follow",
+      "value": "关注"
+    },
+    {
+      "name": "author_type_name",
+      "value": "楼主"
+    },
+    {
+      "name": "replay",
+      "value": "回复"
+    },
+    {
+      "name": "read_all_replay",
+      "value": "查看全部回复"
     }
   ]
 }

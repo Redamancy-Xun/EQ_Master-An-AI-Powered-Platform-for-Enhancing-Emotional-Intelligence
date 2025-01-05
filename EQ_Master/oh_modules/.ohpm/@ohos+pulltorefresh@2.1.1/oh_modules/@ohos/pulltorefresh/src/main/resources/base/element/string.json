@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from npm package"
+    },
+    {
+      "name": "RefreshSuccessful",
+      "value": "Refresh successful."
+    },
+    {
+      "name": "LogOut",
+      "value": "Log Out"
+    },
+    {
+      "name": "Refreshing",
+      "value": "Refreshing..."
+    },
+    {
+      "name": "ReleaseToRefresh",
+      "value": "Release to refresh"
+    },
+    {
+      "name": "Loading_at_risk",
+      "value": "Loading..."
+    }
+  ]
+}

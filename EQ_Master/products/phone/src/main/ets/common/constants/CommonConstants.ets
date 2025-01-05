@@ -2,6 +2,11 @@ import NewsTypeModel from '../../viewmodel/NewsTypeModel';
 
 export class CommonConstants{
   /**
+   * Half percent.
+   */
+  static readonly HALF_PERCENT: string = '50%';
+
+  /**
    * The text high
    */
   static TEXT_HEIGHT: number = 50;
@@ -119,7 +124,7 @@ export class CommonConstants{
   /**
    * Login page url.
    */
-  static readonly LOGIN_PAGE_URL: string = 'pages/login/LoginPage';
+  static readonly LOGIN_PAGE_URL: string = 'pages/LoginPage';
 
   /**
    * Display countdown seconds.
@@ -194,7 +199,7 @@ export class CommonConstants{
   /**
    * App home page url.
    */
-  static readonly APP_HOME_PAGE_URL: string = 'pages/dailyshare/HomePage';
+  static readonly APP_HOME_PAGE_URL: string = 'pages/HomePage';
 
   /**
    * Common layout weight.
@@ -221,6 +226,11 @@ export class CommonConstants{
   static readonly APP_HOME_PAGE_TAG: string = 'HomePage';
 
   /**
+   * The dailyShare page tag.
+   */
+  static readonly DAILY_SHARE_PAGE_TAG: string = 'DailySharePage';
+
+  /**
    * First page url.
    */
   static readonly First_PAGE_URL: string = 'pages/launcher/FirstPage';
@@ -234,6 +244,26 @@ export class CommonConstants{
    * Third page url.
    */
   static readonly Third_PAGE_URL: string = 'pages/launcher/ThirdPage';
+
+  /**
+   * Daily share page url.
+   */
+  static readonly DAILY_SHARE_TYPE_PAGE_URL: string = 'pages/dailyshare/DailyShareTypeShow';
+
+  /**
+   * Daily share page url.
+   */
+  static readonly DAILY_SHARE_TYPE_PAGE_TAG: string = 'DailyShareTypeShow';
+
+  /**
+   * Daily share page url.
+   */
+  static readonly DAILY_SHARE_DETAIL_PAGE_URL: string = 'pages/dailyshare/DailyShareDetailShow';
+
+  /**
+   * Daily share page url.
+   */
+  static readonly DAILY_SHARE_DETAIL_PAGE_TAG: string = 'DailyShareDetailShow';
 
   /**
    * Input length of the account.
@@ -281,14 +311,24 @@ export class CommonConstants{
   static readonly PROMPT_AUTH_DURATION: number = 1000;
 
   /**
-   * Home tab index.
+   * Daily share tab index.
    */
   static readonly HOME_TAB_INDEX: number = 0;
 
   /**
+   * AIChat tab index.
+   */
+  static readonly AICHAT_TAB_INDEX: number = 1;
+
+  /**
+   * Test tab index.
+   */
+  static readonly TEST_TAB_INDEX: number = 2;
+
+  /**
    * Mine tab index.
    */
-  static readonly MINE_TAB_INDEX: number = 1;
+  static readonly MINE_TAB_INDEX: number = 3;
 
   /**
    * Convert milliseconds to seconds.
@@ -459,6 +499,662 @@ export class CommonConstants{
    * The http timeout duration.
    */
   static readonly HTTP_READ_TIMEOUT: number = 10000;
+
+  /**
+   * Full percent.
+   */
+  public static readonly FULL_PERCENT: string = '100%';
+
+  /**
+   * Ninety percent.
+   */
+  public static readonly NINETY_PERCENT: string = '90%';
+
+  /**
+   * Common zero.
+   */
+  public static readonly ZERO: number = 0;
+
+  /**
+   * Font weight 500.
+   */
+  public static readonly FONT_WEIGHT_500: number = 500;
+
+  /**
+   * Font weight 400.
+   */
+  public static readonly FONT_WEIGHT_400: number = 400;
+
+  /**
+   * Maximum number of lines of text.
+   */
+  public static readonly MAX_LINES: number = 3;
+
+  /**
+   * Indicates the maximum number of addresses returned by reverse geocoding query..
+   */
+  public static readonly MAX_ITEMS: number = 1;
+
+  /**
+   * Layout weight.
+   */
+  public static readonly LAYOUT_WEIGHT: number = 1;
+
+  /**
+   * ListItem space.
+   */
+  public static readonly LIST_ITEM_SPACE: number = 14;
+
+  /**
+   * List space.
+   */
+  public static readonly LIST_SPACE: number = 3;
+
+  /**
+   * AlphabetIndexer itemSize.
+   */
+  public static readonly ITEM_SIZE: number = 20;
+
+  /**
+   * Text opacity.
+   */
+  public static readonly TEXT_OPACITY: number[] = [1, 0.4, 0.6, 0.05];
+
+  /**
+   * Device types.
+   */
+  public static readonly DEVICE_TYPES: string[] = ['2in1', 'tablet'];
+
+  /**
+   * Tab bar height for sm and md.
+   */
+  public static readonly TAB_BAR_HEIGHT: number = 35;
+
+  /**
+   * animation duration of tab content switching.
+   */
+  static readonly DURATION_PAGE = 50;
+
+  /**
+   * animation duration of tab content switching.
+   */
+  static readonly DURATION_ADS = 200;
+
+  /**
+   * height of head portrait.
+   */
+  static readonly HEIGHT_HEAD = 40;
+
+  /**
+   * height of carousel title.
+   */
+  static readonly HEIGHT_CAROUSEL_TITLE = 90;
+
+  /**
+   * fontSize of description.
+   */
+  static readonly FONT_SIZE_DESCRIPTION = 12;
+
+  /**
+   * font size of photo name.
+   */
+  static readonly FONT_SIZE_PHOTO_NAME = 14;
+
+  /**
+   * font size of sort title.
+   */
+  static readonly FONT_SIZE_SORT_TITLE = 16;
+
+  /**
+   * font size of unchecked title.
+   */
+  static readonly FONT_SIZE_UNCHECKED = 18;
+
+  /**
+   * font size of title.
+   */
+  static readonly FONT_SIZE_TITLE = 20;
+
+  /**
+   * font size of checked title.
+   */
+  static readonly FONT_SIZE_CHECKED = 24;
+
+  /**
+   * font size of tab page which content has only tab name.
+   */
+  static readonly FONT_SIZE_PAGE_CONTENT = 28;
+
+  /**
+   * thinner font.
+   */
+  static readonly FONT_WEIGHT_LIGHT = 400;
+
+  /**
+   * normal font.
+   */
+  static readonly FONT_WEIGHT_NORMAL = 500;
+
+  /**
+   * bold font.
+   */
+  static readonly FONT_WEIGHT_BOLD = 700;
+
+  /**
+   * border angle.
+   */
+  static readonly BORDER_RADIUS = 12;
+
+  /**
+   * line height for more.
+   */
+  static readonly LINE_HEIGHT_MORE = 19;
+
+  /**
+   * line height for navigation.
+   */
+  static readonly LINE_HEIGHT_NAVIGATION = 28;
+
+  /**
+   * space of topBar.
+   */
+  static readonly SPACE_TOP_BAR = 16;
+
+  /**
+   * space of navigation.
+   */
+  static readonly SPACE_NAVIGATION = 8;
+
+  /**
+   * border width of head portrait.
+   */
+  static readonly WIDTH_HEAD_BORDER = 2;
+
+  /**
+   * width of head portrait.
+   */
+  static readonly WIDTH_HEAD = 40;
+
+  /**
+   * radius of head portrait.
+   */
+  static readonly RADIUS_HEAD = 20;
+
+  /**
+   * rolling duration.
+   */
+  static readonly SWIPER_TIME = 3300;
+
+  /**
+   * margin of play page.
+   */
+  static readonly MARGIN_PLAY_PAGE = 10;
+
+  /**
+   * margin of text bottom.
+   */
+  static readonly BOTTOM_TEXT = 4;
+
+  /**
+   * margin of banner top.
+   */
+  static readonly TOP_ADS = 12;
+
+  /**
+   * margin of navigation left.
+   */
+  static readonly LEFT_POSITION = '3%';
+
+  /**
+   * margin of banner left.
+   */
+  static readonly ADS_LEFT = 12;
+
+  /**
+   * top margin of picture name.
+   */
+  static readonly TOP_NAME = 8;
+
+  /**
+   * top margin of picture description.
+   */
+  static readonly TOP_DESCRIPTION = 4;
+
+  /**
+   * top margin of vote icon.
+   */
+  static readonly TOP_IMAGE_VOTE = 20;
+
+  /**
+   * top margin of head portrait.
+   */
+  static readonly TOP_HEAD = 40;
+
+  /**
+   * width of play model.
+   */
+  static readonly WIDTH_PLAY = '95%';
+
+  /**
+   * width of tab page.
+   */
+  static readonly PAGE_WIDTH = '94.4%';
+
+  /**
+   * width of sort name.
+   */
+  static readonly WIDTH_SORT_NAME = '62.2%';
+
+  /**
+   * sort content width of all.
+   */
+  static readonly WIDTH_SORT = '92%';
+
+  /**
+   * sort content width of movie.
+   */
+  static readonly WIDTH_MOVIE_SORT = '90%';
+
+  /**
+   * width of picture.
+   */
+  static readonly WIDTH_PICTURE = '72%';
+
+  /**
+   * height of banner.
+   */
+  static readonly HEIGHT_BANNER = '30%';
+
+  /**
+   * width of vote icon.
+   */
+  static readonly WIDTH_VOTE = '8.9%';
+
+  /**
+   * width of back icon.
+   */
+  static readonly WIDTH_BACK_ICON = '6.7%';
+
+  /**
+   * top margin of sort.
+   */
+  static readonly MARGIN_TOP_SORT = '3.2%';
+
+  /**
+   * bottom margin of sort.
+   */
+  static readonly MARGIN_BOTTOM_SORT = '2.7%';
+
+  /**
+   * bottom margin of grid.
+   */
+  static readonly MARGIN_BOTTOM_GRID = '4.2%';
+
+  /**
+   * height of video.
+   */
+  static readonly WIDTH_VIDEO = '26.2%';
+
+  /**
+   * number of columns.
+   */
+  static readonly TWO_COLUMNS = '1fr 1fr';
+
+  /**
+   * number of rows.
+   */
+  static readonly TWO_ROWS = '1fr 1fr';
+
+  /**
+   * number of columns.
+   */
+  static readonly THREE_COLUMNS = '1fr 1fr 1fr';
+
+  /**
+   * number of rows.
+   */
+  static readonly THREE_ROWS = '1fr 1fr 1fr';
+
+  /**
+   * gap of columns.
+   */
+  static readonly GAP_COLUMNS = '2.2%';
+
+  /**
+   * height of grid.
+   */
+  static readonly HEIGHT_GRID = '45%';
+
+  /**
+   * height of movie description.
+   */
+  static readonly HEIGHT_DESCRIPTION = '12.3%';
+
+  /**
+   * height of top bar.
+   */
+  static readonly TOP_BAR_HEIGHT = '7.2%';
+
+  /**
+   * height of comment icon.
+   */
+  static readonly HEIGHT_COMMENT = '4.1%';
+
+  /**
+   * height of back icon.
+   */
+  static readonly HEIGHT_BACK_ICON = '3.1%';
+
+  /**
+   * horizontal position of comment.
+   */
+  static readonly OFFSET_COMMENT_X = '-5%';
+
+  /**
+   * vertical position of comment.
+   */
+  static readonly OFFSET_COMMENT_Y = '10%';
+
+  /**
+   * vertical position of description.
+   */
+  static readonly OFFSET_DESCRIPTION_Y = '45%';
+
+  /**
+   * start position.
+   */
+  static readonly START_POSITION = '0%';
+
+  /**
+   * video play page.
+   */
+  static readonly PLAY_PAGE = 'pages/PageVideo';
+
+  /**
+   * home page.
+   */
+  static readonly HOME_PAGE = 'pages/SwiperIndex';
+
+  /**
+   * Rank item margin left sm.
+   */
+  static readonly RANK_ITEM_ML_SM: string = '2.2%';
+
+  /**
+   * Rank item margin left md.
+   */
+  static readonly RANK_ITEM_ML_MD: string = '1.2%';
+
+  /**
+   * Rank item margin left lg.
+   */
+  static readonly RANK_ITEM_ML_LG: string = '1.2%';
+
+  /**
+   * Rank title margin left.
+   */
+  static readonly RANK_TITLE_MARGIN_LEFT: string = '2.2%';
+
+  /**
+   * Search bar width md.
+   */
+  static readonly SEARCH_BAR_WIDTH_MD: string = '27.2%';
+
+  /**
+   *Search bar width lg.
+   */
+  static readonly SEARCH_BAR_WIDTH_LG: string = '18.1%';
+
+  /**
+   * Animation duration.
+   */
+  static readonly TAB_ANIMATION_DURATION: number = 300;
+
+  /**
+   * Water flow columns template normal.
+   */
+  static readonly WATER_FLOW_COLUMNS_TEMPLATE_NORMAL: string = '1fr';
+
+  /**
+   * Water flow columns template lg.
+   */
+  static readonly WATER_FLOW_COLUMNS_TEMPLATE_LG: string = '1fr 1fr';
+
+  /**
+   * Hot column item space sm.
+   */
+  static readonly HOT_COLUMN_IS_SM:string = '0vp';
+
+  /**
+   * Hot column item space md.
+   */
+  static readonly HOT_COLUMN_IS_MD:string = '49vp';
+
+  /**
+   * Hot column item space lg.
+   */
+  static readonly HOT_COLUMN_IS_LG:string = '81vp';
+
+  /**
+   * Swiper display count one.
+   */
+  static readonly SWIPER_DISPLAY_COUNT_ONE: number = 1;
+
+  /**
+   * Swiper display count two.
+   */
+  static readonly SWIPER_DISPLAY_COUNT_TWO: number = 2;
+
+  /**
+   * Swiper display count three.
+   */
+  static readonly SWIPER_DISPLAY_COUNT_THREE: number = 3;
+
+  /**
+   * Hot column max count.
+   */
+  static readonly HOT_COLUMN_MAX_COUNT: number = 5;
+
+  /**
+   * Hot item column space.
+   */
+  static readonly HOT_ITEM_COLUMN_SPACE: string = '4vp';
+
+  /**
+   * Top count.
+   */
+  static readonly TOP_COUNT: number = 3;
+
+  /**
+   * Search bar opacity.
+   */
+  static readonly SEARCH_BAR_OPACITY: number = 0.9;
+
+  /**
+   * Card item shadow radius.
+   */
+  static readonly CARD_ITEM_SHADOW_RADIUS: number = 10;
+
+  /**
+   * Icon more opacity.
+   */
+  static readonly ICON_MORE_OPACITY: number = 0.4;
+
+  /**
+   * Window padding sm.
+   */
+  static readonly WINDOW_PADDING_SM: string = '16vp';
+
+  /**
+   * Window padding md.
+   */
+  static readonly WINDOW_PADDING_MD: string = '23vp';
+
+  /**
+   * Window padding lg.
+   */
+  static readonly WINDOW_PADDING_LG: string = '32vp';
+
+  /**
+   * Linear gradient angel.
+   */
+  static readonly LINEAR_GRADIENT_ANGEL: number = 180;
+
+  /**
+   * Linear gradient from color.
+   */
+  static readonly LINEAR_GRADIENT_FROM_COLOR: string = '#FFFFFF';
+
+  /**
+   * Linear gradient to color.
+   */
+  static readonly LINEAR_GRADIENT_TO_COLOR: string = '#F1F3F5';
+
+  /**
+   * Linear gradient to area.
+   */
+  static readonly LINEAR_GRADIENT_TO_AREA: number = 0.02;
+
+  /**
+   * Follow item picture max height.
+   */
+  static readonly FOLLOW_ITEM_PICTURE_MAX_HEIGHT: string = '60%';
+
+  /**
+   * Follow title space.
+   */
+  static readonly FOLLOW_TITLE_SPACE: string = '24vp';
+
+  /**
+   * Linear gradient angle.
+   */
+  static readonly LINEAR_GRADIENT_ANGLE: number = 180;
+
+  /**
+   * Linear gradient from.
+   */
+  static readonly LINEAR_GRADIENT_FROM: number = 0.01;
+
+  /**
+   * Linear gradient to.
+   */
+  static readonly LINEAR_GRADIENT_TO: number = 0.92;
+
+  /**
+   * Subtitle opacity.
+   */
+  static readonly SUBTITLE_OPACITY: number = 0.6;
+
+  /**
+   * Swiper item space.
+   */
+  static readonly SWIPER_ITEM_SPACE: string = '20vp';
+
+  /**
+   * Title content space.
+   */
+  static readonly TITLE_CONTENT_SPACE: string = '4vp';
+
+  /**
+   * Window padding half sm.
+   */
+  static readonly WINDOW_PADDING_HALF_SM = '8vp';
+
+  /**
+   * Comment bar input width.
+   */
+  static readonly COMMENT_BAR_INPUT_WIDTH: string = '40%';
+
+  /**
+   * Comment bar input margin left.
+   */
+  static readonly COMMENT_BAR_INPUT_ML: string = '4.4%';
+
+  /**
+   * Text area max lines.
+   */
+  static readonly TEXT_AREA_MAX_LINES: number = 8;
+
+  /**
+   * Text area max length.
+   */
+  static readonly TEXT_AREA_MAX_LENGTH: number = 500;
+
+  /**
+   * Time position space.
+   */
+  static readonly TIME_POSITION_SPACE: string = '8vp';
+
+  /**
+   * Review count space.
+   */
+  static readonly REVIEW_COUNT_SPACE: string = '2vp';
+
+  /**
+   * Sub content max lines.
+   */
+  static readonly SUB_CONTENT_MAX_LINES: number = 2;
+
+  /**
+   * Max grid column.
+   */
+  static readonly MAX_GRID_COLUMN: number = 3;
+
+  /**
+   * Grid columns template.
+   */
+  static readonly GRID_COLUMNS_TEMPLATE: string = '1fr 1fr 1fr';
+
+  /**
+   * Pinch gesture fingers.
+   */
+  static readonly PINCH_GESTURE_FINGERS: number = 2;
+
+  /**
+   * Suffix fp.
+   */
+  static readonly SUFFIX_FP: string = 'fp';
+
+  /**
+   * Suffix vp.
+   */
+  static readonly SUFFIX_VP: string = 'vp';
+
+  /**
+   * Max scale.
+   */
+  static readonly MAX_SCALE: number = 1.45;
+
+  /**
+   * Min scale.
+   */
+  static readonly MIN_SCALE: number = 0.75;
+
+  /**
+   * Content font size.
+   */
+  static readonly CONTENT_FONT_SIZE: number = 16;
+
+  /**
+   * Content font height.
+   */
+  static readonly CONTENT_FONT_HEIGHT: number = 25.6;
+
+  /**
+   * Picture margin top.
+   */
+  static readonly PICTURE_MARGIN_TOP: number = 8;
+
+
+  /**
+   * Grid horizontal gutter
+   */
+  public static readonly GRID_HORIZONTAL_GUTTER: string[] = ['24vp', '32vp'];
+
+  /**
+   * Grid vertical gutter
+   */
+  public static readonly GRID_VERTICAL_GUTTER: string[] = ['4vp', '16vp'];
 
 
   /**

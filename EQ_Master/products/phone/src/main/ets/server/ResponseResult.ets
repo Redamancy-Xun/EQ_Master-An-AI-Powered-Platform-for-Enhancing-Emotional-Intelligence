@@ -1,6 +1,8 @@
 /**
  * Data returned by the network request.
  */
+import { DailyShare } from './dailyshare/DailyShareData';
+
 export default class ResponseResult {
   /**
    * Code returned by the network request.
@@ -15,11 +17,14 @@ export default class ResponseResult {
   /**
    * Data returned by the network request.
    */
-  result: Object | null;
+  result: DailyShare | Array<Array<DailyShare>> | Array<DailyShare> | string | number | boolean | null;
+
+  // resultDailyShare: string;
 
   constructor() {
     this.code = null;
     this.message = null;
     this.result = null;
+    // this.resultDailyShare = '';
   }
 }

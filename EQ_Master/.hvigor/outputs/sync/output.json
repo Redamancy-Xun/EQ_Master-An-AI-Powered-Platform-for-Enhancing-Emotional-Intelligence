@@ -5,7 +5,9 @@
     "DEPENDENCY_INFO": {
       "@ohos/hamock": "D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+hamock@1.0.0\\oh_modules\\@ohos\\hamock",
       "@nutpi/color-parse": "D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-parse@1.0.0\\oh_modules\\@nutpi\\color-parse",
-      "@nutpi/color-name": "D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-name@1.0.0\\oh_modules\\@nutpi\\color-name"
+      "@nutpi/color-name": "D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-name@1.0.0\\oh_modules\\@nutpi\\color-name",
+      "@ohos/lottie": "D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+lottie@2.0.15\\oh_modules\\@ohos\\lottie",
+      "@ohos/pulltorefresh": "D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+pulltorefresh@2.1.1\\oh_modules\\@ohos\\pulltorefresh"
     },
     "TARGETS": {
       "default": {

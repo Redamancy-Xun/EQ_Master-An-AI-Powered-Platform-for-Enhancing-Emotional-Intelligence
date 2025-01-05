@@ -34,5 +34,5 @@ public class CommonConstants {
     public final static String DEFAULT_SCHOOL = "华东师范大学";
     public static final String DOWNLOAD_PATH = "";
 
-    public static final String[] DAILY_SHARE_TYPE = {"test", "1", "2", "3", "4", "5", "6"};
+    public static final String[] DAILY_SHARE_TYPE = {"question", "tip", "story"};
 }

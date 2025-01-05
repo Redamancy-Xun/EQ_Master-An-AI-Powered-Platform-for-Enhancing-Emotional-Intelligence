@@ -1,0 +1,78 @@
+import { CommonConstants } from '../../common/constants/CommonConstants'
+import { DAILY_SHARE_LIST_QUESTION,
+  DAILY_SHARE_LIST_STORY,
+  DAILY_SHARE_LIST_TIP } from '../../common/constants/DailyShareList'
+import { PictureType } from '../../common/constants/PictureConstants'
+import Logger from '../../common/utils/Logger'
+import PromptUtil from '../../common/utils/PromptUtil'
+import { DailyShare } from '../../server/dailyshare/DailyShareData'
+import DailyShareServer from '../../server/dailyshare/DailyShareServer'
+import ResponseResult from '../../server/ResponseResult'
+import { TitleView } from '../TitleView'
+import { Banner } from './Banner'
+import { DailyShareShow } from './DailyShareShow'
+
+@Entry
+@Component
+export struct DailyShareIndex {
+
+  // TODO 上拉刷新、下拉加载待实现
+  // TODO 懒加载待实现
+
+  getDailyShare(page: number, pageSize: number, type: number) : Array<DailyShare> {
+    let dailyShareList: Array<Array<DailyShare>> = [];
+    Logger.info(CommonConstants.DAILY_SHARE_PAGE_TAG, 'getDailyShare page: ' + page + ' pageSize: ' + pageSize + ' type: ' + type);
+    DailyShareServer.getDailyShareTotalList(page, pageSize).then((data: Array<Array<DailyShare>>) => {
+      dailyShareList = data;
+    }).catch((err: Resource | ResponseResult) => {
+      if (err instanceof ResponseResult) {
+        if (err.message !== null) {
+          PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+        }
+      } else {
+        PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+      }
+    })
+    // Logger.info(CommonConstants.DAILY_SHARE_PAGE_TAG, '!!!!!!!!!!!!!getDailyShare dailyShareList: ' + dailyShareList);
+
+    return dailyShareList[type];
+  }
+
+  build() {
+    Column() {
+      Row() {
+        Text('每日分享')
+          .margin({ top: '1%', bottom: '1.9%' })
+          .fontSize('21fp')
+          .fontColor(Color.Black)
+          .fontWeight(560)
+          .opacity(1)
+      }
+      .width(CommonConstants.FULL_WIDTH)
+      .justifyContent(FlexAlign.Center)
+      // .borderRadius('15vp')
+      .borderColor($r('app.color.hot_title_border_color'))
+      .borderWidth({
+        bottom: ($r('app.float.hot_title_border_width_normal'))
+      })
+      Scroll() {
+        Column() {
+          Banner()
+          Blank()
+            .height('2%')
+          DailyShareShow({ initType: PictureType.QUESTION, intiDailyShare: DAILY_SHARE_LIST_QUESTION.slice(0, 4) })
+          // Blank()
+          //   .height('1%')
+          DailyShareShow({ initType: PictureType.TIP, intiDailyShare: DAILY_SHARE_LIST_TIP.slice(0, 4) })
+          // Blank()
+          //   .height('1%')
+          DailyShareShow({ initType: PictureType.STORY, intiDailyShare: DAILY_SHARE_LIST_STORY.slice(0, 4) })
+          Blank()
+            .height('5%')
+        }
+      }
+      .scrollable(ScrollDirection.Vertical).scrollBar(BarState.Off)
+    }
+    .width(CommonConstants.FULL_WIDTH)
+  }
+}
