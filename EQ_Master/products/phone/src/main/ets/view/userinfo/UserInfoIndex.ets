@@ -65,6 +65,32 @@ struct userImage {//个人主页顶部部分
 
   private fontColor:string = '#c4d2fa'
 
+  getUserInfo() : string {
+    console.log("get user info")
+    const req = http.createHttp()
+    // 假设通过某个API接口检查用户登录状态
+    req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
+      method: http.RequestMethod.GET,
+      header: {
+        'session': PreferenceModel.putPreference('session', '')
+      },
+    }, (err:BusinessError, res:http.HttpResponse)=>{
+      if(!err){
+        let data:userInfo = JSON.parse(res.result.toString());
+        this.userName = data.result.username
+        console.log("get user info: userName is", this.userName)
+      }
+      else {
+        console.info('getUserInfo: error:' + JSON.stringify(err));
+        // 取消订阅HTTP响应头事件
+        req.off('headersReceive');
+        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+        req.destroy();
+      }
+    })
+    return this.userName
+  }
+
   build() {
     Column() {
       Column() {
@@ -91,7 +117,7 @@ struct userImage {//个人主页顶部部分
             console.info('turn into next page')
           })
 
-        Text(this.userName)
+        Text('TestMan')
           .Headline()
           .fontColor(this.fontColor)
           .height('30%')
@@ -199,7 +225,8 @@ export struct UserInfoIndex {
   // 页面加载时检查登录状态并获取用户信息
   onPageShow(): void {
     console.log("加载登陆状态")
-    this.login()
+    // this.login()
+    // this.getUserInfo()
     // this.checkLoginStatus()
     // if (this.isLoggedIn) {
     //   this.getUserInfo()
@@ -210,85 +237,87 @@ export struct UserInfoIndex {
     // }
   }
 
-  // 检查用户是否已登录
-  checkLoginStatus(){ // 保存结果在isLoggedIn中. api返回0: 未登录;1: 已登录
-    const req = http.createHttp()
-    // 假设通过某个API接口检查用户登录状态
-    req.request('https://eqmaster.redamancyxun.fun:8080/user/checkLogin',{
-      method: http.RequestMethod.GET,
-      header: {
-        'session': '3504901a-33bd-421d-b3a4-e9e486638113'
-      },
-    }, (err:BusinessError, res:http.HttpResponse)=>{
-      if(!err){
-        this.isLoggedIn = Boolean(res.result)
-        console.log("login status:",this.isLoggedIn)
-      }
-      else{
-        console.info('checkLoginStatus: error:' + JSON.stringify(err));
-        // 取消订阅HTTP响应头事件
-        req.off('headersReceive');
-        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-        req.destroy();
-      }
+  // // 检查用户是否已登录
+  // checkLoginStatus(){ // 保存结果在isLoggedIn中. api返回0: 未登录;1: 已登录
+  //   const req = http.createHttp()
+  //   // 假设通过某个API接口检查用户登录状态
+  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/checkLogin',{
+  //     method: http.RequestMethod.GET,
+  //     header: {
+  //       'session': '3504901a-33bd-421d-b3a4-e9e486638113'
+  //     },
+  //   }, (err:BusinessError, res:http.HttpResponse)=>{
+  //     if(!err){
+  //       this.isLoggedIn = Boolean(res.result)
+  //       console.log("login status:",this.isLoggedIn)
+  //     }
+  //     else{
+  //       console.info('checkLoginStatus: error:' + JSON.stringify(err));
+  //       // 取消订阅HTTP响应头事件
+  //       req.off('headersReceive');
+  //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+  //       req.destroy();
+  //     }
+  //
+  //   })
+  // }
 
-    })
-  }
+  // getUserInfo() : string {
+  //   console.log("get user info")
+  //   const req = http.createHttp()
+  //   // 假设通过某个API接口检查用户登录状态
+  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
+  //     method: http.RequestMethod.GET,
+  //     header: {
+  //       'session': PreferenceModel.putPreference('session', '')
+  //     },
+  //   }, (err:BusinessError, res:http.HttpResponse)=>{
+  //     if(!err){
+  //       let data:userInfo = JSON.parse(res.result.toString());
+  //       this.userName = data.result.username
+  //       console.log("get user info: userName is", this.userName)
+  //     }
+  //     else {
+  //       console.info('getUserInfo: error:' + JSON.stringify(err));
+  //       // 取消订阅HTTP响应头事件
+  //       req.off('headersReceive');
+  //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+  //       req.destroy();
+  //     }
+  //   })
+  //   return this.userName
+  // }
 
-  getUserInfo(){
-    const req = http.createHttp()
-    // 假设通过某个API接口检查用户登录状态
-    req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
-      method: http.RequestMethod.GET,
-      header: {
-        'session': PreferenceModel.putPreference('session', '')
-      },
-    }, (err:BusinessError, res:http.HttpResponse)=>{
-      if(!err){
-        let data:userInfo = JSON.parse(res.result.toString());
-        this.userName = data.result.username
-        console.log("get user info: userName is", this.userName)
-      }
-      else {
-        console.info('getUserInfo: error:' + JSON.stringify(err));
-        // 取消订阅HTTP响应头事件
-        req.off('headersReceive');
-        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-        req.destroy();
-      }
-    })
-  }
-
-  login(){
-    const req = http.createHttp()
-    // 假设通过某个API接口检查用户登录状态
-    req.request('https://eqmaster.redamancyxun.fun:8080/user/login?telephone=13738780768&password=a13738780768',{
-      method: http.RequestMethod.POST,
-      header: {
-        'session': '7eabd431-817f-49e7-ae84-cca87c24bd3f',
-      },
-      // extraData:{ // 存在问题
-      //   telephone: this.telephone,
-      //   password: this.password
-      // },
-    },(err:BusinessError,res:http.HttpResponse)=>{
-      if(!err){
-        console.log("login successfully")
-        console.info('Result:' + JSON.stringify(res.result));
-        let data:userInfo = JSON.parse(res.result.toString());
-        this.userName = data.result.username
-        this.signature = data.result.signature
-        console.log("get user info: userName is", this.userName)
-      }
-      else{
-        console.info('login: error:' + JSON.stringify(err));
-        // 取消订阅HTTP响应头事件
-        req.off('headersReceive');
-        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-        req.destroy();
-      }
-    })
-  }
+  // login(){
+  //   const req = http.createHttp()
+  //   // 假设通过某个API接口检查用户登录状态
+  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/login?telephone=13738780768&password=a13738780768',{
+  //     method: http.RequestMethod.POST,
+  //     header: {
+  //       'session': '7eabd431-817f-49e7-ae84-cca87c24bd3f',
+  //     },
+  //     // extraData:{ // 存在问题
+  //     //   telephone: this.telephone,
+  //     //   password: this.password
+  //     // },
+  //   },(err:BusinessError,res:http.HttpResponse)=>{
+  //     if(!err){
+  //       console.log("login successfully")
+  //       console.info('Result:' + JSON.stringify(res.result));
+  //       let data:userInfo = JSON.parse(res.result.toString());
+  //       this.userName = data.result.username
+  //       this.signature = data.result.signature
+  //       console.log("get user info: userName is", this.userName)
+  //     }
+  //     else{
+  //       console.info('login: error:' + JSON.stringify(err));
+  //       // 取消订阅HTTP响应头事件
+  //       req.off('headersReceive');
+  //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+  //       req.destroy();
+  //     }
+  //   })
+  // }
 
 
   @Builder
