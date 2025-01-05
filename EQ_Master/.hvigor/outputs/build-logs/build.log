@@ -10601,3 +10601,13 @@ OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x000000070ce00000, 25
 [2025-01-06T02:57:04.118] [DEBUG] debug-file - Update task phone:default@SignHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-unsigned.hap cache from map.
 [2025-01-06T02:57:04.118] [DEBUG] debug-file - Update task phone:default@SignHap output file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-signed.hap cache.
 [2025-01-06T02:57:04.118] [DEBUG] debug-file - Incremental task phone:default@SignHap post-execution cost:1 ms .
+[2025-01-06T02:57:04.152] [DEBUG] debug-file - Cleanup worker 10.
+[2025-01-06T02:57:04.152] [DEBUG] debug-file - Worker 10 has been cleaned up.
+[2025-01-06T02:57:04.152] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-01-06T02:57:04.152] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-01-06T02:57:04.153] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-01-06T02:57:04.160] [DEBUG] debug-file - worker[10] exits with exit code 1.
+[2025-01-06T02:57:04.168] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-01-06T02:57:04.172] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-01-06T02:57:04.169] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-01-06T02:57:04.173] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
