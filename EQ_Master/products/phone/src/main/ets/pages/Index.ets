@@ -1,4 +1,7 @@
 import { http } from '@kit.NetworkKit' // 向后端发送请求
+import { BusinessError } from '@kit.BasicServicesKit';
+
+import {userInfo} from '../User/user'
 
 
 // 主标题（Headline）
@@ -53,14 +56,14 @@ import { http } from '@kit.NetworkKit' // 向后端发送请求
 // ----------------------------------------------------------------------
 
 
-
 @Component
 struct userImage {//个人主页顶部部分
-  @Consume imageUrl: string
-  @Consume userName: string
+  @Consume userName:string
   @Consume('pageInfos') pageInfos:NavPathStack
   @Consume nameList:string[]
+
   private fontColor:string = '#c4d2fa'
+
   build() {
     Column() {
       Column() {
@@ -70,7 +73,7 @@ struct userImage {//个人主页顶部部分
           .fontColor(this.fontColor)
           .height('30%')
 
-        Image($r(this.imageUrl))
+        Image($r('app.media.person'))
           .height('40%')
           .borderRadius(24)
             //这是为了设置边框
@@ -84,6 +87,7 @@ struct userImage {//个人主页顶部部分
           })
           .onClick(()=>{
             this.pageInfos.pushPath({ name: this.nameList[1] })
+            console.info('turn into next page')
           })
 
         Text(this.userName)
@@ -179,9 +183,111 @@ struct homePage {
   // @State TooTmp: ToolbarItem = {'value': "func", 'icon': "./image/ic_public_highlights.svg", 'action': ()=> {}}
   @Provide imageUrl: string = 'app.media.person'
   @Provide userName: string = '未登录'
+  @Provide signature: string = ""
+  @State telephone:string = "13738780768"
+  @State password:string = "a13738780768"
+  // @State imageUrl: string = 'app.media.person'
+  // @State userName: string = '未登录'//临时用state简化
   @Provide('pageInfos') pageInfos: NavPathStack = new NavPathStack()
   @Provide nameList:string[] = ["测试成绩","修改个人信息"]
+
+  @State isLoggedIn: boolean = false; // 用户是否已登录
+
   private fontColor:string = '#c4d2fa'
+
+  // 页面加载时检查登录状态并获取用户信息
+  onPageShow(): void {
+    console.log("加载登陆状态")
+    this.login()
+    // this.checkLoginStatus()
+    // if (this.isLoggedIn) {
+    //   this.getUserInfo()
+    // }
+    // else{
+    //   this.login()
+    //   this.getUserInfo()
+    // }
+  }
+
+  // 检查用户是否已登录
+  checkLoginStatus(){ // 保存结果在isLoggedIn中. api返回0: 未登录;1: 已登录
+    const req = http.createHttp()
+    // 假设通过某个API接口检查用户登录状态
+    req.request('https://eqmaster.redamancyxun.fun:8080/user/checkLogin',{
+      method: http.RequestMethod.GET,
+      header: {
+        'session': '3504901a-33bd-421d-b3a4-e9e486638113'
+      },
+    }, (err:BusinessError, res:http.HttpResponse)=>{
+      if(!err){
+        this.isLoggedIn = Boolean(res.result)
+        console.log("login status:",this.isLoggedIn)
+      }
+      else{
+        console.info('checkLoginStatus: error:' + JSON.stringify(err));
+        // 取消订阅HTTP响应头事件
+        req.off('headersReceive');
+        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+        req.destroy();
+      }
+
+    })
+  }
+
+  getUserInfo(){
+    const req = http.createHttp()
+    // 假设通过某个API接口检查用户登录状态
+    req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
+      method: http.RequestMethod.GET,
+      header: {
+        'session': '3504901a-33bd-421d-b3a4-e9e486638113'
+      },
+    }, (err:BusinessError, res:http.HttpResponse)=>{
+      if(!err){
+        let data:userInfo = JSON.parse(res.result.toString());
+        this.userName = data.result.username
+        console.log("get user info: userName is", this.userName)
+      }
+      else {
+        console.info('getUserInfo: error:' + JSON.stringify(err));
+        // 取消订阅HTTP响应头事件
+        req.off('headersReceive');
+        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+        req.destroy();
+      }
+    })
+  }
+
+  login(){
+    const req = http.createHttp()
+    // 假设通过某个API接口检查用户登录状态
+    req.request('https://eqmaster.redamancyxun.fun:8080/user/login?telephone=13738780768&password=a13738780768',{
+      method: http.RequestMethod.POST,
+      header: {
+        'session': '7eabd431-817f-49e7-ae84-cca87c24bd3f',
+      },
+      // extraData:{ // 存在问题
+      //   telephone: this.telephone,
+      //   password: this.password
+      // },
+    },(err:BusinessError,res:http.HttpResponse)=>{
+      if(!err){
+        console.log("login successfully")
+        console.info('Result:' + JSON.stringify(res.result));
+        let data:userInfo = JSON.parse(res.result.toString());
+        this.userName = data.result.username
+        this.signature = data.result.signature
+        console.log("get user info: userName is", this.userName)
+      }
+      else{
+        console.info('login: error:' + JSON.stringify(err));
+        // 取消订阅HTTP响应头事件
+        req.off('headersReceive');
+        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+        req.destroy();
+      }
+    })
+  }
 
 
   @Builder
@@ -275,7 +381,43 @@ export struct testResult {
 @Component
 export struct changeProfile {
   @State imageUrl: string = 'app.media.person'
+  @Consume userName:string
+  @Consume signature:string
+
   @Consume('pageInfos') pageInfos: NavPathStack;
+
+  submit(){
+    const req = http.createHttp()
+    req.request('https://eqmaster.redamancyxun.fun:8080/user/updateUserInfo', {
+      method: http.RequestMethod.POST,
+      header: {
+        'Content-Type': 'application/json',
+        'session': '7eabd431-817f-49e7-ae84-cca87c24bd3f',
+      },
+      extraData: {
+        "username": this.userName,
+        "signature": this.signature,
+        "gender": 7,
+        "age": 31,
+        "nation": null,
+        "province": "新疆维吾尔自治区",
+        "city": "莱芜市"
+      }
+    },(err:BusinessError,res:http.HttpResponse)=> {
+      if (!err) {
+        console.log("profile changed successfully")
+        console.info('Result:' + JSON.stringify(res.result));
+      } else {
+        console.info('submit: error:' + JSON.stringify(err));
+        // 取消订阅HTTP响应头事件
+        req.off('headersReceive');
+        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+        req.destroy();
+      }
+    })
+  }
+
+
   build() {
     NavDestination() {
       Column() {
@@ -308,7 +450,7 @@ export struct changeProfile {
           })
 
         Column() {
-          TextInput({ placeholder: '用户名' })
+          TextInput({ placeholder: '用户名' ,text: $$this.userName})
             .margin({ top: 10 })
             .placeholderColor('#c6d3fa')
             .showUnderline(true)
@@ -316,7 +458,7 @@ export struct changeProfile {
             .onSubmit((EnterKeyType)=>{
               console.info(EnterKeyType+'输入法回车键的类型值')
             })
-          TextInput({ placeholder: '个性签名' })
+          TextInput({ placeholder: '个性签名', text: $$this.signature })
             .margin({ top: 20 })
             .placeholderColor('#c6d3fa')
             .showUnderline(true)
@@ -329,6 +471,9 @@ export struct changeProfile {
             .margin({top:150})
             .fontColor('#c6d3fa')
             .backgroundColor('#000000')
+            .onClick(()=>{
+              this.submit()
+            })
         }
         .padding(20)
       }
