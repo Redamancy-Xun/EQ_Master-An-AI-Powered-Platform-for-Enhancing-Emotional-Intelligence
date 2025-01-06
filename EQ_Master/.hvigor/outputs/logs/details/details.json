@@ -18,23 +18,29 @@
     "IS_HVIGORFILE_TYPE_CHECK": false,
     "TASK_TIME": {
       "f7a42fe7211f98ac7a60a285ac3a9e87": {
-        "PreBuild": 10523900,
-        "ConfigureCmake": 285000,
-        "PreCheckSyscap": 267000,
-        "ProcessIntegratedHsp": 1585100,
-        "BuildNativeWithCmake": 290100,
-        "SyscapTransform": 1592600,
-        "BuildNativeWithNinja": 733800,
-        "CompileResource": 696640900,
-        "BuildJS": 5933900,
-        "CompileArkTS": 2947066900,
-        "GeneratePkgModuleJson": 3121600,
-        "PackageHap": 2374277700,
-        "SignHap": 1671000,
-        "assembleHap": 215100
+        "PreBuild": 23149900,
+        "ConfigureCmake": 511600,
+        "MergeProfile": 56654800,
+        "CreateBuildProfile": 6128700,
+        "PreCheckSyscap": 402700,
+        "GeneratePkgContextInfo": 5141100,
+        "ProcessIntegratedHsp": 3835700,
+        "BuildNativeWithCmake": 539400,
+        "ProcessProfile": 178223500,
+        "SyscapTransform": 4777900,
+        "ProcessRouterMap": 8412900,
+        "BuildNativeWithNinja": 1038200,
+        "GenerateLoaderJson": 37536100,
+        "CompileResource": 761007700,
+        "BuildJS": 5171400,
+        "CompileArkTS": 4705618700,
+        "GeneratePkgModuleJson": 3707000,
+        "PackageHap": 2094390100,
+        "SignHap": 1849800,
+        "assembleHap": 257900
       }
     },
-    "TOTAL_TIME": 6307160600,
-    "BUILD_ID": "202501061336115200"
+    "TOTAL_TIME": 8428328500,
+    "BUILD_ID": "202501061413032890"
   }
 }

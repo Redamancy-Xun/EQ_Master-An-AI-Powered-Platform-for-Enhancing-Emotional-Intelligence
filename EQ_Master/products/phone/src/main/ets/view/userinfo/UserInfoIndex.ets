@@ -5,6 +5,8 @@ import {userInfo} from './User'
 import { preferences } from '@kit.ArkData';
 import PreferenceModel from '../../model/PreferenceModel';
 
+// TODO ：页面完善（个性签名等等）【后面是AI自己提示的，说明任重道远呀朋友】这个页面需要修改，需要添加一个修改头像的功能，并且需要修改用户信息，并且需要修改用户名，并且需要修改用户签名，并且需要修改用户密码，并且需要修改用户邮箱，并且需要修改用户手机号，并且需要修改用户性别，并且需要修改用户生日，并且需要修改用户地址，并且需要修改用户简介，并且需要修改用户头像，并且需要修改用户签名，并且需要修改用户密码
+
 // 主标题（Headline）
 @Extend(Text) function Headline () {
   .fontWeight(FontWeight.Bold) // 粗体
