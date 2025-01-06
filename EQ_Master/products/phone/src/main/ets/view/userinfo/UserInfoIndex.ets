@@ -194,7 +194,7 @@ export struct testResult {
 // PageTwo.ets
 @Component
 export struct changeProfile {
-  @State imageUrl: string = 'app.media.person'
+  @Consume imageUrl: string
   @Consume userName:string
   @Consume signature:string
 
@@ -211,11 +211,6 @@ export struct changeProfile {
       extraData: {
         "username": this.userName,
         "signature": this.signature,
-        "gender": 7,
-        "age": 31,
-        "nation": null,
-        "province": "新疆维吾尔自治区",
-        "city": "莱芜市"
       }
     },(err:BusinessError,res:http.HttpResponse)=> {
       if (!err) {
@@ -282,7 +277,7 @@ export struct changeProfile {
             })
           Button('确认')
             .width('80%')
-            .margin({top:150})
+            .margin({top:100})
             .fontColor('#c6d3fa')
             .backgroundColor('#000000')
             .onClick(()=>{
@@ -321,7 +316,7 @@ export struct pageThreeTmp {
     })
   }
 }
-
+// @Entry
 @Component
 export struct UserInfoIndex {
 
@@ -342,10 +337,9 @@ export struct UserInfoIndex {
   private fontColor:string = '#c4d2fa'
 
   // 页面加载时检查登录状态并获取用户信息
-  onPageShow(): void {
+  aboutToAppear(): void {
     console.log("加载登陆状态")
-    // this.getUserInfo()
-    this.login()
+    this.getUserInfo()
     // this.checkLoginStatus()
     // if (this.isLoggedIn) {
     //   this.getUserInfo()
@@ -392,8 +386,12 @@ export struct UserInfoIndex {
     }, (err:BusinessError, res:http.HttpResponse)=>{
       if(!err){
         let data:userInfo = JSON.parse(res.result.toString());
+        console.log("getUserInfo: success")
+        console.info('Result:' + JSON.stringify(res.result));
         this.userName = data.result.username
-        console.log("get user info: userName is", this.userName)
+        this.signature = data.result.signature
+        console.log("getUserInfo: userName is", this.userName)
+        console.log("getUserInfo: signature is", this.signature)
       }
       else {
         console.info('getUserInfo: error:' + JSON.stringify(err));
