@@ -2,8 +2,8 @@ import { http } from '@kit.NetworkKit' // 向后端发送请求
 import { BusinessError } from '@kit.BasicServicesKit';
 
 import {userInfo} from './User'
+import { preferences } from '@kit.ArkData';
 import PreferenceModel from '../../model/PreferenceModel';
-
 
 // 主标题（Headline）
 @Extend(Text) function Headline () {
@@ -53,10 +53,6 @@ import PreferenceModel from '../../model/PreferenceModel';
   .fontSize(24) // 字体大小24px
 }
 
-
-// ----------------------------------------------------------------------
-
-
 @Component
 struct userImage {//个人主页顶部部分
   @Consume userName:string
@@ -64,32 +60,6 @@ struct userImage {//个人主页顶部部分
   @Consume nameList:string[]
 
   private fontColor:string = '#c4d2fa'
-
-  getUserInfo() : string {
-    console.log("get user info")
-    const req = http.createHttp()
-    // 假设通过某个API接口检查用户登录状态
-    req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
-      method: http.RequestMethod.GET,
-      header: {
-        'session': PreferenceModel.putPreference('session', '')
-      },
-    }, (err:BusinessError, res:http.HttpResponse)=>{
-      if(!err){
-        let data:userInfo = JSON.parse(res.result.toString());
-        this.userName = data.result.username
-        console.log("get user info: userName is", this.userName)
-      }
-      else {
-        console.info('getUserInfo: error:' + JSON.stringify(err));
-        // 取消订阅HTTP响应头事件
-        req.off('headersReceive');
-        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-        req.destroy();
-      }
-    })
-    return this.userName
-  }
 
   build() {
     Column() {
@@ -117,7 +87,7 @@ struct userImage {//个人主页顶部部分
             console.info('turn into next page')
           })
 
-        Text('TestMan')
+        Text(this.userName)
           .Headline()
           .fontColor(this.fontColor)
           .height('30%')
@@ -146,7 +116,6 @@ struct userImage {//个人主页顶部部分
     .borderRadius({ bottomLeft: 24, bottomRight: 24 })
   }
 }
-
 
 @Component
 struct experience{
@@ -204,191 +173,6 @@ struct experience{
   }
 }
 
-@Entry
-@Component
-export struct UserInfoIndex {
-  // @State TooTmp: ToolbarItem = {'value': "func", 'icon': "./image/ic_public_highlights.svg", 'action': ()=> {}}
-  @Provide imageUrl: string = 'app.media.person'
-  @Provide userName: string = '未登录'
-  @Provide signature: string = ""
-  @State telephone:string = "13738780768"
-  @State password:string = "a13738780768"
-  // @State imageUrl: string = 'app.media.person'
-  // @State userName: string = '未登录'//临时用state简化
-  @Provide('pageInfos') pageInfos: NavPathStack = new NavPathStack()
-  @Provide nameList:string[] = ["测试成绩","修改个人信息"]
-
-  @State isLoggedIn: boolean = false; // 用户是否已登录
-
-  private fontColor:string = '#c4d2fa'
-
-  // 页面加载时检查登录状态并获取用户信息
-  onPageShow(): void {
-    console.log("加载登陆状态")
-    // this.login()
-    // this.getUserInfo()
-    // this.checkLoginStatus()
-    // if (this.isLoggedIn) {
-    //   this.getUserInfo()
-    // }
-    // else{
-    //   this.login()
-    //   this.getUserInfo()
-    // }
-  }
-
-  // // 检查用户是否已登录
-  // checkLoginStatus(){ // 保存结果在isLoggedIn中. api返回0: 未登录;1: 已登录
-  //   const req = http.createHttp()
-  //   // 假设通过某个API接口检查用户登录状态
-  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/checkLogin',{
-  //     method: http.RequestMethod.GET,
-  //     header: {
-  //       'session': '3504901a-33bd-421d-b3a4-e9e486638113'
-  //     },
-  //   }, (err:BusinessError, res:http.HttpResponse)=>{
-  //     if(!err){
-  //       this.isLoggedIn = Boolean(res.result)
-  //       console.log("login status:",this.isLoggedIn)
-  //     }
-  //     else{
-  //       console.info('checkLoginStatus: error:' + JSON.stringify(err));
-  //       // 取消订阅HTTP响应头事件
-  //       req.off('headersReceive');
-  //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-  //       req.destroy();
-  //     }
-  //
-  //   })
-  // }
-
-  // getUserInfo() : string {
-  //   console.log("get user info")
-  //   const req = http.createHttp()
-  //   // 假设通过某个API接口检查用户登录状态
-  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
-  //     method: http.RequestMethod.GET,
-  //     header: {
-  //       'session': PreferenceModel.putPreference('session', '')
-  //     },
-  //   }, (err:BusinessError, res:http.HttpResponse)=>{
-  //     if(!err){
-  //       let data:userInfo = JSON.parse(res.result.toString());
-  //       this.userName = data.result.username
-  //       console.log("get user info: userName is", this.userName)
-  //     }
-  //     else {
-  //       console.info('getUserInfo: error:' + JSON.stringify(err));
-  //       // 取消订阅HTTP响应头事件
-  //       req.off('headersReceive');
-  //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-  //       req.destroy();
-  //     }
-  //   })
-  //   return this.userName
-  // }
-
-  // login(){
-  //   const req = http.createHttp()
-  //   // 假设通过某个API接口检查用户登录状态
-  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/login?telephone=13738780768&password=a13738780768',{
-  //     method: http.RequestMethod.POST,
-  //     header: {
-  //       'session': '7eabd431-817f-49e7-ae84-cca87c24bd3f',
-  //     },
-  //     // extraData:{ // 存在问题
-  //     //   telephone: this.telephone,
-  //     //   password: this.password
-  //     // },
-  //   },(err:BusinessError,res:http.HttpResponse)=>{
-  //     if(!err){
-  //       console.log("login successfully")
-  //       console.info('Result:' + JSON.stringify(res.result));
-  //       let data:userInfo = JSON.parse(res.result.toString());
-  //       this.userName = data.result.username
-  //       this.signature = data.result.signature
-  //       console.log("get user info: userName is", this.userName)
-  //     }
-  //     else{
-  //       console.info('login: error:' + JSON.stringify(err));
-  //       // 取消订阅HTTP响应头事件
-  //       req.off('headersReceive');
-  //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-  //       req.destroy();
-  //     }
-  //   })
-  // }
-
-
-  @Builder
-  PageMap(name: string) {
-    if (name === this.nameList[0]) {
-      testResult()
-    } else if (name === this.nameList[1]) {
-      changeProfile()
-    } else if (name === "NavDestinationTitle3") {
-      pageThreeTmp()
-    }
-  }
-  //用于实现箭头标志
-  @Builder OverlayNode() {
-    Column() {
-      Image('./image/ic_public_arrow_right.svg')
-        .height('100%')
-        .padding({right: 15})
-    }.height('30%').alignItems(HorizontalAlign.End)
-  }
-
-
-  build() {
-    Column() {
-      Navigation(this.pageInfos) {
-
-        Column({ space: 12 }) {
-          userImage()
-          //以上是用户头像昵称部分
-          experience()
-
-          Column() {
-            List({ space: 12 }) {
-              ListItem() {
-                Text(this.nameList[0])
-                  .width("100%")
-                  .height(72)
-                  .backgroundColor('#FFFFFF')
-                  .borderRadius(24)
-                  .fontSize(16)
-                  .fontWeight(500)
-                  .textAlign(TextAlign.Start)
-                  .padding({ left: 20 })
-                  .onClick(() => {
-                    this.pageInfos.pushPath({ name: this.nameList[0] })
-                  })
-                  .overlay(this.OverlayNode(), { align: Alignment.End })
-              }
-            }
-            .width("90%")
-          }
-          .width('100%')
-          .height('30%')
-          .margin({ top: 12 })
-        }
-        .height('100%')
-        .width('100%')
-        .expandSafeArea([SafeAreaType.SYSTEM],[SafeAreaEdge.TOP])
-      }
-      .mode(NavigationMode.Stack)
-      .navDestination(this.PageMap)
-      .hideToolBar(true)
-      .height('100%')
-      // .toolbarConfiguration([this.TooTmp, this.TooTmp, this.TooTmp])
-    }
-    .height('100%')
-    .width('100%')
-    .backgroundColor('#f5fbf9')
-  }
-}
-
 // PageOne.ets
 @Component
 export struct testResult {
@@ -422,7 +206,7 @@ export struct changeProfile {
       method: http.RequestMethod.POST,
       header: {
         'Content-Type': 'application/json',
-        'session': PreferenceModel.getPreference("session", '')
+        'session': PreferenceModel.getPreference('session', ''),
       },
       extraData: {
         "username": this.userName,
@@ -535,5 +319,189 @@ export struct pageThreeTmp {
       console.log('pop' + '返回值' + JSON.stringify(popDestinationInfo))
       return true
     })
+  }
+}
+
+@Component
+export struct UserInfoIndex {
+
+  // @State TooTmp: ToolbarItem = {'value': "func", 'icon': "./image/ic_public_highlights.svg", 'action': ()=> {}}
+  @Provide imageUrl: string = 'app.media.login_logo'
+  @Provide userName: string = 'EQ_Master'
+  @Provide signature: string = "Achieve higher emotional\n" +
+    "intelligence"
+  // @State telephone:string = "13738780768"
+  // @State password:string = "a13738780768"
+  // @State imageUrl: string = 'app.media.person'
+  // @State userName: string = '未登录'//临时用state简化
+  @Provide('pageInfos') pageInfos: NavPathStack = new NavPathStack()
+  @Provide nameList:string[] = ["测试成绩","修改个人信息"]
+
+  @State isLoggedIn: boolean = false; // 用户是否已登录
+
+  private fontColor:string = '#c4d2fa'
+
+  // 页面加载时检查登录状态并获取用户信息
+  onPageShow(): void {
+    console.log("加载登陆状态")
+    // this.getUserInfo()
+    this.login()
+    // this.checkLoginStatus()
+    // if (this.isLoggedIn) {
+    //   this.getUserInfo()
+    // }
+    // else{
+    //   this.login()
+    //   this.getUserInfo()
+    // }
+  }
+
+  // // 检查用户是否已登录
+  // checkLoginStatus(){ // 保存结果在isLoggedIn中. api返回0: 未登录;1: 已登录
+  //   const req = http.createHttp()
+  //   // 假设通过某个API接口检查用户登录状态
+  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/checkLogin',{
+  //     method: http.RequestMethod.GET,
+  //     header: {
+  //       'session': '3504901a-33bd-421d-b3a4-e9e486638113'
+  //     },
+  //   }, (err:BusinessError, res:http.HttpResponse)=>{
+  //     if(!err){
+  //       this.isLoggedIn = Boolean(res.result)
+  //       console.log("login status:",this.isLoggedIn)
+  //     }
+  //     else{
+  //       console.info('checkLoginStatus: error:' + JSON.stringify(err));
+  //       // 取消订阅HTTP响应头事件
+  //       req.off('headersReceive');
+  //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+  //       req.destroy();
+  //     }
+  //
+  //   })
+  // }
+
+  getUserInfo(){
+    const req = http.createHttp()
+    // 假设通过某个API接口检查用户登录状态
+    req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
+      method: http.RequestMethod.GET,
+      header: {
+        'session': PreferenceModel.getPreference('session', '')
+      },
+    }, (err:BusinessError, res:http.HttpResponse)=>{
+      if(!err){
+        let data:userInfo = JSON.parse(res.result.toString());
+        this.userName = data.result.username
+        console.log("get user info: userName is", this.userName)
+      }
+      else {
+        console.info('getUserInfo: error:' + JSON.stringify(err));
+        // 取消订阅HTTP响应头事件
+        req.off('headersReceive');
+        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+        req.destroy();
+      }
+    })
+  }
+
+  login(){
+    const req = http.createHttp()
+    // 假设通过某个API接口检查用户登录状态
+    req.request('https://eqmaster.redamancyxun.fun:8080/user/login?telephone=13738780768&password=a13738780768',{
+      method: http.RequestMethod.POST,
+      header: {
+        'session': '7eabd431-817f-49e7-ae84-cca87c24bd3f',
+      },
+      // extraData:{ // 存在问题
+      //   telephone: this.telephone,
+      //   password: this.password
+      // },
+    },(err:BusinessError,res:http.HttpResponse)=>{
+      if(!err){
+        console.log("login successfully")
+        console.info('Result:' + JSON.stringify(res.result));
+        let data:userInfo = JSON.parse(res.result.toString());
+        this.userName = data.result.username
+        this.signature = data.result.signature
+        console.log("get user info: userName is", this.userName)
+      }
+      else{
+        console.info('login: error:' + JSON.stringify(err));
+        // 取消订阅HTTP响应头事件
+        req.off('headersReceive');
+        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+        req.destroy();
+      }
+    })
+  }
+
+
+  @Builder
+  PageMap(name: string) {
+    if (name === this.nameList[0]) {
+      testResult()
+    } else if (name === this.nameList[1]) {
+      changeProfile()
+    } else if (name === "NavDestinationTitle3") {
+      pageThreeTmp()
+    }
+  }
+  //用于实现箭头标志
+  @Builder OverlayNode() {
+    Column() {
+      Image('./image/ic_public_arrow_right.svg')
+        .height('100%')
+        .padding({right: 15})
+    }.height('30%').alignItems(HorizontalAlign.End)
+  }
+
+
+  build() {
+    Column() {
+      Navigation(this.pageInfos) {
+
+        Column({ space: 12 }) {
+          userImage()
+          //以上是用户头像昵称部分
+          experience()
+
+          Column() {
+            List({ space: 12 }) {
+              ListItem() {
+                Text(this.nameList[0])
+                  .width("100%")
+                  .height(72)
+                  .backgroundColor('#FFFFFF')
+                  .borderRadius(24)
+                  .fontSize(16)
+                  .fontWeight(500)
+                  .textAlign(TextAlign.Start)
+                  .padding({ left: 20 })
+                  .onClick(() => {
+                    this.pageInfos.pushPath({ name: this.nameList[0] })
+                  })
+                  .overlay(this.OverlayNode(), { align: Alignment.End })
+              }
+            }
+            .width("90%")
+          }
+          .width('100%')
+          .height('30%')
+          .margin({ top: 12 })
+        }
+        .height('100%')
+        .width('100%')
+        .expandSafeArea([SafeAreaType.SYSTEM],[SafeAreaEdge.TOP])
+      }
+      .mode(NavigationMode.Stack)
+      .navDestination(this.PageMap)
+      .hideToolBar(true)
+      .height('100%')
+      // .toolbarConfiguration([this.TooTmp, this.TooTmp, this.TooTmp])
+    }
+    .height('100%')
+    .width('100%')
+    .backgroundColor('#f5fbf9')
   }
 }
