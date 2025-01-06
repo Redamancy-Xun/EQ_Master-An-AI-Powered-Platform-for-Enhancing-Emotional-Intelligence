@@ -194,7 +194,7 @@ export struct testResult {
 // PageTwo.ets
 @Component
 export struct changeProfile {
-  @State imageUrl: string = 'app.media.person'
+  @Consume imageUrl: string
   @Consume userName:string
   @Consume signature:string
 
@@ -277,7 +277,7 @@ export struct changeProfile {
             })
           Button('确认')
             .width('80%')
-            .margin({top:150})
+            .margin({top:100})
             .fontColor('#c6d3fa')
             .backgroundColor('#000000')
             .onClick(()=>{
@@ -375,7 +375,7 @@ export struct UserInfoIndex {
   //   })
   // }
 
-  getUserInfo() : userInfo | null{
+  getUserInfo(){
     const req = http.createHttp()
     // 假设通过某个API接口检查用户登录状态
     req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
@@ -392,7 +392,6 @@ export struct UserInfoIndex {
         this.signature = data.result.signature
         console.log("getUserInfo: userName is", this.userName)
         console.log("getUserInfo: signature is", this.signature)
-        return data;
       }
       else {
         console.info('getUserInfo: error:' + JSON.stringify(err));
@@ -400,10 +399,8 @@ export struct UserInfoIndex {
         req.off('headersReceive');
         // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
         req.destroy();
-        return null;
       }
-    });
-    return null;
+    })
   }
 
   login(){
