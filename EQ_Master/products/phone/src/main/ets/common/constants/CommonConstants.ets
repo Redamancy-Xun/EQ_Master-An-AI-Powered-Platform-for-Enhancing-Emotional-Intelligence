@@ -436,6 +436,11 @@ export class CommonConstants{
   static readonly POST_USER_LOGIN: string = 'user/login';
 
   /**
+   * The get user info.
+   */
+  static readonly GET_USER_INFO: string = 'user/getUserInfo';
+
+  /**
    * The get user check login.
    */
   static readonly GET_USER_CHECK_LOGIN: string = 'user/checkLogin';

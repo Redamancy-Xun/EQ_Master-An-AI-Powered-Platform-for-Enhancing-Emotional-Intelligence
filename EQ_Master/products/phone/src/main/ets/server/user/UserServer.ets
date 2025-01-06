@@ -85,6 +85,35 @@ class UserServer {
       })
     })
   }
+
+  getUserInfo(): Promise<UserInfo> {
+    return new Promise((resolve: Function, reject: Function) => {
+      let url = `${Const.SERVER}/${Const.POST_USER_LOGIN}`;
+      // let params: string = "?telephone=" + telephone + "&password=" + password;
+      // url = url + params;
+      httpRequestGet(url).then((data: ResponseResult) => {
+        if (data.code === Const.SERVER_CODE_SUCCESS) {
+          // if (data.result !== null) {
+          //   let userInfo: UserInfo = JSON.parse(data.result.toString());
+          //   if (userInfo.sessionId !== null) {
+          //     PreferenceModel.putPreference(Const.PREFERENCES_KEY_SESSION, userInfo.sessionId);
+          //   }
+          // }
+          console.info('getUserInfo success! userinfo:' + data.result);
+          Logger.info('getUserInfo success! userinfo:' + data.result);
+          resolve(data.result);
+        } else {
+          console.error('getUserInfo fail! telephone:' + data.code + ' message:' + data.message + ' result:' + data.result);
+          Logger.error('getUserInfo fail! telephone:' + data.code + ' message:' + data.message + ' result:' + data.result);
+          reject(data);
+        }
+      }).catch((err: Error) => {
+        Logger.error('getUserInfo fail!', JSON.stringify(err));
+        console.error('getUserInfo fail!', JSON.stringify(err));
+        reject($r('app.string.http_error_message'));
+      })
+    })
+  }
 }
 
 export default new UserServer();

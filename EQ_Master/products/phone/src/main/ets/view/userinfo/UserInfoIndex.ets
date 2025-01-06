@@ -211,11 +211,6 @@ export struct changeProfile {
       extraData: {
         "username": this.userName,
         "signature": this.signature,
-        "gender": 7,
-        "age": 31,
-        "nation": null,
-        "province": "新疆维吾尔自治区",
-        "city": "莱芜市"
       }
     },(err:BusinessError,res:http.HttpResponse)=> {
       if (!err) {
@@ -321,7 +316,7 @@ export struct pageThreeTmp {
     })
   }
 }
-
+// @Entry
 @Component
 export struct UserInfoIndex {
 
@@ -342,10 +337,9 @@ export struct UserInfoIndex {
   private fontColor:string = '#c4d2fa'
 
   // 页面加载时检查登录状态并获取用户信息
-  onPageShow(): void {
+  aboutToAppear(): void {
     console.log("加载登陆状态")
-    // this.getUserInfo()
-    this.login()
+    this.getUserInfo()
     // this.checkLoginStatus()
     // if (this.isLoggedIn) {
     //   this.getUserInfo()
@@ -381,7 +375,7 @@ export struct UserInfoIndex {
   //   })
   // }
 
-  getUserInfo(){
+  getUserInfo() : userInfo | null{
     const req = http.createHttp()
     // 假设通过某个API接口检查用户登录状态
     req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
@@ -392,8 +386,13 @@ export struct UserInfoIndex {
     }, (err:BusinessError, res:http.HttpResponse)=>{
       if(!err){
         let data:userInfo = JSON.parse(res.result.toString());
+        console.log("getUserInfo: success")
+        console.info('Result:' + JSON.stringify(res.result));
         this.userName = data.result.username
-        console.log("get user info: userName is", this.userName)
+        this.signature = data.result.signature
+        console.log("getUserInfo: userName is", this.userName)
+        console.log("getUserInfo: signature is", this.signature)
+        return data;
       }
       else {
         console.info('getUserInfo: error:' + JSON.stringify(err));
@@ -401,8 +400,10 @@ export struct UserInfoIndex {
         req.off('headersReceive');
         // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
         req.destroy();
+        return null;
       }
-    })
+    });
+    return null;
   }
 
   login(){
