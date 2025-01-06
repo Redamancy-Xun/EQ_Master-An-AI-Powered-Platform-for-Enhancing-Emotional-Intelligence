@@ -359,6 +359,7 @@ struct homePage {
   }
 }
 
+
 // PageOne.ets
 @Component
 export struct testResult {

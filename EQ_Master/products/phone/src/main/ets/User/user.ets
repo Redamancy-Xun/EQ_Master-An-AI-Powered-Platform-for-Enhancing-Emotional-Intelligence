@@ -22,3 +22,4 @@ export interface userInfo{
   message:string,
   result:Result
 }
+
