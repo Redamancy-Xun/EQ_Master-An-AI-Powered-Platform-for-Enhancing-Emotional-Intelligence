@@ -607,6 +607,74 @@
     {
       "name": "author_type_fc_dark",
       "value": "#80FFFFFF"
+    },
+    {
+      "name": "focus_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "background_color_grey",
+      "value": "#F6F6F6"
+    },
+    {
+      "name": "background_color_grey_two",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "background_color_grey_three",
+      "value": "#8A9097"
+    },
+    {
+      "name": "background_color_pink",
+      "value": "#FCF7F6"
+    },
+    {
+      "name": "background_color_icon",
+      "value": "#F0A6C3"
+    },
+    {
+      "name": "font_color_one",
+      "value": "#000000"
+    },
+    {
+      "name": "font_color_black_two",
+      "value": "#182431"
+    },
+    {
+      "name": "divider_background_color",
+      "value": "#E6E6E6"
+    },
+    {
+      "name": "tab_clicked_color",
+      "value": "#1698CE"
+    },
+    {
+      "name": "tab_unclicked_color",
+      "value": "#6B6B6B"
+    },
+    {
+      "name": "text_input_default_color",
+      "value": "#99000000"
+    },
+    {
+      "name": "text_input_default_background_color",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "text_input_default_care_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "conversation_none_icon_bg_color",
+      "value": "#F6F6F6"
+    },
+    {
+      "name": "conversation_default_text_color",
+      "value": "#182431"
+    },
+    {
+      "name": "conversation_clicked_bg_color",
+      "value": "#33D8D8D8"
     }
   ]
 }

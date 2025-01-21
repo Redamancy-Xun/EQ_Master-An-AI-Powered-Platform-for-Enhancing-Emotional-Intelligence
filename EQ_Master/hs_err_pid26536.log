@@ -1,0 +1,267 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 255852544 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3825), pid=26536, tid=32680
+#
+# JRE version:  (17.0.10+1) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.10+1-b1087.17, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: D:\Harmony\DevEco\DevEco Studio\tools\hvigor\hvigor\lib\hvigor-java-daemon.jar 45050
+
+Host: AMD Ryzen 5 6600H with Radeon Graphics         , 12 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.4391)
+Time: Wed Jan  8 23:05:11 2025  Windows 11 , 64 bit Build 22621 (10.0.22621.4391) elapsed time: 0.012132 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002cfdb24cbe0):  JavaThread "Unknown thread" [_thread_in_vm, id=32680, stack(0x000000db7e900000,0x000000db7ea00000)]
+
+Stack: [0x000000db7e900000,0x000000db7ea00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x688ac9]
+V  [jvm.dll+0x84220a]
+V  [jvm.dll+0x843e4e]
+V  [jvm.dll+0x8444b3]
+V  [jvm.dll+0x24ba8f]
+V  [jvm.dll+0x685899]
+V  [jvm.dll+0x67a14a]
+V  [jvm.dll+0x30c7eb]
+V  [jvm.dll+0x313c96]
+V  [jvm.dll+0x363a2e]
+V  [jvm.dll+0x363c5f]
+V  [jvm.dll+0x2e25b8]
+V  [jvm.dll+0x2e3524]
+V  [jvm.dll+0x812d71]
+V  [jvm.dll+0x3718e1]
+V  [jvm.dll+0x7f18d6]
+V  [jvm.dll+0x3f553f]
+V  [jvm.dll+0x3f7171]
+C  [jli.dll+0x528f]
+C  [ucrtbase.dll+0x29333]
+C  [KERNEL32.DLL+0x1259d]
+C  [ntdll.dll+0x5af38]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffee632ef58, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000002cfdb2b4620 GCTaskThread "GC Thread#0" [stack: 0x000000db7ea00000,0x000000db7eb00000] [id=19212]
+  0x000002cfdb2c60a0 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000db7eb00000,0x000000db7ec00000] [id=41888]
+  0x000002cfdb2c6ac0 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000db7ec00000,0x000000db7ed00000] [id=41476]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffee5ae3187]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002cfdb248560] Heap_lock - owner thread: 0x000002cfdb24cbe0
+
+Heap address: 0x000000070ce00000, size: 3890 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x000000070ce00000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, committed 0K, reserved 0K
+  class space    used 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+
+Card table byte_map: [0x000002cfee6b0000,0x000002cfeee50000] _byte_map_base: 0x000002cfeae49000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x000002cfdb2b4c40, (CMBitMap*) 0x000002cfdb2b4c80
+ Prev Bits: [0x000002cfef5f0000, 0x000002cff32b8000)
+ Next Bits: [0x000002cff32c0000, 0x000002cff6f88000)
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.007 Loaded shared library D:\Harmony\DevEco\DevEco Studio\jbr\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff724860000 - 0x00007ff72486a000 	D:\Harmony\DevEco\DevEco Studio\jbr\bin\java.exe
+0x00007fff64650000 - 0x00007fff64867000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007fff62c90000 - 0x00007fff62d54000 	C:\Windows\System32\KERNEL32.DLL
+0x00007fff61cb0000 - 0x00007fff6206a000 	C:\Windows\System32\KERNELBASE.dll
+0x00007fff619a0000 - 0x00007fff61ab1000 	C:\Windows\System32\ucrtbase.dll
+0x00007fff4e7a0000 - 0x00007fff4e7b7000 	D:\Harmony\DevEco\DevEco Studio\jbr\bin\jli.dll
+0x00007fff4eff0000 - 0x00007fff4f00b000 	D:\Harmony\DevEco\DevEco Studio\jbr\bin\VCRUNTIME140.dll
+0x00007fff62350000 - 0x00007fff624fe000 	C:\Windows\System32\USER32.dll
+0x00007fff62320000 - 0x00007fff62346000 	C:\Windows\System32\win32u.dll
+0x00007fff4ed20000 - 0x00007fff4efb2000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.4541_none_2710d1c57384c085\COMCTL32.dll
+0x00007fff62780000 - 0x00007fff627a9000 	C:\Windows\System32\GDI32.dll
+0x00007fff643a0000 - 0x00007fff64447000 	C:\Windows\System32\msvcrt.dll
+0x00007fff62200000 - 0x00007fff6231b000 	C:\Windows\System32\gdi32full.dll
+0x00007fff62130000 - 0x00007fff621ca000 	C:\Windows\System32\msvcp_win.dll
+0x00007fff62b40000 - 0x00007fff62b71000 	C:\Windows\System32\IMM32.DLL
+0x00007fff52b70000 - 0x00007fff52b7c000 	D:\Harmony\DevEco\DevEco Studio\jbr\bin\vcruntime140_1.dll
+0x00007fff1ae20000 - 0x00007fff1aead000 	D:\Harmony\DevEco\DevEco Studio\jbr\bin\msvcp140.dll
+0x00007ffee57f0000 - 0x00007ffee6473000 	D:\Harmony\DevEco\DevEco Studio\jbr\bin\server\jvm.dll
+0x00007fff63c40000 - 0x00007fff63cf2000 	C:\Windows\System32\ADVAPI32.dll
+0x00007fff63d60000 - 0x00007fff63e07000 	C:\Windows\System32\sechost.dll
+0x00007fff621d0000 - 0x00007fff621f8000 	C:\Windows\System32\bcrypt.dll
+0x00007fff63b00000 - 0x00007fff63c14000 	C:\Windows\System32\RPCRT4.dll
+0x00007fff34070000 - 0x00007fff34079000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007fff60730000 - 0x00007fff6077d000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007fff62c10000 - 0x00007fff62c81000 	C:\Windows\System32\WS2_32.dll
+0x00007fff5eaa0000 - 0x00007fff5ead4000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007fff56430000 - 0x00007fff5643a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007fff60710000 - 0x00007fff60723000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007fff609d0000 - 0x00007fff609e8000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007fff5b8c0000 - 0x00007fff5b8ca000 	D:\Harmony\DevEco\DevEco Studio\jbr\bin\jimage.dll
+0x00007fff5f0c0000 - 0x00007fff5f2f2000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007fff627b0000 - 0x00007fff62b3f000 	C:\Windows\System32\combase.dll
+0x00007fff641c0000 - 0x00007fff64297000 	C:\Windows\System32\OLEAUT32.dll
+0x00007fff4a330000 - 0x00007fff4a362000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007fff61920000 - 0x00007fff6199b000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007fff4f010000 - 0x00007fff4f035000 	D:\Harmony\DevEco\DevEco Studio\jbr\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;D:\Harmony\DevEco\DevEco Studio\jbr\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.4541_none_2710d1c57384c085;D:\Harmony\DevEco\DevEco Studio\jbr\bin\server
+
+VM Arguments:
+java_command: D:\Harmony\DevEco\DevEco Studio\tools\hvigor\hvigor\lib\hvigor-java-daemon.jar 45050
+java_class_path (initial): D:\Harmony\DevEco\DevEco Studio\tools\hvigor\hvigor\lib\hvigor-java-daemon.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 255852544                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4078960640                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4078960640                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=D:\Harmony\DevEco\DevEco Studio\jbr
+PATH=D:\Harmony\DevEco\DevEco Studio\tools\node;D:\Harmony\DevEco\DevEco Studio\jbr\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;D:\VMware\bin\;C:\Users\10235\.jdks\corretto-21.0.4\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\TortoiseGit\bin;D:\Git\cmd;C:\Program Files\Pandoc\;D:\Redis\;D:\微信web开发者工具\dll;D:\GoLang\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;D:\node\;D:\kubectl;D:\KtConnect;C:\Program Files\Docker\Docker\resources\bin;D:\MongoDB\bin;D:\protobuf\bin;D:\Xshell\;D:\Xftp 7\;C:\Users\10235\Desktop\Python\Python9\Scripts;D:\GCC\MinGW\bin;C:\Users\10235\AppData\Local\Programs\Python\Launcher\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\10235\AppData\Local\Microsoft\WindowsApps;C:\Users\10235\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\10235\go\bin;D:\GoLang\GoLand 2023.3.6\bin;;D:\PyCharm\PyCharm 2024.1\bin;;C:\Users\10235\AppData\Roaming\npm;C:\Users\10235\AppData\Local\Microsoft\WinGet\Packages\Kubernetes.kubectl_Microsoft.Winget.Source_8wekyb3d8bbwe;;D:\Fiddler;D:\Harmony\DevEco\DevEco Studio\bin;
+USERNAME=10235
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD
+TMP=C:\Users\10235\AppData\Local\Temp
+TEMP=C:\Users\10235\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+JNI global refs:
+JNI global refs: 0, weak refs: 0
+
+JNI global refs memory usage: 0, weak refs: 0
+
+OOME stack traces (most recent first):
+Classloader memory used:
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.4391)
+OS uptime: 5 days 4:52 hours
+Hyper-V role detected
+
+CPU: total 12 (initial active 12) (12 cores per cpu, 2 threads per core) family 25 model 68 stepping 1 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv
+Processor Information for processor 0
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 1
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 2
+  Max Mhz: 3301, Current Mhz: 3135, Mhz Limit: 3301
+Processor Information for processor 3
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 4
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 5
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 6
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 7
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 8
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 9
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+Processor Information for processor 10
+  Max Mhz: 3301, Current Mhz: 3135, Mhz Limit: 3301
+Processor Information for processor 11
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+
+Memory: 4k page, system-wide physical 15556M (651M free)
+TotalPageFile size 47557M (AvailPageFile size 122M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 64M, peak: 308M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.10+1-b1087.17) for windows-amd64 JRE (17.0.10+1-b1087.17), built on 2024-01-19 by "builduser" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.

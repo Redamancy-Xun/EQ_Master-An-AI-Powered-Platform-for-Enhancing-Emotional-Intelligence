@@ -446,6 +446,11 @@ export class CommonConstants{
   static readonly GET_USER_CHECK_LOGIN: string = 'user/checkLogin';
 
   /**
+   * The get ai chat.
+   */
+  static readonly GET_AI_CHAT: string = 'aichat/aichat';
+
+  /**
    * The post user signup.
    */
   static readonly POST_USER_SIGNUP: string = 'user/signup';

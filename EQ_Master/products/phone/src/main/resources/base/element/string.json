@@ -1403,6 +1403,126 @@
     {
       "name": "read_all_replay",
       "value": "查看全部回复"
+    },
+    {
+      "name": "test_sm",
+      "value": "sm"
+    },
+    {
+      "name": "test_md",
+      "value": "md"
+    },
+    {
+      "name": "test_lg",
+      "value": "lg"
+    },
+    {
+      "name": "test_aaa",
+      "value": "11fp"
+    },
+    {
+      "name": "Message",
+      "value": "消息"
+    },
+    {
+      "name": "Contacts",
+      "value": "通讯录"
+    },
+    {
+      "name": "SocialCircle",
+      "value": "朋友圈"
+    },
+    {
+      "name": "Me",
+      "value": "我的"
+    },
+    {
+      "name": "news",
+      "value": "最新动态"
+    },
+    {
+      "name": "card",
+      "value": "名片夹"
+    },
+    {
+      "name": "Alan",
+      "value": "阿兰"
+    },
+    {
+      "name": "AQin",
+      "value": "AQin"
+    },
+    {
+      "name": "CaiLan",
+      "value": "菜篮"
+    },
+    {
+      "name": "Deng",
+      "value": "邓双双"
+    },
+    {
+      "name": "excel",
+      "value": "excel教程"
+    },
+    {
+      "name": "FanYi",
+      "value": "翻译"
+    },
+    {
+      "name": "FenFen",
+      "value": "芬芬"
+    },
+    {
+      "name": "ge",
+      "value": "哥白尼"
+    },
+    {
+      "name": "LiX",
+      "value": "李小二"
+    },
+    {
+      "name": "Ma",
+      "value": "马老师"
+    },
+    {
+      "name": "milk",
+      "value": "芬芬邀请你喝奶茶啦"
+    },
+    {
+      "name": "Speed",
+      "value": "请你喝奶茶，快点单吧！！速度速度，就差你了"
+    },
+    {
+      "name": "happy",
+      "value": "哈哈，今天有什么喜事说来听听"
+    },
+    {
+      "name": "plan",
+      "value": "市场部2023年新产品宣传规划"
+    },
+    {
+      "name": "jack",
+      "value": "这是明天会议的资料，请发给Jack，让他确认"
+    },
+    {
+      "name": "ok",
+      "value": "好的，收到"
+    },
+    {
+      "name": "okay",
+      "value": "好的，我明天过去"
+    },
+    {
+      "name": "yesterday",
+      "value": "昨天"
+    },
+    {
+      "name": "document",
+      "value": "文档"
+    },
+    {
+      "name": "search",
+      "value": "搜索..."
     }
   ]
 }
