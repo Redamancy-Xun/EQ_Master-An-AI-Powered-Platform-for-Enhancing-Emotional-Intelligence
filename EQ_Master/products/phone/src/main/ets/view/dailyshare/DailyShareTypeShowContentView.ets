@@ -22,8 +22,9 @@ import { BreakpointType } from '../../common/constants/BreakpointType';
 @Component
 export struct DailyShareTypeShowContentView {
 
-  private dailyShareListByPopularity: Array<DailyShareItem> = [];
-  private dailyShareListByTime: Array<DailyShareItem> = [];
+  // private dailyShareListByPopularity: Array<DailyShareItem> = [];
+  @Consume dailyShareListByPopularity: Array<DailyShare>;
+  @Consume dailyShareListByTime: Array<DailyShare>
 
   @StorageLink('cardArrayViewModel') cardArrayViewModel: CardArray = new CardArray(this.dailyShareListByTime);
   @StorageLink('pageInfos') pageInfos: NavPathStack = new NavPathStack();
@@ -39,9 +40,9 @@ export struct DailyShareTypeShowContentView {
     });
   }
 
-  getCardArray(dailyShareListByTime: Array<DailyShareItem>): CardItem[] {
+  getCardArray(dailyShareListByTime: Array<DailyShare>): CardItem[] {
     let cardArray: CardItem[] = [];
-    dailyShareListByTime.forEach((item: DailyShareItem) => {
+    dailyShareListByTime.forEach((item: DailyShare) => {
       let cardItem: CardItem = {
         dailyShareId: item.id ? item.id : '',
         icon: $r('app.media.login_logo'),
@@ -133,9 +134,7 @@ export struct DailyShareTypeShowContentView {
         //     $r('app.float.window_padding_left_lg')).getValue(this.currentBreakpoint)
         // })
 
-        HotColumnView({
-          dailyShareListByPopularity: this.dailyShareListByPopularity
-        })
+        HotColumnView()
           .height('-20%')
 
         Blank()

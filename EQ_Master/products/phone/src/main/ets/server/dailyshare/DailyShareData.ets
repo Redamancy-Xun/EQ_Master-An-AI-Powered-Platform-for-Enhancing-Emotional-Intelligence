@@ -8,12 +8,14 @@ export class DailyShare {
   /**
    * 创建时间
    */
-  createTime: Date = new Date();
+  // createTime: Date = new Date();
+  createdAt: string = '';
 
   /**
    * 删除时间
    */
-  deleteTime: Date = new Date();
+  // deleteTime: Date = new Date();
+  updatedAt: string = '';
 
   /**
    * 是否点赞
