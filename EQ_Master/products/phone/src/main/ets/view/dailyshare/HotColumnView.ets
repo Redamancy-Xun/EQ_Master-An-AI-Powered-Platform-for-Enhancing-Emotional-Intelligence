@@ -11,12 +11,13 @@ const SWIPER_LIST: number[] = [0, 1, 2];
 export struct HotColumnView {
   // @StorageLink('currentBreakpoint') currentBreakpoint: string = Breakpoint.BREAKPOINT_SM;
   // @State tab_index: number = 0;
-  dailyShareListByPopularity: Array<DailyShareItem> = [];
+  // dailyShareListByPopularity: Array<DailyShareItem> = [];
+  @Consume dailyShareListByPopularity: Array<DailyShare>
 
   switchToHotItemInterface(): Array<HotItemInterface> {
     let hotItemList: Array<HotItemInterface> = [];
     let count: number = 1;
-    this.dailyShareListByPopularity.forEach((item: DailyShareItem) => {
+    this.dailyShareListByPopularity.forEach((item: DailyShare) => {
       let hotItem: HotItemInterface = {
         index: count,
         icon: PICTURE_MAP.get(item.picture? item.picture : ''),

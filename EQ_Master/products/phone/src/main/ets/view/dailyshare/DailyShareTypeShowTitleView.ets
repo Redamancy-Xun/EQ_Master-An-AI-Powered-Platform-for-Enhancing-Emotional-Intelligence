@@ -6,8 +6,8 @@ import { PictureType } from '../../common/constants/PictureConstants';
 @Component
 export struct DailyShareTypeShowTitleView {
 
-  private type: string = '考验情商的热门问题';
-  private count: number = 0;
+  @Consume type: string // 动态设置type
+  public count: number = 0; // 总记录条数, 当前设置37, 在DailyShareTypeShow.ets中
 
   typeShow(type: string) : string {
     switch (type) {
