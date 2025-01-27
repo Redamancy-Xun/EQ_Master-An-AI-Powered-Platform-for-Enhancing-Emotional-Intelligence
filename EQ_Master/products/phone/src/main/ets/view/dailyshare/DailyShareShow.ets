@@ -24,29 +24,49 @@ function textStyle(fontSize: number, fontWeight: number) {
 @Component
 export struct DailyShareShow {
   @State photos: Array<PictureItem> = [];
-  @State private sortName: Resource = $r('app.string.recently');
+  @State sortName: Resource = $r('app.string.recently');
   private initType: string = '';
-  private intiDailyShare: Array<DailyShareItem> = [];
+  @State initDailyShare: Array<DailyShare> = []; //接受到后端数据后会更新， 重新调用build()
 
   aboutToAppear() {
+    this.getInitDailyShareList(this.initType, 1,4,false) // false获取最新的DailyShare
+
     if (PictureType.QUESTION === this.initType) {
       this.sortName = $r('app.string.question');
-      this.photos = initializePictures(PictureType.QUESTION, this.intiDailyShare);
+      // this.photos = initializePictures(PictureType.QUESTION, this.initDailyShare);
     } else if (PictureType.TIP === this.initType) {
       this.sortName = $r('app.string.tip');
-      this.photos = initializePictures(PictureType.TIP, this.intiDailyShare);
+      // this.photos = initializePictures(PictureType.TIP, this.initDailyShare);
     } else if (PictureType.STORY === this.initType) {
       this.sortName = $r('app.string.story');
-      this.photos = initializePictures(PictureType.STORY, this.intiDailyShare);
+      // this.photos = initializePictures(PictureType.STORY, this.initDailyShare);
     }
   }
 
-  // TODO 测试
-  getDailyShare(dailyShareId: string) : DailyShare {
-    let dailyShare: DailyShare = new DailyShare();
-    Logger.info(CommonConstants.DAILY_SHARE_PAGE_TAG, 'getDailyShare id: ' + dailyShareId);
-    DailyShareServer.getDailyShareById(dailyShareId).then((data: DailyShare) => {
-      dailyShare = data;
+  // // TODO 测试
+  // getDailyShare(dailyShareId: string) : DailyShare {
+  //   let dailyShare: DailyShare = new DailyShare();
+  //   Logger.info(CommonConstants.DAILY_SHARE_PAGE_TAG, 'getDailyShare id: ' + dailyShareId);
+  //   DailyShareServer.getDailyShareById(dailyShareId).then((data: DailyShare) => {
+  //     dailyShare = data;
+  //   }).catch((err: Resource | ResponseResult) => {
+  //     if (err instanceof ResponseResult) {
+  //       if (err.message !== null) {
+  //         PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+  //       }
+  //     } else {
+  //       PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+  //     }
+  //   });
+  //   return dailyShare;
+  // }
+
+  getInitDailyShareList(type: string, page: number, pageSize: number, orderByPopularity: boolean){
+    Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG,
+      'getDailyShare page: ' + page + ' pageSize: ' + pageSize + ' type: ' + type + ' orderByPopularity: ' +
+        orderByPopularity);
+    DailyShareServer.getDailyShareTypeList(type, page, pageSize, orderByPopularity).then((data: Array<DailyShare>) => {
+      this.initDailyShare = data;
     }).catch((err: Resource | ResponseResult) => {
       if (err instanceof ResponseResult) {
         if (err.message !== null) {
@@ -55,9 +75,10 @@ export struct DailyShareShow {
       } else {
         PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
-    });
-    return dailyShare;
+    })
   }
+
+
 
   build() {
     Column() {
@@ -87,20 +108,21 @@ export struct DailyShareShow {
       .margin({ top: CommonConstants.MARGIN_TOP_SORT, bottom: CommonConstants.MARGIN_BOTTOM_SORT })
 
       Grid() {
-        ForEach(this.photos, (item: PictureItem) => {
+        ForEach(initializePictures(this.initType, this.initDailyShare), (item: PictureItem) => {
           GridItem() {
-            PictureView({ photos: item })
-          }
-          .onClick(() => {
-            PreferenceModel.putPreference('dailyShareId', item.id);
+            PictureView({photos: item})  //使用Prop单向传递了photo
+              .onClick(() => {
+                PreferenceModel.putPreference('dailyShareId', item.id);
 
-            router.pushUrl({
-              url: CommonConstants.DAILY_SHARE_DETAIL_PAGE_URL
-            }).catch((error: Error) => {
-              Logger.error(CommonConstants.DAILY_SHARE_DETAIL_PAGE_TAG,
-                'DailyShareShowPage pushUrl error ' + JSON.stringify(error));
-            })
-          })
+                router.pushUrl({
+                  url: CommonConstants.DAILY_SHARE_DETAIL_PAGE_URL
+                }).catch((error: Error) => {
+                  Logger.error(CommonConstants.DAILY_SHARE_DETAIL_PAGE_TAG,
+                    'DailyShareShowPage pushUrl error ' + JSON.stringify(error));
+                })
+              })
+          }
+
         }, (item: PictureItem) => JSON.stringify(item))
       }
       .columnsTemplate(CommonConstants.TWO_COLUMNS)

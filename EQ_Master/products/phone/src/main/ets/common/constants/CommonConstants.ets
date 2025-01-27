@@ -766,9 +766,9 @@ export class CommonConstants{
   static readonly WIDTH_MOVIE_SORT = '90%';
 
   /**
-   * width of picture.
+   * height of picture.
    */
-  static readonly WIDTH_PICTURE = '72%';
+  static readonly HEIGHT_PICTURE = '72%';
 
   /**
    * height of banner.

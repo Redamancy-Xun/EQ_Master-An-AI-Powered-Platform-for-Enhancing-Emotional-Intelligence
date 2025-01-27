@@ -103,7 +103,7 @@ struct LauncherPage {
               } else {
                 // todo checkLogin
                 UserServer.getCheckLogin().then((result: number) => {
-                  if (result == 0) {
+                  if (result == 0) {// TODO 对此处临时调整可以强制更改session
                     router.pushUrl({
                       url: CommonConstants.APP_HOME_PAGE_URL
                     }).catch((error: Error) => {
