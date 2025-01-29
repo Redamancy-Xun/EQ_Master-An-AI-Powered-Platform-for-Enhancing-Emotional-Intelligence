@@ -10,6 +10,23 @@ import { DailyShareItem } from '../common/constants/DailyShareList';
  *
  * @param initType Init type.
  */
+export function initializePicture(initDailyShare: DailyShare): PictureItem {
+  let imageData: PictureItem = new PictureItem()
+  if (initDailyShare.id !== null) {
+    imageData.id = initDailyShare.id;
+  }
+  if (initDailyShare.title !== null) {
+    imageData.name = initDailyShare.title;
+  }
+  if (initDailyShare.context !== null) {
+    imageData.description = initDailyShare.context;
+  }
+  if (initDailyShare.picture !== null) {
+    imageData.image = PICTURE_MAP.get(initDailyShare.picture);
+  }
+  return imageData
+}
+
 export function initializePictures(initType: string, initDailyShare?: Array<DailyShareItem>): Array<PictureItem> {
   let imageDataArray: Array<PictureItem> = [];
   switch (initType) {

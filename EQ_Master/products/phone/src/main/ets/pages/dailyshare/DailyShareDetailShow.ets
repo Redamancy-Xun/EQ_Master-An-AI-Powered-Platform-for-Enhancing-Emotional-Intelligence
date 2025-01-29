@@ -1,8 +1,9 @@
 import { BreakpointConstants } from '../../common/constants/BreakpointConstants';
 import { CommonConstants } from '../../common/constants/CommonConstants';
-import { DailyShareItem, findDailyShareItemById } from '../../common/constants/DailyShareList';
+// import { DailyShareItem, findDailyShareItemById } from '../../common/constants/DailyShareList';
 import { PICTURE_MAP } from '../../common/constants/PictureConstants';
 import Logger from '../../common/utils/Logger';
+import { router } from '@kit.ArkUI';
 import PromptUtil from '../../common/utils/PromptUtil';
 import { COMMENT_LIST } from '../../model/CommentModel';
 import PreferenceModel from '../../model/PreferenceModel';
@@ -31,16 +32,21 @@ export struct DailyShareTypeDetailShow {
   @StorageLink('selectCardIndex') selectCardIndex: number = 0;
   @StorageLink('isDetailPage') isDetailPage: boolean = false;
   @StorageLink('isShowInput') isShowInput: boolean = false;
+
+  @State curDailyShare:DailyShare = new DailyShare()
+  @State cardItem: CardItem = new CardItem()
+
 //  @State cardItem: CardItem = this.cardArrayViewModel.cardArray[this.selectCardIndex];
 //   @State cardItem: CardItem = this.switchToCardItem(this.getDailyShare());
   isShowedButton?: boolean = true;
 
-  getDailyShare() : DailyShare {
+  getDailyShare(){
+    // let dailyShare: DailyShare = new DailyShare();
     let dailyShareId = PreferenceModel.getPreference('dailyShareId', '').toString();
-    let dailyShare: DailyShare = new DailyShare();
     Logger.info(CommonConstants.DAILY_SHARE_PAGE_TAG, 'getDailyShare id: ' + dailyShareId);
     DailyShareServer.getDailyShareById(dailyShareId).then((data: DailyShare) => {
-      dailyShare = data;
+      this.curDailyShare = data;
+      this.cardItem = this.switchToCardItem(this.curDailyShare)
     }).catch((err: Resource | ResponseResult) => {
       if (err instanceof ResponseResult) {
         if (err.message !== null) {
@@ -50,10 +56,9 @@ export struct DailyShareTypeDetailShow {
         PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
     });
-    return dailyShare;
   }
 
-  switchToCardItem(item: DailyShareItem): CardItem {
+  switchToCardItem(item: DailyShare): CardItem {
     let cardItem: CardItem = {
       dailyShareId: item.id ? item.id : '',
       icon: $r('app.media.login_logo'),
@@ -73,6 +78,7 @@ export struct DailyShareTypeDetailShow {
       createTime: item.createdAt ? item.createdAt : new Date(),
       commentList: []
     }
+    Logger.debug('cardItem id: ' + JSON.stringify(cardItem))
     COMMENT_LIST.forEach((item: CommentItemInterface) => {
       cardItem.commentList.push(new CommentItem(item));
     })
@@ -80,7 +86,8 @@ export struct DailyShareTypeDetailShow {
   }
 
   aboutToAppear() {
-    this.isDetailPage = true;
+    this.isDetailPage = true
+    this.getDailyShare()
   }
 
   build() {
@@ -90,7 +97,8 @@ export struct DailyShareTypeDetailShow {
         Scroll() {
           Column() {
             MircoBlogView({
-              cardItem: this.switchToCardItem(findDailyShareItemById(PreferenceModel.getPreference('dailyShareId', '').toString())),
+              // cardItem: this.switchToCardItem(findDailyShareItemById(PreferenceModel.getPreference('dailyShareId', '').toString())),
+              cardItem: this.cardItem,
               index: this.selectCardIndex
             })
               .margin({
@@ -102,78 +110,18 @@ export struct DailyShareTypeDetailShow {
             .height(CommonConstants.FULL_PERCENT)
             .width(CommonConstants.FULL_PERCENT)
           }
-          // GridRow({
-          //   // columns: {
-          //   //   sm: BreakpointConstants.GRID_ROW_COLUMNS[2],
-          //   //   md: BreakpointConstants.GRID_ROW_COLUMNS[3],
-          //   //   lg: BreakpointConstants.GRID_ROW_COLUMNS[0]
-          //   // }
-          // })
-          // {
-          //   GridCol({
-          //     // span: {
-          //     //   sm: BreakpointConstants.GRID_COLUMN_SPANS[5],
-          //     //   md: this.isFoldHorizontal ? BreakpointConstants.GRID_COLUMN_SPANS[4] : BreakpointConstants.GRID_COLUMN_SPANS[3],
-          //     //   lg: BreakpointConstants.GRID_COLUMN_SPANS[0]
-          //     // }
-          //   })
-          //   {
-          //     // if ((this.isFoldHorizontal && this.currentBreakpointConstants === BreakpointConstants.BreakpointConstants_MD)) {
-          //     //   Scroll() {
-          //     //     MircoBlogView({
-          //     //       cardItem: this.cardItem,
-          //     //       index: this.selectCardIndex
-          //     //     })
-          //     //       .margin({
-          //     //         top: $r('app.float.mirco_blog_mt')
-          //     //       })
-          //     //   }
-          //     //   .scrollBar(BarState.Off)
-          //     //   .align(Alignment.Top)
-          //     //   .layoutWeight(1)
-          //     // } else {
-          //       MircoBlogView({
-          //         cardItem: this.switchToCardItem(findDailyShareItemById(PreferenceModel.getPreference('dailyShareId', '').toString())),
-          //         index: this.selectCardIndex
-          //       })
-          //         .margin({
-          //           top: $r('app.float.mirco_blog_mt')
-          //         })
-          //     // }
-          //   }
-          //   .width(CommonConstants.FULL_PERCENT)
-          //   .padding({
-          //     // left: new BreakpointConstantsType($r('app.float.window_padding_left_sm'), $r('app.float.window_padding_left_md'),
-          //     //   $r('app.float.window_padding_left_lg')).getValue(this.currentBreakpointConstants),
-          //     // right: new BreakpointConstantsType($r('app.float.window_padding_left_sm'), $r('app.float.window_padding_left_md'),
-          //     //   $r('app.float.window_padding_left_lg')).getValue(this.currentBreakpointConstants)
-          //     left: $r('app.float.window_padding_left_sm'),
-          //     right: $r('app.float.window_padding_left_sm')
-          //   })
-          //
-          //   GridCol({
-          //     span: {
-          //       sm: BreakpointConstants.GRID_COLUMN_SPANS[5],
-          //       md: this.isFoldHorizontal ? BreakpointConstants.GRID_COLUMN_SPANS[6] : BreakpointConstants.GRID_COLUMN_SPANS[3],
-          //       lg: BreakpointConstants.GRID_COLUMN_SPANS[0]
-          //     }
-          //   }) {
-          //     CommentListView()
-          //   }
-          //   .height(CommonConstants.FULL_PERCENT)
-          //   .width(CommonConstants.FULL_PERCENT)
-          // }
+
         }
         .layoutWeight(1)
         .visibility(Visibility.Visible)
         // .visibility(this.currentBreakpointConstants === BreakpointConstants.BreakpointConstants_LG ? Visibility.None : Visibility.Visible)
         .scrollBar(BarState.Off)
 
-          CommentBarView()
-            .visibility(Visibility.Visible)
-            // .visibility(this.isShow() ? Visibility.Visible : Visibility.None)
-            .position({ bottom: 0 })
-            .layoutWeight(10)
+        CommentBarView()
+          // .visibility(Visibility.Visible)
+          .visibility(this.isShow() ? Visibility.Visible : Visibility.None)
+          .position({ bottom: 0 })
+          .layoutWeight(10)
 
         Column() {
           SideBarContainer() {
@@ -185,11 +133,11 @@ export struct DailyShareTypeDetailShow {
             Column() {
               Scroll() {
                 MircoBlogView({
-                  cardItem: this.switchToCardItem(findDailyShareItemById(PreferenceModel.getPreference('dailyShareId', '').toString())),
+                  // cardItem: this.switchToCardItem(findDailyShareItemById(PreferenceModel.getPreference('dailyShareId', '').toString())),
+                  cardItem: this.cardItem,
                   index: this.selectCardIndex
                 })
-                  .margin({
-                    top: $r('app.float.mirco_blog_mt')
+                  .margin({top: $r('app.float.mirco_blog_mt')
                   })
               }
               .padding({

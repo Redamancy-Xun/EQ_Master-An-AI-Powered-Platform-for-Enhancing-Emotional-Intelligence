@@ -32,7 +32,7 @@ export struct CommentBarView {
           .height($r('app.float.comment_input_height'))
           .width(CommonConstants.COMMENT_BAR_INPUT_WIDTH)
           .margin({ left: CommonConstants.COMMENT_BAR_INPUT_ML })
-          .visibility(this.isShowInput ? Visibility.Visible : Visibility.None)
+          // .visibility(this.isShowInput ? Visibility.Visible : Visibility.None)
           .onMouse((event: MouseEvent) => {
             if (event.button === MouseButton.Left && event.action === MouseAction.Press) {
               this.isMouseClick = true;

@@ -21,7 +21,7 @@ export struct MircoBlogView {
   @StorageLink('isPictureDetail') isPictureDetail: boolean = false;
   @StorageLink('pageInfos') pageInfos: NavPathStack = new NavPathStack();
   @State index: number = 0;
-  @State cardItem: CardItem = new CardItem();
+  @Prop cardItem: CardItem  //prop单向同步，需要父组件主动传递参数。不传递不会报错。
   @State showPicture: boolean = true;
   @State imageWidth: string = CommonConstants.FULL_PERCENT;
   @State contentFontSize: number = CommonConstants.CONTENT_FONT_SIZE;
