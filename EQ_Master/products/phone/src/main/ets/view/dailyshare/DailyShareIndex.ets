@@ -1,7 +1,7 @@
 import { CommonConstants } from '../../common/constants/CommonConstants'
-import { DAILY_SHARE_LIST_QUESTION,
-  DAILY_SHARE_LIST_STORY,
-  DAILY_SHARE_LIST_TIP } from '../../common/constants/DailyShareList'
+// import { DAILY_SHARE_LIST_QUESTION,
+//   DAILY_SHARE_LIST_STORY,
+//   DAILY_SHARE_LIST_TIP } from '../../common/constants/DailyShareList'
 import { PictureType } from '../../common/constants/PictureConstants'
 import Logger from '../../common/utils/Logger'
 import PromptUtil from '../../common/utils/PromptUtil'

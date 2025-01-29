@@ -1,5 +1,5 @@
 import { PictureItem } from '../../viewmodel/PictureItem';
-import { initializePictures } from '../../viewmodel/PictureViewModel';
+import { initializePictures,initializePicture } from '../../viewmodel/PictureViewModel';
 import { PictureType } from '../../common/constants/PictureConstants';
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import { PictureView } from './PictureView';
@@ -101,24 +101,28 @@ export struct DailyShareShow {
               url: CommonConstants.DAILY_SHARE_TYPE_PAGE_URL
             }).catch((error: Error) => {
               Logger.error(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG, 'DailyShareShowPage pushUrl error ' + JSON.stringify(error));
-            });
+            }).then(()=> { //成功跳转信息
+              Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG, 'DailyShareShowPage pushUrl success')
+            })
           })
       }
       .width(CommonConstants.WIDTH_SORT)
       .margin({ top: CommonConstants.MARGIN_TOP_SORT, bottom: CommonConstants.MARGIN_BOTTOM_SORT })
 
       Grid() {
-        ForEach(initializePictures(this.initType, this.initDailyShare), (item: PictureItem) => {
+        ForEach(initializePictures(this.initType,this.initDailyShare), (item: PictureItem) => {
           GridItem() {
-            PictureView({photos: item})  //使用Prop单向传递了photo
+            PictureView({photos: item})
               .onClick(() => {
                 PreferenceModel.putPreference('dailyShareId', item.id);
-
                 router.pushUrl({
-                  url: CommonConstants.DAILY_SHARE_DETAIL_PAGE_URL
+                  url: CommonConstants.DAILY_SHARE_DETAIL_PAGE_URL,
+                  // params: item.id
                 }).catch((error: Error) => {
                   Logger.error(CommonConstants.DAILY_SHARE_DETAIL_PAGE_TAG,
                     'DailyShareShowPage pushUrl error ' + JSON.stringify(error));
+                }).then(()=> { //成功跳转信息
+                  Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG, 'DailyShareShowPage pushUrl success')
                 })
               })
           }

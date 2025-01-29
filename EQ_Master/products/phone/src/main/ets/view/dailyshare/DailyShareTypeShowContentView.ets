@@ -18,7 +18,7 @@ import { CommentItem } from '../../viewmodel/CommentViewModel';
 import { PICTURE_MAP } from '../../common/constants/PictureConstants';
 import { BreakpointType } from '../../common/constants/BreakpointType';
 
-@Entry
+// @Entry //注释此处将允许预览器
 @Component
 export struct DailyShareTypeShowContentView {
 

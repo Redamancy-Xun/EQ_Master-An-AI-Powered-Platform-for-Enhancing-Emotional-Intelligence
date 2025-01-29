@@ -1,5 +1,5 @@
 import { CommonConstants } from '../../common/constants/CommonConstants';
-import { DailyShareItem, findDailyShareItemById } from '../../common/constants/DailyShareList';
+// import { DailyShareItem, findDailyShareItemById } from '../../common/constants/DailyShareList';
 import { COMMENT_LIST } from '../../model/CommentModel';
 import PreferenceModel from '../../model/PreferenceModel';
 import { CardArray } from '../../viewmodel/CardArrayViewModel';

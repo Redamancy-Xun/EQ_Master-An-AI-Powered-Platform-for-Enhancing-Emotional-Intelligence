@@ -8,9 +8,9 @@ import ResponseResult from '../../server/ResponseResult';
 import { DailyShareTypeShowContentView } from '../../view/dailyshare/DailyShareTypeShowContentView';
 import { preferences } from '@kit.ArkData';
 import { DailyShareTypeShowTitleView } from '../../view/dailyshare/DailyShareTypeShowTitleView';
-import { DailyShareItem, DAILY_SHARE_LIST_QUESTION,
-  DAILY_SHARE_LIST_STORY,
-  DAILY_SHARE_LIST_TIP } from '../../common/constants/DailyShareList';
+// import { DailyShareItem, DAILY_SHARE_LIST_QUESTION,
+//   DAILY_SHARE_LIST_STORY,
+//   DAILY_SHARE_LIST_TIP } from '../../common/constants/DailyShareList';
 
 @Entry
 @Component

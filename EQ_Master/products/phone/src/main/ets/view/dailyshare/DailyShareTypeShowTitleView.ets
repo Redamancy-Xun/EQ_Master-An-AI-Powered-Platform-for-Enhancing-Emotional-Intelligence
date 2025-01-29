@@ -2,7 +2,7 @@ import { preferences, ValueType } from '@kit.ArkData';
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import { PictureType } from '../../common/constants/PictureConstants';
 
-@Entry
+// @Entry //注释此处将允许预览器
 @Component
 export struct DailyShareTypeShowTitleView {
 
