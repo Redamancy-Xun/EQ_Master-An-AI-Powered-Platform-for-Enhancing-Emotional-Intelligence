@@ -31,7 +31,7 @@ export struct Banner {
   aboutToAppear() {
     this.dotIndicator.selectedColor($r('app.color.start_window_background'));
     // Data Initialization.
-    this.imageArray = initializePictures(PictureType.BANNER);
+    this.imageArray = initializePictures(PictureType.BANNER); //此句疑似没作用
     // Turn on scheduled task.
     startPlay(this.swiperController);
   }

@@ -8,9 +8,9 @@ import ResponseResult from '../../server/ResponseResult';
 import { DailyShareTypeShowContentView } from '../../view/dailyshare/DailyShareTypeShowContentView';
 import { preferences } from '@kit.ArkData';
 import { DailyShareTypeShowTitleView } from '../../view/dailyshare/DailyShareTypeShowTitleView';
-import { DailyShareItem, DAILY_SHARE_LIST_QUESTION,
-  DAILY_SHARE_LIST_STORY,
-  DAILY_SHARE_LIST_TIP } from '../../common/constants/DailyShareList';
+// import { DailyShareItem, DAILY_SHARE_LIST_QUESTION,
+//   DAILY_SHARE_LIST_STORY,
+//   DAILY_SHARE_LIST_TIP } from '../../common/constants/DailyShareList';
 
 @Entry
 @Component
@@ -19,15 +19,17 @@ struct DailyShareTypeShow {
   // TODO 后期实现懒加载，非瀑布式
   // TODO 论坛完善，巨多：点赞、评论、收藏、分享、浏览等；显示等问题
 
-  private type = PreferenceModel.getPreference('dailyShareType', '').toString();
-  private dailyShareList: Array<DailyShare> = [];
+  @Provide type:string = PreferenceModel.getPreference('dailyShareType', '').toString()
+  @Provide dailyShareListByPopularity: Array<DailyShare> = [] // 改变量名, 因为provide和consume需要通过变量名链接
+  @Provide dailyShareListByTime: Array<DailyShare> = []
 
-  getDailyShare(type: string, page: number, pageSize: number, orderByPopularity: boolean) : Array<DailyShare> {
+
+  getDailyShareListByPopularity(type: string, page: number, pageSize: number, orderByPopularity: boolean){ // 函数本身就有赋值, 故删除返回值,
     Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG,
       'getDailyShare page: ' + page + ' pageSize: ' + pageSize + ' type: ' + type + ' orderByPopularity: ' +
         orderByPopularity);
     DailyShareServer.getDailyShareTypeList(type, page, pageSize, orderByPopularity).then((data: Array<DailyShare>) => {
-      this.dailyShareList = data;
+      this.dailyShareListByPopularity= data;
     }).catch((err: Resource | ResponseResult) => {
       if (err instanceof ResponseResult) {
         if (err.message !== null) {
@@ -37,21 +39,46 @@ struct DailyShareTypeShow {
         PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
     })
+  }
 
-    return this.dailyShareList;
+  getDailyShareListByTime(type: string, page: number, pageSize: number, orderByPopularity: boolean){ // 函数本身就有赋值, 故删除返回值,
+    Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG,
+      'getDailyShare page: ' + page + ' pageSize: ' + pageSize + ' type: ' + type + ' orderByPopularity: ' +
+        orderByPopularity);
+    DailyShareServer.getDailyShareTypeList(type, page, pageSize, orderByPopularity).then((data: Array<DailyShare>) => {
+      this.dailyShareListByTime= data;
+    }).catch((err: Resource | ResponseResult) => {
+      if (err instanceof ResponseResult) {
+        if (err.message !== null) {
+          PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+        }
+      } else {
+        PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+      }
+    })
+  }
+
+  aboutToAppear(): void { // 处理函数
+    this.getDailyShareListByPopularity(this.type, 1, 5, true);  // 根据热度从高到低选取前5个DailyShare
+    this.getDailyShareListByTime(this.type, 1, 100, false)
   }
 
   build() {
     Column() {
       Column() {
-        DailyShareTypeShowTitleView({type: this.type, count: 37})
-        DailyShareTypeShowContentView({dailyShareListByPopularity: this.type == 'question' ?
-          DAILY_SHARE_LIST_QUESTION.slice(4, 9) : this.type == 'tip' ?
-          DAILY_SHARE_LIST_TIP.slice(4, 9) : DAILY_SHARE_LIST_STORY.slice(4, 9),
-          dailyShareListByTime: this.type == 'question' ?
-          DAILY_SHARE_LIST_QUESTION.slice(9, ) : this.type == 'tip' ?
-            DAILY_SHARE_LIST_TIP.slice(9, ) : DAILY_SHARE_LIST_STORY.slice(9, )})
-      }
+        //TODO count改成后端的记录总数, 目前没有后端接口能提供
+        DailyShareTypeShowTitleView({count:37})
+        DailyShareTypeShowContentView(
+          // {
+          // dailyShareListByPopularity: this.type == 'question' ?
+          // DAILY_SHARE_LIST_QUESTION.slice(4, 9) : this.type == 'tip' ?
+          // DAILY_SHARE_LIST_TIP.slice(4, 9) : DAILY_SHARE_LIST_STORY.slice(4, 9),
+          // dailyShareListByTime: this.type == 'question' ?
+          // DAILY_SHARE_LIST_QUESTION.slice(9, ) : this.type == 'tip' ?
+          // DAILY_SHARE_LIST_TIP.slice(9, ) : DAILY_SHARE_LIST_STORY.slice(9, )
+          // }
+        )
+      }// 先根据type选择5条一个同type的DailyShare(根据热度排列), 再加载该type下剩余的所有DailyShare(根据时间先后排列)
       .height(CommonConstants.FULL_PERCENT)
       .width(CommonConstants.FULL_PERCENT)
     }
