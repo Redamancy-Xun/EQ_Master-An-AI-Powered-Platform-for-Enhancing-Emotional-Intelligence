@@ -19354,3 +19354,1342 @@ at D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default
 [2025-01-21T22:39:17.573] [DEBUG] debug-file - session manager: send message to worker process.
 [2025-01-21T22:39:17.572] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2025-01-21T22:39:17.573] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-11T21:03:18.078] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED ::1:45050
+[2025-02-11T21:03:18.192] [DEBUG] debug-file - java daemon started at port 45050 pid 33628
+[2025-02-11T21:03:15.758] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-02-11T21:03:15.961] [DEBUG] debug-file - env: daemon=true
+[2025-02-11T21:03:20.356] [DEBUG] debug-file - hvigor start cli arguments:{
+  prop: [
+    'module=phone@default',
+    'product=default',
+    'requiredDeviceType=phone'
+  ],
+  mode: 'module',
+  parallel: true,
+  incremental: true,
+  daemon: true,
+  _: [ 'assembleHap', '--analyze=normal' ]
+}
+[2025-02-11T21:03:15.761] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '5.0.0',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2025-02-11T21:03:20.379] [DEBUG] debug-file - session manager: set active socket. socketId=xcJDxhOadpYaorMMAAAB
+[2025-02-11T21:03:20.402] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-11T21:03:20.431] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' }
+}
+[2025-02-11T21:03:20.467] [DEBUG] debug-file - Cache service initialization finished in 36 ms 
+[2025-02-11T21:03:20.480] [DEBUG] debug-file - hvigorfile, resolving D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-11T21:03:44.858] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-02-11T21:03:44.858] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-02-11T21:03:45.133] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-02-11T21:03:45.133] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-02-11T21:03:45.134] [DEBUG] debug-file - Product 'default' build option: {}
+[2025-02-11T21:03:45.134] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-02-11T21:03:45.138] [DEBUG] debug-file - Product 'default' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-02-11T21:03:45.167] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-02-11T21:03:45.181] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-02-11T21:03:45.188] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-02-11T21:03:45.196] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-02-11T21:03:45.241] [DEBUG] debug-file - Sdk init in 64 ms 
+[2025-02-11T21:03:45.269] [DEBUG] debug-file - Project task initialization takes 26 ms 
+[2025-02-11T21:03:45.270] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-02-11T21:03:45.270] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-11T21:03:45.270] [DEBUG] debug-file - hvigorfile, resolve finished D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-11T21:03:45.279] [DEBUG] debug-file - hvigorfile, resolving D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-11T21:03:45.294] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-02-11T21:03:45.294] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-02-11T21:03:45.307] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=phone, buildMode=debug
+[2025-02-11T21:03:45.308] [DEBUG] debug-file - Target 'default' config: {}
+[2025-02-11T21:03:45.308] [DEBUG] debug-file - Target 'ohosTest' config: {}
+[2025-02-11T21:03:45.309] [DEBUG] debug-file - Module 'phone' target 'default' build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+}
+[2025-02-11T21:03:45.309] [DEBUG] debug-file - Module 'phone' target 'ohosTest' build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "default"
+}
+[2025-02-11T21:03:45.309] [DEBUG] debug-file - End initialize module-target build option map, moduleName=phone
+[2025-02-11T21:03:45.310] [DEBUG] debug-file - Module 'phone' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+} in this build.
+[2025-02-11T21:03:45.318] [DEBUG] debug-file - Module phone task initialization takes 6 ms 
+[2025-02-11T21:03:45.318] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-02-11T21:03:45.318] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-11T21:03:45.318] [DEBUG] debug-file - hvigorfile, resolve finished D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-11T21:03:45.344] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 25 ms 
+[2025-02-11T21:03:45.346] [DEBUG] debug-file - project has submodules:phone
+[2025-02-11T21:03:45.356] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-02-11T21:03:45.370] [DEBUG] debug-file - load to the disk finished
+[2025-02-11T21:03:45.412] [DEBUG] debug-file - Module EQ_Master Collected Dependency: D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh
+[2025-02-11T21:03:45.412] [DEBUG] debug-file - Module EQ_Master's total dependency: 2
+[2025-02-11T21:03:45.480] [DEBUG] debug-file - Module phone Collected Dependency: D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+hamock@1.0.0\oh_modules\@ohos\hamock,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-parse@1.0.0\oh_modules\@nutpi\color-parse,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-name@1.0.0\oh_modules\@nutpi\color-name,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh
+[2025-02-11T21:03:45.481] [DEBUG] debug-file - Module phone's total dependency: 5
+[2025-02-11T21:03:45.486] [DEBUG] debug-file - Configuration phase cost:25 s 15 ms 
+[2025-02-11T21:03:45.489] [DEBUG] debug-file - Configuration task cost before running: 25 s 83 ms 
+[2025-02-11T21:03:45.492] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.492] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.496] [DEBUG] debug-file - Executing task :phone:default@PreBuild
+[2025-02-11T21:03:45.508] [DEBUG] debug-file - Incremental task phone:default@PreBuild pre-execution cost: 7 ms .
+[2025-02-11T21:03:45.508] [DEBUG] debug-file - phone : default@PreBuild cost memory 0.355682373046875
+[2025-02-11T21:03:45.510] [INFO] debug-file - UP-TO-DATE :phone:default@PreBuild...  
+[2025-02-11T21:03:45.512] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.512] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.513] [DEBUG] debug-file - Executing task :phone:default@GenerateMetadata
+[2025-02-11T21:03:45.516] [DEBUG] debug-file - Incremental task phone:default@GenerateMetadata pre-execution cost: 2 ms .
+[2025-02-11T21:03:45.516] [DEBUG] debug-file - phone : default@GenerateMetadata cost memory 0.14765167236328125
+[2025-02-11T21:03:45.517] [INFO] debug-file - UP-TO-DATE :phone:default@GenerateMetadata...  
+[2025-02-11T21:03:45.519] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.520] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.521] [DEBUG] debug-file - Executing task :phone:default@ConfigureCmake
+[2025-02-11T21:03:45.522] [DEBUG] debug-file - phone : default@ConfigureCmake cost memory 0.01309967041015625
+[2025-02-11T21:03:45.522] [DEBUG] debug-file - runTaskFromQueue task cost before running: 25 s 116 ms 
+[2025-02-11T21:03:45.522] [INFO] debug-file - Finished :phone:default@ConfigureCmake... after 1 ms 
+[2025-02-11T21:03:45.524] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.525] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.527] [DEBUG] debug-file - Executing task :phone:default@MergeProfile
+[2025-02-11T21:03:45.531] [DEBUG] debug-file - Incremental task phone:default@MergeProfile pre-execution cost: 3 ms .
+[2025-02-11T21:03:45.531] [DEBUG] debug-file - phone : default@MergeProfile cost memory 0.19156646728515625
+[2025-02-11T21:03:45.532] [INFO] debug-file - UP-TO-DATE :phone:default@MergeProfile...  
+[2025-02-11T21:03:45.534] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.534] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.535] [DEBUG] debug-file - Executing task :phone:default@CreateBuildProfile
+[2025-02-11T21:03:45.537] [DEBUG] debug-file - Incremental task phone:default@CreateBuildProfile pre-execution cost: 2 ms .
+[2025-02-11T21:03:45.537] [DEBUG] debug-file - phone : default@CreateBuildProfile cost memory 0.12761688232421875
+[2025-02-11T21:03:45.538] [INFO] debug-file - UP-TO-DATE :phone:default@CreateBuildProfile...  
+[2025-02-11T21:03:45.540] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.540] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.541] [DEBUG] debug-file - Executing task :phone:default@PreCheckSyscap
+[2025-02-11T21:03:45.542] [DEBUG] debug-file - phone : default@PreCheckSyscap cost memory 0.01715850830078125
+[2025-02-11T21:03:45.542] [DEBUG] debug-file - runTaskFromQueue task cost before running: 25 s 136 ms 
+[2025-02-11T21:03:45.542] [INFO] debug-file - Finished :phone:default@PreCheckSyscap... after 1 ms 
+[2025-02-11T21:03:45.545] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.545] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.579] [DEBUG] debug-file - Executing task :phone:default@GeneratePkgContextInfo
+[2025-02-11T21:03:45.580] [DEBUG] debug-file - Incremental task phone:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2025-02-11T21:03:45.580] [DEBUG] debug-file - phone : default@GeneratePkgContextInfo cost memory 0.0590057373046875
+[2025-02-11T21:03:45.581] [INFO] debug-file - UP-TO-DATE :phone:default@GeneratePkgContextInfo...  
+[2025-02-11T21:03:45.583] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.584] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.585] [DEBUG] debug-file - Executing task :phone:default@ProcessIntegratedHsp
+[2025-02-11T21:03:45.587] [DEBUG] debug-file - phone:default@ProcessIntegratedHsp is not up-to-date, since the output file 'D:\EQ_Master\EQ_Master\build\cache\default\integrated_hsp\integratedHspCache.json' does not exist.
+[2025-02-11T21:03:45.587] [DEBUG] debug-file - Incremental task phone:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2025-02-11T21:03:45.587] [DEBUG] debug-file - phone : default@ProcessIntegratedHsp cost memory 0.0885009765625
+[2025-02-11T21:03:45.587] [DEBUG] debug-file - runTaskFromQueue task cost before running: 25 s 182 ms 
+[2025-02-11T21:03:45.588] [INFO] debug-file - Finished :phone:default@ProcessIntegratedHsp... after 3 ms 
+[2025-02-11T21:03:45.591] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.591] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.592] [DEBUG] debug-file - Executing task :phone:default@BuildNativeWithCmake
+[2025-02-11T21:03:45.592] [DEBUG] debug-file - phone : default@BuildNativeWithCmake cost memory 0.01441192626953125
+[2025-02-11T21:03:45.592] [DEBUG] debug-file - runTaskFromQueue task cost before running: 25 s 186 ms 
+[2025-02-11T21:03:45.592] [INFO] debug-file - Finished :phone:default@BuildNativeWithCmake... after 1 ms 
+[2025-02-11T21:03:45.594] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.594] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.595] [DEBUG] debug-file - Executing task :phone:default@MakePackInfo
+[2025-02-11T21:03:45.598] [DEBUG] debug-file - Incremental task phone:default@MakePackInfo pre-execution cost: 3 ms .
+[2025-02-11T21:03:45.599] [DEBUG] debug-file - phone : default@MakePackInfo cost memory 0.16069793701171875
+[2025-02-11T21:03:45.600] [INFO] debug-file - UP-TO-DATE :phone:default@MakePackInfo...  
+[2025-02-11T21:03:45.602] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.602] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.604] [DEBUG] debug-file - Executing task :phone:default@ProcessProfile
+[2025-02-11T21:03:45.605] [DEBUG] debug-file - Incremental task phone:default@ProcessProfile pre-execution cost: 1 ms .
+[2025-02-11T21:03:45.605] [DEBUG] debug-file - phone : default@ProcessProfile cost memory 0.062255859375
+[2025-02-11T21:03:45.605] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessProfile...  
+[2025-02-11T21:03:45.608] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.608] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.609] [DEBUG] debug-file - Executing task :phone:default@SyscapTransform
+[2025-02-11T21:03:45.649] [DEBUG] debug-file - phone:default@SyscapTransform is not up-to-date, since the output file 'D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\syscap\default\rpcid.sc' does not exist.
+[2025-02-11T21:03:45.649] [DEBUG] debug-file - Incremental task phone:default@SyscapTransform pre-execution cost: 39 ms .
+[2025-02-11T21:03:45.649] [DEBUG] debug-file - phone : default@SyscapTransform cost memory 0.1256561279296875
+[2025-02-11T21:03:45.650] [DEBUG] debug-file - runTaskFromQueue task cost before running: 25 s 244 ms 
+[2025-02-11T21:03:45.650] [INFO] debug-file - Finished :phone:default@SyscapTransform... after 41 ms 
+[2025-02-11T21:03:45.652] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.653] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.654] [DEBUG] debug-file - Executing task :phone:default@ProcessRouterMap
+[2025-02-11T21:03:45.665] [DEBUG] debug-file - Incremental task phone:default@ProcessRouterMap pre-execution cost: 5 ms .
+[2025-02-11T21:03:45.665] [DEBUG] debug-file - phone : default@ProcessRouterMap cost memory -12.539299011230469
+[2025-02-11T21:03:45.667] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessRouterMap...  
+[2025-02-11T21:03:45.670] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.670] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.671] [DEBUG] debug-file - Executing task :phone:default@BuildNativeWithNinja
+[2025-02-11T21:03:45.673] [DEBUG] debug-file - phone : default@BuildNativeWithNinja cost memory 0.18365478515625
+[2025-02-11T21:03:45.673] [DEBUG] debug-file - runTaskFromQueue task cost before running: 25 s 267 ms 
+[2025-02-11T21:03:45.673] [INFO] debug-file - Finished :phone:default@BuildNativeWithNinja... after 2 ms 
+[2025-02-11T21:03:45.675] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.675] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.677] [DEBUG] debug-file - restool module names: phone; moduleName=phone, taskName=default@ProcessResource
+[2025-02-11T21:03:45.689] [DEBUG] debug-file - Executing task :phone:default@ProcessResource
+[2025-02-11T21:03:45.690] [DEBUG] debug-file - Incremental task phone:default@ProcessResource pre-execution cost: 2 ms .
+[2025-02-11T21:03:45.690] [DEBUG] debug-file - phone : default@ProcessResource cost memory 0.11217498779296875
+[2025-02-11T21:03:45.693] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessResource...  
+[2025-02-11T21:03:45.696] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.696] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.706] [DEBUG] debug-file - Executing task :phone:default@GenerateLoaderJson
+[2025-02-11T21:03:45.742] [DEBUG] debug-file - Incremental task phone:default@GenerateLoaderJson pre-execution cost: 10 ms .
+[2025-02-11T21:03:45.742] [DEBUG] debug-file - phone : default@GenerateLoaderJson cost memory 0.9288787841796875
+[2025-02-11T21:03:45.748] [INFO] debug-file - UP-TO-DATE :phone:default@GenerateLoaderJson...  
+[2025-02-11T21:03:45.750] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.750] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.757] [DEBUG] debug-file - Executing task :phone:default@ProcessLibs
+[2025-02-11T21:03:45.760] [DEBUG] debug-file - Incremental task phone:default@ProcessLibs pre-execution cost: 2 ms .
+[2025-02-11T21:03:45.760] [DEBUG] debug-file - phone : default@ProcessLibs cost memory 0.27741241455078125
+[2025-02-11T21:03:45.760] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessLibs...  
+[2025-02-11T21:03:45.762] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.762] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.763] [DEBUG] debug-file - restool module names: phone; moduleName=phone, taskName=default@CompileResource
+[2025-02-11T21:03:45.769] [DEBUG] debug-file - Executing task :phone:default@CompileResource
+[2025-02-11T21:03:45.868] [DEBUG] debug-file - Incremental task phone:default@CompileResource pre-execution cost: 97 ms .
+[2025-02-11T21:03:45.868] [DEBUG] debug-file - phone : default@CompileResource cost memory 5.694923400878906
+[2025-02-11T21:03:45.870] [INFO] debug-file - UP-TO-DATE :phone:default@CompileResource...  
+[2025-02-11T21:03:45.872] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.872] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.875] [DEBUG] debug-file - Executing task :phone:default@DoNativeStrip
+[2025-02-11T21:03:45.876] [DEBUG] debug-file - Incremental task phone:default@DoNativeStrip pre-execution cost: 1 ms .
+[2025-02-11T21:03:45.876] [DEBUG] debug-file - phone : default@DoNativeStrip cost memory 0.0635833740234375
+[2025-02-11T21:03:45.877] [INFO] debug-file - UP-TO-DATE :phone:default@DoNativeStrip...  
+[2025-02-11T21:03:45.879] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.879] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:45.883] [DEBUG] debug-file - Executing task :phone:default@CompileArkTS
+[2025-02-11T21:03:45.924] [DEBUG] debug-file - phone:default@CompileArkTS is not up-to-date, since the input file 'D:\EQ_Master\EQ_Master\products\phone\src\main\ets' has been changed.
+[2025-02-11T21:03:45.924] [DEBUG] debug-file - Incremental task phone:default@CompileArkTS pre-execution cost: 34 ms .
+[2025-02-11T21:03:45.967] [DEBUG] debug-file - build config:
+[2025-02-11T21:03:45.968] [DEBUG] debug-file - {
+  moduleType: 'entry',
+  perf: 0,
+  targetName: '.default',
+  packageManagerType: 'ohpm',
+  localPropertiesPath: 'D:\\EQ_Master\\EQ_Master\\local.properties',
+  isPreview: false,
+  isOhosTest: false,
+  isLocalTest: false,
+  buildMode: 'Debug',
+  watchMode: 'false',
+  aceProfilePath: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources\\base\\profile',
+  etsLoaderPath: 'D:\\Harmony\\DevEco\\DevEco Studio\\sdk\\default\\openharmony\\ets\\build-tools\\ets-loader',
+  modulePath: 'D:\\EQ_Master\\EQ_Master\\products\\phone',
+  testFrameworkPar: {
+    testMode: undefined,
+    coveragePathFilter: undefined,
+    coverageMode: undefined
+  },
+  needCoverageInsert: false,
+  debugLine: false,
+  projectTopDir: 'D:\\EQ_Master\\EQ_Master',
+  compileSdkVersion: 12,
+  compatibleSdkVersion: 12,
+  compatibleSdkVersionStage: 'beta1',
+  bundleName: 'fun.redamancyxun.eq_master',
+  etsLoaderVersion: '5.0.0.65',
+  etsLoaderReleaseType: 'Release',
+  aotCompileMode: 'type',
+  apPath: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\modules.ap',
+  entryModuleName: 'phone',
+  entryModuleVersion: '1.0.0',
+  entryPackageName: 'phone',
+  allModuleNameHash: 'cffaf7ecf33de1d221b758710132d492',
+  externalApiPaths: [ 'D:\\Harmony\\DevEco\\DevEco Studio\\sdk\\default\\hms\\ets' ],
+  compilerTypes: undefined,
+  isCrossplatform: false,
+  hvigorPluginFile: undefined,
+  compilePluginPath: undefined,
+  buildGeneratedProfilePath: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\generated\\profile\\default',
+  bundleType: 'app',
+  arkTSVersion: undefined,
+  apiVersion: 12,
+  needCompleteSourcesMap: false,
+  isFaMode: false,
+  strictMode: { caseSensitiveCheck: true, useNormalizedOHMUrl: true },
+  buildDir: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build',
+  deviceTypes: [ 'phone' ],
+  useNormalizedOHMUrl: true,
+  pkgContextInfo: {
+    '@ohos/hamock': {
+      packageName: '@ohos/hamock',
+      bundleName: '',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@nutpi/color-parse': {
+      packageName: '@nutpi/color-parse',
+      bundleName: '',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'Index.ts',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@nutpi/color-name': {
+      packageName: '@nutpi/color-name',
+      bundleName: '',
+      moduleName: '',
+      version: '1.0.0',
+      entryPath: 'Index.ts',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/lottie': {
+      packageName: '@ohos/lottie',
+      bundleName: '',
+      moduleName: '',
+      version: '2.0.15',
+      entryPath: 'src/main/js/modules/full.js',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/pulltorefresh': {
+      packageName: '@ohos/pulltorefresh',
+      bundleName: '',
+      moduleName: '',
+      version: '2.1.1',
+      entryPath: 'index.ets',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    '@ohos/hypium': {
+      packageName: '@ohos/hypium',
+      bundleName: '',
+      moduleName: '',
+      version: '1.0.19',
+      entryPath: 'index.js',
+      isSO: false,
+      dependencyAlias: ''
+    },
+    phone: {
+      packageName: 'phone',
+      bundleName: '',
+      moduleName: '',
+      version: '',
+      entryPath: 'src/main/',
+      isSO: false,
+      dependencyAlias: ''
+    }
+  },
+  ohPackagePathMap: {},
+  dependencyAliasMap: {},
+  permission: {
+    requestPermissions: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    definePermissions: undefined
+  },
+  integratedHsp: false,
+  projectArkOption: undefined,
+  sourceMapDir: undefined,
+  branchElimination: false,
+  transformLib: undefined,
+  caseSensitiveCheck: true,
+  tsImportSendable: false,
+  resolveConflictMode: true,
+  depName2RootPath: {},
+  rootPathSet: [ 'D:\\EQ_Master\\EQ_Master' ],
+  useNativeResolver: false,
+  aceModuleJsonPath: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\module.json',
+  appResource: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\ResourceTable.txt',
+  rawFileResource: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources\\rawfile',
+  resourceTableHash: '6f7b667c0263ef598eeac14122861a4a',
+  runtimeOS: 'HarmonyOS',
+  sdkInfo: 'false:12:5.0.0.65:Release',
+  aceModuleRoot: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\src\\main\\ets',
+  compileMode: 'esmodule',
+  aceSuperVisualPath: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\src\\main\\supervisual',
+  aceBuildJson: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\loader.json',
+  cachePath: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule\\debug',
+  aceModuleBuild: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\default\\ets',
+  supportChunks: true,
+  declaredFilesPath: undefined,
+  pkgNameToPkgBriefInfo: {
+    '@ohos/lottie': {
+      pkgRoot: 'D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+lottie@2.0.15\\oh_modules\\@ohos\\lottie',
+      pkgName: '@ohos/lottie',
+      sourceRoots: [Array]
+    },
+    '@ohos/pulltorefresh': {
+      pkgRoot: 'D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+pulltorefresh@2.1.1\\oh_modules\\@ohos\\pulltorefresh',
+      pkgName: '@ohos/pulltorefresh',
+      sourceRoots: [Array]
+    },
+    '@ohos/hamock': {
+      pkgRoot: 'D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+hamock@1.0.0\\oh_modules\\@ohos\\hamock',
+      pkgName: '@ohos/hamock',
+      sourceRoots: undefined
+    },
+    '@nutpi/color-parse': {
+      pkgRoot: 'D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-parse@1.0.0\\oh_modules\\@nutpi\\color-parse',
+      pkgName: '@nutpi/color-parse',
+      sourceRoots: [Array]
+    },
+    '@nutpi/color-name': {
+      pkgRoot: 'D:\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-name@1.0.0\\oh_modules\\@nutpi\\color-name',
+      pkgName: '@nutpi/color-name',
+      sourceRoots: [Array]
+    },
+    phone: {
+      pkgRoot: 'D:\\EQ_Master\\EQ_Master\\products\\phone',
+      originalSourceRoots: undefined,
+      sourceRoots: [Array],
+      pkgName: 'phone'
+    }
+  },
+  projectModel: {
+    'D:\\EQ_Master\\EQ_Master\\products\\phone\\src\\main': {
+      moduleName: 'phone',
+      modulePkgPath: 'D:\\EQ_Master\\EQ_Master\\products\\phone',
+      belongProjectPath: 'D:\\EQ_Master\\EQ_Master'
+    },
+    'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\src\\ohosTest\\ets': {
+      moduleName: 'phone_test',
+      modulePkgPath: 'D:\\EQ_Master\\EQ_Master\\products\\phone',
+      belongProjectPath: 'D:\\EQ_Master\\EQ_Master'
+    },
+    'D:\\EQ_Master\\EQ_Master\\products\\phone\\src\\ohosTest': {
+      moduleName: 'phone_test',
+      modulePkgPath: 'D:\\EQ_Master\\EQ_Master\\products\\phone',
+      belongProjectPath: 'D:\\EQ_Master\\EQ_Master'
+    },
+    'D:\\EQ_Master\\EQ_Master\\products\\phone': {
+      moduleName: 'phone',
+      modulePkgPath: 'D:\\EQ_Master\\EQ_Master\\products\\phone',
+      belongProjectPath: 'D:\\EQ_Master\\EQ_Master'
+    },
+    'D:\\EQ_Master\\EQ_Master': {
+      moduleName: 'EQ_Master',
+      modulePkgPath: 'D:\\EQ_Master\\EQ_Master',
+      belongProjectPath: 'D:\\EQ_Master\\EQ_Master'
+    }
+  },
+  pkgJsonFileHash: '9998b66a0ce727d9209783072eec3a5f',
+  allModulePaths: [ 'D:\\EQ_Master\\EQ_Master\\products\\phone' ],
+  routerMap: {},
+  obfuscationOptions: undefined,
+  compileBlockPkg: [],
+  overallProjectPaths: [ 'D:\\EQ_Master\\EQ_Master' ],
+  mockParams: {
+    decorator: '@MockSetup',
+    packageName: '@ohos/hamock',
+    etsSourceRootPath: 'src/main/ets',
+    mockConfigPath: 'D:\\EQ_Master\\EQ_Master\\products\\phone\\src\\mock\\mock-config.json5',
+    mockConfigKey2ModuleInfo: {}
+  },
+  otherPaths: {
+    '@ohos/lottie/*': [
+      '..\\..\\..\\..\\..\\oh_modules\\.ohpm\\@ohos+lottie@2.0.15\\oh_modules\\@ohos\\lottie\\src\\main\\*'
+    ],
+    '@ohos/pulltorefresh/*': [
+      '..\\..\\..\\..\\..\\oh_modules\\.ohpm\\@ohos+pulltorefresh@2.1.1\\oh_modules\\@ohos\\pulltorefresh\\src\\main\\*'
+    ],
+    '@nutpi/color-parse/*': [
+      '..\\..\\..\\..\\..\\oh_modules\\.ohpm\\@nutpi+color-parse@1.0.0\\oh_modules\\@nutpi\\color-parse\\src\\main\\*'
+    ],
+    '@nutpi/color-name/*': [
+      '..\\..\\..\\..\\..\\oh_modules\\.ohpm\\@nutpi+color-name@1.0.0\\oh_modules\\@nutpi\\color-name\\src\\main\\*'
+    ],
+    'phone/*': [
+      '..\\*',
+      '..\\..\\..\\build\\default\\generated\\profile\\default\\*'
+    ]
+  },
+  collectImportersConfig: undefined
+}
+[2025-02-11T21:03:45.968] [DEBUG] debug-file - Compile arkts with external api path: D:\Harmony\DevEco\DevEco Studio\sdk\default\hms\ets
+[2025-02-11T21:03:45.971] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-02-11T21:03:45.971] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-02-11T21:03:45.974] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-02-11T21:03:45.978] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-02-11T21:03:45.981] [DEBUG] debug-file - default@CompileArkTS work[0] is submitted.
+[2025-02-11T21:03:45.986] [DEBUG] debug-file - default@CompileArkTS work[0] is pushed to ready queue.
+[2025-02-11T21:03:45.987] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.987] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.988] [DEBUG] debug-file - A work dispatched to worker[9] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.988] [DEBUG] debug-file - A work dispatched to worker[8] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.988] [DEBUG] debug-file - A work dispatched to worker[7] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.988] [DEBUG] debug-file - A work dispatched to worker[6] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.989] [DEBUG] debug-file - A work dispatched to worker[5] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.989] [DEBUG] debug-file - A work dispatched to worker[4] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.989] [DEBUG] debug-file - A work dispatched to worker[3] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.989] [DEBUG] debug-file - A work dispatched to worker[2] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.989] [DEBUG] debug-file - A work dispatched to worker[1] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.991] [DEBUG] debug-file - default@CompileArkTS work[0] has been dispatched to worker[0].
+[2025-02-11T21:03:45.991] [DEBUG] debug-file - default@CompileArkTS work[0] is dispatched.
+[2025-02-11T21:03:45.992] [DEBUG] debug-file - CopyResources startTime: 970134964023700
+[2025-02-11T21:03:45.992] [DEBUG] debug-file - default@CompileArkTS work[1] is submitted.
+[2025-02-11T21:03:45.993] [DEBUG] debug-file - default@CompileArkTS work[1] is pushed to ready queue.
+[2025-02-11T21:03:45.994] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2025-02-11T21:03:45.994] [DEBUG] debug-file - Create  resident worker with id: 10.
+[2025-02-11T21:03:45.995] [DEBUG] debug-file - default@CompileArkTS work[1] has been dispatched to worker[10].
+[2025-02-11T21:03:45.995] [DEBUG] debug-file - default@CompileArkTS work[1] is dispatched.
+[2025-02-11T21:03:45.995] [DEBUG] debug-file - phone : default@CompileArkTS cost memory 3.7183151245117188
+[2025-02-11T21:03:45.998] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:45.998] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:46.008] [DEBUG] debug-file - Executing task :phone:default@BuildJS
+[2025-02-11T21:03:46.016] [DEBUG] debug-file - phone : default@BuildJS cost memory 0.22576141357421875
+[2025-02-11T21:03:46.017] [DEBUG] debug-file - runTaskFromQueue task cost before running: 25 s 611 ms 
+[2025-02-11T21:03:46.017] [INFO] debug-file - Finished :phone:default@BuildJS... after 10 ms 
+[2025-02-11T21:03:46.020] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:03:46.020] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:03:46.023] [DEBUG] debug-file - Executing task :phone:default@CacheNativeLibs
+[2025-02-11T21:03:46.025] [DEBUG] debug-file - Incremental task phone:default@CacheNativeLibs pre-execution cost: 2 ms .
+[2025-02-11T21:03:46.025] [DEBUG] debug-file - phone : default@CacheNativeLibs cost memory 0.078582763671875
+[2025-02-11T21:03:46.025] [INFO] debug-file - UP-TO-DATE :phone:default@CacheNativeLibs...  
+[2025-02-11T21:03:47.036] [DEBUG] debug-file - worker[10] has one work done.
+[2025-02-11T21:03:47.036] [DEBUG] debug-file - CopyResources is end, endTime: 970136008237500
+[2025-02-11T21:03:47.036] [DEBUG] debug-file - default@CompileArkTS work[1] done.
+[2025-02-11T21:03:47.036] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2025-02-11T21:04:21.441] [INFO] debug-file - [33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/pages/LoginPage.ets:67:19
+ To use this API, you need to apply for the permissions: ohos.permission.PRIVACY_WINDOW
+[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/pages/LoginPage.ets:78:19
+ To use this API, you need to apply for the permissions: ohos.permission.PRIVACY_WINDOW
+[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/CommentBarView.ets:84:16
+ 'key' can only be used for testing directories 
+[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/CommentInputView.ets:14:10
+ 'key' can only be used for testing directories 
+[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/CommentInputView.ets:37:10
+ 'key' can only be used for testing directories 
+[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/pages/dailyshare/DailyShareDetailShow.ets:178:14
+ 'key' can only be used for testing directories 
+[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/pages/dailyshare/DailyShareDetailShow.ets:26:1
+ It's not a recommended way to export struct with @Entry decorator, which may cause ACE Engine error in component preview mode.[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/DailyShareIndex.ets:15:1
+ It's not a recommended way to export struct with @Entry decorator, which may cause ACE Engine error in component preview mode.[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/DailyShareIndex.ets:90:11
+ Property 'initType' is private and can not be initialized through the component constructor.[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/DailyShareIndex.ets:93:11
+ Property 'initType' is private and can not be initialized through the component constructor.[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/DailyShareIndex.ets:96:11
+ Property 'initType' is private and can not be initialized through the component constructor.[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/DetailTitleView.ets:5:1
+ It's not a recommended way to export struct with @Entry decorator, which may cause ACE Engine error in component preview mode.[39m
+[33mWARN: [33mArkTS:WARN File: D:/EQ_Master/EQ_Master/products/phone/src/main/ets/view/dailyshare/DailyShareShow.ets:23:1
+ It's not a recommended way to export struct with @Entry decorator, which may cause ACE Engine error in component preview mode.[39m
+
+[2025-02-11T21:04:21.443] [DEBUG] debug-file - Ark compile task finished.finished time is 970170414637700
+[2025-02-11T21:04:21.445] [DEBUG] debug-file - worker[0] has one work done.
+[2025-02-11T21:04:21.614] [DEBUG] debug-file - default@CompileArkTS work[0] done.
+[2025-02-11T21:04:21.615] [DEBUG] debug-file - A work dispatched to worker[0] failed because unable to get work from ready queue.
+[2025-02-11T21:04:21.618] [INFO] debug-file - Finished :phone:default@CompileArkTS... after 35 s 731 ms 
+[2025-02-11T21:04:21.620] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:04:21.620] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:04:21.622] [DEBUG] debug-file - Executing task :phone:default@GeneratePkgModuleJson
+[2025-02-11T21:04:21.625] [DEBUG] debug-file - Incremental task phone:default@GeneratePkgModuleJson pre-execution cost: 2 ms .
+[2025-02-11T21:04:21.625] [DEBUG] debug-file - phone : default@GeneratePkgModuleJson cost memory 0.09128570556640625
+[2025-02-11T21:04:21.626] [INFO] debug-file - UP-TO-DATE :phone:default@GeneratePkgModuleJson...  
+[2025-02-11T21:04:21.629] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:04:21.629] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:04:21.635] [DEBUG] debug-file - Executing task :phone:default@PackageHap
+[2025-02-11T21:04:21.669] [DEBUG] debug-file - phone:default@PackageHap is not up-to-date, since the input file 'D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader_out\default\ets' has been changed.
+[2025-02-11T21:04:21.669] [DEBUG] debug-file - Incremental task phone:default@PackageHap pre-execution cost: 32 ms .
+[2025-02-11T21:04:21.672] [DEBUG] debug-file - Use tool [D:\Harmony\DevEco\DevEco Studio\sdk\default\openharmony\toolchains\lib\app_packing_tool.jar]
+ [
+  'java',
+  '-Dfile.encoding=GBK',
+  '-jar',
+  'D:\\Harmony\\DevEco\\DevEco Studio\\sdk\\default\\openharmony\\toolchains\\lib\\app_packing_tool.jar',
+  '--mode',
+  'hap',
+  '--force',
+  'true',
+  '--lib-path',
+  'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\stripped_native_libs\\default',
+  '--json-path',
+  'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\package\\default\\module.json',
+  '--resources-path',
+  'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources',
+  '--index-path',
+  'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources.index',
+  '--pack-info-path',
+  'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\outputs\\default\\pack.info',
+  '--out-path',
+  'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\outputs\\default\\phone-default-unsigned.hap',
+  '--ets-path',
+  'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\default\\ets',
+  '--pkg-context-path',
+  'D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\pkgContextInfo.json'
+]
+[2025-02-11T21:04:21.674] [DEBUG] debug-file - default@PackageHap work[2] is submitted.
+[2025-02-11T21:04:21.675] [DEBUG] debug-file - default@PackageHap work[2] is pushed to ready queue.
+[2025-02-11T21:04:21.675] [DEBUG] debug-file - A work dispatched to worker[11] failed because unable to get work from ready queue.
+[2025-02-11T21:04:21.675] [DEBUG] debug-file - default@PackageHap work[2] has been dispatched to worker[10].
+[2025-02-11T21:04:21.675] [DEBUG] debug-file - default@PackageHap work[2] is dispatched.
+[2025-02-11T21:04:21.679] [DEBUG] debug-file - phone : default@PackageHap cost memory -0.2259979248046875
+[2025-02-11T21:04:21.789] [DEBUG] debug-file - current process  memoryUsage: {
+  rss: 689455104,
+  heapTotal: 43016192,
+  heapUsed: 40543648,
+  external: 2134531,
+  arrayBuffers: 33002
+} os memoryUsage :14.91048812866211
+[2025-02-11T21:04:23.986] [DEBUG] debug-file - worker[10] has one work done.
+[2025-02-11T21:04:23.986] [DEBUG] debug-file - default@PackageHap work[2] done.
+[2025-02-11T21:04:23.986] [DEBUG] debug-file - A work dispatched to worker[10] failed because unable to get work from ready queue.
+[2025-02-11T21:04:23.988] [INFO] debug-file - Finished :phone:default@PackageHap... after 2 s 351 ms 
+[2025-02-11T21:04:23.990] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:04:23.990] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:04:23.992] [DEBUG] debug-file - Executing task :phone:default@SignHap
+[2025-02-11T21:04:23.992] [WARN] debug-file - Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in D:\EQ_Master\EQ_Master\build-profile.json5.
+[2025-02-11T21:04:23.993] [DEBUG] debug-file - phone:default@SignHap is not up-to-date, since the input file 'D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-unsigned.hap' has been changed.
+[2025-02-11T21:04:23.993] [DEBUG] debug-file - Incremental task phone:default@SignHap pre-execution cost: 1 ms .
+[2025-02-11T21:04:23.994] [DEBUG] debug-file - phone : default@SignHap cost memory 0.12993621826171875
+[2025-02-11T21:04:23.994] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 3 s 588 ms 
+[2025-02-11T21:04:23.994] [INFO] debug-file - Finished :phone:default@SignHap... after 3 ms 
+[2025-02-11T21:04:23.996] [DEBUG] debug-file - Executing task :phone:assembleHap
+[2025-02-11T21:04:23.996] [DEBUG] debug-file - phone : assembleHap cost memory 0.0120391845703125
+[2025-02-11T21:04:23.996] [DEBUG] debug-file - runTaskFromQueue task cost before running: 1 min 3 s 590 ms 
+[2025-02-11T21:04:23.996] [INFO] debug-file - Finished :phone:assembleHap... after 1 ms 
+[2025-02-11T21:04:24.010] [DEBUG] debug-file - BUILD SUCCESSFUL in 1 min 3 s 604 ms 
+[2025-02-11T21:04:24.011] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@PreBuild is up-to-date.
+[2025-02-11T21:04:24.011] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GenerateMetadata is up-to-date.
+[2025-02-11T21:04:24.011] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@MergeProfile is up-to-date.
+[2025-02-11T21:04:24.012] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CreateBuildProfile is up-to-date.
+[2025-02-11T21:04:24.012] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GeneratePkgContextInfo is up-to-date.
+[2025-02-11T21:04:24.012] [DEBUG] debug-file - Update task phone:default@ProcessIntegratedHsp output file:D:\EQ_Master\EQ_Master\build\cache\default\integrated_hsp\integratedHspCache.json cache.
+[2025-02-11T21:04:24.013] [DEBUG] debug-file - Incremental task phone:default@ProcessIntegratedHsp post-execution cost:2 ms .
+[2025-02-11T21:04:24.013] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@MakePackInfo is up-to-date.
+[2025-02-11T21:04:24.013] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessProfile is up-to-date.
+[2025-02-11T21:04:24.013] [DEBUG] debug-file - Update task phone:default@SyscapTransform input file:D:\Harmony\DevEco\DevEco Studio\sdk\default\openharmony\toolchains\syscap_tool.exe cache by regenerate.
+[2025-02-11T21:04:24.013] [DEBUG] debug-file - Update task phone:default@SyscapTransform input file:D:\Harmony\DevEco\DevEco Studio\sdk\default\openharmony\ets\api\device-define cache by regenerate.
+[2025-02-11T21:04:24.014] [DEBUG] debug-file - Update task phone:default@SyscapTransform output file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\syscap\default\rpcid.sc cache.
+[2025-02-11T21:04:24.014] [DEBUG] debug-file - Incremental task phone:default@SyscapTransform post-execution cost:2 ms .
+[2025-02-11T21:04:24.014] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessRouterMap is up-to-date.
+[2025-02-11T21:04:24.014] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessResource is up-to-date.
+[2025-02-11T21:04:24.014] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GenerateLoaderJson is up-to-date.
+[2025-02-11T21:04:24.014] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessLibs is up-to-date.
+[2025-02-11T21:04:24.014] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CompileResource is up-to-date.
+[2025-02-11T21:04:24.014] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@DoNativeStrip is up-to-date.
+[2025-02-11T21:04:24.017] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default cache by regenerate.
+[2025-02-11T21:04:24.017] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+hamock@1.0.0\oh_modules\@ohos\hamock\index.ets cache by regenerate.
+[2025-02-11T21:04:24.017] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-parse@1.0.0\oh_modules\@nutpi\color-parse\Index.ts cache by regenerate.
+[2025-02-11T21:04:24.017] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-name@1.0.0\oh_modules\@nutpi\color-name\Index.ts cache by regenerate.
+[2025-02-11T21:04:24.017] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie\src\main\js\modules\full.js cache by regenerate.
+[2025-02-11T21:04:24.018] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh\index.ets cache by regenerate.
+[2025-02-11T21:04:24.018] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh\src\main\ets cache by regenerate.
+[2025-02-11T21:04:24.019] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources\rawfile cache by regenerate.
+[2025-02-11T21:04:24.019] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-02-11T21:04:24.019] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\module.json cache by regenerate.
+[2025-02-11T21:04:24.019] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-02-11T21:04:24.020] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\src\main\ets cache from map.
+[2025-02-11T21:04:24.020] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-02-11T21:04:24.020] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-02-11T21:04:24.020] [DEBUG] debug-file - Update task phone:default@CompileArkTS input file:D:\EQ_Master\EQ_Master\products\phone\src\mock\mock-config.json5 cache by regenerate.
+[2025-02-11T21:04:24.020] [DEBUG] debug-file - Update task phone:default@CompileArkTS output file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader_out\default\ets cache.
+[2025-02-11T21:04:24.021] [DEBUG] debug-file - Incremental task phone:default@CompileArkTS post-execution cost:7 ms .
+[2025-02-11T21:04:24.023] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default cache by regenerate.
+[2025-02-11T21:04:24.023] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+hamock@1.0.0\oh_modules\@ohos\hamock\index.ets cache by regenerate.
+[2025-02-11T21:04:24.023] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-parse@1.0.0\oh_modules\@nutpi\color-parse\Index.ts cache by regenerate.
+[2025-02-11T21:04:24.024] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-name@1.0.0\oh_modules\@nutpi\color-name\Index.ts cache by regenerate.
+[2025-02-11T21:04:24.024] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie\src\main\js\modules\full.js cache by regenerate.
+[2025-02-11T21:04:24.024] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh\index.ets cache by regenerate.
+[2025-02-11T21:04:24.024] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie\src\main\js cache by regenerate.
+[2025-02-11T21:04:24.038] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources\rawfile cache by regenerate.
+[2025-02-11T21:04:24.038] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-02-11T21:04:24.038] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\module.json cache by regenerate.
+[2025-02-11T21:04:24.039] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-02-11T21:04:24.039] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-02-11T21:04:24.039] [DEBUG] debug-file - Update task phone:default@BuildJS output file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader_out\default\js cache.
+[2025-02-11T21:04:24.039] [DEBUG] debug-file - Incremental task phone:default@BuildJS post-execution cost:18 ms .
+[2025-02-11T21:04:24.040] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CacheNativeLibs is up-to-date.
+[2025-02-11T21:04:24.040] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GeneratePkgModuleJson is up-to-date.
+[2025-02-11T21:04:24.040] [DEBUG] debug-file - Update task phone:default@PackageHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\stripped_native_libs\default cache by regenerate.
+[2025-02-11T21:04:24.040] [DEBUG] debug-file - Update task phone:default@PackageHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\module.json cache by regenerate.
+[2025-02-11T21:04:24.041] [DEBUG] debug-file - Update task phone:default@PackageHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources cache by regenerate.
+[2025-02-11T21:04:24.059] [DEBUG] debug-file - Update task phone:default@PackageHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources.index cache by regenerate.
+[2025-02-11T21:04:24.059] [DEBUG] debug-file - Update task phone:default@PackageHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\pack.info cache by regenerate.
+[2025-02-11T21:04:24.059] [DEBUG] debug-file - Update task phone:default@PackageHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader_out\default\ets cache from map.
+[2025-02-11T21:04:24.059] [DEBUG] debug-file - Update task phone:default@PackageHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-02-11T21:04:24.059] [DEBUG] debug-file - Update task phone:default@PackageHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\generated\profile\default\BuildProfile.ets cache by regenerate.
+[2025-02-11T21:04:24.060] [DEBUG] debug-file - Update task phone:default@PackageHap output file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-unsigned.hap cache.
+[2025-02-11T21:04:24.060] [DEBUG] debug-file - Update task phone:default@PackageHap output file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\mapping\sourceMaps.map cache.
+[2025-02-11T21:04:24.060] [DEBUG] debug-file - Incremental task phone:default@PackageHap post-execution cost:21 ms .
+[2025-02-11T21:04:24.060] [DEBUG] debug-file - Update task phone:default@SignHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-unsigned.hap cache from map.
+[2025-02-11T21:04:24.061] [DEBUG] debug-file - Update task phone:default@SignHap output file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-signed.hap cache.
+[2025-02-11T21:04:24.061] [DEBUG] debug-file - Incremental task phone:default@SignHap post-execution cost:1 ms .
+[2025-02-11T21:04:24.099] [DEBUG] debug-file - Cleanup worker 1.
+[2025-02-11T21:04:24.099] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2025-02-11T21:04:24.099] [DEBUG] debug-file - Current idle worker size: 2.
+[2025-02-11T21:04:24.099] [DEBUG] debug-file - Current resident worker size: 3.
+[2025-02-11T21:04:24.099] [DEBUG] debug-file - Cleanup worker 10.
+[2025-02-11T21:04:24.099] [DEBUG] debug-file - Worker 10 has been cleaned up.
+[2025-02-11T21:04:24.100] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-02-11T21:04:24.100] [DEBUG] debug-file - Current resident worker size: 3.
+[2025-02-11T21:04:24.100] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-02-11T21:04:24.106] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-02-11T21:04:24.106] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-02-11T21:04:24.105] [DEBUG] debug-file - worker[1] exits with exit code 1.
+[2025-02-11T21:04:24.107] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-11T21:04:24.107] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-11T21:04:24.109] [DEBUG] debug-file - worker[10] exits with exit code 1.
+[2025-02-11T21:05:03.521] [DEBUG] debug-file - session manager: set active socket. socketId=YYs5C1MVhOYiucg1AAAD
+[2025-02-11T21:05:03.545] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-11T21:05:03.567] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' }
+}
+[2025-02-11T21:05:03.582] [DEBUG] debug-file - Cache service initialization finished in 15 ms 
+[2025-02-11T21:05:03.600] [DEBUG] debug-file - hvigorfile, resolving D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-11T21:05:03.610] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-02-11T21:05:03.611] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-02-11T21:05:03.617] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-02-11T21:05:03.618] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-02-11T21:05:03.618] [DEBUG] debug-file - Product 'default' build option: {}
+[2025-02-11T21:05:03.619] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-02-11T21:05:03.622] [DEBUG] debug-file - Product 'default' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-02-11T21:05:03.630] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-02-11T21:05:03.641] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-02-11T21:05:03.674] [DEBUG] debug-file - Sdk init in 43 ms 
+[2025-02-11T21:05:03.697] [DEBUG] debug-file - Project task initialization takes 21 ms 
+[2025-02-11T21:05:03.697] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-02-11T21:05:03.697] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-11T21:05:03.697] [DEBUG] debug-file - hvigorfile, resolve finished D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-11T21:05:03.705] [DEBUG] debug-file - hvigorfile, resolving D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-11T21:05:03.710] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-02-11T21:05:03.711] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-02-11T21:05:03.718] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=phone, buildMode=debug
+[2025-02-11T21:05:03.719] [DEBUG] debug-file - Target 'default' config: {}
+[2025-02-11T21:05:03.719] [DEBUG] debug-file - Target 'ohosTest' config: {}
+[2025-02-11T21:05:03.720] [DEBUG] debug-file - Module 'phone' target 'default' build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+}
+[2025-02-11T21:05:03.720] [DEBUG] debug-file - Module 'phone' target 'ohosTest' build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "default"
+}
+[2025-02-11T21:05:03.720] [DEBUG] debug-file - End initialize module-target build option map, moduleName=phone
+[2025-02-11T21:05:03.720] [DEBUG] debug-file - Module 'phone' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+} in this build.
+[2025-02-11T21:05:03.724] [DEBUG] debug-file - Module phone task initialization takes 1 ms 
+[2025-02-11T21:05:03.725] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-02-11T21:05:03.725] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-11T21:05:03.725] [DEBUG] debug-file - hvigorfile, resolve finished D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-11T21:05:03.748] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 22 ms 
+[2025-02-11T21:05:03.749] [DEBUG] debug-file - project has submodules:phone
+[2025-02-11T21:05:03.751] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-02-11T21:05:03.759] [DEBUG] debug-file - load to the disk finished
+[2025-02-11T21:05:03.764] [DEBUG] debug-file - Module EQ_Master Collected Dependency: D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh
+[2025-02-11T21:05:03.764] [DEBUG] debug-file - Module EQ_Master's total dependency: 2
+[2025-02-11T21:05:03.771] [DEBUG] debug-file - Module phone Collected Dependency: D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+hamock@1.0.0\oh_modules\@ohos\hamock,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-parse@1.0.0\oh_modules\@nutpi\color-parse,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-name@1.0.0\oh_modules\@nutpi\color-name,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh
+[2025-02-11T21:05:03.771] [DEBUG] debug-file - Module phone's total dependency: 5
+[2025-02-11T21:05:03.774] [DEBUG] debug-file - Configuration phase cost:185 ms 
+[2025-02-11T21:05:03.777] [DEBUG] debug-file - Configuration task cost before running: 228 ms 
+[2025-02-11T21:05:03.779] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.779] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.783] [DEBUG] debug-file - Executing task :phone:default@PreBuild
+[2025-02-11T21:05:03.791] [DEBUG] debug-file - Incremental task phone:default@PreBuild pre-execution cost: 5 ms .
+[2025-02-11T21:05:03.791] [DEBUG] debug-file - phone : default@PreBuild cost memory 0.32190704345703125
+[2025-02-11T21:05:03.793] [INFO] debug-file - UP-TO-DATE :phone:default@PreBuild...  
+[2025-02-11T21:05:03.796] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.797] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.798] [DEBUG] debug-file - Executing task :phone:default@GenerateMetadata
+[2025-02-11T21:05:03.802] [DEBUG] debug-file - Incremental task phone:default@GenerateMetadata pre-execution cost: 3 ms .
+[2025-02-11T21:05:03.802] [DEBUG] debug-file - phone : default@GenerateMetadata cost memory -1.6156463623046875
+[2025-02-11T21:05:03.803] [INFO] debug-file - UP-TO-DATE :phone:default@GenerateMetadata...  
+[2025-02-11T21:05:03.806] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.806] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.807] [DEBUG] debug-file - Executing task :phone:default@ConfigureCmake
+[2025-02-11T21:05:03.807] [DEBUG] debug-file - phone : default@ConfigureCmake cost memory 0.01329803466796875
+[2025-02-11T21:05:03.808] [DEBUG] debug-file - runTaskFromQueue task cost before running: 259 ms 
+[2025-02-11T21:05:03.808] [INFO] debug-file - Finished :phone:default@ConfigureCmake... after 1 ms 
+[2025-02-11T21:05:03.811] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.811] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.814] [DEBUG] debug-file - Executing task :phone:default@MergeProfile
+[2025-02-11T21:05:03.818] [DEBUG] debug-file - Incremental task phone:default@MergeProfile pre-execution cost: 3 ms .
+[2025-02-11T21:05:03.818] [DEBUG] debug-file - phone : default@MergeProfile cost memory 0.177642822265625
+[2025-02-11T21:05:03.819] [INFO] debug-file - UP-TO-DATE :phone:default@MergeProfile...  
+[2025-02-11T21:05:03.822] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.822] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.823] [DEBUG] debug-file - Executing task :phone:default@CreateBuildProfile
+[2025-02-11T21:05:03.826] [DEBUG] debug-file - Incremental task phone:default@CreateBuildProfile pre-execution cost: 2 ms .
+[2025-02-11T21:05:03.826] [DEBUG] debug-file - phone : default@CreateBuildProfile cost memory 0.11297607421875
+[2025-02-11T21:05:03.827] [INFO] debug-file - UP-TO-DATE :phone:default@CreateBuildProfile...  
+[2025-02-11T21:05:03.829] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.829] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.830] [DEBUG] debug-file - Executing task :phone:default@PreCheckSyscap
+[2025-02-11T21:05:03.830] [DEBUG] debug-file - phone : default@PreCheckSyscap cost memory 0.0135955810546875
+[2025-02-11T21:05:03.830] [DEBUG] debug-file - runTaskFromQueue task cost before running: 281 ms 
+[2025-02-11T21:05:03.830] [INFO] debug-file - Finished :phone:default@PreCheckSyscap... after 1 ms 
+[2025-02-11T21:05:03.833] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.833] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.845] [DEBUG] debug-file - Executing task :phone:default@GeneratePkgContextInfo
+[2025-02-11T21:05:03.846] [DEBUG] debug-file - Incremental task phone:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2025-02-11T21:05:03.846] [DEBUG] debug-file - phone : default@GeneratePkgContextInfo cost memory 0.0579071044921875
+[2025-02-11T21:05:03.847] [INFO] debug-file - UP-TO-DATE :phone:default@GeneratePkgContextInfo...  
+[2025-02-11T21:05:03.849] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.849] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.851] [DEBUG] debug-file - Executing task :phone:default@ProcessIntegratedHsp
+[2025-02-11T21:05:03.853] [DEBUG] debug-file - phone:default@ProcessIntegratedHsp is not up-to-date, since the output file 'D:\EQ_Master\EQ_Master\build\cache\default\integrated_hsp\integratedHspCache.json' does not exist.
+[2025-02-11T21:05:03.853] [DEBUG] debug-file - Incremental task phone:default@ProcessIntegratedHsp pre-execution cost: 2 ms .
+[2025-02-11T21:05:03.853] [DEBUG] debug-file - phone : default@ProcessIntegratedHsp cost memory 0.087982177734375
+[2025-02-11T21:05:03.853] [DEBUG] debug-file - runTaskFromQueue task cost before running: 304 ms 
+[2025-02-11T21:05:03.854] [INFO] debug-file - Finished :phone:default@ProcessIntegratedHsp... after 3 ms 
+[2025-02-11T21:05:03.857] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.857] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.857] [DEBUG] debug-file - Executing task :phone:default@BuildNativeWithCmake
+[2025-02-11T21:05:03.858] [DEBUG] debug-file - phone : default@BuildNativeWithCmake cost memory 0.01425933837890625
+[2025-02-11T21:05:03.858] [DEBUG] debug-file - runTaskFromQueue task cost before running: 309 ms 
+[2025-02-11T21:05:03.858] [INFO] debug-file - Finished :phone:default@BuildNativeWithCmake... after 1 ms 
+[2025-02-11T21:05:03.861] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.861] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.862] [DEBUG] debug-file - Executing task :phone:default@MakePackInfo
+[2025-02-11T21:05:03.866] [DEBUG] debug-file - Incremental task phone:default@MakePackInfo pre-execution cost: 3 ms .
+[2025-02-11T21:05:03.866] [DEBUG] debug-file - phone : default@MakePackInfo cost memory 0.1546783447265625
+[2025-02-11T21:05:03.867] [INFO] debug-file - UP-TO-DATE :phone:default@MakePackInfo...  
+[2025-02-11T21:05:03.870] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.870] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.871] [DEBUG] debug-file - Executing task :phone:default@ProcessProfile
+[2025-02-11T21:05:03.872] [DEBUG] debug-file - Incremental task phone:default@ProcessProfile pre-execution cost: 1 ms .
+[2025-02-11T21:05:03.872] [DEBUG] debug-file - phone : default@ProcessProfile cost memory 0.059967041015625
+[2025-02-11T21:05:03.872] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessProfile...  
+[2025-02-11T21:05:03.874] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.874] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.876] [DEBUG] debug-file - Executing task :phone:default@SyscapTransform
+[2025-02-11T21:05:03.878] [DEBUG] debug-file - phone:default@SyscapTransform is not up-to-date, since the output file 'D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\syscap\default\rpcid.sc' does not exist.
+[2025-02-11T21:05:03.879] [DEBUG] debug-file - Incremental task phone:default@SyscapTransform pre-execution cost: 2 ms .
+[2025-02-11T21:05:03.879] [DEBUG] debug-file - phone : default@SyscapTransform cost memory 0.12026214599609375
+[2025-02-11T21:05:03.879] [DEBUG] debug-file - runTaskFromQueue task cost before running: 330 ms 
+[2025-02-11T21:05:03.880] [INFO] debug-file - Finished :phone:default@SyscapTransform... after 3 ms 
+[2025-02-11T21:05:03.882] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.882] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.884] [DEBUG] debug-file - Executing task :phone:default@ProcessRouterMap
+[2025-02-11T21:05:03.890] [DEBUG] debug-file - Incremental task phone:default@ProcessRouterMap pre-execution cost: 4 ms .
+[2025-02-11T21:05:03.890] [DEBUG] debug-file - phone : default@ProcessRouterMap cost memory 0.29824066162109375
+[2025-02-11T21:05:03.892] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessRouterMap...  
+[2025-02-11T21:05:03.893] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.894] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.894] [DEBUG] debug-file - Executing task :phone:default@BuildNativeWithNinja
+[2025-02-11T21:05:03.895] [DEBUG] debug-file - phone : default@BuildNativeWithNinja cost memory 0.03133392333984375
+[2025-02-11T21:05:03.895] [DEBUG] debug-file - runTaskFromQueue task cost before running: 346 ms 
+[2025-02-11T21:05:03.895] [INFO] debug-file - Finished :phone:default@BuildNativeWithNinja... after 1 ms 
+[2025-02-11T21:05:03.898] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.898] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.899] [DEBUG] debug-file - restool module names: phone; moduleName=phone, taskName=default@ProcessResource
+[2025-02-11T21:05:03.908] [DEBUG] debug-file - Executing task :phone:default@ProcessResource
+[2025-02-11T21:05:03.909] [DEBUG] debug-file - Incremental task phone:default@ProcessResource pre-execution cost: 1 ms .
+[2025-02-11T21:05:03.909] [DEBUG] debug-file - phone : default@ProcessResource cost memory 0.1091461181640625
+[2025-02-11T21:05:03.914] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessResource...  
+[2025-02-11T21:05:03.917] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.917] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.933] [DEBUG] debug-file - Executing task :phone:default@GenerateLoaderJson
+[2025-02-11T21:05:03.953] [DEBUG] debug-file - Incremental task phone:default@GenerateLoaderJson pre-execution cost: 12 ms .
+[2025-02-11T21:05:03.954] [DEBUG] debug-file - phone : default@GenerateLoaderJson cost memory 0.9267425537109375
+[2025-02-11T21:05:03.960] [INFO] debug-file - UP-TO-DATE :phone:default@GenerateLoaderJson...  
+[2025-02-11T21:05:03.963] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.963] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.972] [DEBUG] debug-file - Executing task :phone:default@ProcessLibs
+[2025-02-11T21:05:03.975] [DEBUG] debug-file - Incremental task phone:default@ProcessLibs pre-execution cost: 2 ms .
+[2025-02-11T21:05:03.975] [DEBUG] debug-file - phone : default@ProcessLibs cost memory 0.15062713623046875
+[2025-02-11T21:05:03.976] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessLibs...  
+[2025-02-11T21:05:03.978] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:03.978] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:03.979] [DEBUG] debug-file - restool module names: phone; moduleName=phone, taskName=default@CompileResource
+[2025-02-11T21:05:03.982] [DEBUG] debug-file - Executing task :phone:default@CompileResource
+[2025-02-11T21:05:04.040] [DEBUG] debug-file - Incremental task phone:default@CompileResource pre-execution cost: 57 ms .
+[2025-02-11T21:05:04.040] [DEBUG] debug-file - phone : default@CompileResource cost memory 1.47186279296875
+[2025-02-11T21:05:04.042] [INFO] debug-file - UP-TO-DATE :phone:default@CompileResource...  
+[2025-02-11T21:05:04.045] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:04.045] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:04.048] [DEBUG] debug-file - Executing task :phone:default@DoNativeStrip
+[2025-02-11T21:05:04.049] [DEBUG] debug-file - Incremental task phone:default@DoNativeStrip pre-execution cost: 1 ms .
+[2025-02-11T21:05:04.050] [DEBUG] debug-file - phone : default@DoNativeStrip cost memory 0.063629150390625
+[2025-02-11T21:05:04.050] [INFO] debug-file - UP-TO-DATE :phone:default@DoNativeStrip...  
+[2025-02-11T21:05:04.053] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:04.053] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:04.058] [DEBUG] debug-file - Executing task :phone:default@CompileArkTS
+[2025-02-11T21:05:04.093] [DEBUG] debug-file - Incremental task phone:default@CompileArkTS pre-execution cost: 28 ms .
+[2025-02-11T21:05:04.093] [DEBUG] debug-file - phone : default@CompileArkTS cost memory -1.6993560791015625
+[2025-02-11T21:05:04.097] [INFO] debug-file - UP-TO-DATE :phone:default@CompileArkTS...  
+[2025-02-11T21:05:04.099] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:04.099] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:04.103] [DEBUG] debug-file - Executing task :phone:default@BuildJS
+[2025-02-11T21:05:04.108] [DEBUG] debug-file - phone : default@BuildJS cost memory 0.2280731201171875
+[2025-02-11T21:05:04.108] [DEBUG] debug-file - runTaskFromQueue task cost before running: 559 ms 
+[2025-02-11T21:05:04.108] [INFO] debug-file - Finished :phone:default@BuildJS... after 5 ms 
+[2025-02-11T21:05:04.111] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:04.111] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:04.114] [DEBUG] debug-file - Executing task :phone:default@CacheNativeLibs
+[2025-02-11T21:05:04.115] [DEBUG] debug-file - Incremental task phone:default@CacheNativeLibs pre-execution cost: 1 ms .
+[2025-02-11T21:05:04.115] [DEBUG] debug-file - phone : default@CacheNativeLibs cost memory 0.0776519775390625
+[2025-02-11T21:05:04.116] [INFO] debug-file - UP-TO-DATE :phone:default@CacheNativeLibs...  
+[2025-02-11T21:05:04.118] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:04.118] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:04.120] [DEBUG] debug-file - Executing task :phone:default@GeneratePkgModuleJson
+[2025-02-11T21:05:04.123] [DEBUG] debug-file - Incremental task phone:default@GeneratePkgModuleJson pre-execution cost: 1 ms .
+[2025-02-11T21:05:04.123] [DEBUG] debug-file - phone : default@GeneratePkgModuleJson cost memory 0.08956146240234375
+[2025-02-11T21:05:04.123] [INFO] debug-file - UP-TO-DATE :phone:default@GeneratePkgModuleJson...  
+[2025-02-11T21:05:04.127] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:04.127] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:04.134] [DEBUG] debug-file - Executing task :phone:default@PackageHap
+[2025-02-11T21:05:04.165] [DEBUG] debug-file - Incremental task phone:default@PackageHap pre-execution cost: 30 ms .
+[2025-02-11T21:05:04.165] [DEBUG] debug-file - phone : default@PackageHap cost memory -1.0982513427734375
+[2025-02-11T21:05:04.167] [INFO] debug-file - UP-TO-DATE :phone:default@PackageHap...  
+[2025-02-11T21:05:04.168] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-11T21:05:04.169] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-11T21:05:04.171] [DEBUG] debug-file - Executing task :phone:default@SignHap
+[2025-02-11T21:05:04.172] [WARN] debug-file - Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in D:\EQ_Master\EQ_Master\build-profile.json5.
+[2025-02-11T21:05:04.173] [DEBUG] debug-file - phone:default@SignHap is not up-to-date, since the output file 'D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-signed.hap' does not exist.
+[2025-02-11T21:05:04.173] [DEBUG] debug-file - Incremental task phone:default@SignHap pre-execution cost: 1 ms .
+[2025-02-11T21:05:04.173] [DEBUG] debug-file - phone : default@SignHap cost memory 0.13469696044921875
+[2025-02-11T21:05:04.173] [DEBUG] debug-file - runTaskFromQueue task cost before running: 624 ms 
+[2025-02-11T21:05:04.173] [INFO] debug-file - Finished :phone:default@SignHap... after 3 ms 
+[2025-02-11T21:05:04.176] [DEBUG] debug-file - Executing task :phone:assembleHap
+[2025-02-11T21:05:04.176] [DEBUG] debug-file - phone : assembleHap cost memory 0.011810302734375
+[2025-02-11T21:05:04.176] [DEBUG] debug-file - runTaskFromQueue task cost before running: 627 ms 
+[2025-02-11T21:05:04.176] [INFO] debug-file - Finished :phone:assembleHap... after 1 ms 
+[2025-02-11T21:05:04.195] [DEBUG] debug-file - BUILD SUCCESSFUL in 646 ms 
+[2025-02-11T21:05:04.195] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@PreBuild is up-to-date.
+[2025-02-11T21:05:04.195] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GenerateMetadata is up-to-date.
+[2025-02-11T21:05:04.196] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@MergeProfile is up-to-date.
+[2025-02-11T21:05:04.196] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CreateBuildProfile is up-to-date.
+[2025-02-11T21:05:04.196] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GeneratePkgContextInfo is up-to-date.
+[2025-02-11T21:05:04.197] [DEBUG] debug-file - Update task phone:default@ProcessIntegratedHsp output file:D:\EQ_Master\EQ_Master\build\cache\default\integrated_hsp\integratedHspCache.json cache.
+[2025-02-11T21:05:04.197] [DEBUG] debug-file - Incremental task phone:default@ProcessIntegratedHsp post-execution cost:2 ms .
+[2025-02-11T21:05:04.197] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@MakePackInfo is up-to-date.
+[2025-02-11T21:05:04.198] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessProfile is up-to-date.
+[2025-02-11T21:05:04.198] [DEBUG] debug-file - Update task phone:default@SyscapTransform input file:D:\Harmony\DevEco\DevEco Studio\sdk\default\openharmony\toolchains\syscap_tool.exe cache by regenerate.
+[2025-02-11T21:05:04.198] [DEBUG] debug-file - Update task phone:default@SyscapTransform input file:D:\Harmony\DevEco\DevEco Studio\sdk\default\openharmony\ets\api\device-define cache by regenerate.
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - Update task phone:default@SyscapTransform output file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\syscap\default\rpcid.sc cache.
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - Incremental task phone:default@SyscapTransform post-execution cost:2 ms .
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessRouterMap is up-to-date.
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessResource is up-to-date.
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GenerateLoaderJson is up-to-date.
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessLibs is up-to-date.
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CompileResource is up-to-date.
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@DoNativeStrip is up-to-date.
+[2025-02-11T21:05:04.199] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CompileArkTS is up-to-date.
+[2025-02-11T21:05:04.201] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default cache by regenerate.
+[2025-02-11T21:05:04.202] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+hamock@1.0.0\oh_modules\@ohos\hamock\index.ets cache by regenerate.
+[2025-02-11T21:05:04.202] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-parse@1.0.0\oh_modules\@nutpi\color-parse\Index.ts cache by regenerate.
+[2025-02-11T21:05:04.202] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-name@1.0.0\oh_modules\@nutpi\color-name\Index.ts cache by regenerate.
+[2025-02-11T21:05:04.202] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie\src\main\js\modules\full.js cache by regenerate.
+[2025-02-11T21:05:04.202] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh\index.ets cache by regenerate.
+[2025-02-11T21:05:04.203] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie\src\main\js cache by regenerate.
+[2025-02-11T21:05:04.220] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources\rawfile cache by regenerate.
+[2025-02-11T21:05:04.221] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-02-11T21:05:04.221] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\module.json cache by regenerate.
+[2025-02-11T21:05:04.222] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-02-11T21:05:04.222] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-02-11T21:05:04.223] [DEBUG] debug-file - Update task phone:default@BuildJS output file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader_out\default\js cache.
+[2025-02-11T21:05:04.223] [DEBUG] debug-file - Incremental task phone:default@BuildJS post-execution cost:24 ms .
+[2025-02-11T21:05:04.223] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CacheNativeLibs is up-to-date.
+[2025-02-11T21:05:04.223] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GeneratePkgModuleJson is up-to-date.
+[2025-02-11T21:05:04.223] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@PackageHap is up-to-date.
+[2025-02-11T21:05:04.224] [DEBUG] debug-file - Update task phone:default@SignHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-unsigned.hap cache by regenerate.
+[2025-02-11T21:05:04.224] [DEBUG] debug-file - Update task phone:default@SignHap output file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-signed.hap cache.
+[2025-02-11T21:05:04.224] [DEBUG] debug-file - Incremental task phone:default@SignHap post-execution cost:1 ms .
+[2025-02-11T21:05:04.261] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-02-11T21:05:04.272] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-02-11T21:05:04.272] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-02-11T21:05:04.272] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-11T21:05:04.273] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-13T20:16:30.000] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED ::1:45050
+[2025-02-13T20:16:30.146] [DEBUG] debug-file - java daemon started at port 45050 pid 22380
+[2025-02-13T20:16:27.081] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-02-13T20:16:27.352] [DEBUG] debug-file - env: daemon=true
+[2025-02-13T20:16:34.724] [DEBUG] debug-file - hvigor client: Check process info failed. If process with pid=23148 exists and it is an hvigor process, please check the WMI function of your environment or starting hvigor with --no-daemon param.
+[2025-02-13T20:16:27.083] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '5.0.0',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2025-02-13T20:16:34.733] [DEBUG] debug-file - hvigor start cli arguments:{
+  prop: [
+    'module=phone@default',
+    'product=default',
+    'requiredDeviceType=phone'
+  ],
+  mode: 'module',
+  parallel: true,
+  incremental: true,
+  daemon: true,
+  _: [ 'assembleHap', '--analyze=normal' ]
+}
+[2025-02-13T20:16:35.731] [DEBUG] debug-file - hvigor client: Check process info failed. If process with pid=23148 exists and it is an hvigor process, please check the WMI function of your environment or starting hvigor with --no-daemon param.
+[2025-02-13T20:16:36.822] [DEBUG] debug-file - hvigor client: Check process info failed. If process with pid=23148 exists and it is an hvigor process, please check the WMI function of your environment or starting hvigor with --no-daemon param.
+[2025-02-13T20:16:37.726] [DEBUG] debug-file - session manager: set active socket. socketId=1dSVIdNK1Z8Bej5nAAAB
+[2025-02-13T20:16:37.714] [DEBUG] debug-file - hvigor client: Check process info failed. If process with pid=23148 exists and it is an hvigor process, please check the WMI function of your environment or starting hvigor with --no-daemon param.
+[2025-02-13T20:16:37.750] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-13T20:16:37.771] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' }
+}
+[2025-02-13T20:16:37.786] [DEBUG] debug-file - Cache service initialization finished in 14 ms 
+[2025-02-13T20:16:37.799] [DEBUG] debug-file - hvigorfile, resolving D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-13T20:17:11.014] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-02-13T20:17:11.014] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-02-13T20:17:11.398] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-02-13T20:17:11.399] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-02-13T20:17:11.400] [DEBUG] debug-file - Product 'default' build option: {}
+[2025-02-13T20:17:11.400] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-02-13T20:17:11.409] [DEBUG] debug-file - Product 'default' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-02-13T20:17:11.448] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-02-13T20:17:11.463] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-02-13T20:17:11.469] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-02-13T20:17:11.478] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-02-13T20:17:11.540] [DEBUG] debug-file - Sdk init in 81 ms 
+[2025-02-13T20:17:11.568] [DEBUG] debug-file - Project task initialization takes 27 ms 
+[2025-02-13T20:17:11.568] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-02-13T20:17:11.569] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-13T20:17:11.569] [DEBUG] debug-file - hvigorfile, resolve finished D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-02-13T20:17:11.577] [DEBUG] debug-file - hvigorfile, resolving D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-13T20:17:11.585] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-02-13T20:17:11.586] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-02-13T20:17:11.602] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=phone, buildMode=debug
+[2025-02-13T20:17:11.602] [DEBUG] debug-file - Target 'default' config: {}
+[2025-02-13T20:17:11.603] [DEBUG] debug-file - Target 'ohosTest' config: {}
+[2025-02-13T20:17:11.603] [DEBUG] debug-file - Module 'phone' target 'default' build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+}
+[2025-02-13T20:17:11.603] [DEBUG] debug-file - Module 'phone' target 'ohosTest' build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "default"
+}
+[2025-02-13T20:17:11.603] [DEBUG] debug-file - End initialize module-target build option map, moduleName=phone
+[2025-02-13T20:17:11.604] [DEBUG] debug-file - Module 'phone' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+} in this build.
+[2025-02-13T20:17:11.616] [DEBUG] debug-file - Module phone task initialization takes 10 ms 
+[2025-02-13T20:17:11.616] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-02-13T20:17:11.616] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-13T20:17:11.617] [DEBUG] debug-file - hvigorfile, resolve finished D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-02-13T20:17:11.639] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 19 ms 
+[2025-02-13T20:17:11.641] [DEBUG] debug-file - project has submodules:phone
+[2025-02-13T20:17:11.645] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-02-13T20:17:11.656] [DEBUG] debug-file - load to the disk finished
+[2025-02-13T20:17:11.684] [DEBUG] debug-file - Module EQ_Master Collected Dependency: D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh
+[2025-02-13T20:17:11.684] [DEBUG] debug-file - Module EQ_Master's total dependency: 2
+[2025-02-13T20:17:11.741] [DEBUG] debug-file - Module phone Collected Dependency: D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+hamock@1.0.0\oh_modules\@ohos\hamock,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-parse@1.0.0\oh_modules\@nutpi\color-parse,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-name@1.0.0\oh_modules\@nutpi\color-name,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh
+[2025-02-13T20:17:11.741] [DEBUG] debug-file - Module phone's total dependency: 5
+[2025-02-13T20:17:11.752] [DEBUG] debug-file - Configuration phase cost:33 s 961 ms 
+[2025-02-13T20:17:11.759] [DEBUG] debug-file - Configuration task cost before running: 34 s 4 ms 
+[2025-02-13T20:17:11.763] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.763] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.770] [DEBUG] debug-file - Executing task :phone:default@PreBuild
+[2025-02-13T20:17:11.791] [DEBUG] debug-file - Incremental task phone:default@PreBuild pre-execution cost: 16 ms .
+[2025-02-13T20:17:11.791] [DEBUG] debug-file - phone : default@PreBuild cost memory -8.087501525878906
+[2025-02-13T20:17:11.797] [INFO] debug-file - UP-TO-DATE :phone:default@PreBuild...  
+[2025-02-13T20:17:11.801] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.801] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.803] [DEBUG] debug-file - Executing task :phone:default@GenerateMetadata
+[2025-02-13T20:17:11.808] [DEBUG] debug-file - Incremental task phone:default@GenerateMetadata pre-execution cost: 3 ms .
+[2025-02-13T20:17:11.809] [DEBUG] debug-file - phone : default@GenerateMetadata cost memory 0.147674560546875
+[2025-02-13T20:17:11.810] [INFO] debug-file - UP-TO-DATE :phone:default@GenerateMetadata...  
+[2025-02-13T20:17:11.813] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.813] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.814] [DEBUG] debug-file - Executing task :phone:default@ConfigureCmake
+[2025-02-13T20:17:11.815] [DEBUG] debug-file - phone : default@ConfigureCmake cost memory 0.013153076171875
+[2025-02-13T20:17:11.815] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 60 ms 
+[2025-02-13T20:17:11.815] [INFO] debug-file - Finished :phone:default@ConfigureCmake... after 1 ms 
+[2025-02-13T20:17:11.819] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.819] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.824] [DEBUG] debug-file - Executing task :phone:default@MergeProfile
+[2025-02-13T20:17:11.829] [DEBUG] debug-file - Incremental task phone:default@MergeProfile pre-execution cost: 4 ms .
+[2025-02-13T20:17:11.829] [DEBUG] debug-file - phone : default@MergeProfile cost memory 0.2018890380859375
+[2025-02-13T20:17:11.830] [INFO] debug-file - UP-TO-DATE :phone:default@MergeProfile...  
+[2025-02-13T20:17:11.832] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.832] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.834] [DEBUG] debug-file - Executing task :phone:default@CreateBuildProfile
+[2025-02-13T20:17:11.837] [DEBUG] debug-file - Incremental task phone:default@CreateBuildProfile pre-execution cost: 2 ms .
+[2025-02-13T20:17:11.837] [DEBUG] debug-file - phone : default@CreateBuildProfile cost memory 0.1279754638671875
+[2025-02-13T20:17:11.838] [INFO] debug-file - UP-TO-DATE :phone:default@CreateBuildProfile...  
+[2025-02-13T20:17:11.841] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.841] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.843] [DEBUG] debug-file - Executing task :phone:default@PreCheckSyscap
+[2025-02-13T20:17:11.843] [DEBUG] debug-file - phone : default@PreCheckSyscap cost memory 0.0196533203125
+[2025-02-13T20:17:11.843] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 88 ms 
+[2025-02-13T20:17:11.844] [INFO] debug-file - Finished :phone:default@PreCheckSyscap... after 1 ms 
+[2025-02-13T20:17:11.847] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.847] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.877] [DEBUG] debug-file - Executing task :phone:default@GeneratePkgContextInfo
+[2025-02-13T20:17:11.878] [DEBUG] debug-file - Incremental task phone:default@GeneratePkgContextInfo pre-execution cost: 1 ms .
+[2025-02-13T20:17:11.878] [DEBUG] debug-file - phone : default@GeneratePkgContextInfo cost memory 0.0589752197265625
+[2025-02-13T20:17:11.879] [INFO] debug-file - UP-TO-DATE :phone:default@GeneratePkgContextInfo...  
+[2025-02-13T20:17:11.881] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.881] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.884] [DEBUG] debug-file - Executing task :phone:default@ProcessIntegratedHsp
+[2025-02-13T20:17:11.885] [DEBUG] debug-file - phone:default@ProcessIntegratedHsp is not up-to-date, since the output file 'D:\EQ_Master\EQ_Master\build\cache\default\integrated_hsp\integratedHspCache.json' does not exist.
+[2025-02-13T20:17:11.886] [DEBUG] debug-file - Incremental task phone:default@ProcessIntegratedHsp pre-execution cost: 1 ms .
+[2025-02-13T20:17:11.886] [DEBUG] debug-file - phone : default@ProcessIntegratedHsp cost memory 0.088470458984375
+[2025-02-13T20:17:11.886] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 131 ms 
+[2025-02-13T20:17:11.887] [INFO] debug-file - Finished :phone:default@ProcessIntegratedHsp... after 3 ms 
+[2025-02-13T20:17:11.889] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.889] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.890] [DEBUG] debug-file - Executing task :phone:default@BuildNativeWithCmake
+[2025-02-13T20:17:11.890] [DEBUG] debug-file - phone : default@BuildNativeWithCmake cost memory 0.014404296875
+[2025-02-13T20:17:11.890] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 136 ms 
+[2025-02-13T20:17:11.891] [INFO] debug-file - Finished :phone:default@BuildNativeWithCmake... after 1 ms 
+[2025-02-13T20:17:11.893] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.893] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.895] [DEBUG] debug-file - Executing task :phone:default@MakePackInfo
+[2025-02-13T20:17:11.899] [DEBUG] debug-file - Incremental task phone:default@MakePackInfo pre-execution cost: 3 ms .
+[2025-02-13T20:17:11.899] [DEBUG] debug-file - phone : default@MakePackInfo cost memory 0.16068267822265625
+[2025-02-13T20:17:11.900] [INFO] debug-file - UP-TO-DATE :phone:default@MakePackInfo...  
+[2025-02-13T20:17:11.907] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.907] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.911] [DEBUG] debug-file - Executing task :phone:default@ProcessProfile
+[2025-02-13T20:17:11.912] [DEBUG] debug-file - Incremental task phone:default@ProcessProfile pre-execution cost: 1 ms .
+[2025-02-13T20:17:11.913] [DEBUG] debug-file - phone : default@ProcessProfile cost memory 0.0625152587890625
+[2025-02-13T20:17:11.913] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessProfile...  
+[2025-02-13T20:17:11.916] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.916] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.918] [DEBUG] debug-file - Executing task :phone:default@SyscapTransform
+[2025-02-13T20:17:11.955] [DEBUG] debug-file - phone:default@SyscapTransform is not up-to-date, since the output file 'D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\syscap\default\rpcid.sc' does not exist.
+[2025-02-13T20:17:11.955] [DEBUG] debug-file - Incremental task phone:default@SyscapTransform pre-execution cost: 37 ms .
+[2025-02-13T20:17:11.956] [DEBUG] debug-file - phone : default@SyscapTransform cost memory 0.14012908935546875
+[2025-02-13T20:17:11.956] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 201 ms 
+[2025-02-13T20:17:11.957] [INFO] debug-file - Finished :phone:default@SyscapTransform... after 39 ms 
+[2025-02-13T20:17:11.960] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.960] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.963] [DEBUG] debug-file - Executing task :phone:default@ProcessRouterMap
+[2025-02-13T20:17:11.970] [DEBUG] debug-file - Incremental task phone:default@ProcessRouterMap pre-execution cost: 4 ms .
+[2025-02-13T20:17:11.970] [DEBUG] debug-file - phone : default@ProcessRouterMap cost memory 0.31838226318359375
+[2025-02-13T20:17:11.971] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessRouterMap...  
+[2025-02-13T20:17:11.974] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.974] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.975] [DEBUG] debug-file - Executing task :phone:default@BuildNativeWithNinja
+[2025-02-13T20:17:11.977] [DEBUG] debug-file - phone : default@BuildNativeWithNinja cost memory 0.03197479248046875
+[2025-02-13T20:17:11.977] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 222 ms 
+[2025-02-13T20:17:11.977] [INFO] debug-file - Finished :phone:default@BuildNativeWithNinja... after 2 ms 
+[2025-02-13T20:17:11.980] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:11.980] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:11.982] [DEBUG] debug-file - restool module names: phone; moduleName=phone, taskName=default@ProcessResource
+[2025-02-13T20:17:12.001] [DEBUG] debug-file - Executing task :phone:default@ProcessResource
+[2025-02-13T20:17:12.002] [DEBUG] debug-file - Incremental task phone:default@ProcessResource pre-execution cost: 1 ms .
+[2025-02-13T20:17:12.003] [DEBUG] debug-file - phone : default@ProcessResource cost memory 0.13965606689453125
+[2025-02-13T20:17:12.007] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessResource...  
+[2025-02-13T20:17:12.011] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.011] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.029] [DEBUG] debug-file - Executing task :phone:default@GenerateLoaderJson
+[2025-02-13T20:17:12.053] [DEBUG] debug-file - Incremental task phone:default@GenerateLoaderJson pre-execution cost: 14 ms .
+[2025-02-13T20:17:12.053] [DEBUG] debug-file - phone : default@GenerateLoaderJson cost memory 0.9515762329101562
+[2025-02-13T20:17:12.061] [INFO] debug-file - UP-TO-DATE :phone:default@GenerateLoaderJson...  
+[2025-02-13T20:17:12.064] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.064] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.073] [DEBUG] debug-file - Executing task :phone:default@ProcessLibs
+[2025-02-13T20:17:12.077] [DEBUG] debug-file - Incremental task phone:default@ProcessLibs pre-execution cost: 3 ms .
+[2025-02-13T20:17:12.077] [DEBUG] debug-file - phone : default@ProcessLibs cost memory 0.15770721435546875
+[2025-02-13T20:17:12.078] [INFO] debug-file - UP-TO-DATE :phone:default@ProcessLibs...  
+[2025-02-13T20:17:12.081] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.081] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.082] [DEBUG] debug-file - restool module names: phone; moduleName=phone, taskName=default@CompileResource
+[2025-02-13T20:17:12.087] [DEBUG] debug-file - Executing task :phone:default@CompileResource
+[2025-02-13T20:17:12.207] [DEBUG] debug-file - Incremental task phone:default@CompileResource pre-execution cost: 118 ms .
+[2025-02-13T20:17:12.207] [DEBUG] debug-file - phone : default@CompileResource cost memory 5.487297058105469
+[2025-02-13T20:17:12.209] [INFO] debug-file - UP-TO-DATE :phone:default@CompileResource...  
+[2025-02-13T20:17:12.212] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.212] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.214] [DEBUG] debug-file - Executing task :phone:default@DoNativeStrip
+[2025-02-13T20:17:12.216] [DEBUG] debug-file - Incremental task phone:default@DoNativeStrip pre-execution cost: 1 ms .
+[2025-02-13T20:17:12.216] [DEBUG] debug-file - phone : default@DoNativeStrip cost memory 0.076019287109375
+[2025-02-13T20:17:12.216] [INFO] debug-file - UP-TO-DATE :phone:default@DoNativeStrip...  
+[2025-02-13T20:17:12.221] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.221] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.225] [DEBUG] debug-file - Executing task :phone:default@CompileArkTS
+[2025-02-13T20:17:12.264] [DEBUG] debug-file - Incremental task phone:default@CompileArkTS pre-execution cost: 29 ms .
+[2025-02-13T20:17:12.264] [DEBUG] debug-file - phone : default@CompileArkTS cost memory 2.4217605590820312
+[2025-02-13T20:17:12.267] [INFO] debug-file - UP-TO-DATE :phone:default@CompileArkTS...  
+[2025-02-13T20:17:12.269] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.269] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.273] [DEBUG] debug-file - Executing task :phone:default@BuildJS
+[2025-02-13T20:17:12.278] [DEBUG] debug-file - phone : default@BuildJS cost memory 0.23984527587890625
+[2025-02-13T20:17:12.279] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 524 ms 
+[2025-02-13T20:17:12.279] [INFO] debug-file - Finished :phone:default@BuildJS... after 6 ms 
+[2025-02-13T20:17:12.282] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.282] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.285] [DEBUG] debug-file - Executing task :phone:default@CacheNativeLibs
+[2025-02-13T20:17:12.286] [DEBUG] debug-file - Incremental task phone:default@CacheNativeLibs pre-execution cost: 2 ms .
+[2025-02-13T20:17:12.286] [DEBUG] debug-file - phone : default@CacheNativeLibs cost memory 0.08061981201171875
+[2025-02-13T20:17:12.287] [INFO] debug-file - UP-TO-DATE :phone:default@CacheNativeLibs...  
+[2025-02-13T20:17:12.289] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.289] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.290] [DEBUG] debug-file - Executing task :phone:default@GeneratePkgModuleJson
+[2025-02-13T20:17:12.295] [DEBUG] debug-file - Incremental task phone:default@GeneratePkgModuleJson pre-execution cost: 2 ms .
+[2025-02-13T20:17:12.295] [DEBUG] debug-file - phone : default@GeneratePkgModuleJson cost memory 0.092987060546875
+[2025-02-13T20:17:12.296] [INFO] debug-file - UP-TO-DATE :phone:default@GeneratePkgModuleJson...  
+[2025-02-13T20:17:12.300] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.301] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.311] [DEBUG] debug-file - Executing task :phone:default@PackageHap
+[2025-02-13T20:17:12.357] [DEBUG] debug-file - Incremental task phone:default@PackageHap pre-execution cost: 43 ms .
+[2025-02-13T20:17:12.357] [DEBUG] debug-file - phone : default@PackageHap cost memory 2.561553955078125
+[2025-02-13T20:17:12.359] [INFO] debug-file - UP-TO-DATE :phone:default@PackageHap...  
+[2025-02-13T20:17:12.363] [DEBUG] debug-file - jsonObjWithoutParam {"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"} at undefined
+[2025-02-13T20:17:12.363] [DEBUG] debug-file - jsonObjWithoutParam {"name":"phone","version":"1.0.0","description":"Please describe the basic information.","main":"","author":"","license":"","dependencies":{"@ohos/hamock":"1.0.0","@nutpi/color-parse":"1.0.0"}} at undefined
+[2025-02-13T20:17:12.366] [DEBUG] debug-file - Executing task :phone:default@SignHap
+[2025-02-13T20:17:12.367] [WARN] debug-file - Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+             If needed, configure the signingConfigs in D:\EQ_Master\EQ_Master\build-profile.json5.
+[2025-02-13T20:17:12.367] [DEBUG] debug-file - phone:default@SignHap is not up-to-date, since the output file 'D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-signed.hap' does not exist.
+[2025-02-13T20:17:12.367] [DEBUG] debug-file - Incremental task phone:default@SignHap pre-execution cost: 1 ms .
+[2025-02-13T20:17:12.368] [DEBUG] debug-file - phone : default@SignHap cost memory 0.14774322509765625
+[2025-02-13T20:17:12.368] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 613 ms 
+[2025-02-13T20:17:12.368] [INFO] debug-file - Finished :phone:default@SignHap... after 2 ms 
+[2025-02-13T20:17:12.369] [DEBUG] debug-file - Executing task :phone:assembleHap
+[2025-02-13T20:17:12.370] [DEBUG] debug-file - phone : assembleHap cost memory 0.0118865966796875
+[2025-02-13T20:17:12.370] [DEBUG] debug-file - runTaskFromQueue task cost before running: 34 s 615 ms 
+[2025-02-13T20:17:12.370] [INFO] debug-file - Finished :phone:assembleHap... after 1 ms 
+[2025-02-13T20:17:12.387] [DEBUG] debug-file - BUILD SUCCESSFUL in 34 s 632 ms 
+[2025-02-13T20:17:12.388] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@PreBuild is up-to-date.
+[2025-02-13T20:17:12.388] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GenerateMetadata is up-to-date.
+[2025-02-13T20:17:12.388] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@MergeProfile is up-to-date.
+[2025-02-13T20:17:12.388] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CreateBuildProfile is up-to-date.
+[2025-02-13T20:17:12.389] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GeneratePkgContextInfo is up-to-date.
+[2025-02-13T20:17:12.390] [DEBUG] debug-file - Update task phone:default@ProcessIntegratedHsp output file:D:\EQ_Master\EQ_Master\build\cache\default\integrated_hsp\integratedHspCache.json cache.
+[2025-02-13T20:17:12.390] [DEBUG] debug-file - Incremental task phone:default@ProcessIntegratedHsp post-execution cost:2 ms .
+[2025-02-13T20:17:12.390] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@MakePackInfo is up-to-date.
+[2025-02-13T20:17:12.391] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessProfile is up-to-date.
+[2025-02-13T20:17:12.391] [DEBUG] debug-file - Update task phone:default@SyscapTransform input file:D:\Harmony\DevEco\DevEco Studio\sdk\default\openharmony\toolchains\syscap_tool.exe cache by regenerate.
+[2025-02-13T20:17:12.392] [DEBUG] debug-file - Update task phone:default@SyscapTransform input file:D:\Harmony\DevEco\DevEco Studio\sdk\default\openharmony\ets\api\device-define cache by regenerate.
+[2025-02-13T20:17:12.392] [DEBUG] debug-file - Update task phone:default@SyscapTransform output file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\syscap\default\rpcid.sc cache.
+[2025-02-13T20:17:12.393] [DEBUG] debug-file - Incremental task phone:default@SyscapTransform post-execution cost:3 ms .
+[2025-02-13T20:17:12.393] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessRouterMap is up-to-date.
+[2025-02-13T20:17:12.393] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessResource is up-to-date.
+[2025-02-13T20:17:12.393] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GenerateLoaderJson is up-to-date.
+[2025-02-13T20:17:12.393] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@ProcessLibs is up-to-date.
+[2025-02-13T20:17:12.393] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CompileResource is up-to-date.
+[2025-02-13T20:17:12.394] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@DoNativeStrip is up-to-date.
+[2025-02-13T20:17:12.394] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CompileArkTS is up-to-date.
+[2025-02-13T20:17:12.397] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default cache by regenerate.
+[2025-02-13T20:17:12.398] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+hamock@1.0.0\oh_modules\@ohos\hamock\index.ets cache by regenerate.
+[2025-02-13T20:17:12.398] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-parse@1.0.0\oh_modules\@nutpi\color-parse\Index.ts cache by regenerate.
+[2025-02-13T20:17:12.398] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-name@1.0.0\oh_modules\@nutpi\color-name\Index.ts cache by regenerate.
+[2025-02-13T20:17:12.398] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie\src\main\js\modules\full.js cache by regenerate.
+[2025-02-13T20:17:12.399] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh\index.ets cache by regenerate.
+[2025-02-13T20:17:12.404] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie\src\main\js cache by regenerate.
+[2025-02-13T20:17:12.449] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources\rawfile cache by regenerate.
+[2025-02-13T20:17:12.450] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\ResourceTable.txt cache by regenerate.
+[2025-02-13T20:17:12.451] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\module.json cache by regenerate.
+[2025-02-13T20:17:12.451] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\res\default\resources\base\profile cache by regenerate.
+[2025-02-13T20:17:12.452] [DEBUG] debug-file - Update task phone:default@BuildJS input file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader\default\pkgContextInfo.json cache by regenerate.
+[2025-02-13T20:17:12.452] [DEBUG] debug-file - Update task phone:default@BuildJS output file:D:\EQ_Master\EQ_Master\products\phone\build\default\intermediates\loader_out\default\js cache.
+[2025-02-13T20:17:12.453] [DEBUG] debug-file - Incremental task phone:default@BuildJS post-execution cost:59 ms .
+[2025-02-13T20:17:12.453] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@CacheNativeLibs is up-to-date.
+[2025-02-13T20:17:12.453] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@GeneratePkgModuleJson is up-to-date.
+[2025-02-13T20:17:12.453] [DEBUG] debug-file - There is no need to refresh cache, since the incremental task phone:default@PackageHap is up-to-date.
+[2025-02-13T20:17:12.453] [DEBUG] debug-file - Update task phone:default@SignHap input file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-unsigned.hap cache by regenerate.
+[2025-02-13T20:17:12.454] [DEBUG] debug-file - Update task phone:default@SignHap output file:D:\EQ_Master\EQ_Master\products\phone\build\default\outputs\default\phone-default-signed.hap cache.
+[2025-02-13T20:17:12.454] [DEBUG] debug-file - Incremental task phone:default@SignHap post-execution cost:1 ms .
+[2025-02-13T20:17:12.503] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-02-13T20:17:12.504] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-02-13T20:17:12.507] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-02-13T20:17:12.512] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-02-13T20:17:12.512] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-02-13T20:17:12.511] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-02-13T20:17:12.515] [DEBUG] debug-file - Cleanup worker 0.
+[2025-02-13T20:17:12.516] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2025-02-13T20:17:12.516] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-02-13T20:17:12.516] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-02-13T20:17:12.517] [DEBUG] debug-file - Cleanup worker 1.
+[2025-02-13T20:17:12.517] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2025-02-13T20:17:12.517] [DEBUG] debug-file - Current idle worker size: 0.
+[2025-02-13T20:17:12.518] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-02-13T20:17:12.521] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-02-13T20:17:12.530] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2025-02-13T20:17:12.531] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2025-02-13T20:17:12.533] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-02-13T20:17:12.533] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
