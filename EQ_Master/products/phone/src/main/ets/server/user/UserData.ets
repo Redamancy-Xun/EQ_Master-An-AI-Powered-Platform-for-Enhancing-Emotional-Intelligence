@@ -1,4 +1,5 @@
 import { EmotionalIntelligence } from '../emotionalintelligence/EQData';
+import ResponseResult from '../ResponseResult';
 import { TestScore } from '../test/TestData';
 
 export class UserInfo {
@@ -82,4 +83,5 @@ export class UserInfo {
    * EQ history.
    */
   eqhistory: Array<EmotionalIntelligence> | null = null;
+
 }

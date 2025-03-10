@@ -2,17 +2,17 @@
 	"BuildOptions":{
 		"SELECT_BUILD_TARGET":"default",
 		"BUILD_PATH":{
-			"OUTPUT_METADATA_JSON":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
-			"OUTPUT_PATH":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\outputs\\default",
-			"RES_PATH":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default",
-			"ETS_SUPER_VISUAL_PATH":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
-			"JS_ASSETS_PATH":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\default",
-			"INTERMEDIA_PATH":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates",
-			"RES_PROFILE_PATH":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
-			"WORKER_LOADER":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\loader.json",
-			"MANIFEST_JSON":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\default",
-			"JS_LITE_ASSETS_PATH":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out_lite\\default",
-			"JS_SUPER_VISUAL_PATH":"D:\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileJS\\jsbundle"
+			"OUTPUT_METADATA_JSON":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
+			"OUTPUT_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\outputs\\default",
+			"RES_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default",
+			"ETS_SUPER_VISUAL_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
+			"JS_ASSETS_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\default",
+			"INTERMEDIA_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates",
+			"RES_PROFILE_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+			"WORKER_LOADER":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\loader.json",
+			"MANIFEST_JSON":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\default",
+			"JS_LITE_ASSETS_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out_lite\\default",
+			"JS_SUPER_VISUAL_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileJS\\jsbundle"
 		}
 	},
 	"CommonInfo":{
