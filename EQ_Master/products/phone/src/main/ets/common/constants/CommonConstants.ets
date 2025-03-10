@@ -436,9 +436,19 @@ export class CommonConstants{
   static readonly POST_USER_LOGIN: string = 'user/login';
 
   /**
+   * The get user info.
+   */
+  static readonly GET_USER_INFO: string = 'user/getUserInfo';
+
+  /**
    * The get user check login.
    */
   static readonly GET_USER_CHECK_LOGIN: string = 'user/checkLogin';
+
+  /**
+   * The get ai chat.
+   */
+  static readonly GET_AI_CHAT: string = 'aichat/aichat';
 
   /**
    * The post user signup.
@@ -756,9 +766,9 @@ export class CommonConstants{
   static readonly WIDTH_MOVIE_SORT = '90%';
 
   /**
-   * width of picture.
+   * height of picture.
    */
-  static readonly WIDTH_PICTURE = '72%';
+  static readonly HEIGHT_PICTURE = '72%';
 
   /**
    * height of banner.

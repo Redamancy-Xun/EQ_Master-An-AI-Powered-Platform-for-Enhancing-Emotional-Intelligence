@@ -1,9 +1,19 @@
 import { http } from '@kit.NetworkKit' // 向后端发送请求
 import { BusinessError } from '@kit.BasicServicesKit';
 
-import {userInfo} from './User'
+// import {userInfo} from './User'
 import { preferences } from '@kit.ArkData';
 import PreferenceModel from '../../model/PreferenceModel';
+// 使用与Server端相同的UserInfo格式
+//TODO 改成userInfo
+import {UserInfo} from '../../server/user/UserData';
+import UserServer from '../../server/user/UserServer'
+import Logger from '../../common/utils/Logger';
+import ResponseResult from '../../server/ResponseResult';
+import PromptUtil from '../../common/utils/PromptUtil';
+import { CommonConstants } from '../../common/constants/CommonConstants';
+
+// TODO ：页面完善（个性签名等等）【后面是AI自己提示的，说明任重道远呀朋友】这个页面需要修改，需要添加一个修改头像的功能，并且需要修改用户信息，并且需要修改用户名，并且需要修改用户签名，并且需要修改用户密码，并且需要修改用户邮箱，并且需要修改用户手机号，并且需要修改用户性别，并且需要修改用户生日，并且需要修改用户地址，并且需要修改用户简介，并且需要修改用户头像，并且需要修改用户签名，并且需要修改用户密码
 
 // 主标题（Headline）
 @Extend(Text) function Headline () {
@@ -55,10 +65,9 @@ import PreferenceModel from '../../model/PreferenceModel';
 
 @Component
 struct userImage {//个人主页顶部部分
-  @Consume userName:string
+  @Prop UserInfo:UserInfo
   @Consume('pageInfos') pageInfos:NavPathStack
   @Consume nameList:string[]
-
   private fontColor:string = '#c4d2fa'
 
   build() {
@@ -87,7 +96,7 @@ struct userImage {//个人主页顶部部分
             console.info('turn into next page')
           })
 
-        Text(this.userName)
+        Text(this.UserInfo.username)
           .Headline()
           .fontColor(this.fontColor)
           .height('30%')
@@ -108,7 +117,6 @@ struct userImage {//个人主页顶部部分
       }
       .height('25%')
       .justifyContent(FlexAlign.Center)
-
     }
     .width('100%')
     .height('50%')
@@ -195,9 +203,7 @@ export struct testResult {
 @Component
 export struct changeProfile {
   @Consume imageUrl: string
-  @Consume userName:string
-  @Consume signature:string
-
+  @Prop UserInfo:UserInfo
   @Consume('pageInfos') pageInfos: NavPathStack;
 
   submit(){
@@ -209,8 +215,8 @@ export struct changeProfile {
         'session': PreferenceModel.getPreference('session', ''),
       },
       extraData: {
-        "username": this.userName,
-        "signature": this.signature,
+        "username": this.UserInfo.username,
+        "signature": this.UserInfo.signature
       }
     },(err:BusinessError,res:http.HttpResponse)=> {
       if (!err) {
@@ -259,7 +265,7 @@ export struct changeProfile {
           })
 
         Column() {
-          TextInput({ placeholder: '用户名' ,text: $$this.userName})
+          TextInput({ placeholder: '用户名' ,text: $$this.UserInfo.username})
             .margin({ top: 10 })
             .placeholderColor('#c6d3fa')
             .showUnderline(true)
@@ -267,7 +273,7 @@ export struct changeProfile {
             .onSubmit((EnterKeyType)=>{
               console.info(EnterKeyType+'输入法回车键的类型值')
             })
-          TextInput({ placeholder: '个性签名', text: $$this.signature })
+          TextInput({ placeholder: '个性签名', text: $$this.UserInfo.signature })
             .margin({ top: 20 })
             .placeholderColor('#c6d3fa')
             .showUnderline(true)
@@ -316,22 +322,18 @@ export struct pageThreeTmp {
     })
   }
 }
+
+// 个人主页主界面
 // @Entry
 @Component
 export struct UserInfoIndex {
-
-  // @State TooTmp: ToolbarItem = {'value': "func", 'icon': "./image/ic_public_highlights.svg", 'action': ()=> {}}
+  @State UserInfo:UserInfo = new UserInfo()
   @Provide imageUrl: string = 'app.media.login_logo'
-  @Provide userName: string = 'EQ_Master'
-  @Provide signature: string = "Achieve higher emotional\n" +
-    "intelligence"
-  // @State telephone:string = "13738780768"
-  // @State password:string = "a13738780768"
-  // @State imageUrl: string = 'app.media.person'
-  // @State userName: string = '未登录'//临时用state简化
+  //TODO 改成从资源读取
+  // @State userName: string = 'EQ_Master' // 缺省用户名
+  // @State signature: string = "Achieve higher emotional\n" + "intelligence"
   @Provide('pageInfos') pageInfos: NavPathStack = new NavPathStack()
   @Provide nameList:string[] = ["测试成绩","修改个人信息"]
-
   @State isLoggedIn: boolean = false; // 用户是否已登录
 
   private fontColor:string = '#c4d2fa'
@@ -339,108 +341,72 @@ export struct UserInfoIndex {
   // 页面加载时检查登录状态并获取用户信息
   aboutToAppear(): void {
     console.log("加载登陆状态")
-    this.getUserInfo()
-    // this.checkLoginStatus()
-    // if (this.isLoggedIn) {
-    //   this.getUserInfo()
-    // }
-    // else{
-    //   this.login()
-    //   this.getUserInfo()
-    // }
+    // this.getUserInfo()
+    UserServer.getCheckLogin().then((data: number) => {
+      Logger.info('用户已登录')
+      console.log("getUserInfo: success")
+      UserServer.getUserInfo().then((data: UserInfo) => {
+        console.log("getUserInfo: success")
+        console.info('Result:' + JSON.stringify(data))
+        this.UserInfo=data
+      }).catch((err: Resource | ResponseResult) => {
+        console.info('getUserInfo: error:' + JSON.stringify(err));
+        if (err instanceof ResponseResult) {
+          if (err.message !== null) {
+            PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+          }
+        }else {
+          PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+        }
+      })
+    }).catch((err: Resource | ResponseResult) => {
+      console.info('getCheckLogin: error:' + JSON.stringify(err));
+      if (err instanceof ResponseResult) {
+        if (err.message !== null) {
+          PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+        }
+      }else {
+        PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+      }
+    })
+
   }
 
-  // // 检查用户是否已登录
-  // checkLoginStatus(){ // 保存结果在isLoggedIn中. api返回0: 未登录;1: 已登录
+  // getUserInfo(){
   //   const req = http.createHttp()
   //   // 假设通过某个API接口检查用户登录状态
-  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/checkLogin',{
+  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
   //     method: http.RequestMethod.GET,
   //     header: {
-  //       'session': '3504901a-33bd-421d-b3a4-e9e486638113'
+  //       'session': PreferenceModel.getPreference('session', '')
   //     },
   //   }, (err:BusinessError, res:http.HttpResponse)=>{
   //     if(!err){
-  //       this.isLoggedIn = Boolean(res.result)
-  //       console.log("login status:",this.isLoggedIn)
+  //       let data:userInfo = JSON.parse(res.result.toString());
+  //       console.log("getUserInfo: success")
+  //       console.info('Result:' + JSON.stringify(res.result));
+  //       this.userName = data.result.username
+  //       this.signature = data.result.signature
+  //       console.log("getUserInfo: userName is", this.userName)
+  //       console.log("getUserInfo: signature is", this.signature)
   //     }
-  //     else{
-  //       console.info('checkLoginStatus: error:' + JSON.stringify(err));
+  //     else {
+  //       console.info('getUserInfo: error:' + JSON.stringify(err));
   //       // 取消订阅HTTP响应头事件
   //       req.off('headersReceive');
   //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
   //       req.destroy();
   //     }
-  //
   //   })
   // }
 
-  getUserInfo(){
-    const req = http.createHttp()
-    // 假设通过某个API接口检查用户登录状态
-    req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
-      method: http.RequestMethod.GET,
-      header: {
-        'session': PreferenceModel.getPreference('session', '')
-      },
-    }, (err:BusinessError, res:http.HttpResponse)=>{
-      if(!err){
-        let data:userInfo = JSON.parse(res.result.toString());
-        console.log("getUserInfo: success")
-        console.info('Result:' + JSON.stringify(res.result));
-        this.userName = data.result.username
-        this.signature = data.result.signature
-        console.log("getUserInfo: userName is", this.userName)
-        console.log("getUserInfo: signature is", this.signature)
-      }
-      else {
-        console.info('getUserInfo: error:' + JSON.stringify(err));
-        // 取消订阅HTTP响应头事件
-        req.off('headersReceive');
-        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-        req.destroy();
-      }
-    })
-  }
-
-  login(){
-    const req = http.createHttp()
-    // 假设通过某个API接口检查用户登录状态
-    req.request('https://eqmaster.redamancyxun.fun:8080/user/login?telephone=13738780768&password=a13738780768',{
-      method: http.RequestMethod.POST,
-      header: {
-        'session': '7eabd431-817f-49e7-ae84-cca87c24bd3f',
-      },
-      // extraData:{ // 存在问题
-      //   telephone: this.telephone,
-      //   password: this.password
-      // },
-    },(err:BusinessError,res:http.HttpResponse)=>{
-      if(!err){
-        console.log("login successfully")
-        console.info('Result:' + JSON.stringify(res.result));
-        let data:userInfo = JSON.parse(res.result.toString());
-        this.userName = data.result.username
-        this.signature = data.result.signature
-        console.log("get user info: userName is", this.userName)
-      }
-      else{
-        console.info('login: error:' + JSON.stringify(err));
-        // 取消订阅HTTP响应头事件
-        req.off('headersReceive');
-        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-        req.destroy();
-      }
-    })
-  }
-
-
+  // 跳转逻辑
   @Builder
   PageMap(name: string) {
     if (name === this.nameList[0]) {
       testResult()
     } else if (name === this.nameList[1]) {
-      changeProfile()
+      changeProfile({UserInfo:this.UserInfo})
     } else if (name === "NavDestinationTitle3") {
       pageThreeTmp()
     }
@@ -460,7 +426,7 @@ export struct UserInfoIndex {
       Navigation(this.pageInfos) {
 
         Column({ space: 12 }) {
-          userImage()
+          userImage({UserInfo:this.UserInfo})
           //以上是用户头像昵称部分
           experience()
 

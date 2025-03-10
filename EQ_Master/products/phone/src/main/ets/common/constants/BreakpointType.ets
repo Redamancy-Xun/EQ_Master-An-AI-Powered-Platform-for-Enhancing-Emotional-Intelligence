@@ -21,4 +21,15 @@ export class BreakpointType<T> {
       return this.sm;
     }
   }
+
+  GetValue(currentBreakpoint: string): T {
+    if (currentBreakpoint === BreakpointConstants.BREAKPOINT_MD) {
+      return this.md;
+    }
+    if (currentBreakpoint === BreakpointConstants.BREAKPOINT_LG) {
+      return this.lg;
+    } else {
+      return this.sm;
+    }
+  }
 }

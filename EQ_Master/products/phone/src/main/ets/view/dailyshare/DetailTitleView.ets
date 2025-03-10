@@ -1,12 +1,13 @@
 import { deviceInfo } from '@kit.BasicServicesKit';
 import { CommonConstants } from '../../common/constants/CommonConstants';
+import { router } from '@kit.ArkUI';
 
 @Entry
 @Component
 export struct DetailTitleView {
   // @StorageLink('currentBreakpoint') @Watch('checkFoldable') currentBreakpoint: string = Breakpoint.BREAKPOINT_LG;
   @StorageLink('isFoldHorizontal') isFoldHorizontal: boolean = true;
-  @StorageLink('pageInfos') pageInfos: NavPathStack = new NavPathStack();
+  // @StorageLink('pageInfos') pageInfos: NavPathStack = new NavPathStack();
   // @State foldable: boolean = this.currentBreakpoint === Breakpoint.BREAKPOINT_MD;
   @State foldable: boolean = false;
   isShowedButton?: boolean = true;
@@ -18,11 +19,11 @@ export struct DetailTitleView {
 
   build() {
     Column() {
-      Blank()
-        // .height(deviceInfo.deviceType !== CommonConstants.DEVICE_2IN1 ? $r("app.float.title_blank_height") :
-        //   $r('app.float.blank_top_height'))
-        .height($r("app.float.title_blank_height"))
-        .width(CommonConstants.FULL_PERCENT)
+      // Blank()
+      //   // .height(deviceInfo.deviceType !== CommonConstants.DEVICE_2IN1 ? $r("app.float.title_blank_height") :
+      //   //   $r('app.float.blank_top_height'))
+      //   .height($r("app.float.title_blank_height"))
+      //   .width(CommonConstants.FULL_PERCENT)
 
       Row() {
         Stack() {
@@ -45,7 +46,8 @@ export struct DetailTitleView {
               .width($r('app.float.card_detail_back_width'))
               .aspectRatio(1)
               .onClick(() => {
-                this.pageInfos.pop();
+                // this.pageInfos.pop(); // pageInfos是navigation使用的元素
+                router.back(); // router的栈顶弹出
                 AppStorage.setOrCreate('isDetailPage', false);
               })
 

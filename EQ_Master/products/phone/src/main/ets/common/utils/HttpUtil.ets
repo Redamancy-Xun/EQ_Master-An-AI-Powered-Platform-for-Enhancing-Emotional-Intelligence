@@ -6,6 +6,15 @@ import { preferences } from '@kit.ArkData';
 import Logger from './Logger';
 
 
+/*
+ ********************************************************
+ * 传输中文参数的时候需注意：对中文进行相关编码后再传输！！！       *
+ * let url = `${Const.SERVER}/${Const.GET_AI_CHAT}`;    *
+ * let params = new URL.URLParams('?prompt=' + prompt); *
+ * url = url + '/?' + params;                           *
+ ********************************************************
+ */
+
 /**
  * Initiates an HTTP GET request to a given URL.
  *
@@ -98,6 +107,7 @@ export function httpRequestGet(url: string): Promise<ResponseResult> {
  * @param data Data to be sent in the POST request body.
  */
 export function httpRequestPost(url: string, data?: Object): Promise<ResponseResult> {
+
   let httpRequest = http.createHttp();
   let session: preferences.ValueType = PreferenceModel.getPreference("session", '');
   let responseResult: Promise<http.HttpResponse>;
