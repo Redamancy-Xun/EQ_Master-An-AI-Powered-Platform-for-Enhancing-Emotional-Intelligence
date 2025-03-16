@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="257429e4-8994-47cd-8edb-090173412038" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/hs_err_pid26536.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/constants/BaseConstants.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/server/aichat/AIChatServer.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/ConversationDetailItem.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/ConversationDetailTopSearch.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/IntroduceText.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/MessageBubble.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/NormalText.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/StandardIcon.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/TabText.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/viewmodel/AdaptiveViewModel.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/viewmodel/ConversationViewModel.ets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/AI_avatar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/AI_logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_PDF.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_file.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_public_add_norm.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_public_app.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_public_cancel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_public_emoji.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_public_more.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_tea.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/picture_applet_link.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/send.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master_java/src/main/java/fun/redamancyxun/eqmaster/backend/controller/aichat/AIChatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master_java/src/main/java/fun/redamancyxun/eqmaster/backend/service/AIChatService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EQ_Master_java/src/main/java/fun/redamancyxun/eqmaster/backend/service/impl/AIChatServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HarmonyOS NEXT结课答辩/“EQ_Master——AI赋能的情商提升平台”答辩PPT.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HarmonyOS NEXT结课答辩/”EQ_Master——AI赋能的情商提升平台“项目报告.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/训练数据处理.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AI训练数据.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generate_train_json.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/训练文本v1.0.jsonl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/cache/file-cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/cache/file-cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/cache/task-cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/cache/task-cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.4" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.5" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.6" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/build-logs/build.log.9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/logs/details/details.json" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/logs/details/details.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/sync/fileCache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/.hvigor/outputs/sync/fileCache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061312363340.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061313511530.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061314078530.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061315292030.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061319486360.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061334371250.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061335371750.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061336068400.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061336115200.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/.hvigor/report/report-202501061413032890.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/constants/BreakpointType.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/constants/BreakpointType.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/constants/CommonConstants.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/constants/CommonConstants.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/constants/HomeConstants.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/constants/HomeConstants.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/utils/HttpUtil.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/common/utils/HttpUtil.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/AIChatIndex.ets" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/ets/view/aichat/AIChatIndex.ets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/element/color.json" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/element/color.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/element/float.json" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/element/float.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/element/string.json" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/element/string.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/compass_circle_fill.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/compass_circle_fill_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/face.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/foreground.png" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/foreground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/head.png" beforeDir="false" afterPath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/head.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/ic_back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EQ_Master/products/phone/src/main/resources/base/media/icon.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2rNdoy0wNTAmfVeuLCA3ZMN2h1b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.generate_train_json.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/用户/桌面/ECNU通识课数据统计",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\EQ_Master\训练数据处理" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="257429e4-8994-47cd-8edb-090173412038" name="更改" comment="" />
+      <created>1736403644486</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736403644486</updated>
+      <workItem from="1736403647687" duration="2403000" />
+      <workItem from="1736426534426" duration="33000" />
+      <workItem from="1737011925896" duration="42000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/$generate_train_json.coverage" NAME="generate_train_json 覆盖结果" MODIFIED="1736404566425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
