@@ -205,6 +205,10 @@
       "value": "#0A59F7"
     },
     {
+      "name": "theme_color",
+      "value": "#0a59f7"
+    },
+    {
       "name": "other_login_color",
       "value": "#838D97"
     },

@@ -385,6 +385,7 @@ export class CommonConstants{
    */
   static readonly LOGIN_KEYS: string = 'loginKeys'
 
+
   /**
    * Display face authentication.
    */
@@ -419,6 +420,10 @@ export class CommonConstants{
    * The width or height of the component is spread across the parent component.
    */
   static readonly FULL_PARENT: string = '100%';
+  /**
+   * The width or height of the component is spread across the parent component.
+   */
+  static readonly EIGHTY_PERCENT_PARENT: string = '80%';
 
   /**
    * The width of button.
@@ -464,7 +469,6 @@ export class CommonConstants{
    * Get the news list.
    */
   static readonly GET_NEWS_LIST: string = 'news/getNewsList';
-
   /**
    * The request success status code.
    */

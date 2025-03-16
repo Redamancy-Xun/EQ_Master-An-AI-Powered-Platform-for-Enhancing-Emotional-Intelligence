@@ -253,12 +253,28 @@
       "value": "忘记密码"
     },
     {
-      "name": "message_login",
-      "value": "短信验证码登录"
+      "name": "email_message",
+      "value": "验证码"
     },
     {
       "name": "other_login_method",
       "value": "其他登录方式"
+    },
+    {
+      "name": "message_login",
+      "value": "邮箱验证码登录"
+    },
+    {
+      "name": "email",
+      "value": "邮箱"
+    },
+    {
+      "name": "reacquire",
+      "value": "重新获取"
+    },
+    {
+      "name": "acquire",
+      "value": "获取验证码"
     },
     {
       "name": "my_love",
@@ -477,8 +493,8 @@
       "value": "请输入用户名"
     },
     {
-      "name": "message_telephone_prompt",
-      "value": "请输入手机号"
+      "name": "message_email_prompt",
+      "value": "请输入邮箱"
     },
     {
       "name": "message_password_prompt",
