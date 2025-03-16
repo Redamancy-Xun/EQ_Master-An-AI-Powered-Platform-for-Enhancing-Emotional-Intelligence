@@ -6,6 +6,7 @@ import { util } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
 import Logger from '../common/utils/Logger';
 import { RegisterPage } from '../view/login/RegisterPage';
+import { EmailLoginPage } from '../view/login/EmailLoginPage'
 import { httpRequestGet } from '../common/utils/HttpUtil';
 import { httpRequestPost } from '../common/utils/HttpUtil';
 import ResponseResult from '../server/ResponseResult';
@@ -88,6 +89,9 @@ struct LoginPage {
   PagesMap(name: string) {
     if (name === 'register') {
       RegisterPage()
+    }
+    else if(name == 'emailLogin'){
+      EmailLoginPage()
     }
   }
 
@@ -175,9 +179,8 @@ struct LoginPage {
           })
 
         Column() {
-          TextInput({ placeholder: $r('app.string.account') })
-            .maxLength(CommonConstants.INPUT_TELEPHONE_LENGTH)
-            .type(InputType.PhoneNumber)
+          TextInput({ placeholder: $r('app.string.email') })
+            .type(InputType.Email)
             .inputStyle()
             .onChange((value: string) => {
               this.account = value;
@@ -207,6 +210,9 @@ struct LoginPage {
 
         Row() {
           Text($r('app.string.message_login')).blueTextStyle()
+            .onClick(() => {
+              this.pageInfos.pushPathByName('emailLogin', null);
+            })
           Text($r('app.string.forgot_password')).blueTextStyle()
         }
         .justifyContent(FlexAlign.SpaceBetween)
