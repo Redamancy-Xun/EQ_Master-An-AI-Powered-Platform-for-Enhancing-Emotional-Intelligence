@@ -1,6 +1,7 @@
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import { CardItemInterface } from '../../model/CardListModel';
 import { CardItem } from '../../viewmodel/CardViewModel';
+import { CustomEditMenuOptions } from '../../common/utils/selectTextToQueryAi'
 
 interface ImageInfo {
   width: number;
@@ -104,6 +105,7 @@ export struct MircoBlogView {
             .fontSize(`${this.contentFontSize}${CommonConstants.SUFFIX_FP}`)
             .lineHeight(`${this.contentFontHeight}${CommonConstants.SUFFIX_VP}`)
             .width(CommonConstants.FULL_PERCENT)
+            .editMenuOptions(CustomEditMenuOptions) // 添加查询ai助手的功能
             .onClick(() => {
               this.jumpDetail();
             })
