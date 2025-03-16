@@ -68,15 +68,22 @@ export struct DailyShareIndex {
   build() {
     Column() {
       Row() {
+        Text('       ')
+          .margin({ top: '1%', bottom: '1.9%' })
         Text('每日分享')
           .margin({ top: '1%', bottom: '1.9%' })
           .fontSize('21fp')
           .fontColor(Color.Black)
           .fontWeight(560)
           .opacity(1)
+        Text('详情') //可改成选项
+          .fontSize('21fp')
+          .fontColor(Color.Blue)
+          .fontWeight(560)
+          .margin({ top: '1%', bottom: '1.9%' })
       }
       .width(CommonConstants.FULL_WIDTH)
-      .justifyContent(FlexAlign.Center)
+      .justifyContent(FlexAlign.SpaceAround)
       // .borderRadius('15vp')
       .borderColor($r('app.color.hot_title_border_color'))
       .borderWidth({

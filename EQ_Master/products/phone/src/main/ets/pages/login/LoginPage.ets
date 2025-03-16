@@ -207,6 +207,7 @@ struct LoginPage {
           right: $r('app.float.input_padding_left')
         })
 
+
         Row() {
           Text($r('app.string.message_login')).blueTextStyle()
           Text($r('app.string.forgot_password')).blueTextStyle()
