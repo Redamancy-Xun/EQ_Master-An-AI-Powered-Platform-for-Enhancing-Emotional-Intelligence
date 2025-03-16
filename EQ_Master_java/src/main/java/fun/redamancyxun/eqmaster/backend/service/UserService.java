@@ -13,7 +13,13 @@ import org.springframework.web.multipart.MultipartFile;
 public interface UserService extends IService<User> {
 
     // 登录
-    UserInfoResponse login(String telephone, String password) throws Exception;
+    UserInfoResponse login(String email, String password) throws Exception;
+
+    // 发送验证码
+    Boolean sendVerificationCode(String email) throws MyException;
+
+    // 验证验证码
+    Boolean verifyVerificationCode(String email, String code) throws MyException;
 
     // 检测登录状态
     Integer checkLogin() throws MyException;
@@ -22,7 +28,7 @@ public interface UserService extends IService<User> {
     UserInfoResponse logout();
 
     // 注册
-    UserInfoResponse signup(String username, String telephone, String password) throws MyException;
+    UserInfoResponse signup(String username, String email, String password, Integer profession, Integer workCommunicationDifficulty, Integer lifeCommunicationDifficulty) throws MyException;
 
     // 获取用户信息
     UserInfoResponse getUserInfo();
