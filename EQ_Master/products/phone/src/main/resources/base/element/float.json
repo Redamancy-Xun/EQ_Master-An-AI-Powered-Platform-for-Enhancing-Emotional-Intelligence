@@ -329,6 +329,10 @@
       "value": "100vp"
     },
     {
+      "name": "logo_margin_top_new",
+      "value": "80vp"
+    },
+    {
       "name": "logo_margin_bottom",
       "value": "30vp"
     },
