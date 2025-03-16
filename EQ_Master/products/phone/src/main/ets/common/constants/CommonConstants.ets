@@ -19,12 +19,12 @@ export class CommonConstants{
   /**
    * Full the width.
    */
-  static FULL_WIDTH: string = '100%';
+  static FULL_WIDTH = '100%';
 
   /**
    * Full the height.
    */
-  static FULL_HEIGHT: string = '120%';
+  static readonly FULL_HEIGHT = '120%';
 
   /**
    * Default fontSize
