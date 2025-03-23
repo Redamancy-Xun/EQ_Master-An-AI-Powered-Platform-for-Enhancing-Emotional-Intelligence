@@ -107,6 +107,13 @@ export class BaseConstants {
    * Device 2in1.
    */
   static readonly DEVICE_2IN1: string = '2in1';
+  /**
+   * Rank title List.
+   */
+  static readonly RANK_TITLE_LIST: ResourceStr[] =
+    [$r('app.string.today_hot_search'), $r('app.string.news_hot_search'), $r('app.string.same_city_hot_search'),
+      $r('app.string.entertainment_hot_search'), $r('app.string.food_hot_search')];
+
 }
 
 /**
@@ -133,3 +140,4 @@ export enum DeviceTypes {
   TABLET = 'tablet',
   "2IN1" = '2in1',
 }
+

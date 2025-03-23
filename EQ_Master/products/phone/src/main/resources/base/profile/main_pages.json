@@ -9,6 +9,7 @@
     "pages/LoginPage",
     "pages/HomePage",
     "pages/dailyshare/DailyShareDetailShow",
-    "pages/dailyshare/DailyShareTypeShow"
+    "pages/dailyshare/DailyShareTypeShow",
+    "view/dailyshare/HotRankPage"
   ]
 }

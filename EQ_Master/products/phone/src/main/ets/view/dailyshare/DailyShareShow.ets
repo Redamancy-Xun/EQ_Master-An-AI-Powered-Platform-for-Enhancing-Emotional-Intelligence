@@ -33,33 +33,12 @@ export struct DailyShareShow {
 
     if (PictureType.QUESTION === this.initType) {
       this.sortName = $r('app.string.question');
-      // this.photos = initializePictures(PictureType.QUESTION, this.initDailyShare);
     } else if (PictureType.TIP === this.initType) {
       this.sortName = $r('app.string.tip');
-      // this.photos = initializePictures(PictureType.TIP, this.initDailyShare);
     } else if (PictureType.STORY === this.initType) {
       this.sortName = $r('app.string.story');
-      // this.photos = initializePictures(PictureType.STORY, this.initDailyShare);
     }
   }
-
-  // // TODO 测试
-  // getDailyShare(dailyShareId: string) : DailyShare {
-  //   let dailyShare: DailyShare = new DailyShare();
-  //   Logger.info(CommonConstants.DAILY_SHARE_PAGE_TAG, 'getDailyShare id: ' + dailyShareId);
-  //   DailyShareServer.getDailyShareById(dailyShareId).then((data: DailyShare) => {
-  //     dailyShare = data;
-  //   }).catch((err: Resource | ResponseResult) => {
-  //     if (err instanceof ResponseResult) {
-  //       if (err.message !== null) {
-  //         PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
-  //       }
-  //     } else {
-  //       PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
-  //     }
-  //   });
-  //   return dailyShare;
-  // }
 
   getInitDailyShareList(type: string, page: number, pageSize: number, orderByPopularity: boolean){
     Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG,
@@ -77,8 +56,6 @@ export struct DailyShareShow {
       }
     })
   }
-
-
 
   build() {
     Column() {
@@ -98,6 +75,7 @@ export struct DailyShareShow {
             PreferenceModel.putPreference('dailyShareType', this.initType);
 
             router.pushUrl({
+              // 转到dailysharetypeshow
               url: CommonConstants.DAILY_SHARE_TYPE_PAGE_URL
             }).catch((error: Error) => {
               Logger.error(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG, 'DailyShareShowPage pushUrl error ' + JSON.stringify(error));

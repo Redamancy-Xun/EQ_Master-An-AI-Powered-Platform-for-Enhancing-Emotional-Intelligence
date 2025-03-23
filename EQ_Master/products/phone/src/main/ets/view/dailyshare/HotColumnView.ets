@@ -4,15 +4,19 @@ import { PICTURE_MAP } from '../../common/constants/PictureConstants';
 import { HotItemInterface } from '../../model/HotModel';
 import { DailyShare } from '../../server/dailyshare/DailyShareData';
 import { HotListItemView } from './HotListItemView';
+import Logger from '../../common/utils/Logger'
+import router from '@ohos.router';
+import preferenceModel from '../../model/PreferenceModel'
 
 const SWIPER_LIST: number[] = [0, 1, 2];
 
+// @Entry
 @Component
 export struct HotColumnView {
   // @StorageLink('currentBreakpoint') currentBreakpoint: string = Breakpoint.BREAKPOINT_SM;
   // @State tab_index: number = 0;
-  // dailyShareListByPopularity: Array<DailyShareItem> = [];
   @Consume dailyShareListByPopularity: Array<DailyShare>
+  @State HotItemList:Array<HotItemInterface>=[]
 
   switchToHotItemInterface(): Array<HotItemInterface> {
     let hotItemList: Array<HotItemInterface> = [];
@@ -31,12 +35,24 @@ export struct HotColumnView {
       hotItemList.push(hotItem);
       count++;
     })
+    // AppStorage.setOrCreate('HotItemList',hotItemList)
     return hotItemList;
+    // 返回dailyShareList中的全部元素
   }
 
+  // aboutToAppear(): void {
+  //   this.switchToHotItemInterface()
+  //   AppStorage.setOrCreate('HotItemList',this.HotItemList)
+    // 以下是测试, 在日志中筛选here
+    // let tmp:Array<HotItemInterface>|undefined=AppStorage.get('HotItemList')
+    // Logger.info('here!'+JSON.stringify(tmp))
+  // }
+
+
   @Builder
-  HotListBuilder(index: number) {
+  HotListBuilder(index: number) { //将hotItemList转换成列表形式展示
     List() {
+      // ForEach(this.HotItemList, (item: HotItemInterface) => {
       ForEach(this.switchToHotItemInterface(), (item: HotItemInterface) => {
         ListItem() {
           HotListItemView({
@@ -61,18 +77,35 @@ export struct HotColumnView {
       .autoPlay(false)
       .indicator(false)
       .disableSwipe(true)
-      // .displayCount(new BreakpointType(
-      //   CommonConstants.SWIPER_DISPLAY_COUNT_ONE,
-      //   CommonConstants.SWIPER_DISPLAY_COUNT_TWO,
-      //   CommonConstants.SWIPER_DISPLAY_COUNT_THREE
-      // ).getValue(this.currentBreakpoint))
-      // .itemSpace((new BreakpointType(CommonConstants.HOT_COLUMN_IS_SM, CommonConstants.HOT_COLUMN_IS_MD, CommonConstants.HOT_COLUMN_IS_LG))
-      //   .getValue(this.currentBreakpoint))
+      Row(){
+        Text('查看完整榜单')
+          .fontWeight(FontWeight.Normal)
+          .fontColor($r('app.color.read_total_rank_color'))
+          .fontSize($r('app.float.read_total_rank_fs'))
 
-      // TODO 完整榜单，见：MultiCommunityApplication-master [D:\Harmony\source\MultiCommunityApplication-master]
-      // ToRankView()
+        Image($r('app.media.ic_public_arrow_right_filled'))
+          .width($r('app.float.arrow_right_width'))
+          .aspectRatio(1)
+          .margin({ left: $r('app.float.arrow_right_ml') })
+          .opacity(0.4)
+      }
+      .justifyContent(FlexAlign.Start)
+      .alignItems(VerticalAlign.Center)
+      .margin({ top: $r('app.float.read_total_rank_mt') })
+      .onClick(() => {
+        router.pushUrl({
+          // 转到热度榜的详情页
+          url:'view/dailyshare/HotRankPage',//此处以加入pages配置中
+        }).catch((error: Error) => {
+          Logger.error('HotColumnView pushUrl error ' + JSON.stringify(error));
+        }).then(()=> { //成功跳转信息
+          Logger.info('HotColumnView pushUrl success')
+        })
+      })
+
     }
     .width(CommonConstants.FULL_PERCENT)
     .alignItems(HorizontalAlign.Start)
+
   }
 }

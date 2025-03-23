@@ -52,6 +52,7 @@ export struct HotListItemView {
                 .margin({ left: $r('app.float.state_icon_margin_left') })
             }
             .justifyContent(FlexAlign.Start)
+            .width(this.isShowDetail()?'80%':'90%')
 
             Text(this.item.content)
               .fontSize($r('app.float.content_font_size'))
