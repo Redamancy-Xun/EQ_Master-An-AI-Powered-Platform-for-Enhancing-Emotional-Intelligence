@@ -7,7 +7,7 @@ import PreferenceModel from '../../model/PreferenceModel';
 import UserServer from '../../server/user/UserServer';
 import { UserInfo } from '../../server/user/UserData';
 import ResponseResult from '../../server/ResponseResult';
-import { Prompt } from '@kit.ArkUI';
+import { Prompt, router } from '@kit.ArkUI';
 
 @Extend(TextInput)
 function inputStyle() {
@@ -71,6 +71,7 @@ export struct RegisterPage {
       return;
     }
 
+
     UserServer.postUserSignup(this.name, this.email, this.passWord).then((data: UserInfo) => {
       PromptUtil.promptMessage($r('app.string.success_signup_prompt'), CommonConstants.PROMPT_DURATION);
       // Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + data.sessionId);
@@ -79,7 +80,7 @@ export struct RegisterPage {
       //   let sessionId = PreferenceModel.getPreference(CommonConstants.PREFERENCES_KEY_SESSION, 'null');
       //   Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + sessionId);
       // }
-      this.pageInfos.pop();
+
     }).catch((err: Resource | ResponseResult) => {
       if (err instanceof ResponseResult) {
         if (err.message !== null) {
@@ -89,6 +90,14 @@ export struct RegisterPage {
         PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
     })
+
+    router.pushUrl({
+      url: CommonConstants.SELECT_PAGE_URL
+    }).catch((error: Error) => {
+      Logger.error(CommonConstants.DAILYSHARING_PAGE_TAG, 'DailySharing pushUrl error ' + JSON.stringify(error));
+    });
+
+
   }
   // 邮箱格式校验
   validateEmail(email: string): boolean {
@@ -217,7 +226,7 @@ export struct RegisterPage {
           //   })
           // }
 
-          Button($r('app.string.register_button'), { type: ButtonType.Capsule })
+          Button($r('app.string.register_nextstep_button'), { type: ButtonType.Capsule })
             .width(CommonConstants.BUTTON_WIDTH)
             .height($r('app.float.login_button_height'))
             .fontSize($r('app.float.button_text_size'))

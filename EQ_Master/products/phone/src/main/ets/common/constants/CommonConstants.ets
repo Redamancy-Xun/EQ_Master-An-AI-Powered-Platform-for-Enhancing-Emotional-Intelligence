@@ -219,6 +219,35 @@ export class CommonConstants{
    * The advertsing page tag.
    */
   static readonly THIRD_PAGE_TAG: string = 'ThirdPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly  DAILYSHARING_PAGE_TAG: string = 'DailysharingPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly EQAIASSISTANT_PAGE_TAG: string = 'EQIAassistantPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly CBTTRAINING_PAGE_TAG: string = 'CBTTraingPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly EQTESTING_PAGE_TAG: string = 'EQTestingPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly PROFILE_PAGE_TAG: string = 'ProfilePage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly SELECTWORK_PAGE_TAG: string = 'SelectWorkPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly SELECTLIFE_PAGE_TAG: string = 'SelectLifePage';
+
 
   /**
    * App home page tag.
@@ -244,6 +273,39 @@ export class CommonConstants{
    * Third page url.
    */
   static readonly Third_PAGE_URL: string = 'pages/launcher/ThirdPage';
+
+  /**
+   * Third page url.
+   */
+  static readonly DAILYSHARING_PAGE_URL: string = 'pages/launcher/DailySharingPage';
+  /**
+   * Third page url.
+   */
+  static readonly EQAIASSISTANT_PAGE_URL: string = 'pages/launcher/EQAIassistantPage';
+  /**
+   * Third page url.
+   */
+  static readonly CBTTRAING_PAGE_URL: string = 'pages/launcher/CBTTrainingPage';
+  /**
+   * Third page url.
+   */
+  static readonly EQTESTING_PAGE_URL: string = 'pages/launcher/EQTestingPage';
+  /**
+   * Third page url.
+   */
+  static readonly PROFILE_PAGE_URL: string = 'pages/launcher/ProfilePage';
+  /**
+   * Third page url.
+   */
+  static readonly SELECTLIFE_PAGE_URL: string = 'pages/launcher/SelectLifePage';
+  /**
+  * Third page url.
+  */
+  static readonly SELECTWORK_PAGE_URL: string = 'pages/launcher/SelectWorkPage';
+  /**
+   * Third page url.
+   */
+  static readonly SELECT_PAGE_URL: string = 'pages/launcher/SelectPage';
 
   /**
    * Daily share page url.

@@ -201,28 +201,44 @@
       "value": "返回"
     },
     {
-      "name": "first_page_text1",
+      "name": "DailySharing_page_text1",
       "value": "每日分享"
     },
     {
-      "name": "first_page_text2",
-      "value": "这个模块每天分享情商提升的实用技巧和启发心灵的故事，帮助用户更好地管理情绪、沟通和人际关系。"
+      "name": "DailySharing_page_text2",
+      "value": "每天一个高情商技巧和心理学知识，让您更懂社交，更懂自己，轻松应对人际挑战\n\n在官方问答下评论、投票，赢取积分，和其他用户一起成长！"
     },
     {
-      "name": "second_page_text1",
-      "value": "情商测试"
-    },
-    {
-      "name": "second_page_text2",
-      "value": "这个模块通过一系列情商测试题，帮助用户评估自身情商水平，并根据结果提供详细评分，助力个人成长。"
-    },
-    {
-      "name": "third_page_text1",
+      "name": "EQAIassistant_page_text1",
       "value": "高情商AI助手"
     },
     {
-      "name": "third_page_text2",
-      "value": "这个模块提供高情商AI助手，帮助用户在生活中应对并解决需要情商智慧的沟通和应答难题。"
+      "name": "EQAIassistant_page_text2",
+      "value": "遇到情商难题不会回答？AI助手来当“嘴替”\n\n专业回答建议、真实角色扮演，AI助手助您完成高情商回复"
+    },
+    {
+      "name": "CBTTraining_page_text1",
+      "value": "CBT训练"
+    },
+    {
+      "name": "CBTTraining_page_text2",
+      "value": "专业心理训练，通过情境模拟与认知反馈，助您理解情绪产生根源\n\n告别负面思维，重构健康认知模式，不做压抑需求的“老好人”"
+    },
+    {
+      "name": "EQTesting_page_text1",
+      "value": "情商测试"
+    },
+    {
+      "name": "EQTesting_page_text2",
+      "value": "多角度、多维度的专业情商测评，提供全面评估报告，助力您的情商成长之路\n\n真实场景再现，挑战即时应对与策略选取"
+    },
+    {
+      "name": "Profile_page_text1",
+      "value": "个人中心"
+    },
+    {
+      "name": "Profile_page_text2",
+      "value": "随时查看您的情商进步，获取AI定制反馈，享受个性化成长之旅\n\n赢取社交成就、互动勋章，成为社交大神！"
     },
     {
       "name": "login_page",
@@ -535,6 +551,10 @@
     {
       "name": "register_button",
       "value": "注册"
+    },
+    {
+      "name": "register_nextstep_button",
+      "value": "下一步"
     },
     {
       "name": "main_tab_home",

@@ -26,7 +26,8 @@
           "JS_SUPER_VISUAL_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
           "WORKER_LOADER": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\loader.json",
           "MANIFEST_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\default",
-          "OUTPUT_METADATA_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json"
+          "OUTPUT_METADATA_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
+          "SOURCE_MAP_DIR": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\source_map\\default"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -48,7 +49,8 @@
           "JS_SUPER_VISUAL_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileJS\\jsbundle",
           "WORKER_LOADER": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\ohosTest\\loader.json",
           "MANIFEST_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\ohosTest",
-          "OUTPUT_METADATA_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\ohosTest\\output_metadata.json"
+          "OUTPUT_METADATA_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\ohosTest\\output_metadata.json",
+          "SOURCE_MAP_DIR": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\source_map\\ohosTest"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -98,7 +100,8 @@
           "name": "ohosTest"
         }
       ]
-    }
+    },
+    "BUILD_CACHE_DIR": ""
   },
   "ohos-project": {
     "SELECT_PRODUCT_NAME": "default",
@@ -170,7 +173,8 @@
     },
     "OVERALL_PROJECT_PATHS": [
       "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master"
-    ]
+    ],
+    "BUILD_CACHE_DIR": ""
   },
   "version": 1
 }

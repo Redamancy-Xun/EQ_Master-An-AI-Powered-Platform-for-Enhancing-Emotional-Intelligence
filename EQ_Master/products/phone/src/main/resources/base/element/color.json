@@ -149,16 +149,16 @@
       "value": "#007DFF"
     },
     {
-      "name": "first_page_text_color",
-      "value": "#FFFFFFFF"
+      "name": "Launcher_pages_title_color",
+      "value": "#2A82E4"
     },
     {
-      "name": "second_page_text_color",
-      "value": "#FFFFFFFF"
+      "name": "Launcher_pages_text_color",
+      "value": "#182431"
     },
     {
-      "name": "third_page_text_color",
-      "value": "#FFFFFFFF"
+      "name": "Launcher_pages_card_color",
+      "value": "#FFFFFF"
     },
     {
       "name": "text_backgroud_color",
