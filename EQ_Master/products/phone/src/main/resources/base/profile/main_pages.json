@@ -10,6 +10,6 @@
     "pages/HomePage",
     "pages/dailyshare/DailyShareDetailShow",
     "pages/dailyshare/DailyShareTypeShow",
-    "view/dailyshare/HotRankPage"
+    "pages/dailyshare/HotRankPage"
   ]
 }

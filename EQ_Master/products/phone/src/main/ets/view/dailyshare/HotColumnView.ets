@@ -1,12 +1,13 @@
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import { DailyShareItem } from '../../common/constants/DailyShareList';
 import { PICTURE_MAP } from '../../common/constants/PictureConstants';
-import { HotItemInterface } from '../../model/HotModel';
+import { HotItem} from '../../model/HotModel';
 import { DailyShare } from '../../server/dailyshare/DailyShareData';
 import { HotListItemView } from './HotListItemView';
 import Logger from '../../common/utils/Logger'
 import router from '@ohos.router';
 import preferenceModel from '../../model/PreferenceModel'
+import { Converter, dailyShareToHotItemConverter } from '../../model/Converter';
 
 const SWIPER_LIST: number[] = [0, 1, 2];
 
@@ -16,28 +17,18 @@ export struct HotColumnView {
   // @StorageLink('currentBreakpoint') currentBreakpoint: string = Breakpoint.BREAKPOINT_SM;
   // @State tab_index: number = 0;
   @Consume dailyShareListByPopularity: Array<DailyShare>
-  @State HotItemList:Array<HotItemInterface>=[]
+  @State HotItemList:Array<HotItem>=[]
 
-  switchToHotItemInterface(): Array<HotItemInterface> {
-    let hotItemList: Array<HotItemInterface> = [];
-    let count: number = 1;
+  switchToHotItemArray(): Array<HotItem> {
+    let hotItemList: Array<HotItem> = [];
+    let count:number = 1;
+    let converter:Converter<DailyShare,HotItem> = new dailyShareToHotItemConverter()
     this.dailyShareListByPopularity.forEach((item: DailyShare) => {
-      let hotItem: HotItemInterface = {
-        index: count,
-        icon: PICTURE_MAP.get(item.picture? item.picture : ''),
-        dailyShareId: item.id ? item.id : '',
-        title: item.title ? item.title : '',
-        content: item.context ? item.context : '',
-        stateIcon: $r('app.media.ic_state_fire'),
-        clickCount: item.likes + item.view + item.commentCount + item.favorite + item.share,
-        upDownIcon: $r('app.media.ic_up')
-      };
+      let hotItem: HotItem = converter.convert(item, count)
       hotItemList.push(hotItem);
       count++;
     })
-    // AppStorage.setOrCreate('HotItemList',hotItemList)
     return hotItemList;
-    // 返回dailyShareList中的全部元素
   }
 
   // aboutToAppear(): void {
@@ -53,7 +44,7 @@ export struct HotColumnView {
   HotListBuilder(index: number) { //将hotItemList转换成列表形式展示
     List() {
       // ForEach(this.HotItemList, (item: HotItemInterface) => {
-      ForEach(this.switchToHotItemInterface(), (item: HotItemInterface) => {
+      ForEach(this.switchToHotItemArray(), (item: HotItem) => {
         ListItem() {
           HotListItemView({
             item: item,
@@ -63,7 +54,7 @@ export struct HotColumnView {
             indexIconGap: $r('app.float.index_icon_gap')
           })
         }
-      }, (item: HotItemInterface) => JSON.stringify(item))
+      }, (item: HotItem) => JSON.stringify(item))
     }
   }
 
@@ -95,7 +86,7 @@ export struct HotColumnView {
       .onClick(() => {
         router.pushUrl({
           // 转到热度榜的详情页
-          url:'view/dailyshare/HotRankPage',//此处以加入pages配置中
+          url:'pages/dailyshare/HotRankPage',//此处以加入pages配置中
         }).catch((error: Error) => {
           Logger.error('HotColumnView pushUrl error ' + JSON.stringify(error));
         }).then(()=> { //成功跳转信息

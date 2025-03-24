@@ -1,16 +1,16 @@
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import { HotListItemView } from './HotListItemView';
-import { HotItemInterface } from '../../model/HotModel';
+import { HotItem} from '../../model/HotModel';
 import Logger from '../../common/utils/Logger'
 import DailyShareServer from '../../server/dailyshare/DailyShareServer'
 import {DailyShare} from '../../server/dailyshare/DailyShareData'
 import ResponseResult from '../../server/ResponseResult';
 import PromptUtil from '../../common/utils/PromptUtil';
 import { PICTURE_MAP } from '../../common/constants/PictureConstants';
+import { Converter, dailyShareToHotItemConverter } from '../../model/Converter';
 
 @Component
 export struct HotListView {
-  // @StorageLink('HotItemList') HotItemList:Array<HotItemInterface>|undefined=[]
   @State dailyShareListByPopularity:Array<DailyShare> = []
   max_count:number = 15
   index: number = 0;
@@ -29,44 +29,33 @@ export struct HotListView {
     }
   }
 
+  getDailyShareListByPopularity(type: string, page: number, pageSize: number, orderByPopularity: boolean){ // 函数本身就有赋值, 故删除返回值,
+    Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG,
+      'getDailyShare page: ' + page + ' pageSize: ' + pageSize + ' type: ' + type + ' orderByPopularity: ' +
+        orderByPopularity);
+    DailyShareServer.getDailyShareTypeList(type, page, pageSize, orderByPopularity).then((data: Array<DailyShare>) => {
+      this.dailyShareListByPopularity= data;
+    }).catch((err: Resource | ResponseResult) => {
+      if (err instanceof ResponseResult) {
+        if (err.message !== null) {
+          PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+        }
+      } else {
+        PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+      }
+    })
+  }
 
-  // getDailyShareListByPopularity(type: string, page: number, pageSize: number, orderByPopularity: boolean){ // 函数本身就有赋值, 故删除返回值,
-  //   Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG,
-  //     'getDailyShare page: ' + page + ' pageSize: ' + pageSize + ' type: ' + type + ' orderByPopularity: ' +
-  //       orderByPopularity);
-  //   DailyShareServer.getDailyShareTypeList(type, page, pageSize, orderByPopularity).then((data: Array<DailyShare>) => {
-  //     this.dailyShareListByPopularity= data;
-  //   }).catch((err: Resource | ResponseResult) => {
-  //     if (err instanceof ResponseResult) {
-  //       if (err.message !== null) {
-  //         PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
-  //       }
-  //     } else {
-  //       PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
-  //     }
-  //   })
-  // }
-
-  switchToHotItemInterface(): Array<HotItemInterface> {
-    let hotItemList: Array<HotItemInterface> = [];
-    let count: number = 1;
+  switchToHotItemArray(): Array<HotItem> {
+    let hotItemList: Array<HotItem> = [];
+    let count:number = 1;
+    let converter:Converter<DailyShare,HotItem> = new dailyShareToHotItemConverter()
     this.dailyShareListByPopularity.forEach((item: DailyShare) => {
-      let hotItem: HotItemInterface = {
-        index: count,
-        icon: PICTURE_MAP.get(item.picture? item.picture : ''),
-        dailyShareId: item.id ? item.id : '',
-        title: item.title ? item.title : '',
-        content: item.context ? item.context : '',
-        stateIcon: $r('app.media.ic_state_fire'),
-        clickCount: item.likes + item.view + item.commentCount + item.favorite + item.share,
-        upDownIcon: $r('app.media.ic_up')
-      };
+      let hotItem: HotItem = converter.convert(item, count)
       hotItemList.push(hotItem);
       count++;
     })
-    // AppStorage.setOrCreate('HotItemList',hotItemList)
     return hotItemList;
-    // 返回dailyShareList中的全部元素
   }
 
   @Builder
@@ -84,8 +73,8 @@ export struct HotListView {
   }
 
   async aboutToAppear(){
-    this.dailyShareListByPopularity = await DailyShareServer.getDailyShareTypeList(this.switchType(),1,this.max_count,false)
-    // this.getDailyShareListByPopularity('tip', 1, 15, true)
+    // this.dailyShareListByPopularity = await DailyShareServer.getDailyShareTypeList(this.switchType(),1,this.max_count,false)
+    this.getDailyShareListByPopularity(this.switchType(), 1, this.max_count, false)
     //tip/story/question
   }
 
@@ -93,7 +82,7 @@ export struct HotListView {
     Row() {
       List() {
         ListItemGroup({ header: this.itemHeader() }) {
-          ForEach(this.switchToHotItemInterface(), (item: HotItemInterface) => {
+          ForEach(this.switchToHotItemArray(), (item: HotItem) => {
           // ForEach(HOST_LIST_ARRAY[this.index], (item: HotItemInterface) => {
             // 此处index是HotList的类型, 一个类型中有一组HotListItem, 但这里先省略. 全部都用一个HotList
             ListItem() {
@@ -102,7 +91,7 @@ export struct HotListView {
                 indexWidth: $r('app.float.index_width_more')
               })
             }
-          }, (item: HotItemInterface) => JSON.stringify(item))
+          }, (item: HotItem) => JSON.stringify(item))
         }
       }
       .scrollBar(BarState.Off)

@@ -14,7 +14,7 @@
  */
 
 import { BreakpointConstants as Breakpoint} from '../../common/constants/BreakpointConstants';
-import { HotListView } from './HotListView';
+import { HotListView } from '../../view/dailyshare/HotListView';
 import { CommonConstants} from '../../common/constants/CommonConstants'
 import {BreakpointType } from '../../common/constants/BreakpointType'
 import {BaseConstants as BaseCommon} from '../../common/constants/BaseConstants'
@@ -34,13 +34,6 @@ export struct HotRankPage {
     Column() {
       Stack() {
         Row()
-          // .linearGradient({
-          //   angle: CommonConstants.LINEAR_GRADIENT_ANGLE,
-          //   colors: [
-          //     [CommonConstants.LINEAR_GRADIENT_FROM_COLOR, CommonConstants.LINEAR_GRADIENT_FROM],
-          //     [CommonConstants.LINEAR_GRADIENT_TO_COLOR, CommonConstants.LINEAR_GRADIENT_TO]
-          //   ]
-          // })
           .linearGradient({ //渐变色背景
             angle:0,
             // 0点方向顺时针旋转为正向角度，线性渐变起始角度的默认值为180°
