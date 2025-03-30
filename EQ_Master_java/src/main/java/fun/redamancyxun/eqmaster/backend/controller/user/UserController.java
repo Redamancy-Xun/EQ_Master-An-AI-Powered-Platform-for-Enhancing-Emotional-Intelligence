@@ -28,20 +28,65 @@ public class UserController {
 
     /**
      * 登录
-     * @param telephone
+     * @param email
      * @param password
      * @return UserInfoResponse
      */
     @PostMapping(value = "/login", produces = "application/json")
     @ApiOperation(value = "登录", response = UserInfoResponse.class)
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "telephone", value = "手机号", required = true, paramType = "query", dataType = "String"),
+            @ApiImplicitParam(name = "email", value = "邮箱", required = true, paramType = "query", dataType = "String"),
             @ApiImplicitParam(name = "password", value = "密码", required = true, paramType = "query", dataType = "String")
     })
-    public Result login(@NotNull @RequestParam("telephone") String telephone,
+    public Result login(@NotNull @RequestParam("email") String email,
                         @NotNull @RequestParam("password") String password) {
         try {
-            return Result.success(userService.login(telephone, password));
+            return Result.success(userService.login(email, password));
+        } catch (Exception e) {
+            if (e instanceof MyException) {
+                return Result.result(((MyException) e).getEnumExceptionType());
+            }
+            return Result.fail(e.getMessage());
+        }
+    }
+
+    /**
+     * 发送验证码
+     * @param email 邮箱
+     * @return User
+     * @throws MyException 通用异常
+     */
+    @PostMapping(value = "/sendVerificationCode", produces = "application/json")
+    @ApiOperation(value = "发送验证码", response = Boolean.class)
+    @ApiImplicitParam(name = "email", value = "邮箱", required = true, paramType = "query", dataType = "String")
+    public Result sendVerificationCode(@NotNull @RequestParam("email") String email) throws MyException {
+        try {
+            return Result.success(userService.sendVerificationCode(email));
+        } catch (Exception e) {
+            if (e instanceof MyException) {
+                return Result.result(((MyException) e).getEnumExceptionType());
+            }
+            return Result.fail(e.getMessage());
+        }
+    }
+
+    /**
+     * 验证验证码
+     * @param email 邮箱
+     * @param code 验证码
+     * @return  Boolean
+     * @throws MyException 通用异常
+     */
+    @PostMapping(value = "/verifyVerificationCode", produces = "application/json")
+    @ApiOperation(value = "验证验证码", response = Boolean.class)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "email", value = "邮箱", required = true, paramType = "query", dataType = "String"),
+            @ApiImplicitParam(name = "code", value = "验证码", required = true, paramType = "query", dataType = "String")
+    })
+    public Result verifyVerificationCode(@NotNull @RequestParam("email") String email,
+                                         @NotNull @RequestParam("code") String code) throws MyException {
+        try {
+            return Result.success(userService.verifyVerificationCode(email, code));
         } catch (Exception e) {
             if (e instanceof MyException) {
                 return Result.result(((MyException) e).getEnumExceptionType());
@@ -86,22 +131,57 @@ public class UserController {
     /**
      * 注册
      * @param username
-     * @param telephone
+     * @param email
      * @param password
+     * @param profession 职业
+     * @param workCommunicationDifficulty 工作沟通困难对象身份
+     * @param lifeCommunicationDifficulty 生活沟通困难对象身份
      * @return UserInfoResponse
      */
     @PostMapping(value = "/signup", produces = "application/json")
     @ApiOperation(value = "注册", response = UserInfoResponse.class)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "username", value = "用户名", required = true, paramType = "query", dataType = "String"),
-            @ApiImplicitParam(name = "telephone", value = "手机号", required = true, paramType = "query", dataType = "String"),
-            @ApiImplicitParam(name = "password", value = "密码", required = true, paramType = "query", dataType = "String")
+            @ApiImplicitParam(name = "email", value = "邮箱", required = true, paramType = "query", dataType = "String"),
+            @ApiImplicitParam(name = "password", value = "密码", required = true, paramType = "query", dataType = "String"),
+            @ApiImplicitParam(name = "profession", value = "职业" +
+                    "【" +
+                    "0：未知 " +
+                    "1：学生（中学生、本科生、研究生） " +
+                    "2：上班族 " +
+                    "3：企业家/创业者 " +
+                    "4：自由职业者 " +
+                    "5：公务员/事业单位工作人员" +
+                    "】", required = true, paramType = "query", dataType = "Integer"),
+            @ApiImplicitParam(name = "workCommunicationDifficulty", value = "工作沟通困难对象身份" +
+                    "【" +
+                    "0：未知 " +
+                    "1：上级 " +
+                    "2：同事 " +
+                    "3：下级 " +
+                    "4：客户 " +
+                    "5：老师 " +
+                    "6：同学" +
+                    "】", required = true, paramType = "query", dataType = "Integer"),
+            @ApiImplicitParam(name = "lifeCommunicationDifficulty", value = "生活沟通困难对象身份" +
+                    "【" +
+                    "0：未知 " +
+                    "1：子女、其他后辈 " +
+                    "2：父母、其他长辈 " +
+                    "3：兄弟/姐妹 " +
+                    "4：伴侣 " +
+                    "5：朋友 " +
+                    "6：陌生人" +
+                    "】", required = true, paramType = "query", dataType = "Integer")
     })
     public Result signup(@NotNull @RequestParam("username") String username,
-                         @NotNull @RequestParam("telephone") String telephone,
-                         @NotNull @RequestParam("password") String password) {
+                         @NotNull @RequestParam("email") String email,
+                         @NotNull @RequestParam("password") String password,
+                         @NotNull @RequestParam("profession") Integer profession,
+                         @NotNull @RequestParam("workCommunicationDifficulty") Integer workCommunicationDifficulty,
+                         @NotNull @RequestParam("lifeCommunicationDifficulty") Integer lifeCommunicationDifficulty) {
         try {
-            return Result.success(userService.signup(username, telephone, password));
+            return Result.success(userService.signup(username, email, password, profession, workCommunicationDifficulty, lifeCommunicationDifficulty));
         } catch (Exception e) {
             if (e instanceof MyException) {
                 return Result.result(((MyException) e).getEnumExceptionType());
