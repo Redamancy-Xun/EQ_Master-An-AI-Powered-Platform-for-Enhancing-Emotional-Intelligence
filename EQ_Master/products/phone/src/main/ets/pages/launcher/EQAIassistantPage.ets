@@ -36,7 +36,8 @@ struct EQAIassistant {
                 right: '10%'
               })
               .lineHeight(25)
-          }.height('70%')
+          }.height('70%').margin({top:'3%'})
+
 
           Button('下一步')
             .fontSize(18)

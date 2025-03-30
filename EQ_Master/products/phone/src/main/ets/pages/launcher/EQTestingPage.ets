@@ -4,7 +4,7 @@ import { CommonConstants } from '../../common/constants/CommonConstants';
 
 @Entry
 @Component
-export struct EQTestingPage {
+struct EQTestingPage {
 
 
   build() {
@@ -23,7 +23,8 @@ export struct EQTestingPage {
               .opacity(1)
               .fontWeight(FontWeight.Bold)
               .textAlign(TextAlign.Center)
-              .padding({ top: 15 })
+              .padding({ top: 15 }).margin({top:'3%'})
+
 
 
             Text($r('app.string.EQTesting_page_text2'))

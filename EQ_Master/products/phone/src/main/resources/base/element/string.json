@@ -293,6 +293,18 @@
       "value": "获取验证码"
     },
     {
+      "name": "ask_work",
+      "value": "您的主要工作是？"
+    },
+    {
+      "name": "ask_people_in_work",
+      "value": "在工作中，和以下哪些身份的人沟通使您感到困难？"
+    },
+    {
+      "name": "ask_people_in_life",
+      "value": "在生活中，和以下哪些身份的人沟通使您感到困难？"
+    },
+    {
       "name": "my_love",
       "value": "My favorite"
     },
@@ -555,6 +567,10 @@
     {
       "name": "register_nextstep_button",
       "value": "下一步"
+    },
+    {
+      "name": "forgetpassword_resetpassword_button",
+      "value": "重置密码"
     },
     {
       "name": "main_tab_home",

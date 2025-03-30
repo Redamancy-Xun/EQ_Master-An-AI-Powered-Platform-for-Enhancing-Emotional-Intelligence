@@ -206,19 +206,7 @@ export class CommonConstants{
    */
   static readonly COMMON_LAYOUT_WEIGHT: number = 1;
 
-  /**
-   * The advertsing page tag.
-   */
-  static readonly FIRST_PAGE_TAG: string = 'FirstPage';
-  /**
-   * The advertsing page tag.
-   */
-  static readonly SECOND_PAGE_TAG: string = 'SecondPage';
 
-  /**
-   * The advertsing page tag.
-   */
-  static readonly THIRD_PAGE_TAG: string = 'ThirdPage';
   /**
    * The advertsing page tag.
    */
@@ -239,14 +227,6 @@ export class CommonConstants{
    * The advertsing page tag.
    */
   static readonly PROFILE_PAGE_TAG: string = 'ProfilePage';
-  /**
-   * The advertsing page tag.
-   */
-  static readonly SELECTWORK_PAGE_TAG: string = 'SelectWorkPage';
-  /**
-   * The advertsing page tag.
-   */
-  static readonly SELECTLIFE_PAGE_TAG: string = 'SelectLifePage';
 
 
   /**
@@ -258,21 +238,6 @@ export class CommonConstants{
    * The dailyShare page tag.
    */
   static readonly DAILY_SHARE_PAGE_TAG: string = 'DailySharePage';
-
-  /**
-   * First page url.
-   */
-  static readonly First_PAGE_URL: string = 'pages/launcher/FirstPage';
-
-  /**
-   * Second page url.
-   */
-  static readonly Second_PAGE_URL: string = 'pages/launcher/SecondPage';
-
-  /**
-   * Third page url.
-   */
-  static readonly Third_PAGE_URL: string = 'pages/launcher/ThirdPage';
 
   /**
    * Third page url.
@@ -294,18 +259,7 @@ export class CommonConstants{
    * Third page url.
    */
   static readonly PROFILE_PAGE_URL: string = 'pages/launcher/ProfilePage';
-  /**
-   * Third page url.
-   */
-  static readonly SELECTLIFE_PAGE_URL: string = 'pages/launcher/SelectLifePage';
-  /**
-  * Third page url.
-  */
-  static readonly SELECTWORK_PAGE_URL: string = 'pages/launcher/SelectWorkPage';
-  /**
-   * Third page url.
-   */
-  static readonly SELECT_PAGE_URL: string = 'pages/launcher/SelectPage';
+
 
   /**
    * Daily share page url.
@@ -447,6 +401,19 @@ export class CommonConstants{
    */
   static readonly LOGIN_KEYS: string = 'loginKeys'
 
+  /**
+   * Display selected Job.
+   */
+  static readonly SELECTED_JOB: string = 'selectedJob';
+
+  /**
+   * Display selected People in work.
+   */
+  static readonly SELECTED_PEOPLE_IN_WORK: string = 'selectedPeopleInWork';
+  /**
+   * Display selected People in life.
+   */
+  static readonly SELECTED_PEOPLE_IN_LIFE: string = 'selectedPeopleInLife';
 
   /**
    * Display face authentication.

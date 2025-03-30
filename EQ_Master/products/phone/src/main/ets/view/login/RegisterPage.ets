@@ -9,6 +9,7 @@ import { UserInfo } from '../../server/user/UserData';
 import ResponseResult from '../../server/ResponseResult';
 import { Prompt, router } from '@kit.ArkUI';
 
+
 @Extend(TextInput)
 function inputStyle() {
   .placeholderColor($r('app.color.placeholder_color'))
@@ -40,6 +41,8 @@ export struct RegisterPage {
   @Consume('isFace') isFace : boolean;
   @Consume('isFingerprint') isFingerprint: boolean;
   private keyAlias: string = CommonConstants.LOGIN_KEYS;
+
+
 
   /**
    * Check whether the registration button can be clicked.
@@ -91,12 +94,6 @@ export struct RegisterPage {
       }
     })
 
-    router.pushUrl({
-      url: CommonConstants.SELECT_PAGE_URL
-    }).catch((error: Error) => {
-      Logger.error(CommonConstants.DAILYSHARING_PAGE_TAG, 'DailySharing pushUrl error ' + JSON.stringify(error));
-    });
-
 
   }
   // 邮箱格式校验
@@ -107,7 +104,7 @@ export struct RegisterPage {
 
   build() {
     NavDestination() {
-      Row() {
+
         Column() {
           // Image($r('app.media.back'))
           //   .width($r('app.float.back_image_size'))
@@ -119,7 +116,7 @@ export struct RegisterPage {
           //   )
           Image($r('app.media.signup_title'))
             .width('20%')
-            .margin({ top: '8%' , left: '-69%', bottom: '0%'})
+            .margin({  left: '-69%', bottom: '0%'})
           Image($r('app.media.login_logo'))
             .width($r('app.float.logo_image_size'))
             .height($r('app.float.logo_image_size'))
@@ -238,10 +235,21 @@ export struct RegisterPage {
               top: $r('app.float.register_button_top'),
               bottom: $r('app.float.button_bottom')
             })
-            .enabled(this.isRegisterAvailable)
-            .onClick(async () => {
-              await this.register();
-            })
+             .enabled(this.isRegisterAvailable)
+            .onClick(
+            //   async () => {
+            //   //await this.register();
+            //   // router.pushUrl({
+            //   //   url: CommonConstants.SELECT_PAGE_URL
+            //   // }).catch((error: Error) => {
+            //   //   Logger.error(CommonConstants.DAILYSHARING_PAGE_TAG, 'DailySharing pushUrl error ' + JSON.stringify(error));
+            //   // })
+            //
+            // })
+              () => {
+                this.pageInfos.pushPathByName('selectWork',null)
+              }
+            )
 
           Text('')
             .height('5%')
@@ -254,19 +262,21 @@ export struct RegisterPage {
               $r('app.color.signup_text_introduce_color'))
             .opacity(0.8)
             .margin({ top: CommonConstants.LAUNCHER_TEXT_INTRODUCE_MARGIN_TOP })
+
         }
-        .backgroundColor($r('app.color.background'))
-        .height('110%')
-        .width(CommonConstants.FULL_PARENT)
         .padding({
           left: $r('app.float.page_padding_hor'),
           right: $r('app.float.page_padding_hor'),
           bottom: $r('app.float.login_page_bottom')
         })
-      }
-      .height('CommonConstants.FULL_PARENT')
     }
-    .height('110%')
+    .backgroundColor($r('app.color.background'))
+    .height(CommonConstants.FULL_PARENT)
+    .width(CommonConstants.FULL_PARENT)
+
+
+
+    //CommonConstants.FULL_HEIGHT
     // .hideTitleBar(true)
     // .onAppear(() => {
     //   HuksModel.isKeyItemExist(this.keyAlias)

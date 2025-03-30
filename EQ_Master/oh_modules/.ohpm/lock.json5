@@ -55,6 +55,35 @@
     }
   },
   "packages": {
+    "@ohos/hamock@1.0.0": {
+      "integrity": "sha512-K6lDPYc6VkKe6ZBNQa9aoG+ZZMiwqfcR/7yAVFSUGIuOAhPvCJAo9+t1fZnpe0dBRBPxj2bxPPbKh69VuyAtDg==",
+      "storePath": "oh_modules/.ohpm/@ohos+hamock@1.0.0",
+      "dependencies": {},
+      "dynamicDependencies": {},
+      "dev": false,
+      "dynamic": false,
+      "maskedByOverrideDependencyMap": false
+    },
+    "@nutpi/color-parse@1.0.0": {
+      "integrity": "sha512-WHPXpx2hWxIB+CbXiPfwP7QR727/+Jjb1PIbS/OjqFowrHdzEGWpnzhjBu6mGlK67urKF1urYwq+fEMSmw/Tug==",
+      "storePath": "oh_modules/.ohpm/@nutpi+color-parse@1.0.0",
+      "dependencies": {
+        "@nutpi/color-name": "1.0.0"
+      },
+      "dynamicDependencies": {},
+      "dev": false,
+      "dynamic": false,
+      "maskedByOverrideDependencyMap": false
+    },
+    "@nutpi/color-name@1.0.0": {
+      "integrity": "sha512-HyChL21ipuKqZ76yMpK2nVcUik0qLhQQ/jxSqNRlHcRhlCMfV0f1toVeEGI4joYL9CjkhDGYH19nwggxU7oHoQ==",
+      "storePath": "oh_modules/.ohpm/@nutpi+color-name@1.0.0",
+      "dependencies": {},
+      "dynamicDependencies": {},
+      "dev": false,
+      "dynamic": false,
+      "maskedByOverrideDependencyMap": false
+    },
     "@ohos/lottie@2.0.15": {
       "integrity": "sha512-wxFDu9CbxL0GLdWlU5UbNXKkpqjFby4D/rsddffTQdRcax99wX2oA5iw9lVqjW/8XUHtc9hd2hFlE20r8wIBzA==",
       "storePath": "oh_modules/.ohpm/@ohos+lottie@2.0.15",
@@ -76,35 +105,6 @@
     "@ohos/hypium@1.0.19": {
       "integrity": "sha512-cEjDgLFCm3cWZDeRXk7agBUkPqjWxUo6AQeiu0gEkb3J8ESqlduQLSIXeo3cCsm8U/asL7iKjF85ZyOuufAGSQ==",
       "storePath": "oh_modules/.ohpm/@ohos+hypium@1.0.19",
-      "dependencies": {},
-      "dynamicDependencies": {},
-      "dev": true,
-      "dynamic": false,
-      "maskedByOverrideDependencyMap": false
-    },
-    "@ohos/hamock@1.0.0": {
-      "integrity": "sha512-K6lDPYc6VkKe6ZBNQa9aoG+ZZMiwqfcR/7yAVFSUGIuOAhPvCJAo9+t1fZnpe0dBRBPxj2bxPPbKh69VuyAtDg==",
-      "storePath": "oh_modules/.ohpm/@ohos+hamock@1.0.0",
-      "dependencies": {},
-      "dynamicDependencies": {},
-      "dev": true,
-      "dynamic": false,
-      "maskedByOverrideDependencyMap": false
-    },
-    "@nutpi/color-parse@1.0.0": {
-      "integrity": "sha512-WHPXpx2hWxIB+CbXiPfwP7QR727/+Jjb1PIbS/OjqFowrHdzEGWpnzhjBu6mGlK67urKF1urYwq+fEMSmw/Tug==",
-      "storePath": "oh_modules/.ohpm/@nutpi+color-parse@1.0.0",
-      "dependencies": {
-        "@nutpi/color-name": "1.0.0"
-      },
-      "dynamicDependencies": {},
-      "dev": true,
-      "dynamic": false,
-      "maskedByOverrideDependencyMap": false
-    },
-    "@nutpi/color-name@1.0.0": {
-      "integrity": "sha512-HyChL21ipuKqZ76yMpK2nVcUik0qLhQQ/jxSqNRlHcRhlCMfV0f1toVeEGI4joYL9CjkhDGYH19nwggxU7oHoQ==",
-      "storePath": "oh_modules/.ohpm/@nutpi+color-name@1.0.0",
       "dependencies": {},
       "dynamicDependencies": {},
       "dev": true,

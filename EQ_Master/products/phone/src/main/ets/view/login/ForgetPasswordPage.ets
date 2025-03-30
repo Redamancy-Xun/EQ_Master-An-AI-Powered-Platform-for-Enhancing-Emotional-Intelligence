@@ -1,14 +1,13 @@
-import { CommonConstants } from '../common/constants/CommonConstants';
-import PromptUtil from '../common/utils/PromptUtil';
-import HuksModel from '../model/HuksModel';
+import { CommonConstants } from '../../common/constants/CommonConstants';
+import PromptUtil from '../../common/utils/PromptUtil';
 import { BusinessError } from '@kit.BasicServicesKit';
-import Logger from '../common/utils/Logger';
+import Logger from '../../common/utils/Logger';
 import { util } from '@kit.ArkTS';
-import PreferenceModel from '../model/PreferenceModel';
-import UserAuthModel from '../model/UserAuthModel';
-import UserServer from '../server/user/UserServer';
-import { UserInfo } from '../server/user/UserData';
-import ResponseResult from '../server/ResponseResult';
+import PreferenceModel from '../../model/PreferenceModel';
+import UserServer from '../../server/user/UserServer';
+import { UserInfo } from '../../server/user/UserData';
+import ResponseResult from '../../server/ResponseResult';
+import { Prompt, router } from '@kit.ArkUI';
 
 @Extend(TextInput)
 function inputStyle() {
@@ -29,13 +28,13 @@ function lineStyle() {
 }
 
 @Component
-export struct RegisterPage {
+export struct ForgetPasswordPage {
   @State isShowFace: boolean = false;
   @State isShowFingerprint: boolean = false;
   @State isRegisterAvailable: boolean = false;
   @Consume('pageInfos') pageInfos: NavPathStack;
   private name: string = '';
-  private telephone: string = '';
+  private email: string = '';
   private passWord: string = '';
   private confirmPassWord: string = '';
   @Consume('isFace') isFace : boolean;
@@ -47,7 +46,7 @@ export struct RegisterPage {
    */
   isRegister() {
     this.isRegisterAvailable = false;
-    if (this.name.length > 0 && this.telephone.length > 0 && this.passWord.length > 0 && this.confirmPassWord.length > 0) {
+    if (this.name.length > 0 && this.email.length > 0 && this.passWord.length > 0 && this.confirmPassWord.length > 0) {
       this.isRegisterAvailable = true;
     }
   }
@@ -60,15 +59,20 @@ export struct RegisterPage {
       PromptUtil.promptMessage($r('app.string.message_user_name'), CommonConstants.PROMPT_DURATION);
       return;
     }
-    if (!this.telephone) {
+    if (!this.email) {
       PromptUtil.promptMessage($r('app.string.message_email_prompt'), CommonConstants.PROMPT_DURATION);
+    }
+    if (!this.validateEmail(this.email)) {
+      Prompt.showToast({ message: "请输入有效的邮箱", duration: 2000 })
+      return
     }
     if (!this.passWord || this.passWord !== this.confirmPassWord) {
       PromptUtil.promptMessage($r('app.string.message_password_prompt'), CommonConstants.PROMPT_DURATION);
       return;
     }
 
-    UserServer.postUserSignup(this.name, this.telephone, this.passWord).then((data: UserInfo) => {
+
+    UserServer.postUserSignup(this.name, this.email, this.passWord).then((data: UserInfo) => {
       PromptUtil.promptMessage($r('app.string.success_signup_prompt'), CommonConstants.PROMPT_DURATION);
       // Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + data.sessionId);
       // if (data.sessionId !== null) {
@@ -76,7 +80,7 @@ export struct RegisterPage {
       //   let sessionId = PreferenceModel.getPreference(CommonConstants.PREFERENCES_KEY_SESSION, 'null');
       //   Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + sessionId);
       // }
-      this.pageInfos.pop();
+
     }).catch((err: Resource | ResponseResult) => {
       if (err instanceof ResponseResult) {
         if (err.message !== null) {
@@ -86,23 +90,30 @@ export struct RegisterPage {
         PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
     })
+
+
+
+  }
+  // 邮箱格式校验
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
   }
 
   build() {
     NavDestination() {
-      Row() {
         Column() {
-          Image($r('app.media.back'))
-            .width($r('app.float.back_image_size'))
-            .margin({ top: '15%' , left: '-93%', bottom: '0%'})
-            .onClick(
-              () => {
-                this.pageInfos.pop();
-              }
-            )
-          Image($r('app.media.signup_title'))
-            .width('20%')
-            .margin({ top: '8%' , left: '-69%', bottom: '0%'})
+          // Image($r('app.media.back'))
+          //   .width($r('app.float.back_image_size'))
+          //   .margin({ top: '15%' , left: '-93%', bottom: '0%'})
+          //   .onClick(
+          //     () => {
+          //       this.pageInfos.pop();
+          //     }
+          //   )
+          Image($r('app.media.forgetpassword_title'))
+            .width('40%')
+            .margin({left: '-49%', bottom: '0%'})
           Image($r('app.media.login_logo'))
             .width($r('app.float.logo_image_size'))
             .height($r('app.float.logo_image_size'))
@@ -128,12 +139,11 @@ export struct RegisterPage {
 
             Line().lineStyle()
 
-            TextInput({ placeholder: $r('app.string.register_telephone')})
-              .maxLength(CommonConstants.INPUT_TELEPHONE_LENGTH)
-              .type(InputType.PhoneNumber)
+            TextInput({ placeholder: $r('app.string.email')})
+              .type(InputType.Email)
               .inputStyle()
               .onChange((value: string) => {
-                this.telephone = value;
+                this.email = value;
                 this.isRegister();
               })
 
@@ -210,7 +220,7 @@ export struct RegisterPage {
           //   })
           // }
 
-          Button($r('app.string.register_button'), { type: ButtonType.Capsule })
+          Button($r('app.string.forgetpassword_resetpassword_button'), { type: ButtonType.Capsule })
             .width(CommonConstants.BUTTON_WIDTH)
             .height($r('app.float.login_button_height'))
             .fontSize($r('app.float.button_text_size'))
@@ -239,35 +249,33 @@ export struct RegisterPage {
             .opacity(0.8)
             .margin({ top: CommonConstants.LAUNCHER_TEXT_INTRODUCE_MARGIN_TOP })
         }
-        .backgroundColor($r('app.color.background'))
-        .height('110%')
-        .width(CommonConstants.FULL_PARENT)
+
         .padding({
           left: $r('app.float.page_padding_hor'),
           right: $r('app.float.page_padding_hor'),
           bottom: $r('app.float.login_page_bottom')
         })
-      }
-      .height('CommonConstants.FULL_PARENT')
     }
-    .height('110%')
-    .hideTitleBar(true)
-    .onAppear(() => {
-      HuksModel.isKeyItemExist(this.keyAlias)
-        .then((isExist) => {
-          if (!isExist) {
-            HuksModel.generateKeyItem(this.keyAlias);
-          }
-        })
-        .catch((error: BusinessError) => {
-          Logger.error(CommonConstants.TAG, `huks keys not generate ${error.code} ${error.message}`);
-          HuksModel.generateKeyItem(this.keyAlias);
-        })
-      this.isShowFace = UserAuthModel.isFaceAvailable();
-      this.isShowFingerprint = UserAuthModel.isFingerprintAvailable();
-      this.isFace = false;
-      this.isFingerprint = false;
-    })
+    .backgroundColor($r('app.color.background'))
+    .height(CommonConstants.FULL_PARENT)
+    .width(CommonConstants.FULL_PARENT)
+    // .hideTitleBar(true)
+    // .onAppear(() => {
+    //   HuksModel.isKeyItemExist(this.keyAlias)
+    //     .then((isExist) => {
+    //       if (!isExist) {
+    //         HuksModel.generateKeyItem(this.keyAlias);
+    //       }
+    //     })
+    //     .catch((error: BusinessError) => {
+    //       Logger.error(CommonConstants.TAG, `huks keys not generate ${error.code} ${error.message}`);
+    //       HuksModel.generateKeyItem(this.keyAlias);
+    //     })
+    //   this.isShowFace = UserAuthModel.isFaceAvailable();
+    //   this.isShowFingerprint = UserAuthModel.isFingerprintAvailable();
+    //   this.isFace = false;
+    //   this.isFingerprint = false;
+    // })
   }
 }
 

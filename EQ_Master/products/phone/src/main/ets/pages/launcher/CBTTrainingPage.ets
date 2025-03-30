@@ -4,7 +4,7 @@ import { CommonConstants } from '../../common/constants/CommonConstants';
 
 @Entry
 @Component
-export struct CBTTrainingPage {
+struct CBTTrainingPage {
 
 
   build() {
@@ -37,7 +37,7 @@ export struct CBTTrainingPage {
                 right: '10%'
               })
               .lineHeight(25)
-          }.height('70%')
+          }.height('70%').margin({top:'3%'})
 
           Button('下一步')
             .fontSize(18)
