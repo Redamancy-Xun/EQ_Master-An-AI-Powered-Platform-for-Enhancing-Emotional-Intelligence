@@ -86,7 +86,7 @@ struct LauncherPage {
             this.saveIsFirstUse();
             router.pushUrl({
               // url: CommonConstants.ADVERTISING_PAGE_URL
-              url: CommonConstants.FIRST_PAGE_URL
+              url: CommonConstants.DAILYSHARING_PAGE_URL
             }).catch((error: Error) => {
               Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
             });

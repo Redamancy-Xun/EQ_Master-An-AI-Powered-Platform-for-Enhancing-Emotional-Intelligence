@@ -7,6 +7,10 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import Logger from '../common/utils/Logger';
 import { RegisterPage } from '../view/login/RegisterPage';
 import { EmailLoginPage } from '../view/login/EmailLoginPage'
+import { ForgetPasswordPage } from '../view/login/ForgetPasswordPage'
+import { selectWork } from '../view/login/SelectWorkPage'
+import { selectPeopleInWork } from '../view/login/SelectPeopleInWorkPage'
+import { selectPeopleInLife } from '../view/login/SelectPeopleInLifePage'
 import { httpRequestGet } from '../common/utils/HttpUtil';
 import { httpRequestPost } from '../common/utils/HttpUtil';
 import ResponseResult from '../server/ResponseResult';
@@ -69,6 +73,7 @@ struct LoginPage {
     });
     this.isFace = PreferenceModel.getPreference(CommonConstants.IS_SHOW_FACE, true) as boolean;
     this.isFingerprint = PreferenceModel.getPreference(CommonConstants.IS_SHOW_FINGERPRINT, true) as boolean;
+
   }
 
   /**
@@ -92,6 +97,18 @@ struct LoginPage {
     }
     else if(name == 'emailLogin'){
       EmailLoginPage()
+    }
+    else if(name == 'forgetPassword'){
+      ForgetPasswordPage()
+    }
+    else if(name == 'selectWork'){
+      selectWork()
+    }
+    else if(name == 'selectPeopleInWork'){
+      selectPeopleInWork()
+    }
+    else if(name == 'selectPeopleInLife'){
+      selectPeopleInLife()
     }
   }
 
@@ -214,6 +231,9 @@ struct LoginPage {
               this.pageInfos.pushPathByName('emailLogin', null);
             })
           Text($r('app.string.forgot_password')).blueTextStyle()
+            .onClick(() => {
+              this.pageInfos.pushPathByName('forgetPassword', null);
+            })
         }
         .justifyContent(FlexAlign.SpaceBetween)
         .width(CommonConstants.FULL_PARENT)

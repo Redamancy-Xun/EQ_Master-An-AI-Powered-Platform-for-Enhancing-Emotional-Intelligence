@@ -61,7 +61,7 @@ export struct RegisterPage {
       return;
     }
     if (!this.telephone) {
-      PromptUtil.promptMessage($r('app.string.message_telephone_prompt'), CommonConstants.PROMPT_DURATION);
+      PromptUtil.promptMessage($r('app.string.message_email_prompt'), CommonConstants.PROMPT_DURATION);
     }
     if (!this.passWord || this.passWord !== this.confirmPassWord) {
       PromptUtil.promptMessage($r('app.string.message_password_prompt'), CommonConstants.PROMPT_DURATION);
