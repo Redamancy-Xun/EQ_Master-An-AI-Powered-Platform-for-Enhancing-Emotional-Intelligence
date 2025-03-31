@@ -206,19 +206,28 @@ export class CommonConstants{
    */
   static readonly COMMON_LAYOUT_WEIGHT: number = 1;
 
-  /**
-   * The advertsing page tag.
-   */
-  static readonly FIRST_PAGE_TAG: string = 'FirstPage';
-  /**
-   * The advertsing page tag.
-   */
-  static readonly SECOND_PAGE_TAG: string = 'SecondPage';
 
   /**
    * The advertsing page tag.
    */
-  static readonly THIRD_PAGE_TAG: string = 'ThirdPage';
+  static readonly  DAILYSHARING_PAGE_TAG: string = 'DailysharingPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly EQAIASSISTANT_PAGE_TAG: string = 'EQIAassistantPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly CBTTRAINING_PAGE_TAG: string = 'CBTTraingPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly EQTESTING_PAGE_TAG: string = 'EQTestingPage';
+  /**
+   * The advertsing page tag.
+   */
+  static readonly PROFILE_PAGE_TAG: string = 'ProfilePage';
+
 
   /**
    * App home page tag.
@@ -231,19 +240,26 @@ export class CommonConstants{
   static readonly DAILY_SHARE_PAGE_TAG: string = 'DailySharePage';
 
   /**
-   * First page url.
+   * Third page url.
    */
-  static readonly First_PAGE_URL: string = 'pages/launcher/FirstPage';
-
-  /**
-   * Second page url.
-   */
-  static readonly Second_PAGE_URL: string = 'pages/launcher/SecondPage';
-
+  static readonly DAILYSHARING_PAGE_URL: string = 'pages/launcher/DailySharingPage';
   /**
    * Third page url.
    */
-  static readonly Third_PAGE_URL: string = 'pages/launcher/ThirdPage';
+  static readonly EQAIASSISTANT_PAGE_URL: string = 'pages/launcher/EQAIassistantPage';
+  /**
+   * Third page url.
+   */
+  static readonly CBTTRAING_PAGE_URL: string = 'pages/launcher/CBTTrainingPage';
+  /**
+   * Third page url.
+   */
+  static readonly EQTESTING_PAGE_URL: string = 'pages/launcher/EQTestingPage';
+  /**
+   * Third page url.
+   */
+  static readonly PROFILE_PAGE_URL: string = 'pages/launcher/ProfilePage';
+
 
   /**
    * Daily share page url.
@@ -385,6 +401,19 @@ export class CommonConstants{
    */
   static readonly LOGIN_KEYS: string = 'loginKeys'
 
+  /**
+   * Display selected Job.
+   */
+  static readonly SELECTED_JOB: string = 'selectedJob';
+
+  /**
+   * Display selected People in work.
+   */
+  static readonly SELECTED_PEOPLE_IN_WORK: string = 'selectedPeopleInWork';
+  /**
+   * Display selected People in life.
+   */
+  static readonly SELECTED_PEOPLE_IN_LIFE: string = 'selectedPeopleInLife';
 
   /**
    * Display face authentication.
