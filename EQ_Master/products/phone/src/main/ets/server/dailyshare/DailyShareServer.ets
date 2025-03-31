@@ -31,7 +31,7 @@ class DailyShareServer {
     });
   }
 
-  getDailyShareTypeList(type: string, page: number, pageSize: number, orderByPopularity: boolean): Promise<Array<DailyShare>> {
+   getDailyShareTypeList(type: string, page: number, pageSize: number, orderByPopularity: boolean): Promise<Array<DailyShare>> {
     return new Promise((resolve: Function, reject: Function) => {
       let url = `${Const.SERVER}/dailyShare/getDailyShareTypeList?type=${type}&page=${page}&pageSize=${pageSize}&orderByPopularity=${orderByPopularity}`;
       httpRequestGet(url).then((data: ResponseResult) => {

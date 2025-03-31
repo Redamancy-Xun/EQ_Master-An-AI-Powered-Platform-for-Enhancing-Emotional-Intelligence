@@ -13,6 +13,7 @@ import ResponseResult from '../../server/ResponseResult';
 import PromptUtil from '../../common/utils/PromptUtil';
 import { CommonConstants } from '../../common/constants/CommonConstants';
 
+
 // TODO ：页面完善（个性签名等等）【后面是AI自己提示的，说明任重道远呀朋友】这个页面需要修改，需要添加一个修改头像的功能，并且需要修改用户信息，并且需要修改用户名，并且需要修改用户签名，并且需要修改用户密码，并且需要修改用户邮箱，并且需要修改用户手机号，并且需要修改用户性别，并且需要修改用户生日，并且需要修改用户地址，并且需要修改用户简介，并且需要修改用户头像，并且需要修改用户签名，并且需要修改用户密码
 
 // 主标题（Headline）
@@ -324,7 +325,7 @@ export struct pageThreeTmp {
 }
 
 // 个人主页主界面
-// @Entry
+@Entry
 @Component
 export struct UserInfoIndex {
   @State UserInfo:UserInfo = new UserInfo()
@@ -343,22 +344,27 @@ export struct UserInfoIndex {
     console.log("加载登陆状态")
     // this.getUserInfo()
     UserServer.getCheckLogin().then((data: number) => {
-      Logger.info('用户已登录')
       console.log("getUserInfo: success")
-      UserServer.getUserInfo().then((data: UserInfo) => {
-        console.log("getUserInfo: success")
-        console.info('Result:' + JSON.stringify(data))
-        this.UserInfo=data
-      }).catch((err: Resource | ResponseResult) => {
-        console.info('getUserInfo: error:' + JSON.stringify(err));
-        if (err instanceof ResponseResult) {
-          if (err.message !== null) {
-            PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
-          }
-        }else {
-          PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
-        }
-      })
+      if(data=0){
+        Logger.info('用户未登录')
+        //TODO
+      }else{
+        Logger.info('用户已登录')
+        // UserServer.getUserInfo().then((data: UserInfo) => {
+        //   console.log("getUserInfo: success")
+        //   console.info('Result:' + JSON.stringify(data))
+        //   this.UserInfo=data
+        // }).catch((err: Resource | ResponseResult) => {
+        //   console.info('getUserInfo: error:' + JSON.stringify(err));
+        //   if (err instanceof ResponseResult) {
+        //     if (err.message !== null) {
+        //       PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+        //     }
+        //   }else {
+        //     PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+        //   }
+        // })
+      }
     }).catch((err: Resource | ResponseResult) => {
       console.info('getCheckLogin: error:' + JSON.stringify(err));
       if (err instanceof ResponseResult) {
@@ -369,36 +375,54 @@ export struct UserInfoIndex {
         PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
     })
+    this.getUserInfo()
+    // UserServer.getUserInfo().then((data: UserInfo) => {
+    //   console.log("getUserInfo: success")
+    //   console.info('Result:' + JSON.stringify(data))
+    //   this.UserInfo=data
+    // }).catch((err: Resource | ResponseResult) => {
+    //   console.info('getUserInfo: error:' + JSON.stringify(err));
+    //   if (err instanceof ResponseResult) {
+    //     if (err.message !== null) {
+    //       PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+    //     }
+    //   }else {
+    //     PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+    //   }
+    // })
 
   }
 
-  // getUserInfo(){
-  //   const req = http.createHttp()
-  //   // 假设通过某个API接口检查用户登录状态
-  //   req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
-  //     method: http.RequestMethod.GET,
-  //     header: {
-  //       'session': PreferenceModel.getPreference('session', '')
-  //     },
-  //   }, (err:BusinessError, res:http.HttpResponse)=>{
-  //     if(!err){
-  //       let data:userInfo = JSON.parse(res.result.toString());
-  //       console.log("getUserInfo: success")
-  //       console.info('Result:' + JSON.stringify(res.result));
-  //       this.userName = data.result.username
-  //       this.signature = data.result.signature
-  //       console.log("getUserInfo: userName is", this.userName)
-  //       console.log("getUserInfo: signature is", this.signature)
-  //     }
-  //     else {
-  //       console.info('getUserInfo: error:' + JSON.stringify(err));
-  //       // 取消订阅HTTP响应头事件
-  //       req.off('headersReceive');
-  //       // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
-  //       req.destroy();
-  //     }
-  //   })
-  // }
+  getUserInfo(){
+    const req = http.createHttp()
+    // 假设通过某个API接口检查用户登录状态
+    req.request('https://eqmaster.redamancyxun.fun:8080/user/getUserInfo',{
+      method: http.RequestMethod.GET,
+      header: {
+        'session': PreferenceModel.getPreference('session', '')
+      },
+    }, (err:BusinessError, res:http.HttpResponse)=>{
+      if(!err){
+        let data:ResponseResult = JSON.parse(res.result.toString());
+        console.log("getUserInfo: success")
+        console.log('HttpResponse'+JSON.stringify(res.result))
+        console.log('ResponseResult:' + JSON.stringify(data.result));
+        if(data.result!=null){
+          let data_userinfo:UserInfo=JSON.parse(JSON.stringify(data.result))
+          this.UserInfo=data_userinfo
+        }
+        console.log("getUserInfo: userName is", this.UserInfo.username)
+        console.log("getUserInfo: signature is", this.UserInfo.signature)
+      }
+      else {
+        console.info('getUserInfo: error:' + JSON.stringify(err));
+        // 取消订阅HTTP响应头事件
+        req.off('headersReceive');
+        // 当该请求使用完毕时，开发者务必调用destroy方法主动销毁该JavaScript Object。
+        req.destroy();
+      }
+    })
+  }
 
   // 跳转逻辑
   @Builder

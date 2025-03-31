@@ -10,7 +10,7 @@ import { Banner } from './Banner'
 import { DailyShareShow } from './DailyShareShow'
 import { text } from '@kit.ArkGraphics2D'
 import { LengthMetrics } from '@kit.ArkUI'
-import { CommonUtil } from './DailoyShareHead'
+import { CommonUtil } from './DailyShareHead'
 
 @Entry
 @Component

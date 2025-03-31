@@ -22,10 +22,6 @@ public class DailyShare implements Serializable {
     @ApiModelProperty("每日分享id")
     @TableId(value = "id")
     private String id;
-//
-//    @ApiModelProperty("发布者id")
-//    @TableField(value = "user_id")
-//    private String userId;
 
     @ApiModelProperty("发布时间")
     @TableField(value = "create_time",fill = FieldFill.INSERT)
@@ -59,9 +55,9 @@ public class DailyShare implements Serializable {
     @TableField(value = "view")
     private Long view;
 
-    @ApiModelProperty("评论数")
-    @TableField(value = "comment_count")
-    private Integer commentCount;
+    @ApiModelProperty("分享交互数")
+    @TableField(value = "interaction")
+    private Integer interaction;
 
     @ApiModelProperty("收藏数")
     @TableField(value = "favorite")
@@ -70,21 +66,29 @@ public class DailyShare implements Serializable {
     @ApiModelProperty("分享数")
     @TableField(value = "share")
     private Integer share;
-//
-//    @ApiModelProperty("取消时间(超时自动取消)")
-//    @TableField(value = "cancel")
-//    private LocalDateTime cancel;
-//
-//    @ApiModelProperty("状态(0公开、1尽自己可见)")
-//    @TableField(value = "status")
-//    private Integer status;
+
+    @ApiModelProperty("热度值")
+    @TableField(value = "hot")
+    private Double hot;
+
+    @ApiModelProperty("状态" +
+            "【" +
+            "0：可见 " +
+            "1：不可见" +
+            "】")
+    @TableField(value = "status")
+    private Integer status;
 
     @ApiModelProperty("删除时间")
     @TableField(value = "delete_time")
     private LocalDateTime deleteTime;
 
-//    @ApiModelProperty("置顶状态(0默认,1置顶)")
-//    @TableField(value = "top")
-//    private Integer top;
+    @ApiModelProperty("置顶状态" +
+            "【" +
+            "0：默认 " +
+            "1：置顶" +
+            "】")
+    @TableField(value = "top")
+    private Integer top;
 
 }

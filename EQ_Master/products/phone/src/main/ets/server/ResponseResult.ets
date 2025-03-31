@@ -2,6 +2,7 @@
  * Data returned by the network request.
  */
 import { DailyShare } from './dailyshare/DailyShareData';
+import{ UserInfo } from '../server/user/UserData'
 
 export default class ResponseResult {
   /**
@@ -17,7 +18,7 @@ export default class ResponseResult {
   /**
    * Data returned by the network request.
    */
-  result: DailyShare | Array<Array<DailyShare>> | Array<DailyShare> | string | number | boolean | null;
+  result: DailyShare | Array<Array<DailyShare>> | Array<DailyShare> |UserInfo| string | number | boolean | null;
 
   // resultDailyShare: string;
 

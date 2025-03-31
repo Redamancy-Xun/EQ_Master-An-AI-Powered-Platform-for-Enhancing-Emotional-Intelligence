@@ -1,21 +1,22 @@
 import { CommonConstants } from '../../common/constants/CommonConstants';
-import { HotItemInterface } from '../../model/HotModel';
+import { HotItem} from '../../model/HotModel';
 import { router } from '@kit.ArkUI';
 import Logger from '../../common/utils/Logger';
 import PreferenceModel from '../../model/PreferenceModel';
 
 @Component
 export struct HotListItemView {
-  item: HotItemInterface = {
-    index: 0,
-    dailyShareId: '',
-    icon: undefined,
-    title: '',
-    content: '',
-    stateIcon: '',
-    clickCount: 0,
-    upDownIcon: ''
-  };
+  // item: HotItemInterface = {
+  //   index: 0,
+  //   dailyShareId: '',
+  //   icon: undefined,
+  //   title: '',
+  //   content: '',
+  //   stateIcon: '',
+  //   clickCount: 0,
+  //   upDownIcon: ''
+  // };
+  item: HotItem = new HotItem()
   showDetail: boolean = false;
   indexWidth: ResourceStr = $r('app.float.index_width_normal');
   indexIconGap: ResourceStr = $r('app.float.index_icon_gap_normal');
@@ -52,6 +53,7 @@ export struct HotListItemView {
                 .margin({ left: $r('app.float.state_icon_margin_left') })
             }
             .justifyContent(FlexAlign.Start)
+            .width(this.isShowDetail()?'80%':'90%')
 
             Text(this.item.content)
               .fontSize($r('app.float.content_font_size'))

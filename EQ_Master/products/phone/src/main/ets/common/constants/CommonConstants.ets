@@ -248,7 +248,7 @@ export class CommonConstants{
   /**
    * Daily share page url.
    */
-  static readonly DAILY_SHARE_TYPE_PAGE_URL: string = 'pages/dailyshare/DailyShareTypeShow';
+  static readonly DAILY_SHARE_TYPE_PAGE_URL= 'pages/dailyshare/DailyShareTypeShow';
 
   /**
    * Daily share page url.

@@ -1,54 +1,54 @@
 {
   "ohos-module-phone": {
     "SELECT_TARGET": "default",
-    "MODULE_BUILD_DIR": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build",
+    "MODULE_BUILD_DIR": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build",
     "DEPENDENCY_INFO": {
-      "@ohos/hamock": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\oh_modules\\.ohpm\\@ohos+hamock@1.0.0\\oh_modules\\@ohos\\hamock",
-      "@nutpi/color-parse": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-parse@1.0.0\\oh_modules\\@nutpi\\color-parse",
-      "@nutpi/color-name": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-name@1.0.0\\oh_modules\\@nutpi\\color-name",
-      "@ohos/lottie": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\oh_modules\\.ohpm\\@ohos+lottie@2.0.15\\oh_modules\\@ohos\\lottie",
-      "@ohos/pulltorefresh": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\oh_modules\\.ohpm\\@ohos+pulltorefresh@2.1.1\\oh_modules\\@ohos\\pulltorefresh"
+      "@ohos/hamock": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+hamock@1.0.0\\oh_modules\\@ohos\\hamock",
+      "@nutpi/color-parse": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-parse@1.0.0\\oh_modules\\@nutpi\\color-parse",
+      "@nutpi/color-name": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@nutpi+color-name@1.0.0\\oh_modules\\@nutpi\\color-name",
+      "@ohos/lottie": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+lottie@2.0.15\\oh_modules\\@ohos\\lottie",
+      "@ohos/pulltorefresh": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\oh_modules\\.ohpm\\@ohos+pulltorefresh@2.1.1\\oh_modules\\@ohos\\pulltorefresh"
     },
     "TARGETS": {
       "default": {
-        "SOURCE_ROOT": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\src\\main",
+        "SOURCE_ROOT": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\src\\main",
         "RESOURCES_PATH": [
-          "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\src\\main\\resources"
+          "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\src\\main\\resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\outputs\\default",
-          "INTERMEDIA_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates",
-          "JS_ASSETS_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\default",
-          "JS_LITE_ASSETS_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out_lite\\default",
-          "RES_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default",
-          "RES_PROFILE_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
-          "ETS_SUPER_VISUAL_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
-          "JS_SUPER_VISUAL_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
-          "WORKER_LOADER": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\loader.json",
-          "MANIFEST_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\default",
-          "OUTPUT_METADATA_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json"
+          "OUTPUT_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\outputs\\default",
+          "INTERMEDIA_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\default",
+          "JS_LITE_ASSETS_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out_lite\\default",
+          "RES_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default",
+          "RES_PROFILE_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\loader.json",
+          "MANIFEST_JSON": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\default",
+          "OUTPUT_METADATA_JSON": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json"
         },
         "BUILD_OPTION": {
           "debuggable": true
         }
       },
       "ohosTest": {
-        "SOURCE_ROOT": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\src\\ohosTest",
+        "SOURCE_ROOT": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\src\\ohosTest",
         "RESOURCES_PATH": [
-          "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\src\\ohosTest\\resources"
+          "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\src\\ohosTest\\resources"
         ],
         "BUILD_PATH": {
-          "OUTPUT_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\outputs\\ohosTest",
-          "INTERMEDIA_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates",
-          "JS_ASSETS_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\ohosTest",
-          "JS_LITE_ASSETS_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out_lite\\ohosTest",
-          "RES_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\ohosTest",
-          "RES_PROFILE_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\ohosTest\\resources\\base\\profile",
-          "ETS_SUPER_VISUAL_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileArkTS\\esmodule",
-          "JS_SUPER_VISUAL_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileJS\\jsbundle",
-          "WORKER_LOADER": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\ohosTest\\loader.json",
-          "MANIFEST_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\ohosTest",
-          "OUTPUT_METADATA_JSON": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\ohosTest\\output_metadata.json"
+          "OUTPUT_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\outputs\\ohosTest",
+          "INTERMEDIA_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\ohosTest",
+          "JS_LITE_ASSETS_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out_lite\\ohosTest",
+          "RES_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\ohosTest",
+          "RES_PROFILE_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\ohosTest\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\ohosTest\\ohosTest@OhosTestCompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\ohosTest\\loader.json",
+          "MANIFEST_JSON": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\ohosTest",
+          "OUTPUT_METADATA_JSON": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\ohosTest\\output_metadata.json"
         },
         "BUILD_OPTION": {
           "debuggable": true
@@ -102,15 +102,15 @@
   },
   "ohos-project": {
     "SELECT_PRODUCT_NAME": "default",
-    "MODULE_BUILD_DIR": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\build",
+    "MODULE_BUILD_DIR": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\build",
     "BUNDLE_NAME": "fun.redamancyxun.eq_master",
     "BUILD_PATH": {
-      "OUTPUT_PATH": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\build\\outputs\\default"
+      "OUTPUT_PATH": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\build\\outputs\\default"
     },
     "MODULES": [
       {
         "name": "phone",
-        "srcPath": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone",
+        "srcPath": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone",
         "targets": [
           {
             "name": "default",
@@ -119,7 +119,7 @@
             ]
           }
         ],
-        "belongProjectPath": "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master"
+        "belongProjectPath": "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master"
       }
     ],
     "PROFILE_OPT": {
@@ -169,7 +169,7 @@
       "hvigor.keepDependency": true
     },
     "OVERALL_PROJECT_PATHS": [
-      "D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master"
+      "D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master"
     ]
   },
   "version": 1
