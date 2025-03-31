@@ -7,7 +7,8 @@ import PreferenceModel from '../../model/PreferenceModel';
 import UserServer from '../../server/user/UserServer';
 import { UserInfo } from '../../server/user/UserData';
 import ResponseResult from '../../server/ResponseResult';
-import { Prompt } from '@kit.ArkUI';
+import { Prompt, router } from '@kit.ArkUI';
+
 
 @Extend(TextInput)
 function inputStyle() {
@@ -41,6 +42,8 @@ export struct RegisterPage {
   @Consume('isFingerprint') isFingerprint: boolean;
   private keyAlias: string = CommonConstants.LOGIN_KEYS;
 
+
+
   /**
    * Check whether the registration button can be clicked.
    */
@@ -71,6 +74,7 @@ export struct RegisterPage {
       return;
     }
 
+
     UserServer.postUserSignup(this.name, this.email, this.passWord).then((data: UserInfo) => {
       PromptUtil.promptMessage($r('app.string.success_signup_prompt'), CommonConstants.PROMPT_DURATION);
       // Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + data.sessionId);
@@ -79,7 +83,7 @@ export struct RegisterPage {
       //   let sessionId = PreferenceModel.getPreference(CommonConstants.PREFERENCES_KEY_SESSION, 'null');
       //   Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + sessionId);
       // }
-      this.pageInfos.pop();
+
     }).catch((err: Resource | ResponseResult) => {
       if (err instanceof ResponseResult) {
         if (err.message !== null) {
@@ -89,6 +93,8 @@ export struct RegisterPage {
         PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
       }
     })
+
+
   }
   // 邮箱格式校验
   validateEmail(email: string): boolean {
@@ -98,7 +104,7 @@ export struct RegisterPage {
 
   build() {
     NavDestination() {
-      Row() {
+
         Column() {
           // Image($r('app.media.back'))
           //   .width($r('app.float.back_image_size'))
@@ -110,7 +116,7 @@ export struct RegisterPage {
           //   )
           Image($r('app.media.signup_title'))
             .width('20%')
-            .margin({ top: '8%' , left: '-69%', bottom: '0%'})
+            .margin({  left: '-69%', bottom: '0%'})
           Image($r('app.media.login_logo'))
             .width($r('app.float.logo_image_size'))
             .height($r('app.float.logo_image_size'))
@@ -217,7 +223,7 @@ export struct RegisterPage {
           //   })
           // }
 
-          Button($r('app.string.register_button'), { type: ButtonType.Capsule })
+          Button($r('app.string.register_nextstep_button'), { type: ButtonType.Capsule })
             .width(CommonConstants.BUTTON_WIDTH)
             .height($r('app.float.login_button_height'))
             .fontSize($r('app.float.button_text_size'))
@@ -229,10 +235,21 @@ export struct RegisterPage {
               top: $r('app.float.register_button_top'),
               bottom: $r('app.float.button_bottom')
             })
-            .enabled(this.isRegisterAvailable)
-            .onClick(async () => {
-              await this.register();
-            })
+             .enabled(this.isRegisterAvailable)
+            .onClick(
+            //   async () => {
+            //   //await this.register();
+            //   // router.pushUrl({
+            //   //   url: CommonConstants.SELECT_PAGE_URL
+            //   // }).catch((error: Error) => {
+            //   //   Logger.error(CommonConstants.DAILYSHARING_PAGE_TAG, 'DailySharing pushUrl error ' + JSON.stringify(error));
+            //   // })
+            //
+            // })
+              () => {
+                this.pageInfos.pushPathByName('selectWork',null)
+              }
+            )
 
           Text('')
             .height('5%')
@@ -245,19 +262,21 @@ export struct RegisterPage {
               $r('app.color.signup_text_introduce_color'))
             .opacity(0.8)
             .margin({ top: CommonConstants.LAUNCHER_TEXT_INTRODUCE_MARGIN_TOP })
+
         }
-        .backgroundColor($r('app.color.background'))
-        .height('110%')
-        .width(CommonConstants.FULL_PARENT)
         .padding({
           left: $r('app.float.page_padding_hor'),
           right: $r('app.float.page_padding_hor'),
           bottom: $r('app.float.login_page_bottom')
         })
-      }
-      .height('CommonConstants.FULL_PARENT')
     }
-    .height('110%')
+    .backgroundColor($r('app.color.background'))
+    .height(CommonConstants.FULL_PARENT)
+    .width(CommonConstants.FULL_PARENT)
+
+
+
+    //CommonConstants.FULL_HEIGHT
     // .hideTitleBar(true)
     // .onAppear(() => {
     //   HuksModel.isKeyItemExist(this.keyAlias)
