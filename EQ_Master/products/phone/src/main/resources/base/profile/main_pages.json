@@ -1,9 +1,11 @@
 {
   "src": [
     "pages/launcher/AdvertisingPage",
-    "pages/launcher/FirstPage",
-    "pages/launcher/SecondPage",
-    "pages/launcher/ThirdPage",
+    "pages/launcher/DailySharingPage",
+    "pages/launcher/EQAIassistantPage",
+    "pages/launcher/CBTTrainingPage",
+    "pages/launcher/EQTestingPage",
+    "pages/launcher/ProfilePage",
     "pages/launcher/PrivacyPage",
     "pages/launcher/LauncherPage",
     "pages/LoginPage",
