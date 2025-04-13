@@ -462,7 +462,9 @@ export class CommonConstants{
   /**
    * The host address of the server.
    */
-  static readonly SERVER: string = 'https://eqmaster.redamancyxun.fun:8080';
+  // static readonly SERVER: string = 'https://eqmaster.redamancyxun.fun:8080';
+  static readonly SERVER: string = 'https://chinese.redamancyxun.fun:8088';
+
 
   /**
    * The post user login.

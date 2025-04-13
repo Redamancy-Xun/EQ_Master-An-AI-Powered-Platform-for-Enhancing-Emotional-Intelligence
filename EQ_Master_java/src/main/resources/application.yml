@@ -1,9 +1,9 @@
 server:
-  port: 8080    #HTTPS协议默认端口号为443，需要使用其他端口时，您可以在此处自定义。
+  port: 8088    #HTTPS协议默认端口号为443，需要使用其他端口时，您可以在此处自定义。
   ssl:
-    key-store-password: 5kyarrvw    #填写jks-password.txt文件内的密码。
+    key-store-password: s8h1qc0x    #填写jks-password.txt文件内的密码。
     key-store-type: JKS #JKS格式证书密钥库类型。PFX格式的证书密钥库类型为PKCS12。
-    key-store: classpath:eqmaster.redamancyxun.fun.jks   #您需要使用实际的证书名称替换domain_name.jks。
+    key-store: classpath:chinese.redamancyxun.fun.jks   #您需要使用实际的证书名称替换domain_name.jks。
   tomcat:
     uriEncoding: UTF-8
   servlet:
@@ -31,7 +31,7 @@ spring:
     properties.mail.smtp.ssl.enable: false #??SSL ???????
     default-encoding: utf-8
   datasource:
-    url: jdbc:mysql://121.43.62.35:3306/eq_master?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://139.196.124.95:3306/eq_master?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: a13738780767
@@ -43,8 +43,8 @@ spring:
     show-sql: true
   data:
     redis:
-      database: 0
-      host: 121.43.62.35
+      database: 1
+      host: 139.196.124.95
       port: 6379
       timeout: 1000
 #    password: fu040913

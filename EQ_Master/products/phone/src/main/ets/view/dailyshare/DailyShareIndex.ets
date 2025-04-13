@@ -135,7 +135,7 @@ export struct DailyShareIndex {
       Stack({ alignContent: Alignment.TopStart }) {
         Tabs({ barPosition: BarPosition.Start }) {
           ForEach(this.colorArray, (item: string, index:number) => {
-            TabContent() {
+            TabContent() {// 这里放内容
               Scroll() {
                 Column() {
                   Banner()
