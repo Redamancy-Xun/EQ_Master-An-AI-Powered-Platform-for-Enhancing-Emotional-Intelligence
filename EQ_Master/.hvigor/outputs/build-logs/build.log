@@ -1647,3 +1647,167 @@
 [2025-03-10T18:10:32.862] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
 [2025-03-10T18:10:32.862] [DEBUG] debug-file - worker[0] exits with exit code 0.
 [2025-03-10T18:10:32.863] [DEBUG] debug-file - worker[1] exits with exit code 0.
+[2025-04-13T21:10:21.416] [DEBUG] debug-file - java daemon tryConnect failed Error: connect ECONNREFUSED ::1:45050
+[2025-04-13T21:10:21.812] [DEBUG] debug-file - java daemon started at port 45050 pid 50432
+[2025-04-13T21:10:17.676] [DEBUG] debug-file - env: nodejsVersion=v18.20.1
+[2025-04-13T21:10:18.000] [DEBUG] debug-file - env: daemon=true
+[2025-04-13T21:10:25.153] [DEBUG] debug-file - hvigor start cli arguments:{
+  prop: [ 'product=default' ],
+  sync: true,
+  parallel: true,
+  incremental: true,
+  daemon: true,
+  _: [ '--analyze=normal' ]
+}
+[2025-04-13T21:10:17.683] [DEBUG] debug-file - env: hvigor-config.json5 content = {
+  modelVersion: '5.0.0',
+  dependencies: {},
+  execution: {},
+  logging: {},
+  debugging: {},
+  nodeOptions: {}
+}
+[2025-04-13T21:10:25.204] [DEBUG] debug-file - session manager: set active socket. socketId=riNMMFtbvxkwJsD9AAAB
+[2025-04-13T21:10:25.239] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-04-13T21:10:25.271] [DEBUG] debug-file - Hvigor init with startParameters:{
+  hvigorfileTypeCheck: false,
+  parallelExecution: true,
+  incrementalExecution: true,
+  printStackTrace: false,
+  daemon: true,
+  analyze: 0,
+  logLevel: Level { level: 20000, levelStr: 'INFO', colour: 'green' }
+}
+[2025-04-13T21:10:25.285] [DEBUG] debug-file - Since current hvigor version 5.6.2 differs from last hvigor version 
+      5.13.1, delete file-cache.json and task-cache.json.
+[2025-04-13T21:10:25.289] [DEBUG] debug-file - Cache service initialization finished in 17 ms 
+[2025-04-13T21:10:25.312] [DEBUG] debug-file - hvigorfile, resolving D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-04-13T21:11:07.023] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-04-13T21:11:07.023] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-04-13T21:11:07.515] [DEBUG] debug-file - Start initialize project's product build option map with build mode debug.
+[2025-04-13T21:11:07.516] [DEBUG] debug-file - Picking option from product 'default' with build mode 'debug'.
+[2025-04-13T21:11:07.517] [DEBUG] debug-file - Product 'default' build option: {}
+[2025-04-13T21:11:07.518] [DEBUG] debug-file - End initialize project's product build option map with build mode 'debug'.
+[2025-04-13T21:11:07.524] [DEBUG] debug-file - Product 'default' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  }
+} in this build.
+[2025-04-13T21:11:07.578] [DEBUG] debug-file - No signingConfig found, initRemoteHspCache failed.
+[2025-04-13T21:11:07.600] [DEBUG] debug-file - Local scan or download HarmonyOS sdk components toolchains,ets,js,native,previewer
+[2025-04-13T21:11:07.610] [DEBUG] debug-file - Local scan or download hmscore sdk components toolchains,ets,native
+[2025-04-13T21:11:07.623] [DEBUG] debug-file - Start recording SDK configuration permission data.
+[2025-04-13T21:11:07.705] [DEBUG] debug-file - Sdk init in 112 ms 
+[2025-04-13T21:11:07.754] [DEBUG] debug-file - Project task initialization takes 45 ms 
+[2025-04-13T21:11:07.755] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-04-13T21:11:07.755] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-04-13T21:11:07.755] [DEBUG] debug-file - hvigorfile, resolve finished D:\EQ_Master\EQ_Master\hvigorfile.ts
+[2025-04-13T21:11:07.774] [DEBUG] debug-file - hvigorfile, resolving D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-04-13T21:11:07.790] [DEBUG] debug-file - hvigorfile, require result:  { default: { plugins: [] } }
+[2025-04-13T21:11:07.791] [DEBUG] debug-file - hvigorfile, binding system plugins null
+[2025-04-13T21:11:07.814] [DEBUG] debug-file - Start initialize module-target build option map, moduleName=phone, buildMode=debug
+[2025-04-13T21:11:07.815] [DEBUG] debug-file - Target 'default' config: {}
+[2025-04-13T21:11:07.816] [DEBUG] debug-file - Target 'ohosTest' config: {}
+[2025-04-13T21:11:07.817] [DEBUG] debug-file - Module 'phone' target 'default' build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+}
+[2025-04-13T21:11:07.817] [DEBUG] debug-file - Module 'phone' target 'ohosTest' build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "default"
+}
+[2025-04-13T21:11:07.817] [DEBUG] debug-file - End initialize module-target build option map, moduleName=phone
+[2025-04-13T21:11:07.818] [DEBUG] debug-file - Module 'phone' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+} in this build.
+[2025-04-13T21:11:07.829] [DEBUG] debug-file - Module phone task initialization takes 8 ms 
+[2025-04-13T21:11:07.830] [DEBUG] debug-file - hvigorfile, binding custom plugins []
+[2025-04-13T21:11:07.830] [DEBUG] debug-file - hvigorfile, no custom plugins were found in D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-04-13T21:11:07.830] [DEBUG] debug-file - hvigorfile, resolve finished D:\EQ_Master\EQ_Master\products\phone\hvigorfile.ts
+[2025-04-13T21:11:07.866] [DEBUG] debug-file - hvigorfile, resolve hvigorfile dependencies in 33 ms 
+[2025-04-13T21:11:07.869] [DEBUG] debug-file - project has submodules:phone
+[2025-04-13T21:11:07.888] [DEBUG] debug-file - start to load updatedOhPackageInfo to the disk
+[2025-04-13T21:11:07.903] [DEBUG] debug-file - load to the disk finished
+[2025-04-13T21:11:07.984] [DEBUG] debug-file - Module EQ_Master Collected Dependency: D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh
+[2025-04-13T21:11:07.984] [DEBUG] debug-file - Module EQ_Master's total dependency: 2
+[2025-04-13T21:11:08.083] [DEBUG] debug-file - Module phone Collected Dependency: D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+hamock@1.0.0\oh_modules\@ohos\hamock,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-parse@1.0.0\oh_modules\@nutpi\color-parse,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@nutpi+color-name@1.0.0\oh_modules\@nutpi\color-name,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+lottie@2.0.15\oh_modules\@ohos\lottie,D:\EQ_Master\EQ_Master\oh_modules\.ohpm\@ohos+pulltorefresh@2.1.1\oh_modules\@ohos\pulltorefresh
+[2025-04-13T21:11:08.083] [DEBUG] debug-file - Module phone's total dependency: 5
+[2025-04-13T21:11:08.094] [DEBUG] debug-file - Configuration phase cost:42 s 798 ms 
+[2025-04-13T21:11:08.099] [DEBUG] debug-file - Configuration task cost before running: 42 s 850 ms 
+[2025-04-13T21:11:08.105] [DEBUG] debug-file - Executing task :phone:clean
+[2025-04-13T21:11:08.106] [DEBUG] debug-file - clean: Worker pool is inactive.
+[2025-04-13T21:11:09.450] [DEBUG] debug-file - phone : clean cost memory -7.45208740234375
+[2025-04-13T21:11:09.450] [DEBUG] debug-file - runTaskFromQueue task cost before running: 44 s 201 ms 
+[2025-04-13T21:11:09.452] [INFO] debug-file - Finished :phone:clean... after 1 s 346 ms 
+[2025-04-13T21:11:09.453] [DEBUG] debug-file - Executing task ::clean
+[2025-04-13T21:11:09.453] [DEBUG] debug-file - clean: Worker pool is inactive.
+[2025-04-13T21:11:09.455] [DEBUG] debug-file - EQ_Master : clean cost memory 0.03609466552734375
+[2025-04-13T21:11:09.455] [DEBUG] debug-file - runTaskFromQueue task cost before running: 44 s 206 ms 
+[2025-04-13T21:11:09.456] [INFO] debug-file - Finished ::clean... after 3 ms 
+[2025-04-13T21:11:09.456] [DEBUG] debug-file - Executing task :phone:init
+[2025-04-13T21:11:09.456] [DEBUG] debug-file - phone : init cost memory 0.01403045654296875
+[2025-04-13T21:11:09.457] [DEBUG] debug-file - runTaskFromQueue task cost before running: 44 s 207 ms 
+[2025-04-13T21:11:09.457] [INFO] debug-file - Finished :phone:init... after 1 ms 
+[2025-04-13T21:11:09.457] [DEBUG] debug-file - Executing task ::init
+[2025-04-13T21:11:09.457] [DEBUG] debug-file - EQ_Master : init cost memory 0.01287841796875
+[2025-04-13T21:11:09.458] [DEBUG] debug-file - runTaskFromQueue task cost before running: 44 s 208 ms 
+[2025-04-13T21:11:09.458] [INFO] debug-file - Finished ::init... after 1 ms 
+[2025-04-13T21:11:09.491] [DEBUG] debug-file - Module 'phone' target 'default' using build option: {
+  "debuggable": true,
+  "copyFrom": "default",
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "debug"
+} in this build.
+[2025-04-13T21:11:09.499] [DEBUG] debug-file - Module 'phone' target 'ohosTest' using build option: {
+  "debuggable": true,
+  "strictMode": {
+    "caseSensitiveCheck": true,
+    "useNormalizedOHMUrl": true
+  },
+  "name": "default"
+} in this build.
+[2025-04-13T21:11:09.508] [DEBUG] debug-file - Since there is no instance or instance is terminated, create a new worker pool.
+[2025-04-13T21:11:09.508] [DEBUG] debug-file - Worker pool is initialized with config:  {
+  minPoolNum: 2,
+  maxPoolNum: undefined,
+  maxCoreSize: undefined,
+  cacheCapacity: undefined,
+  cacheTtl: undefined
+}
+[2025-04-13T21:11:09.511] [DEBUG] debug-file - Create  resident worker with id: 0.
+[2025-04-13T21:11:09.522] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-04-13T21:11:09.523] [DEBUG] debug-file - session manager: send message to worker process.
+[2025-04-13T21:11:09.522] [DEBUG] debug-file - Create  resident worker with id: 1.
+[2025-04-13T21:11:09.528] [DEBUG] debug-file - Cleanup worker 0.
+[2025-04-13T21:11:09.529] [DEBUG] debug-file - Worker 0 has been cleaned up.
+[2025-04-13T21:11:09.529] [DEBUG] debug-file - Current idle worker size: 1.
+[2025-04-13T21:11:09.529] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-04-13T21:11:09.529] [DEBUG] debug-file - Cleanup worker 1.
+[2025-04-13T21:11:09.529] [DEBUG] debug-file - Worker 1 has been cleaned up.
+[2025-04-13T21:11:09.529] [DEBUG] debug-file - Current idle worker size: 0.
+[2025-04-13T21:11:09.529] [DEBUG] debug-file - Current resident worker size: 2.
+[2025-04-13T21:11:09.532] [DEBUG] debug-file - hvigor build process will be closed.
+[2025-04-13T21:11:09.548] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-04-13T21:11:09.548] [DEBUG] debug-file - watch worker: worker id should be larger than 0. Nothing will be sent to any worker thread.
+[2025-04-13T21:11:09.553] [DEBUG] debug-file - worker[0] exits with exit code 0.
+[2025-04-13T21:11:09.560] [DEBUG] debug-file - worker[1] exits with exit code 0.

@@ -51,7 +51,7 @@ export struct HotListView {
     let count:number = 1;
     let converter:Converter<DailyShare,HotItem> = new dailyShareToHotItemConverter()
     this.dailyShareListByPopularity.forEach((item: DailyShare) => {
-      let hotItem: HotItem = converter.convert(item, count)
+      let hotItem: HotItem = converter.convert(item)
       hotItemList.push(hotItem);
       count++;
     })
