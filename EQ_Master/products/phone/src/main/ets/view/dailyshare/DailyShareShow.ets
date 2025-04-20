@@ -12,7 +12,9 @@ import PreferenceModel from '../../model/PreferenceModel';
 import DailyShareServer from '../../server/dailyshare/DailyShareServer';
 import ResponseResult from '../../server/ResponseResult';
 import PromptUtil from '../../common/utils/PromptUtil';
-import { DailyShareItem } from '../../common/constants/DailyShareList';
+import { DailyShareQuestionSwiper } from './QuestionView';
+import { DailyShareTip } from './TipView';
+import { DailyShareStory } from './storyView';
 
 @Extend(Text)
 function textStyle(fontSize: number, fontWeight: number) {
@@ -63,6 +65,7 @@ export struct DailyShareShow {
         Text(this.sortName)
           .width(CommonConstants.WIDTH_SORT_NAME)
           .textStyle(CommonConstants.FONT_SIZE_SORT_TITLE, CommonConstants.FONT_WEIGHT_NORMAL)
+          .fontSize(22)
         // Text(this.getDailyShare('question-1').context)
         Text($r('app.string.more'))
           .layoutWeight(CommonConstants.LAYOUT_WEIGHT)
@@ -87,33 +90,49 @@ export struct DailyShareShow {
       .width(CommonConstants.WIDTH_SORT)
       .margin({ top: CommonConstants.MARGIN_TOP_SORT, bottom: CommonConstants.MARGIN_BOTTOM_SORT })
 
-      Grid() {
-        ForEach(initializePictures(this.initType,this.initDailyShare), (item: PictureItem) => {
-          GridItem() {
-            PictureView({photos: item})
-              .onClick(() => {
-                PreferenceModel.putPreference('dailyShareId', item.id);
-                router.pushUrl({
-                  url: CommonConstants.DAILY_SHARE_DETAIL_PAGE_URL,
-                  // params: item.id
-                }).catch((error: Error) => {
-                  Logger.error(CommonConstants.DAILY_SHARE_DETAIL_PAGE_TAG,
-                    'DailyShareShowPage pushUrl error ' + JSON.stringify(error));
-                }).then(()=> { //成功跳转信息
-                  Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG, 'DailyShareShowPage pushUrl success')
-                })
-              })
-          }
-
-        }, (item: PictureItem) => JSON.stringify(item))
+      // Grid() {
+      //   ForEach(initializePictures(this.initType,this.initDailyShare), (item: PictureItem) => {
+      //     GridItem() {
+      //       PictureView({photos: item})
+      //         .onClick(() => {
+      //           PreferenceModel.putPreference('dailyShareId', item.id);
+      //           router.pushUrl({
+      //             url: CommonConstants.DAILY_SHARE_DETAIL_PAGE_URL,
+      //             // params: item.id
+      //           }).catch((error: Error) => {
+      //             Logger.error(CommonConstants.DAILY_SHARE_DETAIL_PAGE_TAG,
+      //               'DailyShareShowPage pushUrl error ' + JSON.stringify(error));
+      //           }).then(()=> { //成功跳转信息
+      //             Logger.info(CommonConstants.DAILY_SHARE_TYPE_PAGE_TAG, 'DailyShareShowPage pushUrl success')
+      //           })
+      //         })
+      //     }
+      //
+      //   }, (item: PictureItem) => JSON.stringify(item))
+      // }
+      // .columnsTemplate(CommonConstants.TWO_COLUMNS)
+      // .rowsTemplate(CommonConstants.TWO_ROWS)
+      // .columnsGap(CommonConstants.GAP_COLUMNS)
+      // .rowsGap(CommonConstants.GAP_COLUMNS)
+      if (this.initType === 'question'){
+        DailyShareQuestionSwiper()
+          .width(CommonConstants.PAGE_WIDTH)
+            // .height(CommonConstants.HEIGHT_GRID)
+          .margin({ bottom: CommonConstants.MARGIN_BOTTOM_GRID })
       }
-      .columnsTemplate(CommonConstants.TWO_COLUMNS)
-      .rowsTemplate(CommonConstants.TWO_ROWS)
-      .columnsGap(CommonConstants.GAP_COLUMNS)
-      .rowsGap(CommonConstants.GAP_COLUMNS)
-      .width(CommonConstants.PAGE_WIDTH)
-      .height(CommonConstants.HEIGHT_GRID)
-      .margin({ bottom: CommonConstants.MARGIN_BOTTOM_GRID })
+      else if (this.initType === 'tip'){
+        DailyShareTip()
+          .width(CommonConstants.PAGE_WIDTH)
+            // .height(CommonConstants.HEIGHT_GRID)
+          .margin({ bottom: CommonConstants.MARGIN_BOTTOM_GRID })
+      }
+      else if (this.initType === 'story'){
+        DailyShareStory()
+          .width(CommonConstants.PAGE_WIDTH)
+            // .height(CommonConstants.HEIGHT_GRID)
+          .margin({ bottom: CommonConstants.MARGIN_BOTTOM_GRID })
+      }
+
     }
   }
 }
