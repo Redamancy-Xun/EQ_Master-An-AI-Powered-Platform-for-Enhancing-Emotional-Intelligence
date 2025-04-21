@@ -416,6 +416,18 @@ export class CommonConstants{
   static readonly SELECTED_PEOPLE_IN_LIFE: string = 'selectedPeopleInLife';
 
   /**
+   * Display selected Job.
+   */
+  static readonly USERNAME: string = 'username';
+  /**
+   * Display selected Job.
+   */
+  static readonly EMAIL: string = 'email';
+  /**
+   * Display selected Job.
+   */
+  static readonly PASSWORD: string = 'password';
+  /**
    * Display face authentication.
    */
   static readonly IS_SHOW_FACE: string = 'isShowFace';
@@ -462,7 +474,7 @@ export class CommonConstants{
   /**
    * The host address of the server.
    */
-  static readonly SERVER: string = 'https://eqmaster.redamancyxun.fun:8080';
+  static readonly SERVER: string = 'https://chinese.redamancyxun.fun:8088';
 
   /**
    * The post user login.

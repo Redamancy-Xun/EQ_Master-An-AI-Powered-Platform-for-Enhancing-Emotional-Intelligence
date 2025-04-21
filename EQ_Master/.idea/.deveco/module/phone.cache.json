@@ -1,21 +1,22 @@
 {
+	"CommonInfo":{
+		"current.select.target":"default"
+	},
 	"BuildOptions":{
 		"SELECT_BUILD_TARGET":"default",
 		"BUILD_PATH":{
-			"OUTPUT_METADATA_JSON":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
-			"OUTPUT_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\outputs\\default",
-			"RES_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default",
-			"ETS_SUPER_VISUAL_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
-			"JS_ASSETS_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\default",
-			"INTERMEDIA_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates",
-			"RES_PROFILE_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
-			"WORKER_LOADER":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\loader.json",
-			"MANIFEST_JSON":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\default",
-			"JS_LITE_ASSETS_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out_lite\\default",
-			"JS_SUPER_VISUAL_PATH":"D:\\HuaweiMoveData\\Users\\fengl\\Desktop\\code\\EQ_Master\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileJS\\jsbundle"
+			"OUTPUT_METADATA_JSON":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json",
+			"OUTPUT_PATH":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\outputs\\default",
+			"RES_PATH":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default",
+			"ETS_SUPER_VISUAL_PATH":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
+			"JS_ASSETS_PATH":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out\\default",
+			"SOURCE_MAP_DIR":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\source_map\\default",
+			"INTERMEDIA_PATH":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates",
+			"RES_PROFILE_PATH":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+			"WORKER_LOADER":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader\\default\\loader.json",
+			"MANIFEST_JSON":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\manifest\\default",
+			"JS_LITE_ASSETS_PATH":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\intermediates\\loader_out_lite\\default",
+			"JS_SUPER_VISUAL_PATH":"D:\\Harmony\\EQ_Master-An-AI-Powered-Platform-for-Enhancing-Emotional-Intelligence\\EQ_Master\\products\\phone\\build\\default\\cache\\default\\default@CompileJS\\jsbundle"
 		}
-	},
-	"CommonInfo":{
-		"current.select.target":"default"
 	}
 }

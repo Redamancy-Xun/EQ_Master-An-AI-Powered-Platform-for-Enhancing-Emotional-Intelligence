@@ -6,6 +6,7 @@ import { preferences } from '@kit.ArkData';
 import PreferenceModel from '../../model/PreferenceModel';
 // 使用与Server端相同的UserInfo格式
 //TODO 改成userInfo
+import {CommonData} from './User'
 import {UserInfo} from '../../server/user/UserData';
 import UserServer from '../../server/user/UserServer'
 import Logger from '../../common/utils/Logger';
@@ -64,38 +65,215 @@ import { CommonConstants } from '../../common/constants/CommonConstants';
   .fontSize(24) // 字体大小24px
 }
 
+interface Type {
+  x: number;
+  y: number;
+  color: string;
+  info: string
+}
+
 @Component
 struct userImage {//个人主页顶部部分
   @Prop UserInfo:UserInfo
   @Consume('pageInfos') pageInfos:NavPathStack
   @Consume nameList:string[]
   private fontColor:string = '#c4d2fa'
+  private username: string = '';
+  private role: number = -1;
+  private peopleInWork: number[] = [];
+  private peopleInLife: number[] = [];
+  private gender: number = -1;
+  private age: number = -1;
+  private location: string = '';
+
+  private node: Type[] = [
+    { x: 100, y: 180, color: '#F14141', info:this.username},//用户名
+    { x: 50, y: 150, color:  '#7239EA',info: this.role==-1?'':CommonData.jobList[this.role]},//职业
+    { x: 200, y: 150, color: '#383838',info:this.peopleInWork.length == 0 ?'': CommonData.workPeopleList[this.peopleInWork[0]]},//角色1
+    { x: -20, y: 50, color:'#5859DF',info:this.peopleInLife.length == 0 ?'': CommonData.lifePeopleList[this.peopleInLife[0]] },//角色2
+    { x: 220, y: 50, color: '#50CD89',info:this.peopleInWork.length > 1? CommonData.workPeopleList[this.peopleInWork[1]]:(this.peopleInLife.length>1?CommonData.lifePeopleList[this.peopleInLife[1]]:'')},//角色3
+    { x: 160, y: 60, color: '#FFD33C',info:this.gender==-1?'':CommonData.gender[this.gender] },//性别
+    { x: 140, y: 120, color: '#FFA500',info:this.age==-1?'':''+this.age },//年龄
+    { x: -10, y: 120, color:'#3334CC',info:this.location },//地区
+  ]
+
+  aboutToAppear(){
+
+
+    UserServer.getUserInfo()
+      .then((data: UserInfo) => {
+        if(data.username !== null){
+            this.username = data.username
+        }
+        if(data.role !== null){
+          this.role = data.role
+        }
+        if(data.peopleInWork !== null){
+          this.peopleInWork = data.peopleInWork
+        }
+        if(data.peopleInLife !== null){
+          this.peopleInLife = data.peopleInLife
+        }
+        if(data.gender !== null){
+          this.gender = data.gender
+        }
+        if(data.age !== null){
+          this.age = data.age
+        }
+        if(data.nation !== null){
+         this.location += data.nation
+          if(data.province !== null){
+            this.location += ' ' + data.province
+            if(data.city !== null){
+              this.location += ' ' + data.city
+            }
+          }
+        }
+      })
+      .catch((err: Resource | ResponseResult) => {
+        PromptUtil.promptMessage($r('app.string.load_userinfo_failed'), CommonConstants.PROMPT_DURATION);
+
+        if (err instanceof ResponseResult) {
+          Logger.error('getUserInfo error', `code: ${err.code}, message: ${err.message}`);
+        } else {
+          Logger.error('getUserInfo error', JSON.stringify(err));
+        }
+      })
+  }
 
   build() {
     Column() {
       Column() {
 
-        Text('个人主页')
-          .Subheadline()
-          .fontColor(this.fontColor)
-          .height('30%')
+        Stack() {
+          Row() {
+            Text('个人主页')
+              .Subheadline()
+              .fontColor(this.fontColor)
+              .align(Alignment.Center)
+          }
 
-        Image($r('app.media.login_logo'))
-          .height('40%')
-          .borderRadius(24)
-            //这是为了设置边框
-          .padding(3)
-          .borderStyle(BorderStyle.Solid)
-          .borderWidth(2)
-          .borderColor('#FFFFFF')
-            //
-          .onError(() => {
-            console.info('load image fail')
+          Row() {
+            Blank()
+            Image($r('app.media.Set'))
+              .width('6%')
+              .objectFit(ImageFit.Contain)
+              .onClick(() => {
+                this.pageInfos.pushPath({ name: this.nameList[1] })
+                console.info('turn into next page')
+              })
+
+          }
+          .padding({
+            right:'5%'
           })
-          .onClick(()=>{
-            this.pageInfos.pushPath({ name: this.nameList[1] })
-            console.info('turn into next page')
-          })
+          .width('100%')
+        }
+         .height('15%')
+
+
+
+        Stack() {
+            Image($r('app.media.login_logo'))
+              .height('20%')
+              .borderRadius(24)//这是为了设置边框
+              .padding(3)
+              .borderStyle(BorderStyle.Solid)
+              .borderWidth(2)
+              .borderColor('#FFFFFF')//
+              .onError(() => {
+                console.info('load image fail')
+              })
+
+          }
+
+        Stack() {
+          // // 用户名
+          // Line()
+          //   .width(200)
+          //   .height(150)
+          //   .startPoint([100, 0])   // 连接按钮中心
+          //   .endPoint([this.node[0].x, this.node[0].y])
+          //   .stroke(Color.Black)
+          //
+          //
+          // //职业
+          // Line()
+          //   .width(200)
+          //   .height(150)
+          //   .startPoint([100, 0])   // 连接按钮中心
+          //   .endPoint([50, 150])    // 假设线往下延伸到y=50
+          //   .stroke(Color.Black)
+          //
+          //
+          // //人1
+          // Line()
+          //   .width(200)
+          //   .height(150)
+          //   .startPoint([100, 0])   // 连接按钮中心
+          //   .endPoint([200, 150])    // 假设线往下延伸到y=50
+          //   .stroke(Color.Black)
+          //
+          // //人2
+          // Line()
+          //   .width(200)
+          //   .height(150)
+          //   .startPoint([100, 0])   // 连接按钮中心
+          //   .endPoint([-20, 50])    // 假设线往下延伸到y=50
+          //   .stroke(Color.Black)
+          //
+          // // 人3
+          // Line()
+          //   .width(200)
+          //   .height(150)
+          //   .startPoint([100, 0])   // 连接按钮中心
+          //   .endPoint([240, 50])    // 假设线往下延伸到y=50
+          //   .stroke(Color.Black)
+          //
+          // // 性别
+          // Line()
+          //   .width(200)
+          //   .height(150)
+          //   .startPoint([100, 0])   // 连接按钮中心
+          //   .endPoint([170, 60])    // 假设线往下延伸到y=50
+          //   .stroke(Color.Black)
+          //
+          // // 年龄
+          // Line()
+          //   .width(200)
+          //   .height(150)
+          //   .startPoint([100, 0])   // 连接按钮中心
+          //   .endPoint([140, 120])    // 假设线往下延伸到y=50
+          //   .stroke(Color.Black)
+          //
+          // // 地区
+          // Line()
+          //   .width(200)
+          //   .height(150)
+          //   .startPoint([100, 0])   // 连接按钮中心zx
+          //   .endPoint([-10, 120])    // 假设线往下延伸到y=50
+          //   .stroke(Color.Black)
+
+          ForEach(this.node, (item:Type, index:number) => {
+            // if (item.info != ''){
+              Line()
+                .width(200)
+                .height(150)
+                .startPoint([100, 0])
+                .endPoint([item.x, item.y])
+                .stroke(Color.Black)
+
+            Button(item.info)
+              .width(50)
+              .height(40)
+              .backgroundColor(item.color)
+              .borderRadius(20)
+              .position({ x: item.x - 25, y: item.y - 20 }) // 直接绝对定位
+          // }
+          }, (item:Type, index:number) => index.toString())
+
+
+        }
 
         Text(this.UserInfo.username)
           .Headline()
@@ -120,11 +298,12 @@ struct userImage {//个人主页顶部部分
       .justifyContent(FlexAlign.Center)
     }
     .width('100%')
-    .height('50%')
+    .height('100%')
     .backgroundColor('#181818')
     .borderRadius({ bottomLeft: 24, bottomRight: 24 })
   }
 }
+
 
 @Component
 struct experience{

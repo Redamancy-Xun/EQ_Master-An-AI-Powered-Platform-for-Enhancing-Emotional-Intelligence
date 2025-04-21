@@ -42,6 +42,12 @@ export struct RegisterPage {
   @Consume('isFingerprint') isFingerprint: boolean;
   private keyAlias: string = CommonConstants.LOGIN_KEYS;
 
+  aboutToAppear(){
+    PreferenceModel.getPreferencesFromStorage()
+    PreferenceModel.putPreference(CommonConstants.SELECTED_JOB, -1);
+    PreferenceModel.putPreference(CommonConstants.SELECTED_PEOPLE_IN_WORK, []);
+    PreferenceModel.putPreference(CommonConstants.SELECTED_PEOPLE_IN_LIFE, []);
+  }
 
 
   /**
@@ -57,7 +63,7 @@ export struct RegisterPage {
   /**
    * Process the registration process.
    */
-  async register() {
+  check() {
     if (!this.name) {
       PromptUtil.promptMessage($r('app.string.message_user_name'), CommonConstants.PROMPT_DURATION);
       return;
@@ -74,25 +80,11 @@ export struct RegisterPage {
       return;
     }
 
+    PreferenceModel.putPreference(CommonConstants.USERNAME,this.name );
+    PreferenceModel.putPreference(CommonConstants.EMAIL,this.email );
+    PreferenceModel.putPreference(CommonConstants.PASSWORD,this.passWord);
 
-    UserServer.postUserSignup(this.name, this.email, this.passWord).then((data: UserInfo) => {
-      PromptUtil.promptMessage($r('app.string.success_signup_prompt'), CommonConstants.PROMPT_DURATION);
-      // Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + data.sessionId);
-      // if (data.sessionId !== null) {
-      //   PreferenceModel.putPreference(CommonConstants.PREFERENCES_KEY_SESSION, data.sessionId);
-      //   let sessionId = PreferenceModel.getPreference(CommonConstants.PREFERENCES_KEY_SESSION, 'null');
-      //   Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + sessionId);
-      // }
-
-    }).catch((err: Resource | ResponseResult) => {
-      if (err instanceof ResponseResult) {
-        if (err.message !== null) {
-          PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
-        }
-      } else {
-        PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
-      }
-    })
+    this.pageInfos.pushPathByName('selectWork',null)
 
 
   }
@@ -247,7 +239,7 @@ export struct RegisterPage {
             //
             // })
               () => {
-                this.pageInfos.pushPathByName('selectWork',null)
+               this.check()
               }
             )
 

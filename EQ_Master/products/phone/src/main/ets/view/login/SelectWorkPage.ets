@@ -8,6 +8,8 @@ import UserServer from '../../server/user/UserServer';
 import { UserInfo } from '../../server/user/UserData';
 import ResponseResult from '../../server/ResponseResult';
 import { Prompt, router, window } from '@kit.ArkUI';
+import { CommonData } from '../userinfo/User';
+
 
 
 @Extend(TextInput)
@@ -30,14 +32,13 @@ function lineStyle() {
 
 @Component
 export struct selectWork{
-  @State private selectedJob: string = ''; // 单选
+  @State private selectedJob: number = -1; // 单选
   @Consume('pageInfos') pageInfos: NavPathStack;
   @State isNextStepAvailable: boolean = false;
-  private jobList: string[] = ["上班族", "学生", "自由职业者", "企业家/创业者", "公务员/事业单位工作人员"]; // 定义文字数组
 
   aboutToAppear(){
     PreferenceModel.getPreferencesFromStorage()
-    this.selectedJob =  PreferenceModel.getPreference(CommonConstants.SELECTED_JOB,'') as string;
+    this.selectedJob =  PreferenceModel.getPreference(CommonConstants.SELECTED_JOB,-1) as number;
     this.isNextStep();
   }
 
@@ -47,24 +48,24 @@ export struct selectWork{
    */
   isNextStep() {
     this.isNextStepAvailable = false;
-    if (this.selectedJob != '') {
+    if (this.selectedJob != -1) {
       this.isNextStepAvailable = true;
     }
   }
 
   // 单选按钮（主要工作）
   @Builder
-  jobButton(name: string) {
+  jobButton(name: string,index: number) {
     Button(name)
       .fontColor($r('app.color.placeholder_color'))
       .align(Alignment.Center)
       .onClick(() => {
-        this.selectedJob = name;
-        PreferenceModel.putPreference(CommonConstants.SELECTED_JOB, name);
+        this.selectedJob = index;
+        PreferenceModel.putPreference(CommonConstants.SELECTED_JOB, index);
         this.isNextStep()
       })
-      .backgroundColor(this.selectedJob === name ? "rgba(102, 153, 255, 0.3)" : Color.White) // 透明蓝色
-      .borderColor(this.selectedJob === name ? "rgba(102, 153, 255, 0.3)" : Color.White) // 选中时边框变蓝
+      .backgroundColor(this.selectedJob === index ? "rgba(102, 153, 255, 0.3)" : Color.White) // 透明蓝色
+      .borderColor(this.selectedJob === index ? "rgba(102, 153, 255, 0.3)" : Color.White) // 选中时边框变蓝
       .borderWidth(2)
       .borderRadius(6)
       .type(ButtonType.Normal)
@@ -92,11 +93,11 @@ export struct selectWork{
           .textAlign(TextAlign.Center)
 
         Column(){
-          this.jobButton(this.jobList[0])
-          this.jobButton(this.jobList[1])
-          this.jobButton(this.jobList[2])
-          this.jobButton(this.jobList[3])
-          this.jobButton(this.jobList[4])
+          this.jobButton(CommonData.jobList[0],0)
+          this.jobButton(CommonData.jobList[1],1)
+          this.jobButton(CommonData.jobList[2],2)
+          this.jobButton(CommonData.jobList[3],3)
+          this.jobButton(CommonData.jobList[4],4)
         }
         .margin({top:20})
 

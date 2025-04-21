@@ -8,7 +8,7 @@ import UserServer from '../../server/user/UserServer';
 import { UserInfo } from '../../server/user/UserData';
 import ResponseResult from '../../server/ResponseResult';
 import { Prompt, router, window } from '@kit.ArkUI';
-
+import {CommonData} from '../userinfo/User'
 
 @Extend(TextInput)
 function inputStyle() {
@@ -30,14 +30,19 @@ function lineStyle() {
 
 @Component
 export struct selectPeopleInLife{
-  @State private selectedPeopleInLife: string[] = []; // 复选
+  @State private selectedPeopleInLife: number[] = []; // 复选
   @Consume('pageInfos') pageInfos: NavPathStack;
   @State isNextStepAvailable: boolean = false;
-  private peopleList: string[] = ["子女、其他后辈", "父母、其他长辈", "兄弟/姐妹", "伴侣", "朋友", "陌生人"];
+  private name: string = '';
+  private email: string = '';
+  private passWord: string = '';
 
   aboutToAppear(){
     PreferenceModel.getPreferencesFromStorage()
-    this.selectedPeopleInLife =  PreferenceModel.getPreference(CommonConstants.SELECTED_PEOPLE_IN_LIFE,[]) as string[];
+    this.selectedPeopleInLife =  PreferenceModel.getPreference(CommonConstants.SELECTED_PEOPLE_IN_LIFE,[]) as number[];
+    this.name = PreferenceModel.getPreference(CommonConstants.USERNAME,'') as string
+    this.email = PreferenceModel.getPreference(CommonConstants.EMAIL,'') as string
+    this.name = PreferenceModel.getPreference(CommonConstants.PASSWORD,'') as string
     this.isNextStep();
   }
 
@@ -52,25 +57,73 @@ export struct selectPeopleInLife{
     }
   }
 
+  async register() {
+    UserServer.postUserSignup(this.name, this.email, this.passWord).then((data: UserInfo) => {
+      PromptUtil.promptMessage($r('app.string.success_signup_prompt'), CommonConstants.PROMPT_DURATION);
+      // Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + data.sessionId);
+      // if (data.sessionId !== null) {
+      //   PreferenceModel.putPreference(CommonConstants.PREFERENCES_KEY_SESSION, data.sessionId);
+      //   let sessionId = PreferenceModel.getPreference(CommonConstants.PREFERENCES_KEY_SESSION, 'null');
+      //   Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + sessionId);
+      // }
+
+      //登入
+      UserServer.postUserLogin(this.email, this.passWord).then((data: UserInfo) => {
+        // PromptUtil.promptMessage($r('app.string.success_login_prompt'), CommonConstants.PROMPT_DURATION);
+        Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + data.sessionId);
+        if (data.sessionId !== null) {
+          PreferenceModel.putPreference(CommonConstants.PREFERENCES_KEY_SESSION, data.sessionId);
+          let sessionId = PreferenceModel.getPreference(CommonConstants.PREFERENCES_KEY_SESSION, 'null');
+          Logger.info(CommonConstants.PREFERENCES_KEY_SESSION + ' : ' + sessionId);
+        }
+        router.pushUrl({
+          url: CommonConstants.APP_HOME_PAGE_URL
+        }).catch((error: Error) => {
+          Logger.error(CommonConstants.APP_HOME_PAGE_TAG, 'HomePage pushUrl error ' + JSON.stringify(error));
+        });
+      }).catch((err: Resource | ResponseResult) => {
+        if (err instanceof ResponseResult) {
+          if (err.message !== null) {
+            PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+          }
+        } else {
+          PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+        }
+      })
+
+
+    }).catch((err: Resource | ResponseResult) => {
+      if (err instanceof ResponseResult) {
+        if (err.message !== null) {
+          PromptUtil.promptMessage(err.message, CommonConstants.PROMPT_DURATION);
+        }
+      } else {
+        PromptUtil.promptMessage(err, CommonConstants.PROMPT_DURATION);
+      }
+    })
+
+  }
+
+
   // 多选按钮（沟通困难）
   @Builder
-  peopleButton(name: string) {
+  peopleButton(name: string,index: number) {
     Button(name)
       .fontColor($r('app.color.placeholder_color'))
       .onClick(() => {
-        if (this.selectedPeopleInLife.includes(name)) {
-          this.selectedPeopleInLife = this.selectedPeopleInLife.filter(item => item !== name);
+        if (this.selectedPeopleInLife.includes(index)) {
+          this.selectedPeopleInLife = this.selectedPeopleInLife.filter(item => item !== index);
           PreferenceModel.putPreference(CommonConstants.SELECTED_PEOPLE_IN_LIFE,this.selectedPeopleInLife)
           this.isNextStep()
 
         } else {
-          this.selectedPeopleInLife.push(name);
+          this.selectedPeopleInLife.push(index);
           PreferenceModel.putPreference(CommonConstants.SELECTED_PEOPLE_IN_LIFE,this.selectedPeopleInLife)
           this.isNextStep()
         }
       })
-      .backgroundColor(this.selectedPeopleInLife.includes(name) ? "rgba(102, 153, 255, 0.3)" : Color.White) // 透明蓝色
-      .borderColor(this.selectedPeopleInLife.includes(name) ? "rgba(102, 153, 255, 0.3)" : Color.White)
+      .backgroundColor(this.selectedPeopleInLife.includes(index) ? "rgba(102, 153, 255, 0.3)" : Color.White) // 透明蓝色
+      .borderColor(this.selectedPeopleInLife.includes(index) ? "rgba(102, 153, 255, 0.3)" : Color.White)
       .borderWidth(2)
       .type(ButtonType.Normal)
       .borderRadius(6)
@@ -98,11 +151,11 @@ export struct selectPeopleInLife{
           .textAlign(TextAlign.Start)
 
         Column(){
-          this.peopleButton(this.peopleList[0])
-          this.peopleButton(this.peopleList[1])
-          this.peopleButton(this.peopleList[2])
-          this.peopleButton(this.peopleList[3])
-          this.peopleButton(this.peopleList[4])
+          this.peopleButton(CommonData.lifePeopleList[0],0)
+          this.peopleButton(CommonData.lifePeopleList[1],1)
+          this.peopleButton(CommonData.lifePeopleList[2],2)
+          this.peopleButton(CommonData.lifePeopleList[3],3)
+          this.peopleButton(CommonData.lifePeopleList[4],4)
         }
         .margin({top:20})
 
@@ -122,10 +175,11 @@ export struct selectPeopleInLife{
           })
           .enabled(this.isNextStepAvailable)
           .onClick(
-            () => {
-              // this.pageInfos.pushPathByName('selectPeopleInLife', null)
-            }
-          )
+            async () => {
+              this.isNextStepAvailable = false
+              await this.register()
+              this.isNextStepAvailable = true
+            })
       }
       .padding({
         left: $r('app.float.page_padding_hor'),

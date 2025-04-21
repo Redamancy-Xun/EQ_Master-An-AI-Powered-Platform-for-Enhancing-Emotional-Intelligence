@@ -553,6 +553,10 @@
       "value": "确认密码"
     },
     {
+      "name": "load_userinfo_failed",
+      "value": "加载信息失败"
+    },
+    {
       "name": "register_face_checkbox",
       "value": "Facial recognition login"
     },

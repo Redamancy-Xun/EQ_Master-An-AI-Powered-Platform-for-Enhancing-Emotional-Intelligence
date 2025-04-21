@@ -8,6 +8,7 @@ import UserServer from '../../server/user/UserServer';
 import { UserInfo } from '../../server/user/UserData';
 import ResponseResult from '../../server/ResponseResult';
 import { Prompt, router, window } from '@kit.ArkUI';
+import {CommonData} from '../userinfo/User'
 
 
 @Extend(TextInput)
@@ -30,14 +31,13 @@ function lineStyle() {
 
 @Component
 export struct selectPeopleInWork{
-  @State private selectedPeopleInWork: string[] = []; // 复选
+  @State private selectedPeopleInWork: number[] = []; // 复选
   @Consume('pageInfos') pageInfos: NavPathStack;
   @State isNextStepAvailable: boolean = false;
-  private peopleList: string[] = ["上级", "下级", "同事", "客户", "老师", "同学"];
 
   aboutToAppear(){
     PreferenceModel.getPreferencesFromStorage()
-    this.selectedPeopleInWork =  PreferenceModel.getPreference(CommonConstants.SELECTED_PEOPLE_IN_WORK,[]) as string[];
+    this.selectedPeopleInWork =  PreferenceModel.getPreference(CommonConstants.SELECTED_PEOPLE_IN_WORK,[]) as number[];
     this.isNextStep();
   }
 
@@ -54,23 +54,23 @@ export struct selectPeopleInWork{
 
   // 多选按钮（沟通困难）
   @Builder
-  peopleButton(name: string) {
+  peopleButton(name: string,index: number) {
     Button(name)
       .fontColor($r('app.color.placeholder_color'))
       .onClick(() => {
-        if (this.selectedPeopleInWork.includes(name)) {
-          this.selectedPeopleInWork = this.selectedPeopleInWork.filter(item => item !== name);
+        if (this.selectedPeopleInWork.includes(index)) {
+          this.selectedPeopleInWork = this.selectedPeopleInWork.filter(item => item !== index);
           PreferenceModel.putPreference(CommonConstants.SELECTED_PEOPLE_IN_WORK,this.selectedPeopleInWork)
           this.isNextStep()
 
         } else {
-          this.selectedPeopleInWork.push(name);
+          this.selectedPeopleInWork.push(index);
           PreferenceModel.putPreference(CommonConstants.SELECTED_PEOPLE_IN_WORK,this.selectedPeopleInWork)
           this.isNextStep()
         }
       })
-      .backgroundColor(this.selectedPeopleInWork.includes(name) ? "rgba(102, 153, 255, 0.3)" : Color.White) // 透明蓝色
-      .borderColor(this.selectedPeopleInWork.includes(name) ? "rgba(102, 153, 255, 0.3)" : Color.White)
+      .backgroundColor(this.selectedPeopleInWork.includes(index) ? "rgba(102, 153, 255, 0.3)" : Color.White) // 透明蓝色
+      .borderColor(this.selectedPeopleInWork.includes(index) ? "rgba(102, 153, 255, 0.3)" : Color.White)
       .borderWidth(2)
       .type(ButtonType.Normal)
       .borderRadius(6)
@@ -98,11 +98,11 @@ export struct selectPeopleInWork{
         .textAlign(TextAlign.Start)
 
         Column(){
-          this.peopleButton(this.peopleList[0])
-          this.peopleButton(this.peopleList[1])
-          this.peopleButton(this.peopleList[2])
-          this.peopleButton(this.peopleList[3])
-          this.peopleButton(this.peopleList[4])
+          this.peopleButton(CommonData.workPeopleList[0],0)
+          this.peopleButton(CommonData.workPeopleList[1],1)
+          this.peopleButton(CommonData.workPeopleList[2],2)
+          this.peopleButton(CommonData.workPeopleList[3],3)
+          this.peopleButton(CommonData.workPeopleList[4],4)
         }
         .margin({top:20})
 
