@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EQ_Master - 每日分享内容管理后台</title>
+  <!-- 引入外部资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            success: '#52C41A',
+            warning: '#FAAD14',
+            danger: '#FF4D4F',
+            dark: '#1D2129',
+            'gray-light': '#F2F3F5',
+            'gray-medium': '#C9CDD4'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义样式 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .sidebar-item {
+        @apply flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-primary/5 hover:text-primary rounded-lg transition-all duration-200;
+      }
+      .sidebar-item.active {
+        @apply bg-primary/10 text-primary font-medium;
+      }
+      .btn {
+        @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2;
+      }
+      .btn-primary {
+        @apply bg-primary text-white hover:bg-primary/90;
+      }
+      .btn-outline {
+        @apply border border-gray-medium hover:border-primary hover:text-primary;
+      }
+      .card {
+        @apply bg-white rounded-xl shadow-sm border border-gray-100 p-5 transition-all duration-300 hover:shadow-md;
+      }
+      .badge {
+        @apply px-2 py-1 rounded-full text-xs font-medium;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-inter bg-gray-50 text-dark min-h-screen flex overflow-hidden">
+  <!-- 侧边栏 -->
+  <aside class="w-64 bg-white border-r border-gray-200 h-screen flex-shrink-0 hidden md:block transition-all duration-300 ease-in-out" id="sidebar">
+    <div class="p-5 border-b border-gray-200">
+      <h1 class="text-xl font-bold text-primary flex items-center gap-2">
+        <i class="fa fa-heart-o"></i>
+        <span>EQ_Master</span>
+      </h1>
+      <p class="text-sm text-gray-500 mt-1">每日分享内容管理系统</p>
+    </div>
+    
+    <nav class="p-3 mt-5">
+      <p class="text-xs text-gray-500 uppercase px-4 mb-2 font-semibold">主菜单</p>
+      <a href="#" class="sidebar-item active">
+        <i class="fa fa-tachometer w-5 text-center"></i>
+        <span>控制台</span>
+      </a>
+      <a href="#content-submit" class="sidebar-item">
+        <i class="fa fa-plus-square-o w-5 text-center"></i>
+        <span>内容提交</span>
+      </a>
+      <a href="#content-management" class="sidebar-item">
+        <i class="fa fa-list w-5 text-center"></i>
+        <span>内容管理</span>
+      </a>
+      <a href="#review" class="sidebar-item">
+        <i class="fa fa-check-square-o w-5 text-center"></i>
+        <span>内容审核</span>
+      </a>
+      <a href="#statistics" class="sidebar-item">
+        <i class="fa fa-bar-chart w-5 text-center"></i>
+        <span>数据统计</span>
+      </a>
+      
+      <p class="text-xs text-gray-500 uppercase px-4 mb-2 font-semibold mt-8">系统设置</p>
+      <a href="#" class="sidebar-item">
+        <i class="fa fa-tags w-5 text-center"></i>
+        <span>标签管理</span>
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class="fa fa-users w-5 text-center"></i>
+        <span>用户管理</span>
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class="fa fa-cog w-5 text-center"></i>
+        <span>系统设置</span>
+      </a>
+    </nav>
+    
+    <div class="absolute bottom-0 w-full p-4 border-t border-gray-200">
+      <div class="flex items-center gap-3">
+        <img src="https://picsum.photos/id/1005/40/40" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
+        <div>
+          <p class="font-medium text-sm">管理员</p>
+          <p class="text-xs text-gray-500">admin@eqmaster.com</p>
+        </div>
+        <button class="ml-auto text-gray-500 hover:text-primary">
+          <i class="fa fa-sign-out"></i>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 主内容区 -->
+  <main class="flex-1 flex flex-col overflow-hidden">
+    <!-- 顶部导航 -->
+    <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
+      <div class="flex items-center gap-4">
+        <button class="md:hidden text-gray-500 hover:text-primary" id="sidebar-toggle">
+          <i class="fa fa-bars text-xl"></i>
+        </button>
+        <div class="relative">
+          <input type="text" placeholder="搜索内容..." class="pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:border-primary w-64">
+          <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-6">
+        <button class="relative text-gray-500 hover:text-primary">
+          <i class="fa fa-bell text-xl"></i>
+          <span class="absolute -top-1 -right-1 w-4 h-4 bg-danger rounded-full text-white text-xs flex items-center justify-center">3</span>
+        </button>
+        <button class="relative text-gray-500 hover:text-primary">
+          <i class="fa fa-envelope-o text-xl"></i>
+          <span class="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full text-white text-xs flex items-center justify-center">5</span>
+        </button>
+        <div class="flex items-center gap-2">
+          <span class="hidden md:inline text-sm">2025年11月13日</span>
+          <i class="fa fa-calendar-o text-gray-500"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- 内容滚动区域 -->
+    <div class="flex-1 overflow-y-auto p-6">
+      <!-- 欢迎信息 -->
+      <div class="mb-6">
+        <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold">欢迎回来，管理员</h2>
+        <p class="text-gray-500">今天是星期四，您有 8 条待审核内容</p>
+      </div>
+      
+      <!-- 数据概览卡片 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-gray-500 text-sm">总内容数</p>
+              <h3 class="text-3xl font-bold mt-1">1,284</h3>
+              <p class="text-success text-sm mt-2 flex items-center">
+                <i class="fa fa-arrow-up mr-1"></i> 12.5% <span class="text-gray-500 ml-1">较上月</span>
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <i class="fa fa-file-text-o text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-gray-500 text-sm">待审核</p>
+              <h3 class="text-3xl font-bold mt-1">8</h3>
+              <p class="text-danger text-sm mt-2 flex items-center">
+                <i class="fa fa-arrow-up mr-1"></i> 3.2% <span class="text-gray-500 ml-1">较昨日</span>
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-warning/10 flex items-center justify-center text-warning">
+              <i class="fa fa-clock-o text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-gray-500 text-sm">总曝光量</p>
+              <h3 class="text-3xl font-bold mt-1">45.2k</h3>
+              <p class="text-success text-sm mt-2 flex items-center">
+                <i class="fa fa-arrow-up mr-1"></i> 8.7% <span class="text-gray-500 ml-1">较上周</span>
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+              <i class="fa fa-eye text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="text-gray-500 text-sm">互动率</p>
+              <h3 class="text-3xl font-bold mt-1">12.8%</h3>
+              <p class="text-danger text-sm mt-2 flex items-center">
+                <i class="fa fa-arrow-down mr-1"></i> 1.3% <span class="text-gray-500 ml-1">较上周</span>
+              </p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-success/10 flex items-center justify-center text-success">
+              <i class="fa fa-comments-o text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 内容提交区域 -->
+      <section id="content-submit" class="mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold">内容提交</h3>
+          <button class="btn btn-primary" id="toggle-upload-form">
+            <i class="fa fa-plus"></i> 新建内容
+          </button>
+        </div>
+        
+        <!-- 上传表单 -->
+        <div class="card mb-6 hidden" id="upload-form">
+          <form>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">内容标题 <span class="text-danger">*</span></label>
+                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="请输入内容标题">
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">内容类型 <span class="text-danger">*</span></label>
+                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary">
+                  <option value="">请选择内容类型</option>
+                  <option value="image">图文</option>
+                  <option value="audio">音频</option>
+                  <option value="video">视频</option>
+                </select>
+              </div>
+              
+              <!-- 标签选择 -->
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-2">场景标签 <span class="text-danger">*</span></label>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="scene-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">职场沟通</span>
+                  </label>
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="scene-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">家庭关系</span>
+                  </label>
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="scene-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">亲密关系</span>
+                  </label>
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="scene-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">情绪管理</span>
+                  </label>
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="scene-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">压力应对</span>
+                  </label>
+                  <button type="button" class="text-primary text-sm hover:underline">+ 更多</button>
+                </div>
+                
+                <label class="block text-sm font-medium text-gray-700 mb-2">人群标签 <span class="text-danger">*</span></label>
+                <div class="flex flex-wrap gap-2">
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="people-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">青少年</span>
+                  </label>
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="people-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">大学生</span>
+                  </label>
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="people-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">职场新人</span>
+                  </label>
+                  <label class="inline-flex items-center gap-1 badge border border-gray-300 cursor-pointer hover:border-primary hover:bg-primary/5 transition-colors">
+                    <input type="checkbox" class="hidden peer" name="people-tags">
+                    <span class="peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary">管理者</span>
+                  </label>
+                  <button type="button" class="text-primary text-sm hover:underline">+ 更多</button>
+                </div>
+              </div>
+              
+              <!-- 内容描述 -->
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-1">内容描述</label>
+                <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="请输入内容描述..."></textarea>
+              </div>
+              
+              <!-- 文件上传 -->
+              <div class="md:col-span-2">
+                <label class="block text-sm font-medium text-gray-700 mb-2">素材上传 <span class="text-danger">*</span></label>
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer bg-gray-50" id="dropzone">
+                  <input type="file" multiple class="hidden" id="file-upload">
+                  <i class="fa fa-cloud-upload text-4xl text-gray-400 mb-3"></i>
+                  <p class="text-gray-500 mb-1">点击或拖拽文件至此处上传</p>
+                  <p class="text-xs text-gray-400">支持 JPG、PNG、MP3、MP4 格式，单个文件不超过 100MB</p>
+                </div>
+                
+                <!-- 上传文件列表 -->
+                <div class="mt-4 hidden" id="upload-files-list">
+                  <h4 class="text-sm font-medium mb-2">已选择文件</h4>
+                  <div class="space-y-2">
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                      <div class="flex items-center gap-3">
+                        <i class="fa fa-file-image-o text-primary"></i>
+                        <div>
+                          <p class="text-sm font-medium">沟通技巧图解.jpg</p>
+                          <p class="text-xs text-gray-500">2.4MB</p>
+                        </div>
+                      </div>
+                      <button class="text-gray-400 hover:text-danger">
+                        <i class="fa fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex justify-end gap-3 mt-6">
+              <button type="button" class="btn btn-outline" id="cancel-upload">取消</button>
+              <button type="submit" class="btn btn-primary">
+                <i class="fa fa-check"></i> 提交审核
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- 最近提交 -->
+        <div class="card">
+          <h4 class="font-medium mb-4">最近提交内容</h4>
+          <div class="overflow-x-auto">
+            <table class="min-w-full">
+              <thead>
+                <tr class="border-b border-gray-200">
+                  <th class="text-left py-3 px-4 text-sm font-medium text-gray-500">标题</th>
+                  <th class="text-left py-3 px-4 text-sm font-medium text-gray-500">类型</th>
+                  <th class="text-left py-3 px-4 text-sm font-medium text-gray-500">标签</th>
+                  <th class="text-left py-3 px-4 text-sm font-medium text-gray-500">提交时间</th>
+                  <th class="text-left py-3 px-4 text-sm font-medium text-gray-500">状态</th>
+                  <th class="text-left py-3 px-4 text-sm font-medium text-gray-500">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                  <td class="py-3 px-4 text-sm">如何有效倾听他人</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span class="badge bg-blue-100 text-blue-700">图文</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm">职场沟通, 管理者</td>
+                  <td class="py-3 px-4 text-sm text-gray-500">2025-11-12</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span class="badge bg-green-100 text-green-700">已通过</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm">
+                    <div class="flex gap-2">
+                      <button class="text-primary hover:text-primary/80"><i class="fa fa-edit"></i></button>
+                      <button class="text-gray-500 hover:text-gray-700"><i class="fa fa-eye"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="border-b border-gray-100 hover:bg-gray-50">
+                  <td class="py-3 px-4 text-sm">青少年情绪管理指南</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span class="badge bg-purple-100 text-purple-700">视频</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm">情绪管理, 青少年</td>
+                  <td class="py-3 px-4 text-sm text-gray-500">2025-11-12</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span class="badge bg-yellow-100 text-yellow-700">审核中</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm">
+                    <div class="flex gap-2">
+                      <button class="text-primary hover:text-primary/80"><i class="fa fa-edit"></i></button>
+                      <button class="text-gray-500 hover:text-gray-700"><i class="fa fa-eye"></i></button>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="hover:bg-gray-50">
+                  <td class="py-3 px-4 text-sm">压力缓解音频指导</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span class="badge bg-red-100 text-red-700">音频</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm">压力应对, 职场新人</td>
+                  <td class="py-3 px-4 text-sm text-gray-500">2025-11-11</td>
+                  <td class="py-3 px-4 text-sm">
+                    <span class="badge bg-gray-100 text-gray-700">已驳回</span>
+                  </td>
+                  <td class="py-3 px-4 text-sm">
+                    <div class="flex gap-2">
+                      <button class="text-primary hover:text-primary/80"><i class="fa fa-edit"></i></button>
+                      <button class="text-gray-500 hover:text-gray-700"><i class="fa fa-eye"></i></button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-4 flex justify-between items-center">
+            <p class="text-sm text-gray-500">显示 1-3 条，共 24 条</p>
+            <div class="flex gap-1">
+              <button class="w-8 h-8 flex items-center justify-center rounded border border-gray-200 text-gray-500 hover:border-primary hover:text-primary disabled:opacity-50" disabled>
+                <i class="fa fa-chevron-left text-xs"></i>
+              </button>
+              <button class="w-8 h-8 flex items-center justify-center rounded border border-primary bg-primary text-white">1</button>
+              <button class="w-8 h-8 flex items-center justify-center rounded border border-gray-200 hover:border-primary hover:text-primary">2</button>
+              <button class="w-8 h-8 flex items-center justify-center rounded border border-gray-200 hover:border-primary hover:text-primary">3</button>
+              <button class="w-8 h-8 flex items-center justify-center rounded border border-gray-200 text-gray-500 hover:border-primary hover:text-primary">
+                <i class="fa fa-chevron-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 内容管理 -->
+      <section id="content-management" class="mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold">内容管理</h3>
+          <div class="flex gap-3">
+            <div class="relative">
+              <select class="pl-3 pr-8 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none">
+                <option>全部类型</option>
+                <option>图文</option>
+                <option>音频</option>
+                <option>视频</option>
+              </select>
+              <i class="fa fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-xs"></i>
+            </div>
+            <div class="relative">
+              <select class="pl-3 pr-8 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none">
+                <option>全部状态</option>
+                <option>已通过</option>
+                <option>审核中</option>
+                <option>已驳回</option>
+              </select>
+              <i class="fa fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none text-xs"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- 内容卡片 1 -->
+            <div class="border border-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+              <div class="relative">
+                <img src="https://picsum.photos/id/26/600/400" alt="内容缩略图" class="w-full h-48 object-cover">
+                <span class="absolute top-2 left-2 badge bg-blue-100 text-blue-700">图文</span>
+                <div class="absolute top-2 right-2 flex gap-1">
+                  <button class="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center text-gray-600 hover:text-primary backdrop-blur-sm">
+                    <i class="fa fa-edit text-xs"></i>
+                  </button>
+                  <button class="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center text-gray-600 hover:text-danger backdrop-blur-sm">
+                    <i class="fa fa-trash-o text-xs"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-4">
+                <h4 class="font-medium line-clamp-1">职场沟通中的非语言信号解读</h4>
+                <div class="flex flex-wrap gap-1 mt-2">
+                  <span class="badge bg-gray-100 text-gray-700 text-xs">职场沟通</span>
+                  <span class="badge bg-gray-100 text-gray-700 text-xs">管理者</span>
+                </div>
+                <div class="flex items-center justify-between mt-3 text-sm text-gray-500">
+                  <span>2025-11-10</span>
+                  <span class="text-success"><i class="fa fa-check-circle-o mr-1"></i>已发布</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 内容卡片 2 -->
+            <div class="border border-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+              <div class="relative">
+                <img src="https://picsum.photos/id/96/600/400" alt="内容缩略图" class="w-full h-48 object-cover">
+                <span class="absolute top-2 left-2 badge bg-purple-100 text-purple-700">视频</span>
+                <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <div class="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center text-purple-600">
+                    <i class="fa fa-play"></i>
+                  </div>
+                </div>
+                <div class="absolute top-2 right-2 flex gap-1">
+                  <button class="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center text-gray-600 hover:text-primary backdrop-blur-sm">
+                    <i class="fa fa-edit text-xs"></i>
+                  </button>
+                  <button class="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center text-gray-600 hover:text-danger backdrop-blur-sm">
+                    <i class="fa fa-trash-o text-xs"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-4">
+                <h4 class="font-medium line-clamp-1">家庭冲突解决技巧演示</h4>
+                <div class="flex flex-wrap gap-1 mt-2">
+                  <span class="badge bg-gray-100 text-gray-700 text-xs">家庭关系</span>
+                  <span class="badge bg-gray-100 text-gray-700 text-xs">成年人</span>
+                </div>
+                <div class="flex items-center justify-between mt-3 text-sm text-gray-500">
+                  <span>2025-11-09</span>
+                  <span class="text-success"><i class="fa fa-check-circle-o mr-1"></i>已发布</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 内容卡片 3 -->
+            <div class="border border-gray-100 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+              <div class="relative bg-gray-100">
+                <div class="w-full h-48 flex items-center justify-center">
+                  <div class="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center text-red-600">
+                    <i class="fa fa-volume-up text-2xl"></i>
+                  </div>
+                </div>
+                <span class="absolute top-2 left-2 badge bg-red-100 text-red-700">音频</span>
+                <div class="absolute top-2 right-2 flex gap-1">
+                  <button class="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center text-gray-600 hover:text-primary backdrop-blur-sm">
+                    <i class="fa fa-edit text-xs"></i>
+                  </button>
+                  <button class="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center text-gray-600 hover:text-danger backdrop-blur-sm">
+                    <i class="fa fa-trash-o text-xs"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="p-4">
+                <h4 class="font-medium line-clamp-1">10分钟冥想放松指导</h4>
+                <div class="flex flex-wrap gap-1 mt-2">
+                  <span class="badge bg-gray-100 text-gray-700 text-xs">压力应对</span>
+                  <span class="badge bg-gray-100 text-gray-700 text-xs">职场新人</span>
+                </div>
+                <div class="flex items-center justify-between mt-3 text-sm text-gray-500">
+                  <span>2025-11-08</span>
+                  <span class="text-warning"><i class="fa fa-clock-o mr-1"></i>审核中</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-6 flex justify-center">
+            <button class="btn btn-outline">
+              <i class="fa fa-refresh"></i> 加载更多
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 内容审核 -->
+      <section id="review" class="mb-8">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold">内容审核</h3>
+          <span class="badge bg-danger text-white">8 条待审核</span>
+        </div>
+        
+        <div class="card">
+          <div class="space-y-6">
+            <!-- 待审核项 1 -->
+            <div class="border border-gray-100 rounded-lg p-4 hover:border-primary/30 transition-colors">
+              <div class="flex justify-between items-start mb-3">
+                <h4 class="font-medium">亲密关系中的有效沟通方法</h4>
+                <span class="badge bg-yellow-100 text-yellow-700">待审核</span>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div class="md:col-span-2">
+                  <div class="flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-blue-100 text-blue-700">图文</span>
+                    <span class="badge bg-gray-100 text-gray-700 text-xs">亲密关系</span>
+                    <span class="badge bg-gray-100 text-gray-700 text-xs">成年人</span>
+                  </div>
+                  
+                  <p class="text-sm text-gray-600 mb-3">本文介绍了亲密关系中常见的沟通障碍及解决方法，帮助伴侣建立更健康的沟通模式...</p>
+                  
+                  <div class="text-sm text-gray-500">
+                    <p><span class="font-medium text-gray-700">提交人：</span>张老师</p>
+                    <p><span class="font-medium text-gray-700">提交时间：</span>2025-11-12 15:30</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <img src="https://picsum.photos/id/64/400/300" alt="内容预览" class="w-full h-32 object-cover rounded-lg">
+                </div>
+              </div>
+              
+              <div class="flex justify-end gap-3 pt-3 border-t border-gray-100">
+                <button class="btn btn-outline">
+                  <i class="fa fa-eye"></i> 查看详情
+                </button>
+                <button class="btn btn-outline text-danger border-danger hover:bg-danger/5">
+                  <i class="fa fa-times"></i> 驳回
+                </button>
+                <button class="btn btn-primary">
+                  <i class="fa fa-check"></i> 通过
+                </button>
+              </div>
+            </div>
+            
+            <!-- 待审核项 2 -->
+            <div class="border border-gray-100 rounded-lg p-4 hover:border-primary/30 transition-colors">
+              <div class="flex justify-between items-start mb-3">
+                <h4 class="font-medium">青少年情绪识别与管理</h4>
+                <span class="badge bg-yellow-100 text-yellow-700">待审核</span>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                <div class="md:col-span-2">
+                  <div class="flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-purple-100 text-purple-700">视频</span>
+                    <span class="badge bg-gray-100 text-gray-700 text-xs">情绪管理</span>
+                    <span class="badge bg-gray-100 text-gray-700 text-xs">青少年</span>
+                  </div>
+                  
+                  <p class="text-sm text-gray-600 mb-3">本视频通过案例分析，讲解青少年常见情绪问题的识别方法和应对策略，适合家长和老师观看...</p>
+                  
+                  <div class="text-sm text-gray-500">
+                    <p><span class="font-medium text-gray-700">提交人：</span>李老师</p>
+                    <p><span class="font-medium text-gray-700">提交时间：</span>2025-11-12 10:15</p>
+                  </div>
+                </div>
+                
+                <div class="relative">
+                  <img src="https://picsum.photos/id/22/400/300" alt="视频封面" class="w-full h-32 object-cover rounded-lg">
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center text-purple-600">
+                      <i class="fa fa-play text-sm"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex justify-end gap-3 pt-3 border-t border-gray-100">
+                <button class="btn btn-outline">
+                  <i class="fa fa-eye"></i> 查看详情
+                </button>
+                <button class="btn btn-outline text-danger border-danger hover:bg-danger/5">
+                  <i class="fa fa-times"></i> 驳回
+                </button>
+                <button class="btn btn-primary">
+                  <i class="fa fa-check"></i> 通过
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-6 flex justify-center">
+            <button class="btn btn-outline">
+              <i class="fa fa-angle-down"></i> 查看更多
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <!-- 数据统计 -->
+      <section id="statistics">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold">数据统计</h3>
+          <div class="flex items-center gap-3">
+            <div class="flex border border-gray-200 rounded-lg overflow-hidden">
+              <button class="px-4 py-2 text-sm font-medium bg-primary text-white">周</button>
+              <button class="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50">月</button>
+            </div>
+            <button class="btn btn-outline">
+              <i class="fa fa-download"></i> 导出报表
+            </button>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- 趋势图 -->
+          <div class="card lg:col-span-2">
+            <h4 class="font-medium mb-4">曝光量 & 点击量趋势</h4>
+            <div class="h-80">
+              <canvas id="trends-chart"></canvas>
+            </div>
+          </div>
+          
+          <!-- 互动率 -->
+          <div class="card">
+            <h4 class="font-medium mb-4">互动率统计</h4>
+            <div class="h-80">
+              <canvas id="interaction-chart"></canvas>
+            </div>
+          </div>
+          
+          <!-- 内容类型分布 -->
+          <div class="card">
+            <h4 class="font-medium mb-4">内容类型分布</h4>
+            <div class="h-64">
+              <canvas id="content-type-chart"></canvas>
+            </div>
+          </div>
+          
+          <!-- 标签分布 -->
+          <div class="card lg:col-span-2">
+            <h4 class="font-medium mb-4">热门标签TOP5</h4>
+            <div class="h-64">
+              <canvas id="tags-chart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    // 侧边栏切换
+    document.getElementById('sidebar-toggle').addEventListener('click', function() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('hidden');
+      sidebar.classList.toggle('absolute');
+      sidebar.classList.toggle('z-50');
+      sidebar.classList.toggle('h-screen');
+    });
+    
+    // 上传表单切换
+    document.getElementById('toggle-upload-form').addEventListener('click', function() {
+      const form = document.getElementById('upload-form');
+      form.classList.toggle('hidden');
+    });
+    
+    document.getElementById('cancel-upload').addEventListener('click', function() {
+      document.getElementById('upload-form').classList.add('hidden');
+    });
+    
+    // 文件上传区域
+    const dropzone = document.getElementById('dropzone');
+    const fileUpload = document.getElementById('file-upload');
+    const uploadFilesList = document.getElementById('upload-files-list');
+    
+    dropzone.addEventListener('click', () => fileUpload.click());
+    
+    fileUpload.addEventListener('change', function() {
+      if (this.files.length > 0) {
+        uploadFilesList.classList.remove('hidden');
+      }
+    });
+    
+    // 阻止拖放默认行为
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+      dropzone.addEventListener(eventName, preventDefaults, false);
+    });
+    
+    function preventDefaults(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    // 高亮拖放区域
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropzone.addEventListener(eventName, highlight, false);
+    });
+    
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropzone.addEventListener(eventName, unhighlight, false);
+    });
+    
+    function highlight() {
+      dropzone.classList.add('border-primary');
+      dropzone.classList.add('bg-primary/5');
+    }
+    
+    function unhighlight() {
+      dropzone.classList.remove('border-primary');
+      dropzone.classList.remove('bg-primary/5');
+    }
+    
+    // 处理文件拖放
+    dropzone.addEventListener('drop', handleDrop, false);
+    
+    function handleDrop(e) {
+      const dt = e.dataTransfer;
+      const files = dt.files;
+      
+      if (files.length > 0) {
+        uploadFilesList.classList.remove('hidden');
+      }
+    }
+    
+    // 图表初始化
+    document.addEventListener('DOMContentLoaded', function() {
+      // 趋势图
+      const trendsCtx = document.getElementById('trends-chart').getContext('2d');
+      new Chart(trendsCtx, {
+        type: 'line',
+        data: {
+          labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+          datasets: [
+            {
+              label: '曝光量',
+              data: [6500, 5900, 8000, 8100, 7500, 9200, 10000],
+              borderColor: '#165DFF',
+              backgroundColor: 'rgba(22, 93, 255, 0.1)',
+              tension: 0.3,
+              fill: true
+            },
+            {
+              label: '点击量',
+              data: [2800, 2500, 3800, 4000, 3500, 4200, 4800],
+              borderColor: '#36CFC9',
+              backgroundColor: 'rgba(54, 207, 201, 0.1)',
+              tension: 0.3,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+      
+      // 互动率图表
+      const interactionCtx = document.getElementById('interaction-chart').getContext('2d');
+      new Chart(interactionCtx, {
+        type: 'line',
+        data: {
+          labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+          datasets: [{
+            label: '互动率 (%)',
+            data: [12.5, 11.8, 13.2, 12.8, 14.5, 16.2, 15.8],
+            borderColor: '#52C41A',
+            backgroundColor: 'rgba(82, 196, 26, 0.1)',
+            tension: 0.3,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                callback: function(value) {
+                  return value + '%';
+                }
+              }
+            }
+          }
+        }
+      });
+      
+      // 内容类型分布
+      const contentTypeCtx = document.getElementById('content-type-chart').getContext('2d');
+      new Chart(contentTypeCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['图文', '音频', '视频'],
+          datasets: [{
+            data: [65, 15, 20],
+            backgroundColor: [
+              '#165DFF',
+              '#FF4D4F',
+              '#FAAD14'
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            }
+          },
+          cutout: '70%'
+        }
+      });
+      
+      // 热门标签图表
+      const tagsCtx = document.getElementById('tags-chart').getContext('2d');
+      new Chart(tagsCtx, {
+        type: 'bar',
+        data: {
+          labels: ['情绪管理', '职场沟通', '压力应对', '家庭关系', '亲密关系'],
+          datasets: [{
+            label: '内容数量',
+            data: [128, 95, 82, 76, 64],
+            backgroundColor: '#165DFF',
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
